@@ -1,0 +1,46 @@
+{
+  "name": "siifocap",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "*",
+    "body-parser": "~1.0.0",
+    "connect-flash": "*",
+    "connect-mongo": "^0.4.1",
+    "cookie-parser": "~1.0.1",
+    "debug": "~0.7.4",
+    "express": "~4.2.0",
+    "express-session": "~1.0.4",
+    "express-useragent": "^0.1.2",
+    "express-winston": "^0.2.8",
+    "ip": "^0.3.2",
+    "jade": "^1.7.0",
+    "moment": "^2.8.3",
+    "mongoose": "~3.8.12",
+    "morgan": "~1.0.1",
+    "passport": "~0.2.0",
+    "passport-local": "~1.0.0",
+    "session": "^0.1.0",
+    "static-favicon": "~1.0.0",
+    "superagent": "^0.21.0",
+    "underscore": "^1.7.0",
+    "view-helpers": "^0.1.5",
+    "winston": "~0.8.3"
+  },
+  "devDependencies": {
+    "mocha": ">=1.7.4",
+    "chai": ">=1.4.2",
+    "supertest": ">=0.5.1",
+    "zombie": ">=2.0.0-alpha23",
+    "should": ">=2.0.2",
+    "grunt": "~0.4.4",
+    "grunt-codo": "^0.2.0",
+    "grunt-contrib-compass": "^1.0.1",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-docco": "~0.3.3",
+    "grunt-nodemon": "~0.2.1"
+  }
+}

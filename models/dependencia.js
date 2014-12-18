@@ -1,0 +1,19 @@
+var mongoose              = require('mongoose'),
+    Schema                = mongoose.Schema;
+
+var dependenciaSchema = new Schema({
+  id:     {
+            type: String
+          },
+  value:  {
+            type: String
+          },
+  text:   {
+            type: String
+          }
+},
+{
+  collection : 'dependencia_unidad'
+});
+
+module.exports = mongoose.model('dependencia', dependenciaSchema);

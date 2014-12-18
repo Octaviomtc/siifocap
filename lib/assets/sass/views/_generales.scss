@@ -1,0 +1,101 @@
+body{background-color: #fafafa}
+
+.fa-r{ margin-right: 10px;}
+.fa-l{margin-left: 10px;}
+.fa-l-big{margin-left: 55px;}
+
+.btn{font-size: 12px;}
+
+a{color: $color-principal; }
+
+a:hover, a:focus{
+	text-decoration:none;
+	color: $color-principal;
+	filter:  alpha(opacity=50);
+}
+
+// focus botones
+.btn:focus, .btn:active, .btn:target{
+	 border-style: solid;
+    border-color: #aaa;
+    outline:0px;
+	-webkit-box-shadow: 0px 0px 0px 0px rgba(50, 50, 50, 0.75);
+-moz-box-shadow:    0px 0px 0px 0px rgba(50, 50, 50, 0.75);
+box-shadow:         0px 0px 0px 0px rgba(50, 50, 50, 0.75);
+}
+
+.form-control{
+	font-size: 12px;
+}
+
+.form-control:focus, .form-control:active, .form-control:target{
+	border-style: solid;
+	border-width: .1em;
+    border-color: #color-principal;
+	-webkit-box-shadow: 0px 0px 0px 0px rgba(50, 50, 50, 0.75);
+-moz-box-shadow:    0px 0px 0px 0px rgba(50, 50, 50, 0.75);
+box-shadow:         0px 0px 0px 0px rgba(50, 50, 50, 0.75);
+}
+
+.sp-btn{
+	margin-bottom: 15px;
+}
+
+.box{
+	background-color: #fff;
+	padding: 20px;
+	color: #666;
+	font-size: 14px;
+	border-radius: $border-radius-base;
+	margin-bottom: 10px;
+	border: 1px solid #ddd;
+	p{margin-bottom: 10px;}
+	a{font-weight: bold;}
+}
+
+#content #app{
+	border-top: 1px solid #ddd;
+	padding-top: 24px;
+	padding-bottom: 24px;
+	margin-bottom: -27px;
+}
+
+.error-message{
+	margin-top: 20px;
+	font-size: 14px;
+}
+
+
+
+//ICONOS DE AYUDA
+.fa-ayuda{
+	font-size: 10px;
+	color: $color-principal;
+}
+
+.fa-ayuda:hover{
+	color: #444;
+	cursor: help;
+}
+
+.tooltip{
+	font-size: 12px;
+}
+
+.disabled:hover{
+	cursor: not-allowed;
+}
+
+.fa-activo{
+	color: #68bf76;
+	font-size: 15px;
+}
+
+.tooltip-inner{
+	max-width: 650px;
+	background-color: $color-principal;
+}
+.tooltip.top .tooltip-arrow{border-top-color: $color-principal;}
+.tooltip.right .tooltip-arrow{border-right-color: $color-principal;}
+.tooltip.left .tooltip-arrow{border-left-color: $color-principal;}
+.tooltip.bottom .tooltip-arrow{border-bottom-color: $color-principal;}

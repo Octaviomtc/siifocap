@@ -1,0 +1,48 @@
+extends ../../layouts/appAdmin
+
+block content
+  
+  .row.contenedorTb
+    .col-md-12
+      a.btn.btn-primary(href='/administracion/usuarios/nuevo')
+        i.fa.fa-r.fa-plus-circle
+        | Nuevo usuario
+      if message
+        .error-message
+          a.text-center #{message}
+      table(data-toggle="table", data-cache="false", data-height="500",data-sort-order="asc",data-sort-name='username', id="table-pagination", data-pagination="true", data-search="true")
+        thead
+          tr
+            th(data-field='username', data-align='left', data-sortable='true') Username
+            th(data-align='left', data-sortable='true') Nombre
+            th(data-align='left', data-sortable='true') Correo
+            th(data-align='left', data-sortable='true') Rol
+            th(data-align='right', data-sortable='true')
+        tbody
+          each usuario in usuarios
+            tr
+              td
+                if (usuario.rol=='admin')
+                  if (user.username==usuario.username)
+                    i.fa.fa-r.fa-star.stastUser
+                  else
+                    i.fa.fa-r.fa-star-o
+                | #{usuario.username}
+              td
+                | #{usuario.lastName}
+                | #{usuario.firstName}
+              
+              td
+                | #{usuario.email}
+              //- td= usuario._id
+              td= usuario.rol
+              td
+                //- a.btn.btn-default.fa-r(href="#")
+                //-   i.fa.fa-r.fa-edit
+                //-   | Editar
+                a.btn.btn-default.fa-r(href="/administracion/usuarios/borrar/#{usuario._id}")
+                  i.fa.fa-r.fa-trash
+                  | Borrar
+                //- a.btn.btn-default(href="#")
+                //-   i.fa.fa-r.fa-eye
+                //-   | Ver

@@ -1,0 +1,38 @@
+.formulario{
+	border: 1px solid #ddd;
+	border-radius: $border-radius-base;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	background: #fafafa;
+	color: #777;
+	font-size: 12px;
+	.titulo{
+		background-color: $color-nav;
+		border-top-right-radius: 3px;
+		border-top-left-radius: 3px;
+		text-shadow: 0px 1px #fff;
+		border-bottom: 1px solid #ddd;
+		color: #666;
+		font-size: 13px;
+		padding: 8px 15px;
+	}
+	.contenido{
+		background-color: #fdfdfd;
+		padding: 30px;
+	}
+	.pie{
+		background-color: $color-nav;
+		border-bottom-right-radius: 3px;
+		border-bottom-left-radius: 3px;
+		text-shadow: 0px 1px #fff;
+		border-top: 1px solid #ddd;
+		padding: 8px 15px;
+		font-size: 12px;
+		color: #555;
+		box-shadow: inset 0px 1px 1px #fff;
+	}
+}
+
+#form-mult{
+	margin-top: -35px;
+}

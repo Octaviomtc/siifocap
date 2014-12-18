@@ -1,0 +1,52 @@
+#nav-vertical
+  nav.navbar.navbar-default(role='navigation')
+    .navbar-header
+      button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+              
+    .collapse.navbar-collapse.navbar-ex1-collapse
+      ul.nav.navbar-nav
+        li.active
+          a(href='#')
+            i.fa.fa-r.fa-user
+            | #{user.username}
+        li
+          a(href='/home')
+            i.fa.fa-r.fa-home
+            | Inicio
+        li
+          a(href='/acciones-formacion')
+            i.fa.fa-r.fa-archive
+            | Aciones de formación
+        li
+          a(href='#')
+            i.fa.fa-r.fa-users
+            | Participantes
+        li
+          a(href='#')
+            i.fa.fa-r.fa-graduation-cap
+            | Facilitadores
+        li
+          a(href='/unidades')
+            i.fa.fa-r.fa-building-o
+            | Unidades Politécnicas
+        li
+          a(href='#')
+            i.fa.fa-r.fa-eye
+            | Evaluadores
+        li
+          a(href='#')
+            i.fa.fa-r.fa-file-text-o
+            | Reportes
+        if user.rol == "admin"
+          li
+            a(href='/administracion')
+              i.fa.fa-r.fa-cogs
+              | Administración
+        li
+          a(href='/signout')
+            i.fa.fa-r.fa-power-off
+            | Cerrar sesión

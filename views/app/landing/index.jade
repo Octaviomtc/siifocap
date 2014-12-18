@@ -1,0 +1,63 @@
+extends ../../layouts/app
+
+block content
+  .box
+    p
+      |La Coordinación General de Formación e Innovación Educativa (CGFIE) le da la más cordial bienvenida al Sistema de Información Institucional para el Programa de Formación, Capacitación, Actualización y Profesionalización del Instituto Politécnico Nacional (SIIFoCAP).
+    p
+      |Dicho sistema le permitirá llevar a cabo la solicitud y renovación de la Clave Única de Registro (CUR), así como el seguimiento   de acciones de formación, capacitación, actualización y profesionalización del personal que impulsen los objetivos institucionales y el reconocimiento público de su calidad, a través de:
+    p
+      UL(type = 'disk')
+        LI Acciones de formación de nuevos directivos y de actualización de los que están en funciones, como un aspecto crucial para una gestión efectiva.
+        LI Formación del personal docente orientada a una enseñanza centrada en el aprendizaje y basada en competencias acordes con los modelos institucionales Educativo y de Integración Social.
+        LI Formación para la actualización del personal de apoyo y asistencia a la educación, de manera que se potencie su contribución a una gestión institucional más eficiente y eficaz.
+    p
+      |De igual manera, le permitirá consultar el estatus del proceso de su solicitud de CUR desde su recepción hasta el resultado de su dictamen. 
+  .box
+    p
+      |Con la finalidad de brindarle  mayor orientación para la realización del registro de su acción de formación, le sugerimos que revise la <a href="#ModalGuiaRegistro", data-toggle="modal", data-dismiss='modal'>guía de registro</a>, asi como las <a href="#ModalRecomendaciones", data-toggle="modal", data-dismiss='modal' >recomendaciones generales</a>.
+    p
+      |Para iniciar el registro, ingrese al módulo de “Acciones de formación”. 
+    p
+      |En caso de requerir mayor orientación, ponemos a su disposición lo siguientes correos electrónicos:
+      UL(type = 'disk')
+        LI Directivos: formaciondirectivos@ipn.mx
+        LI Docentes: formacion_docentes_cgfie@ipn.mx
+        LI PAAE: formacionpaae@ipn.mx
+
+  #ModalGuiaRegistro.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+          .modal-dialog
+            .modal-content
+              .modal-header
+                button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+                h4.modal-title Guía de Registro
+              .modal-body
+                p La guía de registro está en proceso de desarrollo, proximamente estará disponible para su consulta.
+                img(src="/img/construccion.png", alt="construccion" style="margin-left:25%")
+
+              .modal-footer
+                #GuiaRegistroBTN.button.btn.btn-primary(type='button', data-dismiss='modal') Aceptar 
+
+  #ModalRecomendaciones.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+          .modal-dialog
+            .modal-content
+              .modal-header
+                button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+                h4.modal-title Recomendaciones Generales
+              .modal-body
+                 ul(type='disk')
+                    li
+                      | Dé un primer recorrido por el sistema de registro, ello le permitirá ubicar los distintos aspectos y elementos que deberá considerar y desarrollar para facilitar el registro de su acción de formación.
+                    li
+                      | Lea cuidadosamente cada dato solicitado, así como las notas que aparecen en distintos rubros.
+                    li
+                      | Le sugerimos que antes de comenzar con su registro, realice la  planeación didáctica en un documento Word considerando los campos que se solicitan y que puede consultar en la sección de  planeación didáctica.  Esta actividad le apoyará, ya que le permitirá disponer de la información completa y previamente organizada según se requiere para llevar a cabo su registro.
+                    li
+                      | Escriba siempre con mayúsculas, minúsculas y acentos.
+                    li
+                      | Una vez iniciada la sesión para la solicitud o renovación de CUR, el sistema permanecerá abierto hasta por 7 días naturales. En caso de no concluirla durante el tiempo indicado, deberá iniciar de nueva cuenta todo el proceso.
+                    li
+                      | Una vez concluido su registro de acción de formación, descargue su número de folio, ya que con él podrá dar seguimiento al estatus de su solicitud de registro.
+
+              .modal-footer
+                #RecomendacionesBTN.button.btn.btn-primary(type='button', data-dismiss='modal') Aceptar   

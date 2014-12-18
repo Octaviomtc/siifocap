@@ -1,0 +1,47 @@
+extends ../../layouts/app
+
+block content
+  
+  .row.contenedorTb
+    .col-md-12
+      a.btn.btn-primary(href='/unidades/nueva')
+        i.fa.fa-r.fa-plus-circle
+        | Nueva Unidad Politécnica
+      if message
+        .error-message
+          a.text-center #{message}
+      table(data-toggle="table", data-cache="false", data-height="500",data-sort-order="asc",data-sort-name='clave', id="table-pagination", data-pagination="true", data-search="true")
+        thead
+          tr
+            th(data-field='clave', data-align='left', data-sortable='true') Clave
+            th(data-align='left', data-sortable='true') Siglas
+            th(data-field='nombre', data-align='left', data-sortable='true') Nombre
+            th(data-align='left', data-sortable='true') Dependecia
+            th(data-align='left', data-sortable='true') Extensión
+            th(data-align='right', data-sortable='true')
+        tbody
+          each escuela in escuelas
+            tr
+              td
+                | #{escuela.clave}
+              td
+                | #{escuela.siglas}
+              td
+                | #{escuela.nombre}
+              
+              td
+                | #{escuela.dependencia}
+              //- td= usuario._id
+              td
+                | #{escuela.extension}
+              td
+                a.btn.btn-default.fa-r(href="/unidades/actualizar/#{escuela._id}")
+                  i.fa.fa-r.fa-edit
+                  | Editar
+                a.btn.btn-default.fa-r(href="/unidades/borrar/#{escuela._id}")
+                  i.fa.fa-r.fa-trash
+                  | Borrar
+                a.btn.btn-default(href="/unidades/ver/#{escuela._id}")
+                  i.fa.fa-r.fa-eye
+                  | Ver
+        

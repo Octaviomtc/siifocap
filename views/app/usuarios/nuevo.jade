@@ -1,0 +1,42 @@
+extends ../../layouts/appAdmin
+
+block content
+  #message
+    if message
+      .error-message
+          a.text-center #{message}
+  .row
+    .col-lg-12
+      .formulario.animated.fadeIn
+        .titulo
+          i.fa.fa-r.fa-plus-circle
+          | Nuevo usuario
+        .contenido
+          form.form-horizontal(method='post', action="/administracion/usuarios/nuevo")
+            +h-input("text", "Usuario", "username", "Usuario", "", 6, 3, "autofocus", "empty","")
+            +h-input("password", "Contraseña", "password", "Contraseña", "", 6, 3, "", "empty","")
+            +h-input("email", "Email", "email", "@", "", 6, 3, "", "empty","")
+            +h-input("text", "Nombre(s)", "firstName", "Nombres", "", 6, 3, "", "empty","")
+            +h-input("text", "Apellidos", "lastName", "Apellidos", "", 6, 3, "", "empty","")
+            .form-group
+              span(class="control-label col-md-3")
+                | Dependencia
+              div(class="col-md-6")
+                select#rol.form-control(name='rol',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                  option(value="") Seleccione ...
+                    each rol in roles
+                      option(value=rol.value)= rol.text
+            .row
+              .col-md-9.col-md-offset-3
+                button.btn.btn-success.fa-r(type='submit')
+                  i.fa.fa-check-circle.fa-r
+                  | Agregar
+      
+                button.btn.btn-default.fa-r(type='reset')
+                  i.fa.fa-eraser.fa-r
+                  | Limpiar campos
+
+                a.btn.btn-default(href="/administracion")
+                  | Cancelar
+
+      

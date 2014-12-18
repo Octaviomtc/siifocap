@@ -1,0 +1,52 @@
+.encabezadoIPN{
+	background-color: $color-fondo;
+	height: 25px;
+}
+
+.encabezadoIPNimg{
+	background-color: $color-principal;
+	height: 100px;
+	color: #fff;
+	text-align: center;
+	img{
+		float: center;
+		margin: 0 auto;
+		width: 80%;
+	}
+}
+
+.banner img{
+	width: 100%;
+}
+
+.container-bar{max-width: 940px}
+
+@media (min-width: 941px) {
+	.container-bar{max-width: 1140px}
+}
+
+@media (max-width: 768px) {
+	.encabezadoIPNimg{
+	height: 80px;
+	img{
+		float: center;
+		margin: 0 auto;
+		width: 100%;
+	}
+}
+
+}
+
+
+@media (max-width: 400px) {
+	.encabezadoIPNimg{
+	padding-top: 10px;
+	height: 60px;
+	img{
+		float: center;
+		margin: 0 auto;
+		width: 100%;
+	}
+}
+
+}

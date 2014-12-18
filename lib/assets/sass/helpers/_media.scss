@@ -1,0 +1,36 @@
+$small: "(min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max})";
+$medium: "(min-width: #{$screen-md})";
+$large: "(min-width: #{$screen-lg})";
+
+.box-1{@include make-xs-column(1);}
+.box-2{@include make-xs-column(2);}
+.box-3{@include make-xs-column(3);}
+.box-4{@include make-xs-column(4);}
+.box-5{@include make-xs-column(5);}
+.box-6{@include make-xs-column(6);}
+.box-7{@include make-xs-column(7);}
+.box-8{@include make-xs-column(8);}
+.box-9{@include make-xs-column(9);}
+.box-10{@include make-xs-column(10);}
+.box-11{@include make-xs-column(11);}
+.box-12{@include make-xs-column(12);}
+
+
+
+.box-offset-1{@include make-xs-column-offset(1);}
+.box-offset-2{@include make-xs-column-offset(2);}
+.box-offset-3{@include make-xs-column-offset(3);}
+.box-offset-4{@include make-xs-column-offset(4);}
+.box-offset-8{@include make-xs-column-offset(8);}
+
+
+
+
+.box-10-8 {
+  @include make-md-column(10);
+  @include make-md-column-offset(1);
+  @media #{$large} {
+    @include make-lg-column(8);
+    @include make-md-column-offset(2);
+  }
+}

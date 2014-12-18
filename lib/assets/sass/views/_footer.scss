@@ -1,0 +1,16 @@
+.footerIPN{
+	border: 1px solid #c9c9c9;
+	background-color: $color-fondo;
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 20px;
+	.titulo{
+		color: $color-principal;
+		font-size: 12px;
+	}
+	.contenido{
+		margin: 12px;
+		font-size: 10px;
+		color: #777777;
+	}
+}

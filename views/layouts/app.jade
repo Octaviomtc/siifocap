@@ -1,0 +1,27 @@
+include ../includes/mixins
+html
+  head
+    include ../includes/head
+    include ../includes/head_scripts
+
+  body
+    #encabezados
+      include ../includes/titulos
+      include ../includes/barraSup
+      include ../includes/navbar
+    #content
+      #app
+        .container
+          .col-md-3.col-lg-2.col-sm-3
+            include ../includes/menu
+          .col-md-9.col-lg-10.col-sm-9
+            nav.navbar.navbar-default(role='navigation')
+              .container-fluid
+                .navbar-header
+                  a.navbar-brand(href='#')
+                    i(class="fa fa-r #{datos.icon}")
+                    | #{datos.seccion}
+            .animated.fadeIn
+              block content
+    include ../includes/scripts
+    include ../includes/footer

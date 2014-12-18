@@ -1,0 +1,31 @@
+extends ../../layouts/general
+
+block content
+  .col-md-6.col-md-offset-3.col-lg-4.col-lg-offset-4
+    #login.formulario
+      .titulo
+        i.fa.fa-r.fa-lock
+        | Iniciar sesión
+      .contenido
+        form.form-horizontal(method='post', action="/login")
+          +h-input("text", "Usuario", "username", "Usuario", "", 8, 3, "autofocus", "empty","")
+          +h-input("password", "Contraseña", "password", "Contraseña", "", 8, 3, "", "empty","")
+          .row
+            .col-md-9.col-md-offset-3
+              button.btn.btn-success.fa-r(type='submit')
+                i.fa.fa-check-circle.fa-r
+                | Acceder
+    
+              button.btn.btn-default(type='reset')
+                i.fa.fa-eraser.fa-r
+                | Limpiar campos
+              if message
+                br
+                .error-message
+                  a.text-center #{message}
+      .pie
+        a(href='#')
+          i.fa.fa-r.fa-circle-o
+          | Recuperar contraseña
+    
+    

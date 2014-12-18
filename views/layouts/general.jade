@@ -1,0 +1,17 @@
+include ../includes/mixins
+html
+  head
+    title SIIFoCAPV.1
+    include ../includes/style
+    include ../includes/head_scripts
+
+  body
+    #encabezados
+      include ../includes/titulos
+      include ../includes/barraSup
+    #content
+      #app
+        .container.animated.fadeIn
+          block content
+    include ../includes/scripts
+    include ../includes/footer

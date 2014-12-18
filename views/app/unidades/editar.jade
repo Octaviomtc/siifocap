@@ -1,0 +1,42 @@
+extends ../../layouts/app
+
+block content
+  #message
+    if message
+      .error-message
+          a.text-center #{message}
+  .row
+    .col-lg-12
+      .formulario.animated.fadeIn
+        .titulo
+          | Editar unidad: #{escuela.nombre}
+        .contenido
+          form.form-horizontal(method='post', action="#")
+            +h-input("text", "Clave", "clave", "Clave", escuela.clave, 6, 3, "autofocus", "empty","")
+            +h-input("text", "Nombre", "nombre", "Nombre", escuela.nombre, 6, 3, "", "empty","")
+            +h-input("text", "Siglas", "siglas", "Siglas", escuela.siglas, 6, 3, "", "empty","")
+            .form-group
+              span(class="control-label col-md-3")
+                | Dependencia
+              div(class="col-md-6")
+                select#dependencia.form-control(name='dependencia',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                  option(value="") Seleccione ...
+                    each dependencia in dependencias
+                      option(value=dependencia.value, selected= dependencia.value == escuela.dependencia)= dependencia.text
+            +h-input("text", "Responsable", "responsable", "Responsable", escuela.responsable, 6, 3, "", "empty","")
+            +h-input("text", "Extensión", "extension", "#", escuela.extension, 6, 3, "", "empty","")
+            +h-input("email", "Email", "email", "@", escuela.email, 6, 3, "", "empty","")
+            +h-input("text", "Cargo", "cargo", "Cargo", escuela.cargo, 6, 3, "", "empty","")
+            +h-input("text", "Dirección", "direccion", "Dirección", escuela.direccion, 6, 3, "", "empty","")
+            .row
+              .col-md-9.col-md-offset-3
+                button.btn.btn-success.fa-r(type='submit')
+                  i.fa.fa-check-circle.fa-r
+                  | Actualizar
+
+                a.btn.btn-default(href="/unidades")
+                  i.fa.fa-cancel.fa-r
+                  | Cancelar
+
+       
+      

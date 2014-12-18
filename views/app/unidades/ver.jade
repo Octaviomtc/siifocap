@@ -1,0 +1,31 @@
+extends ../../layouts/app
+
+block content
+  a.btn.btn-primary.sp-btn(href='/unidades')
+      i.fa.fa-r.fa-chevron-circle-left
+      | Regresar
+
+  
+  table(data-toggle="table", data-cache="false", data-height='299', data-card-view='true')
+      thead
+        tr
+          th(data-field='clave') Clave
+          th(data-field='siglas') Siglas
+          th(data-field='nombre') Nombre
+          th(data-field='direccion') Direccion
+          th(data-field='dependencia') Dependencia
+          th(data-field='email') Correo
+          th(data-field='extension') Extensión
+          th(data-field='responsable') Responsable
+          th(data-field='cargo') Cargo
+      tbody
+        tr
+          td #{escuela.clave}
+          td #{escuela.siglas}
+          td #{escuela.nombre}
+          td #{escuela.direccion}
+          td #{escuela.dependencia}
+          td #{escuela.email}
+          td #{escuela.extension}
+          td #{escuela.responsable}
+          td #{escuela.cargo}

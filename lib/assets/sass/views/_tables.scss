@@ -1,0 +1,35 @@
+.contenedorTb{
+	margin-top: 15px;
+	margin-bottom: 23px;
+}
+
+
+.contenedorTb table tr{
+	font-size: 13px;
+}
+
+.stastUser{
+	color: #ffbd3a;
+}
+
+.th-inner {
+	background-color: $color-nav;
+}
+
+table th {
+	color: $color-principal;
+	background-color: $color-nav;
+	font-weight: normal;
+}
+
+.card-view .title{
+	color: $color-principal;
+	font-weight: normal;
+	font-size: 12px;
+}
+
+.card-view .value{
+	font-weight: normal;
+	font-size: 12px;
+}
+
