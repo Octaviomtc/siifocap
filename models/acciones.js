@@ -32,6 +32,7 @@ var accionesSchema = new Schema({
   justificacion : {type: String},
   finalidad: {type: String},
   area_dirigido_accion: {type: String},
+  subarea_dirigido_accion: {type: String},
   estatus_sec_2 : {type: String}
 },
 {

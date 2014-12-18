@@ -43,12 +43,20 @@ html
                         li
                           a.disabled(href='') 
                             | Datos generales
+                            
+                            
                       if accionFormacion.estatus_sec_1=='true'
                         li
-                          a(href='/acciones-formacion/nueva/#{accionFormacion._id}/justificacion') Justificación
+                          a(href='/acciones-formacion/nueva/#{accionFormacion._id}/justificacion')
+                            if accionFormacion.estatus_sec_2=='true'
+                              i.fa.fa-check-circle.fa-r.fa-activo
+                            | Justificación
                       else
                         li
                           a.disabled Justificación
+                          
+                          
+                          
                       if accionFormacion.estatus_sec_2=='true'
                         li
                           a(href='/acciones-formacion/nueva/#{accionFormacion._id}/encuadre') Encuadre de la acción de formación
