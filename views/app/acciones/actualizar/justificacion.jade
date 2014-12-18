@@ -32,14 +32,14 @@ block content
                 .form-group
                   span(class="control-label col-md-3") Justicación:
                   div(class="col-md-9")
-                    textarea.form-control(id="justificacion" name="justificacion")
+                    textarea.form-control(id="justificacion", name="justificacion", data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                 
                 .form-group
                   span.control-label.col-md-3
                     | Finalidad
                     +ayuda("<p>A partir de la información anterior y con propósitos estadísticos, le solicitamos que elija el propósito de la acción de formación.  </p><p>Para responder, revise cada una de las finalidades establecidas por la Función Pública.</p")
                   .col-md-9
-                    select#finalidad.form-control(name='finalidad')
+                    select#finalidad.form-control(name='finalidad', data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                       option(value='') Seleccione ...
                       option(value='Inducción') Inducción
                       option(value='Fortalecimiento') Fortalecimiento
@@ -86,13 +86,14 @@ block content
                       option(value='Directivos/Funcionarios') Directivos/Funcionarios
                       option(value='PAAE') PAAE
                       
+                .form-group
+                  span.control-label.col-md-3
+                    | 
+                  .col-md-9
+                    select#subarea_dirigido_accion.form-control(name='subarea_dirigido_accion')
+                      option(value='') Seleccione ...
                         
-                        
-                            
-                +h-input("text", "", "texto[0]", "", "", 9, 3, "", "","")  
-                +h-input("text", "", "texto[1]", "", "", 9, 3, "", "","")  
-                +h-input("text", "", "texto[2]", "", "", 9, 3, "", "","")  
-                +h-input("text", "", "texto[3]", "", "", 9, 3, "", "","")  
+                
                               
                 +h-input("hidden", "", "estatus_sec_2", "", "true", 9, 3, "", "","") 
                 .row
@@ -122,8 +123,8 @@ block content
       $("#area_dirigido_accion").change(function() {
         var textDirigido = $('#area_dirigido_accion :selected').text();
         if (textDirigido === "Docentes") {
-          $("#area_opciones").empty();
-          $("#area_opciones").append("<option value='0'>Seleccione ...</option>" +
+          $("#subarea_dirigido_accion").empty();
+          $("#subarea_dirigido_accion").append("<option value=''>Seleccione ...</option>" +
             "<option value='Didactica'>Didáctica-Pedagógica</option>" +
             "<option value='Conocimientos'>Conocimientos de área disciplinar específica</option>" +
             "<option value='Investigacion'>Investigación educativa</option>" +
@@ -131,23 +132,23 @@ block content
             "<option value='Complementarios'>Conocimientos complementarios</option>");
         } else {
           if (textDirigido === "Directivos/Funcionarios") {
-            $("#area_opciones").empty();
-            $("#area_opciones").append("<option value='0'>Seleccione ...</option>" +
+            $("#subarea_dirigido_accion").empty();
+            $("#subarea_dirigido_accion").append("<option value=''>Seleccione ...</option>" +
               "<option value='Etica'>Ética y normatividad</option>" +
               "<option value='Gestion'>Gestión para la innovación</option>" +
               "<option value='Habilidades'>Habilidades directivas</option>" +
               "<option value='Direccion'>Dirección académica</option>");
           } else {
               if (textDirigido === "PAAE") {
-                $("#area_opciones").empty();
-                $("#area_opciones").append("<option value='0'>Seleccione ...</option>" +
+                $("#subarea_dirigido_accion").empty();
+                $("#subarea_dirigido_accion").append("<option value=''>Seleccione ...</option>" +
                   "<option value='TIC'>Integración de las TIC</option>" +
                   "<option value='Comunicacion'>Comunicación y expresión</option>" +
                   "<option value='Sociales'>Habilidades sociales</option>" +
                   "<option value='Renovacion'>Renovación de la gestión</option>");
               } else {
-                  $("#area_opciones").empty();
-                  $("#area_opciones").append("<option value='0'>Seleccione ...</option>");
+                  $("#subarea_dirigido_accion").empty();
+                  $("#subarea_dirigido_accion").append("<option value=''>Seleccione ...</option>");
               }
           }
         }

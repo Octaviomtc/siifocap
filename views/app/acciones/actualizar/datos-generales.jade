@@ -331,7 +331,7 @@ block content
                 $("#unidad").empty();
                 add_append_select("unidad","","Seleccione unidad ...");
                 $.each(source.escuelas, function(index, escuela) {
-                  add_append_select("unidad",escuela._id,escuela.nombre);
+                  add_append_select("unidad",escuela.nombre,escuela.nombre);
                 });
               }},
             error: function(dato){
@@ -355,10 +355,10 @@ block content
             $("#unidad").empty();
             add_append_select("unidad","","Seleccione unidad ...");
             $.each(source.escuelas, function(index, escuela) {
-                if (escuela._id=="!{accionFormacion.unidad}"){
-                  $("#unidad").append("<option value='"+escuela._id+"' selected='selected'>"+escuela.nombre+"</option>");
+                if (escuela.nombre=="!{accionFormacion.unidad}"){
+                  $("#unidad").append("<option value='"+escuela.nombre+"' selected='selected'>"+escuela.nombre+"</option>");
                 }else{
-                  $("#unidad").append("<option value='"+escuela._id+"'>"+escuela.nombre+"</option>");
+                  $("#unidad").append("<option value='"+escuela.nombre+"'>"+escuela.nombre+"</option>");
                 }
               
             });
