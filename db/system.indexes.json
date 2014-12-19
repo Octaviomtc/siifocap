@@ -1,0 +1,6 @@
+{ "v" : 1, "key" : { "_id" : 1 }, "ns" : "test_siffocap.users", "name" : "_id_" }
+{ "v" : 1, "key" : { "_id" : 1 }, "ns" : "test_siffocap.escuelas", "name" : "_id_" }
+{ "v" : 1, "key" : { "_id" : 1 }, "ns" : "test_siffocap.unidades_politecnicas", "name" : "_id_" }
+{ "v" : 1, "key" : { "_id" : 1 }, "ns" : "test_siffocap.dependencia_unidad", "name" : "_id_" }
+{ "v" : 1, "key" : { "_id" : 1 }, "ns" : "test_siffocap.rol_usuario", "name" : "_id_" }
+{ "v" : 1, "key" : { "_id" : 1 }, "ns" : "test_siffocap.acciones_formacion", "name" : "_id_" }

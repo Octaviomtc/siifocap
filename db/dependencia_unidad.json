@@ -1,0 +1,13 @@
+{ "_id" : { "$oid" : "5471756fa40d655aab4e7a6f" }, "value" : "Nivel Medio Superior", "text" : "Nivel Medio Superior" }
+{ "_id" : { "$oid" : "5471756fa40d655aab4e7a70" }, "value" : "Nivel Superior", "text" : "Nivel Superior y Posgrado" }
+{ "_id" : { "$oid" : "5471756fa40d655aab4e7a71" }, "value" : "Centros de Investigacion", "text" : "Centros de Investigación" }
+{ "_id" : { "$oid" : "5471756fa40d655aab4e7a72" }, "value" : "Centros de Educacion Continua", "text" : "Centros de Educación Continua" }
+{ "_id" : { "$oid" : "5471756fa40d655aab4e7a73" }, "value" : "Area Central", "text" : "Áreas Centrales" }
+{ "_id" : { "$oid" : "5471756fa40d655aab4e7a74" }, "value" : "Unidades Administrativas", "text" : "Unidades Administrativas" }
+{ "_id" : { "$oid" : "5471756fa40d655aab4e7a75" }, "value" : "Unidades Academicas", "text" : "Unidades Académicas" }
+{ "_id" : { "$oid" : "5471756fa40d655aab4e7a76" }, "value" : "Unidades de Apoyo a la Innovacion Educativa", "text" : "Unidades de Apoyo a la Innovación Educativa" }
+{ "_id" : { "$oid" : "5471756fa40d655aab4e7a77" }, "value" : "Unidades de Apoyo a la Investigacion, al Desarrollo y Fomento Tecnologico y Empresarial", "text" : "Unidades de Apoyo a la Investigación, al Desarrollo y Fomento Tecnológico y Empresarial" }
+{ "_id" : { "$oid" : "5471756fa40d655aab4e7a78" }, "value" : "Unidades Educativas Vinculadas a Ciencia, Tecnologia, Investigacion y Desarrollo Empresarial CLUSTERS Politecnicos", "text" : "Unidades Educativas Vinculadas a Ciencia, Tecnología, Investigación y Desarrollo Empresarial CLUSTERS Politécnicos" }
+{ "_id" : { "$oid" : "5471756fa40d655aab4e7a79" }, "value" : "Centros de Desarrollo Infantil", "text" : "Centros de Desarrollo Infantil" }
+{ "_id" : { "$oid" : "5471756fa40d655aab4e7a7a" }, "value" : "UPGPG", "text" : "Unidad politécnica de gestión con perspectiva de género (UPGPG)" }
+{ "_id" : { "$oid" : "5471756fa40d655aab4e7a7b" }, "value" : "Sustentabilidad", "text" : "Coordinación Politécnica para la Sustentabilidad" }
