@@ -33,7 +33,12 @@ var accionesSchema = new Schema({
   finalidad: {type: String},
   area_dirigido_accion: {type: String},
   subarea_dirigido_accion: {type: String},
-  estatus_sec_2 : {type: String}
+  estatus_sec_2 : {type: String},
+  competencia: {type: String},
+  resultado_apredizaje_propuesto:[{
+    logro: { type: String }
+  }],
+  estatus_sec_3 : {type: String}
 },
 {
   collection : 'acciones_formacion'
