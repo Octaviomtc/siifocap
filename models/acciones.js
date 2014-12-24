@@ -2,38 +2,39 @@ var mongoose = require('mongoose'),
     Schema   = mongoose.Schema;
 
 var accionesSchema = new Schema({
-  id: { type: String },
+  //id: { type: String },//NECESARIO
   registro_date: { type: Date, default: Date.now },
   estatus_accion: {type: String, default: "Pendiente"},
-  dependencia: { type: String },
-  unidad: { type: String },
-  dirigido_a: { type: String},
-  dirigido_a_tipo: {type: String},
-  nombre_institucion: {type: String},
-  dirigido_a_dependencia: {type: String},
-  nombre_accion_Formacion: {type: String},
-  tipo_accion_Formacion: {type: String},
-  modalidad_accion_Formacion: {type: String},
-  horas_presencial: {type: String},
-  horas_linea: {type: String},
-  modalidad_fecha_inicio: {type: String},
-  modalidad_fecha_fin: { type: String },
-  modalidad_hora_inicio: { type: String },
-  modalidad_hora_fin: { type: String },
-  perfil_facilitador: { type: String },
-  perfil_participante:{ type: String },
-  active_coparticipacion: { type: String },
-  coparticipacion_convenio: { type: String },
-  coparticipacion_institucion_validante: { type: String },
-  coparticipacion:[{
-      nombre: { type: String }
+  dependencia:                String ,
+  unidad:                     String ,
+  dirigido_a:                 String,
+  dirigido_a_tipo:            String,
+  nombre_institucion:         String,
+  dirigido_a_dependencia:     String,
+  nombre_accion_Formacion:    String,
+  tipo_accion_Formacion:      String,
+  modalidad_accion_Formacion: String,
+  horas_presencial:           String,
+  horas_linea:                String,
+  modalidad_fecha_inicio:     String,
+  modalidad_fecha_fin:        String,
+  modalidad_hora_inicio:      String,
+  modalidad_hora_fin:         String,
+  perfil_facilitador:         String,
+  perfil_participante:        String,
+  active_coparticipacion:     String,
+  coparticipacion_convenio:   String,
+  coparticipacion_institucion_validante: String ,
+  coparticipacion:[
+  {
+      nombre:                 String
   }],
-  estatus_sec_1 : {type: String},//Primer apartado de acciones de formacion
-  justificacion : {type: String},
-  finalidad: {type: String},
-  area_dirigido_accion: {type: String},
-  subarea_dirigido_accion: {type: String},
-  estatus_sec_2 : {type: String}
+  estatus_sec_1:              String,//Primer apartado de acciones de formacion
+  justificacion:              String,
+  finalidad:                  String,
+  area_dirigido_accion:       String,
+  subarea_dirigido_accion:    String,
+  estatus_sec_2:              String
 },
 {
   collection : 'acciones_formacion'

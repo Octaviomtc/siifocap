@@ -1,0 +1,37 @@
+extends ../../layouts/app
+
+block content
+  
+  .row.contenedorTb
+    .col-md-12
+      a.btn.btn-primary(href='/participantes/nuevo')
+        i.fa.fa-r.fa-plus-circle
+        | Nuevo Participante
+      if message
+        .error-message
+        a.text-center #{message}
+        table(data-toggle="table", data-cache="false", data-height="500",data-sort-order="asc",data-sort-name='clave', id="table-pagination", data-pagination="true", data-search="true")
+          thead
+            tr
+              th(data-field='clave', data-align='left', data-sortable='true') Participante
+              th(data-align='left', data-sortable='true') Nombre
+              th(data-align='right', data-sortable='true')
+                tbody
+                  each participante in participantes
+                    tr
+                      td
+                        | #{participante.nombre}
+                      td
+                        | #{participante.nombre}
+                      td
+                        a.btn.btn-default.fa-r(href="/participantes/actualizar/#{participante._id}")
+                          i.fa.fa-r.fa-edit
+                          | Editar
+                        a.btn.btn-default.fa-r(href="/participantes/borrar/#{participante._id}")
+                          i.fa.fa-r.fa-trash
+                          | Borrar
+                        a.btn.btn-default(href="/participantes/ver/#{participante._id}")
+                          i.fa.fa-r.fa-eye
+                          | Ver
+                                  
+                                                    
