@@ -46,7 +46,7 @@ app.use('/', routes);
 logger.debug('Configurando 404')
 /// Cacha mensaje 404
 app.use(function(req, res, next) {
-    var err = new Error('Not Found');
+    var err = new Error("Página no encontrada");
     err.status = 404;
     next(err);
 });

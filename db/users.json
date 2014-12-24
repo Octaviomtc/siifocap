@@ -1,0 +1,3 @@
+{ "rol" : "admin", "lastName" : "admin", "firstName" : "admin", "email" : "admin@admin", "password" : "$2a$10$rUYHUMMrXhroWEFDBpM8z.gmitm08R6KcIY..EJAYrXWqTkgcC2bW", "username" : "admin", "_id" : { "$oid" : "546a9a7024df040000f4d549" }, "__v" : 0 }
+{ "rol" : "admin", "lastName" : "admin2", "firstName" : "admin2", "email" : "admin@admin", "password" : "$2a$10$YFYFUbG9XYUGsF9Yn4Ehn.AuLkoBUqgdEO0DNAx/taTrhctrpQCsq", "username" : "admin2", "_id" : { "$oid" : "547181deafdcf6d264f2ae1e" }, "__v" : 0 }
+{ "rol" : "admin", "lastName" : "a", "firstName" : "a", "email" : "a@a", "password" : "$2a$10$DPL3vSZgwpuOc5TFnncOUuZ5WddcGkdBE0POyiDDGE6ohH3TeGvLu", "username" : "a", "_id" : { "$oid" : "547e50cc238ddf9a4348cb6b" }, "__v" : 0 }

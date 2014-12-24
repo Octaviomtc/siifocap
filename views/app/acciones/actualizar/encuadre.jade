@@ -1,0 +1,123 @@
+extends ../layout/layout_up
+
+block content
+  #message
+    if message
+      .error-message
+          a.text-center #{message}
+  .row
+    .col-md-12
+      .formulario.animated.fadeIn
+        
+        .contenido
+          .row
+            .col-md-11
+              form.form-horizontal(method='post', action="/acciones-formacion/nueva/#{accionFormacion._id}/encuadre", enctype='application/json')
+                
+                
+                span(class="col-md-11 col-md-offset-1 alert alert-info")
+                  | A partir de la justificación, redacte la competencia a desarrollar.
+                span(class="col-md-11 col-md-offset-1")
+                    | Competencia:
+                    +ayuda-bottom('<p>Una competencia debe contener:</p><p>&nbsp</p><UL type = disk ><LI>La acción que debe ejecutarse y verificarse.<LI>El objeto, que es el conocimiento o habilidad en términos de la acción<LI>La condición, que es el contexto de aplicación a partir del cual se realizará la acción planteada y justificará el para qué de la misma</UL><p>&nbsp</p><p>Ejemplo: “Elabora (acción) una propuesta de gestión educativa (objeto) fundamentada en el conocimiento de las problemáticas de la administración institucional (condición o contexto).”</p>')
+                  
+                div(class="col-md-11 col-md-offset-1")
+                  textarea.form-control(id="competencia", name="competencia", data-validation="empty", data-toggle="tooltip", data-placement="top", title="",  rows="8")
+                  hr
+                span(class="col-md-11 col-md-offset-1 alert alert-info")
+                  | Defina y redacte los resultados de aprendizaje propuestos que se requieren para lograr la competencia establecida:
+                
+                span(class="col-md-11 col-md-offset-1")
+                  | Resultados de Aprendizaje Propuestos:
+                  +ayuda-bottom('<p>Los resultados de aprendizaje propuestos determinan lo que se espera que el participante deba saber, comprender y/o ser capaz de demostrar al finalizar el proceso de aprendizaje. (Manual ECTS, 2005).</p><p>&nbsp</p><p>Para redactar un Resultado de Aprendizaje Propuesto se debe:</p><p>&nbsp</p><UL type = disk ><LI>Utilizar un verbo de acción.<LI>Considerar el tiempo para lograrlo.<LI>Ser congruente con el proceso de aprendizaje.<LI>Asegurar que son observables y medibles y por tanto puedan evaluarse. (Modificado de: Kennedy, D., 2007).</UL><p>&nbsp</p><label>Importante. El total de resultados de aprendizaje propuestos deberá asegurar el desarrollo de la competencia establecida. En este sentido, se sugiere considerar al menos tres.</label><p>&nbsp</p>')
+                  
+                
+                div.col-md-11.col-md-offset-1
+                  hr
+                  a.btn.btn-success.fa-r(onclick='addRAP()')
+                    i.fa.fa-plus-circle.fa-r
+                    | Agregar RAP
+                    
+                  hr
+                div#seccionRAPdiv
+                
+                
+                
+                
+                
+                
+                
+                span(class="col-md-11 col-md-offset-1 alert alert-info")
+                  | Metodología didáctica:
+                  +ayuda-bottom('<p>La metodología didáctica implica la forma en la que se llevan a cabo los procesos de enseñanza y de aprendizaje. En este sentido, constituye la descripción general del proceso formativo para el logro de los aprendizajes.</p><p>&nbsp</p><p>(Elaboración propia considerando las referencias: Fortea Bagán Miguel Ángel 2009. Metodologías didácticas para la enseñanza-aprendizaje de competencias.   Manuel S. Saavedra. 2008. Diccionario de pedagogía.)</p><p>&nbsp</p><p>En este apartado enuncie de manera general lo siguiente:</p><p>&nbsp</p><OL><LI>El modelo educativo (principios y bases metodológicas y conceptuales del proceso a implementar en su acción de formación).<LI>El rol del facilitador (quien orienta y guía al participante en su proceso de aprendizaje) y de los participantes (como responsables de su aprendizaje).<LI>Las actividades de aprendizaje y su pertinencia para el logro de la competencia y aprendizajes esperados.<LI>El proceso de evaluación incluyendo tipos e instrumentos de evaluación. Procure que éstos sean acordes a la función formativa de la evaluación.<LI>La relevancia de desarrollar la acción de formación en la modalidad propuesta.</OL>')
+                          
+                span(class="col-md-11 col-md-offset-1")
+                  | Describa la metodología didáctica de la acción de formación.
+                div(class="col-md-11 col-md-offset-1")
+                    textarea.form-control(id="metodologia_didactica", name="metodologia_didactica", data-validation="empty", data-toggle="tooltip", data-placement="top", title="", rows="10")
+                              
+                              
+                
+                
+                
+                
+                span(class="col-md-11 col-md-offset-1 sepTop")
+                  | A partir de la información anterior, señale de qué manera la metodología planteada contribuirá al logro de la competencia de la acción de formación.
+                div(class="col-md-11 col-md-offset-1")
+                  textarea.form-control(id="metodologia_resultado", name="metodologia_resultado", data-validation="empty", data-toggle="tooltip", data-placement="top", title="", rows="10")
+                            
+                
+                
+                
+                
+                
+                
+                span(class="col-md-11 col-md-offset-1 alert alert-info sepTop")
+                  | Lineamientos de acreditación:
+                  +ayuda('<p></p><UL type = disk ><LI><b>Curso y Taller.</b> 8.0 o 80%  como calificación mínima de aprobación (con excepción de los Servidores Públicos de Carrera, para quienes de acuerdo con la Ley de SPC la calificación mínima es de 70 puntos).  80% de asistencia para escolarizada y mixta. 80% de las actividades entregadas para modalidad no escolarizada.<LI><b>Diplomado.</b> Promediar un mínimo 8.0 o 80% en cada módulo y como calificación final.  Contar con examen final o trabajo recepcional. Tener 80% de asistencia.<LI><b>Seminario.</b> Contar con un trabajo recepcional. 80% mínimo de asistencia.</UL>')
+                
+                div(class="col-md-11 col-md-offset-1")
+                  textarea.form-control(id="lineamientos_acreditacion", name="lineamientos_acreditacion", data-validation="empty", data-toggle="tooltip", data-placement="top", title="", rows="10")
+          
+                              
+                              
+                              
+                +h-input("hidden", "", "estatus_sec_3", "", "true", 9, 3, "", "","") 
+                .row
+                  .col-md-12
+                    hr
+                  .col-md-9.col-md-offset-3
+                    button.btn.btn-success.fa-r(type='submit')
+                      i.fa.fa-save.fa-r
+                      | Guardar 
+                    
+                    if accionFormacion.estatus_sec_3=='true'
+                      a.btn.btn-success.fa-r(href=href="/acciones-formacion/nueva/#{accionFormacion._id}/planeacion")
+                        i.fa.fa-check-circle.fa-r
+                        | Continuar
+                    else
+                      a.btn.btn-success.disabled.fa-r(href="")
+                        i.fa.fa-check-circle.fa-r
+                        | Continuar
+                        
+                    a.btn.btn-danger(href="")
+                      | Cancelar
+
+  append javascript
+    script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
+    script.
+      //- Variable temporal para incrementar id de RAP
+      var rap = 0;
+      
+      //- Funcion para crear un nuevo resultado propuesto
+      function addRAP(){
+        var rap1=rap+1;
+        $('#seccionRAPdiv').append('<div id="divCopCont'+rap+'"><hr><div id="resultado_apredizaje_propuesto['+rap+'][logro]_Form" class="form-group"><span class="control-label col-md-3">Resultado de Aprendizaje Propuesto '+rap1+':</span><div class="col-md-9"><textarea id="resultado_apredizaje_propuesto['+rap+'][logro]" name="resultado_apredizaje_propuesto['+rap+'][logro]" value="" data-validation="" data-toggle="tooltip" data-placement="top" title="" class="form-control" rows="5"></textarea></div><div id="dependenciaCoparticipanteAdd" class="form-group"><span class="control-label col-md-3"></span><div class="col-md-9">'+
+        '<a onclick=delRap("divCopCont'+rap+'") class="btn btn-danger sepTop fa-r"><i class="fa fa-trash fa-r"></i>Eliminar</a></div></div></div>');
+        rap=rap+1;
+      }
+      
+      
+      function delRap(id){
+        $("#"+id).empty();
+      }

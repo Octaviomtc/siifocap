@@ -229,7 +229,6 @@ module.exports = function(passport){
         icon: "fa-plus-circle",
         seccion: "Nueva acción de formación"
       }
-      console.log("hola");
       res.render('app/acciones/actualizar/justificacion',{message: req.flash('message'), user: req.user, datos: param});
     });
 
@@ -241,6 +240,50 @@ module.exports = function(passport){
     });
 
 
+
+    //PASO 3 Encuadre
+    router.get('/acciones-formacion/nueva/:id/encuadre', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, accionesMid.findById, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Nueva acción de formación"
+      }
+      res.render('app/acciones/actualizar/encuadre',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+    //update paso 3
+    router.post('/acciones-formacion/nueva/:id/encuadre', isAuthenticated, accionesMid.updateAccion, function(req, res){
+      // console.log(res.accionFormacion);
+      res.set('Content-Type', 'application/javascript');
+      res.redirect('/acciones-formacion/nueva/'+res.accionFormacion._id+'/encuadre');
+    });
+
+
+
+
+
+
+    //PASO 4 Encuadre
+    router.get('/acciones-formacion/nueva/:id/planeacion', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, accionesMid.findById, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Nueva acción de formación"
+      }
+      res.render('app/acciones/actualizar/planeacion',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+    //update paso 4
+    router.post('/acciones-formacion/nueva/:id/planeacion', isAuthenticated, accionesMid.updateAccion, function(req, res){
+      // console.log(res.accionFormacion);
+      res.set('Content-Type', 'application/javascript');
+      res.redirect('/acciones-formacion/nueva/'+res.accionFormacion._id+'/planeacion');
+    });
+
+
+
+    //Borrar una accion de formacion
+    router.get('/acciones-formacion/borrar/:id', isAuthenticated, accionesMid.deleteAccion, function(req, res){
+      res.redirect('/acciones-formacion');
+    });
 
     return router;
 }

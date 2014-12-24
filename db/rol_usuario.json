@@ -1,0 +1,2 @@
+{ "_id" : { "$oid" : "54718185a40d655aab4e7a7c" }, "value" : "admin", "text" : "Administrador general" }
+{ "_id" : { "$oid" : "54718185a40d655aab4e7a7d" }, "value" : "user", "text" : "Usuario general" }
