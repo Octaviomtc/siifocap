@@ -1,0 +1,96 @@
+extends ../../layouts/app
+
+block content
+  #message
+    if message
+      .error-message
+        a.text-center #{message}
+  .row
+    .col-lg-12
+      .formulario.animated.fadeIn
+        .titulo
+          | Agregar Participante
+        .contenido
+          form.form-horizontal(method='post', action="#")
+            ////+h-input("text", "ETIQUETA", "NAME", "PLACEHOLDER", "VALUE", 6, 3, "autofocus", "empty","")
+            +h-input("text", "Nombre(s)", "nombre", "Nombre(s)", "", 6, 3, "autofocus", "empty","")
+            +h-input("text", "Apellidos", "apellidos", "Apellidos", "", 6, 3, "", "empty","")
+            +h-input("text", "CURP", "curp", "18 Dígitos", "", 6, 3, "", "empty","")
+            +h-input("text", "RFC", "rfc", "10 Dígitos", "", 6, 3, "", "empty","")
+            .form-group
+              span(class="control-label col-md-3")
+                | Género
+              div(class="col-md-6")
+                select#genero.form-control(name='genero',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                  option(value="M") Mujer
+                  option(value='H') Hombre
+            .form-group
+              span(class="control-label col-md-3")
+                | Entidad Federativa
+              div(class="col-md-6")
+                select#entidad.form-control(name='entidad',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                  option(value="AG") Aguascalientes
+                  option(value="BC") Baja California
+                  option(value="BS") Baja California Sur
+                  option(value="CA") Campeche
+                  option(value="CP") Chiapas
+                  option(value="CH") Chihuahua
+                  option(value="CU") Coahuila
+                  option(value="CO") Colima
+                  option(value="DF") Distrito Federal
+                  option(value="DU") Durango
+                  option(value="GJ") Guanajuato
+                  option(value="GR") Guerrero
+                  option(value="HD") Hidalgo
+                  option(value="JA") Jalisco
+                  option(value="MX") México
+                  option(value="MC") Michoacán
+                  option(value="MO") Morelos
+                  option(value="NA") Nayarit
+                  option(value="NL") Nuevo León
+                  option(value="OX") Oaxaca
+                  option(value="PU") Puebla
+                  option(value="QE") Querétaro
+                  option(value="QR") Quintana Roo
+                  option(value="SL") San Luis Potosí
+                  option(value="SI") Sinaloa
+                  option(value="SO") Sonora
+                  option(value="TB") Tabasco
+                  option(value="TA") Tamaulipas
+                  option(value="TL") Tlaxcala
+                  option(value="VZ") Veracruz
+                  option(value="YT") Yucatán
+                  option(value="ZA") Zacatecas
+            +h-input("text", "Unidad Académica", "unidad", "Unidad Académica de Adscripción", "", 6, 3, "", "empty","")
+            +h-input("email", "Correo Electrónico Institucional", "email_inst", "@", "", 6, 3, "", "empty","")
+            +h-input("email", "Correo Electrónico Personal", "email_pers", "@", "", 6, 3, "", "empty","")
+            +h-input("text", "Número Telefónico Casa", "telefono", "Casa (10 Dígitos)", "", 6, 3, "", "empty","")
+            +h-input("text", "Número Telefónico Celular", "celular", "Celular (10 Dígitos)", "", 6, 3, "", "empty","")
+            +h-input("text", "Usuario", "usuario", "Usuario", "", 6, 3, "", "empty","")
+            +h-input("password", "Contraseña", "password", "Contraseña", "", 6, 3, "", "empty","")
+            +h-input("text", "Grupo", "grupo", "Grupo", "", 6, 3, "", "empty","")
+            .form-group
+              span(class="control-label col-md-3")
+                | Accion de Formación
+              div(class="col-md-6")
+                select#dependencia.form-control(name='accion',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                  option(value="") Seleccione ...
+                    each accion in acciones
+                      option(value='#{accion._id}')= accion.nombre_accion_Formacion
+            .row
+              .col-md-9.col-md-offset-3
+                button.btn.btn-success.fa-r(type='submit')
+                  i.fa.fa-check-circle.fa-r
+                  | Agregar
+                  
+                button.btn.btn-default.fa-r(type='reset')
+                  i.fa.fa-eraser.fa-r
+                  | Limpiar campos
+                  
+                a.btn.btn-default(href="/participantes")
+                  | Cancelar
+                    
+                                      
+                                      
+                                            
+                                            

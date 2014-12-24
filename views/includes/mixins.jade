@@ -38,3 +38,11 @@ mixin v-input(box, type, label, name, placeholder, value, error, ayuda)
           i.fa.fa-question.fa-stack-1x.fa-inverse
       input.form-control(id=name, type=type, placeholder=placeholder, name=name, autofocus=autofocus, value=value, required=required, data-validation="#{error}", data-toggle="tooltip", data-placement="top", title="")
         
+        
+mixin textarea(name, value, label, size, error, error_dir, disabled)
+  .form-group
+    label #{label}
+    if disabled=="disabled"
+      textarea.form-control(disabled, name=name, rows=size, data-validation=error, data-toggle="tooltip", data-placement=error_dir, title="") #{value}
+    else
+      textarea.form-control(name=name, rows=size, data-validation=error, data-toggle="tooltip", data-placement=error_dir, title="") #{value}

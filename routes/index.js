@@ -4,10 +4,13 @@ var escuela         = require('../models/escuela');
 var acciones         = require('../models/acciones');
 var dependencia     = require('../models/dependencia');
 var rol             = require('../models/rol');
+var participante    = require('../models/participante')
 //Controladores
 var usuariosMid     = require('../controllers/usuarios');
 var escuelaMid      = require('../controllers/escuelas');
 var accionesMid     = require('../controllers/acciones');
+var participMid     = require('../controllers/participantes')
+
 var router          = express.Router();
 
 
@@ -259,9 +262,6 @@ module.exports = function(passport){
 
 
 
-
-
-
     //PASO 4 Encuadre
     router.get('/acciones-formacion/nueva/:id/planeacion', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, accionesMid.findById, function(req, res){
       param={
@@ -284,6 +284,44 @@ module.exports = function(passport){
     router.get('/acciones-formacion/borrar/:id', isAuthenticated, accionesMid.deleteAccion, function(req, res){
       res.redirect('/acciones-formacion');
     });
+
+/*
+*
+*
+        SECCIÓN PARTICIPANTES
+*
+*/
+
+
+    router.get('/participantes', isAuthenticated, participMid.allParticipantes, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Participantes"
+      }
+      res.render('app/participantes/index',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+    router.get('/participantes/nuevo', isAuthenticated, accionesMid.allAccionFormacion, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Nuevo Participante"
+      }
+      res.render('app/participantes/nuevo',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+    router.post('/participantes/nuevo', isAuthenticated, participMid.addParticipante, function (req, res){
+      res.set('Content-Type', 'application/javascript');
+      res.redirect('/participantes');
+    });
+
+    router.get('/participantes/borrar/:id', isAuthenticated, participMid.deleteParticipante, function(req, res){
+      res.redirect('/participantes');
+    });
+
+
+
+
+
 
     return router;
 }

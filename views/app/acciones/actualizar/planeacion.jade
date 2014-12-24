@@ -97,55 +97,42 @@ block content
           i.fa.fa-book.fa-r
           | Nueva Planeación didáctica
         .modal-body
-          div.divModal
+          //- div.divModal
+          .container
             form
                 .form-group
                   label Acción de Formación
                   input.form-control(type="text", placeholder="Nombre de Acción", value=accionFormacion.nombre_accion_Formacion, required=required, data-validation="empty", data-toggle="tooltip", data-placement="top", title="", disabled)
 
 
-                .form-group
-                  label Competencia
-                  textarea.form-control(disabled,rows="8", data-validation="empty", data-toggle="tooltip", data-placement="top", title="") #{accionFormacion.competencia}
+                +textarea("",accionFormacion.competencia, "Competencia", "8", "", "", "disabled")
                 
-                .form-group
-                  label Aprendizajes esperados
-                  textarea.form-control(name="aprendizajes_esperados", rows="6", data-validation="empty", data-toggle="tooltip", data-placement="top", title="") 
-                
+                +textarea("aprendizajes_esperados","", "Aprendizajes esperados", "6", "emty", "top")
+              
                 .form-group
                   label Tiempo para su desarrollo
                 
                 +v-input(4, "number", "Horas", "tiempo_hrs", "", "", "empty", "")
                 +v-input(4, "number", "Minutos", "tiempo_min", "", "", "empty", "")
               
-       
+              
                 .row
                   .col-md-12
+                    hr
                     .form-group
                       label Contenido
                       +ayuda-right('<p>Enliste los contenidos temáticos necesarios de abordar para la promoción del resultado de aprendizaje esperado seleccionado. Enlístelos.</p>')
           
-
-
-                div.row
-                  div.col-md-12
-                    t Contenido
-                    img#tooltipContenidopd(src="/img/ayuda.jpeg", alt="ayuda", height="25px")  
-                    br
-                    textarea#pdContenido.form-control(name='pdContenido')
-                div.espacio
-                div.row
-                  div.col-md-12
-                    t Referencias a utilizar
-                    img#tooltipReferenciaspd(src="/img/ayuda.jpeg", alt="ayuda", height="25px")  
-                    br
-                    textarea#pdReferencias.form-control(name='pdReferencias',placeholder="Registre sus referencias con base en el formato APA.")
-                div.espacio
-                   
-                div.espacio   
-                div.espacio  
-                div.espacio          
-                div.dividerSecc2
+                +textarea("contenido","", "", "6", "emty", "top")
+                
+                hr
+                .form-group
+                  label Referencias a utilizar
+                  +ayuda-right('Registre sus referencias con base al sistema APA')
+                
+                +textarea("referencias","", "", "6", "emty", "top")
+              
+        
                 div.row
                   div.col-md-12
                     t Actividad de aprendizaje
