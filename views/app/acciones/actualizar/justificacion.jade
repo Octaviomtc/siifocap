@@ -105,7 +105,7 @@ block content
                       | Guardar 
                     
                     if accionFormacion.estatus_sec_2=='true'
-                      a.btn.btn-success.fa-r(href="")
+                      a.btn.btn-success.fa-r(href="/acciones-formacion/nueva/#{accionFormacion._id}/encuadre")
                         i.fa.fa-check-circle.fa-r
                         | Continuar
                     else
@@ -113,7 +113,7 @@ block content
                         i.fa.fa-check-circle.fa-r
                         | Continuar
                         
-                    a.btn.btn-default(href="")
+                    a.btn.btn-danger(href="")
                       | Cancelar
 
 

@@ -54,3 +54,20 @@ exports.updateAccion = function(req, res, next) {
     return next();
   });
 };
+
+
+
+
+//Borrar
+exports.deleteAccion = function(req, res, next) {
+  accionesFormacion.findById(req.params.id, function(err, acciones) {
+    acciones.remove(function(err) {
+      if(err){
+        return res.send(500, err.message);
+      }
+      console.log('Accion borrada / ');
+      return next(), req.flash('message','Accion borrada correctamente.');
+    })
+  });
+
+};

@@ -1,0 +1,293 @@
+extends ../layout/layout_up
+
+block content
+  #message
+    if message
+      .error-message
+          a.text-center #{message}
+        
+  .row
+    .col-md-12
+      .formulario.animated.fadeIn
+        
+        .contenido
+          .row
+            .col-md-11
+              form.form-horizontal(method='post', action="/acciones-formacion/nueva/#{accionFormacion._id}/planeacion", enctype='application/json')
+                
+                
+                span(class="col-md-11 col-md-offset-1 alert alert-info")
+                  | A partir de la competencia y los resultados de aprendizajes propuestos, elabore la planeación didáctica de la acción de formación de acuerdo con la metodología didáctica establecida. Defina cada uno de los elementos solicitados.
+                span(class="col-md-11 col-md-offset-1")
+                    | Planeación didáctica:
+                    +ayuda-bottom('<p>“Constituye la previsión organizada de las tareas que conforman una acción de formación referidas a su elaboración, aplicación y evaluación, de acuerdo con los objetivos a alcanzar, las actividades del facilitador y de los participantes, los recursos didácticos, el tiempo y la evaluación de los resultados”.</p>')
+
+
+                
+                div.col-md-11.col-md-offset-1
+                  hr
+                  a.btn.btn-success.fa-r(href="#secDidacticaModal", data-toggle="modal",  data-strict-close="true")
+                    i.fa.fa-plus-circle.fa-r
+                    | Agregar planeación didáctica
+                    
+                  hr
+                
+                div.col-md-11.col-md-offset-1
+                  table(data-toggle="table", data-cache="true", data-page-size="25", data-page-list="[25, 50, 100, 200]", data-height="600",data-sort-order="asc",data-sort-name='number_actividad_aprendizaje', id="table-pagination", data-pagination="true", data-search="true")
+                    thead
+                      tr
+                        th(data-field='number_actividad_aprendizaje', data-align='left', data-sortable='true') #
+                        th(data-align='left', data-sortable='true') Actividad de aprendizaje
+                        th(data-align='right', data-sortable='true')
+                    tbody
+                      //- each accion in acciones
+                      //-   tr
+                      //-     td
+                      //-       | #{accion.dirigido_a_dependencia}
+                      //-       
+                      //-     td
+                      //-       | #{accion.estatus_accion}
+                      //-     td
+                      //-       a.btn.btn-default(href="/unidades/ver/#{accion._id}")
+                      //-         i.fa.fa-r.fa-print
+                      //-         | PDF
+                      //-       a.btn.btn-default(href="/unidades/actualizar/#{accion._id}")
+                      //-         i.fa.fa-r.fa-edit
+                      //-         | Editar
+                      //-       a.btn.btn-default(href="/acciones-formacion/borrar/#{accion._id}")
+                      //-         i.fa.fa-r.fa-trash
+                      //-         | Borrar
+
+              
+                
+                
+              
+                              
+                              
+                +h-input("hidden", "", "estatus_sec_4", "", "true", 9, 3, "", "","") 
+                .row
+                  .col-md-12
+                    hr
+                  .col-md-9.col-md-offset-3
+                    button.btn.btn-success.fa-r(type='submit')
+                      i.fa.fa-save.fa-r
+                      | Guardar 
+                    
+                    if accionFormacion.estatus_sec_4=='true'
+                      a.btn.btn-success.fa-r(href="/acciones-formacion")
+                        i.fa.fa-check-circle.fa-r
+                        | Fianlizar registro
+                        
+                        
+                      a.btn.btn-default.fa-r()
+                        i.fa.fa-print.fa-r
+                        | Descargar planeación como PDF
+                    else
+                      a.btn.btn-success.disabled.fa-r(href="")
+                        i.fa.fa-check-circle.fa-r
+                        | Fianlizar registro
+                    
+                    a.btn.btn-danger(href="")
+                      | Cancelar
+
+  .modal.fade(id="secDidacticaModal")
+    .modal-dialog.modal-lg
+      .modal-content
+        .modal-header
+          i.fa.fa-book.fa-r
+          | Nueva Planeación didáctica
+        .modal-body
+          div.divModal
+            form
+                .form-group
+                  label Acción de Formación
+                  input.form-control(type="text", placeholder="Nombre de Acción", value=accionFormacion.nombre_accion_Formacion, required=required, data-validation="empty", data-toggle="tooltip", data-placement="top", title="", disabled)
+
+
+                .form-group
+                  label Competencia
+                  textarea.form-control(disabled,rows="8", data-validation="empty", data-toggle="tooltip", data-placement="top", title="") #{accionFormacion.competencia}
+                
+                .form-group
+                  label Aprendizajes esperados
+                  textarea.form-control(name="aprendizajes_esperados", rows="6", data-validation="empty", data-toggle="tooltip", data-placement="top", title="") 
+                
+                .form-group
+                  label Tiempo para su desarrollo
+                
+                +v-input(4, "number", "Horas", "tiempo_hrs", "", "", "empty", "")
+                +v-input(4, "number", "Minutos", "tiempo_min", "", "", "empty", "")
+              
+       
+                .row
+                  .col-md-12
+                    .form-group
+                      label Contenido
+                      +ayuda-right('<p>Enliste los contenidos temáticos necesarios de abordar para la promoción del resultado de aprendizaje esperado seleccionado. Enlístelos.</p>')
+          
+
+
+                div.row
+                  div.col-md-12
+                    t Contenido
+                    img#tooltipContenidopd(src="/img/ayuda.jpeg", alt="ayuda", height="25px")  
+                    br
+                    textarea#pdContenido.form-control(name='pdContenido')
+                div.espacio
+                div.row
+                  div.col-md-12
+                    t Referencias a utilizar
+                    img#tooltipReferenciaspd(src="/img/ayuda.jpeg", alt="ayuda", height="25px")  
+                    br
+                    textarea#pdReferencias.form-control(name='pdReferencias',placeholder="Registre sus referencias con base en el formato APA.")
+                div.espacio
+                   
+                div.espacio   
+                div.espacio  
+                div.espacio          
+                div.dividerSecc2
+                div.row
+                  div.col-md-12
+                    t Actividad de aprendizaje
+                    img#tooltipActividadAp(src="/img/ayuda.jpeg", alt="ayuda", height="25px")  
+                    br
+                    input#pdActividadAprendizaje.form-control(type='text',  name='pdActividadAprendizaje', placeholder='Ingrese el nombre de la actividad de aprendizaje.')
+                div.espacio
+
+                div.row
+                  div.col-md-12
+                    //t Referencias a utilizar
+                    //img(src="/img/ayuda.jpeg", alt="ayuda", height="25px")  
+                    //br
+                    textarea#pdObjetivos.form-control(name='pdObjetivos', placeholder="Señale el objetivo de la actividad de aprendizaje. Enliste las acciones necesarias para llevar a cabo el desarrollo de la actividad planteada (acciones tanto del participante como del facilitador).")
+
+                div.espacio                                          
+                div.row
+                  div.col-md-8
+                    t Recursos educativos
+                    img#tooltipRecursosEdu(src="/img/ayuda.jpeg", alt="ayuda", height="25px")  
+                    br
+                    textarea#pdRecEducativos.form-control(name='pdRecEducativos')
+                  div.col-md-4
+                    t Tiempo de realización
+                    br
+                    div.row
+                      div.col-md-4
+                        input#pdTiempRel.form-control(type='number',  name='pdTiempRel', onkeypress='return IsNumberVal(event);')
+                      div.col-md-2
+                        t Hrs.
+                div.espacio
+
+                div.row
+                  div.col-md-12
+                    t Producto o evidencia
+                    img#tooltipEvidencia(src="/img/ayuda.jpeg", alt="ayuda", height="25px")  
+                    br
+                    textarea#pdProductoEvidencia.form-control(name='pdProductoEvidencia')
+                div.espacio
+
+                div.row
+                  div.col-md-12
+                    h3 Evaluación
+                      img#tooltipEvaluacion(src="/img/ayuda.jpeg", alt="ayuda", height="25px")
+
+                div.espacio
+
+                div.row
+                  div.col-md-4
+                    t Tipo&nbsp
+                      //img#tooltipEvaluacionTipo(src="/img/ayuda.jpeg", alt="ayuda", height="25px")
+                    br
+                    div.btn-group(data-toggle="buttons")
+                        label.btn.btn-primary
+                          input(type="radio", name="pdTipo", id="Diagnostica")
+                          t &nbspDiagnóstica
+                        label.btn.btn-primary
+                          input(type="radio", name="pdTipo", id="Formativa")
+                          t &nbspFormativa
+                        label.btn.btn-primary
+                          input(type="radio", name="pdTipo", id="Sumativa")
+                          t &nbspSumativa
+                  div.col-md-5
+                    t Mecanismo&nbsp
+                      //img#tooltipEvaluacionMecanismo(src="/img/ayuda.jpeg", alt="ayuda", height="25px")
+                    br
+                    div.btn-group(data-toggle="buttons")
+                        label.btn.btn-primary
+                          input(type="radio", name="Mecanismo", id="Autoevaluacion")
+                          t &nbspAutoevaluación
+                        label.btn.btn-primary
+                          input(type="radio", name="Mecanismo", id="Coevaluacion")
+                          t &nbspCoevaluación
+                        label.btn.btn-primary
+                          input(type="radio", name="Mecanismo", id="Heteroevaluacion")
+                          t &nbspHeteroevaluación
+                  div.col-md-3
+                    t Valor&nbsp
+                      //img#tooltipEvaluacionValor(src="/img/ayuda.jpeg", alt="ayuda", height="25px")
+                    br
+                    div.btn-group(data-toggle="buttons")
+                        label.btn.btn-primary
+                          input(type="radio", name="Valor", id="valor")
+                          t &nbspCon valor
+                        label.btn.btn-primary
+                          input(type="radio", name="Valor", id="noValor")
+                          t &nbspSin valor
+                div.espacio
+
+                div.row
+                  div.col-md-5
+                    t Instrumento&nbsp
+                      //img#tooltipEvaluacionInstrumento(src="/img/ayuda.jpeg", alt="ayuda", height="25px")
+                    br
+                    div.btn-group(data-toggle="buttons")
+                        label.btn.btn-primary
+                          input(type="radio", name="pdInstrumento", id="Cotejo", onChange='instrumento(this)')
+                          t &nbspLista de cotejo
+                        label.btn.btn-primary
+                          input(type="radio", name="pdInstrumento", id="Rubrica", onChange='instrumento(this)')
+                          t &nbspRúbrica
+                        label.btn.btn-primary
+                          input(type="radio", name="pdInstrumento", id="Guia", onChange='instrumento(this)')
+                          t &nbspGuía de observación
+                        label.btn.btn-primary
+                          input(type="radio", name="pdInstrumento", id="Otro", onChange='instrumento(this)')
+                          t &nbspOtro
+                  div.col-md-7
+                    br
+                    input#pdInstrOtro.form-control(type='text',  name='pdInstrOtro')
+                div.espacio
+
+                p En caso de contar con material a utilizar para el desarrollo y evaluación de la actividad de aprendizaje (lecturas, formatos de trabajo, instrumentos de evaluación, entre otros), súbalo a través del siguiente botón.
+
+                div.row
+                  div.col-md-12
+                    input#subirInstrumento.btn.btn-success(type='file', value='Agregar Instrumento')
+
+                div.dividerSecc2
+
+                div.espacio
+                #addActiviAprendizaje.button.btn.btn-primary(type='button') Agregar actividad de aprendizaje
+                &nbsp;
+                img#tooltipAddActividadAprendizaje(src="/img/ayuda.jpeg", alt="ayuda", height="25px")
+
+                div.espacio
+                #addActiviAprendizaje.button.btn.btn-primary(type='button') Siguiente RAP
+                &nbsp;
+                img#tooltipNextRap(src="/img/ayuda.jpeg", alt="ayuda", height="25px")
+
+                div.espacio
+                #addActividadFinalizar.button.btn.btn-primary(type='button', data-dismiss='modal', aria-hidden='true') Finalizar
+                &nbsp;
+                img#tooltipFinalizarPlaneacion(src="/img/ayuda.jpeg", alt="ayuda", height="25px")
+
+        .modal-footer
+          //#addAprendizajeEsperado.button.btn.btn-primary(type='button') Guardar y añadir RAP
+          //&nbsp;
+          #addActividadFinalizar.button.btn.btn-primary(type='button', data-dismiss='modal', aria-hidden='true') Finalizar 
+          &nbsp;
+          button.btn.btn-default(type='button', data-dismiss='modal', aria-hidden='true') Cancelar
+          br
+
+
+                 

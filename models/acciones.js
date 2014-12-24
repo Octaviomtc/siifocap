@@ -38,7 +38,11 @@ var accionesSchema = new Schema({
   resultado_apredizaje_propuesto:[{
     logro: { type: String }
   }],
-  estatus_sec_3 : {type: String}
+  metodologia_didactica: {type: String},
+  metodologia_resultado: {type: String},
+  lineamientos_acreditacion: {type: String},
+  estatus_sec_3 : {type: String},
+  estatus_sec_4 : {type: String}
 },
 {
   collection : 'acciones_formacion'

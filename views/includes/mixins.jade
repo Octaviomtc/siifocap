@@ -20,4 +20,21 @@ mixin ayuda-bottom(texto)
   span.fa-stack.fa-l.fa-ayuda(data-toggle="tooltip-ayuda", data-html="true", data-placement="bottom", title="#{texto}")
     i.fa.fa-circle.fa-stack-2x
     i.fa.fa-question.fa-stack-1x.fa-inverse
-            
+        
+
+mixin ayuda-right(texto)
+  span.fa-stack.fa-l.fa-ayuda(data-toggle="tooltip-ayuda", data-html="true", data-placement="right", title="#{texto}")
+    i.fa.fa-circle.fa-stack-2x
+    i.fa.fa-question.fa-stack-1x.fa-inverse
+        
+
+mixin v-input(box, type, label, name, placeholder, value, error, ayuda)
+  .form-group
+    div(class="col-md-#{box}")
+      label #{label}
+      if ayuda != ""
+        span.fa-stack.fa-l.fa-ayuda(data-toggle="tooltip-ayuda", data-html="true", data-placement="top", title="#{ayuda}")
+          i.fa.fa-circle.fa-stack-2x
+          i.fa.fa-question.fa-stack-1x.fa-inverse
+      input.form-control(id=name, type=type, placeholder=placeholder, name=name, autofocus=autofocus, value=value, required=required, data-validation="#{error}", data-toggle="tooltip", data-placement="top", title="")
+        
