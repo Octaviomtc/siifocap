@@ -8,7 +8,7 @@ mixin h-input(type, label, name, placeholder, value, box, box_label, autofocus, 
             i.fa.fa-question.fa-stack-1x.fa-inverse
 
       div(class="col-md-#{box}")
-        input(class="form-control", type=type, id=name, name=name, placeholder=placeholder, autofocus=autofocus, value=value, required=required, data-validation="#{error}", data-toggle="tooltip", data-placement="top", title="")
+        input(class="form-control", class=type=="file" ? "filestyle":"", type=type, id=name, name=name, placeholder=placeholder, autofocus=autofocus, value=value, required=required, data-validation="#{error}", data-toggle="tooltip", data-placement="top", title="")
 
 mixin ayuda(texto)
   span.fa-stack.fa-l.fa-ayuda(data-toggle="tooltip-ayuda", data-html="true", data-placement="top", title="#{texto}")
@@ -36,13 +36,13 @@ mixin v-input(box, type, label, name, placeholder, value, error, ayuda)
         span.fa-stack.fa-l.fa-ayuda(data-toggle="tooltip-ayuda", data-html="true", data-placement="top", title="#{ayuda}")
           i.fa.fa-circle.fa-stack-2x
           i.fa.fa-question.fa-stack-1x.fa-inverse
-      input.form-control(id=name, type=type, placeholder=placeholder, name=name, autofocus=autofocus, value=value, required=required, data-validation="#{error}", data-toggle="tooltip", data-placement="top", title="")
+      input(class="form-control", class=type=="file" ? "filestyle":"", id=name, type=type, placeholder=placeholder, name=name, autofocus=autofocus, value=value, required=required, data-validation="#{error}", data-toggle="tooltip", data-placement="top", title="")
         
         
-mixin textarea(name, value, label, size, error, error_dir, disabled)
+mixin textarea(name, value, label, size, error, error_dir, disabled, placeholder)
   .form-group
     label #{label}
     if disabled=="disabled"
-      textarea.form-control(disabled, name=name, rows=size, data-validation=error, data-toggle="tooltip", data-placement=error_dir, title="") #{value}
+      textarea.form-control(disabled, name=name, rows=size, data-validation=error, data-toggle="tooltip", data-placement=error_dir, title="", placeholder=placeholder) #{value}
     else
-      textarea.form-control(name=name, rows=size, data-validation=error, data-toggle="tooltip", data-placement=error_dir, title="") #{value}
+      textarea.form-control(name=name, rows=size, data-validation=error, data-toggle="tooltip", data-placement=error_dir, title="", placeholder=placeholder) #{value}

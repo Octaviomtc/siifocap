@@ -1,12 +1,43 @@
 var mongoose = require('mongoose'),
     Schema   = mongoose.Schema;
 
+var planeacion_didactica_schema = new Schema(
+  {
+    aprendizajes_esperados:                 String,
+    tiempo_hrs:                             String,
+    tiempo_min:                             String,
+    contenido:                              String,
+    referencias:                            String,
+    nombre_actividad:                       String,
+    objetivo_actividad:                     String,
+    recursos:                               String,
+    tiempo_realizacion:                     String,
+    evidencia:                              String,
+    instrumento_evaluacion:                 String,
+    instrumento_otro_evaluacion:            String,
+    instrumento_archivo_evaluacion:         String
+  }
+);
+
+
+var coparticipacion_schema = new Schema(
+  {
+    nombre:                                 String
+  }
+);
+
+var resultado_apredizaje_propuesto_schema = new Schema(
+  {
+    logro:                                  String
+  }
+);
+
 var accionesSchema = new Schema({
   //id: { type: String },//NECESARIO
   registro_date:                            { type: Date, default: Date.now },
   estatus_accion:                           {type: String, default: "Pendiente"},
-  dependencia:                              String ,
-  unidad:                                   String ,
+  dependencia:                              String,
+  unidad:                                   String,
   dirigido_a:                               String,
   dirigido_a_tipo:                          String,
   nombre_institucion:                       String,
@@ -22,13 +53,10 @@ var accionesSchema = new Schema({
   modalidad_hora_fin:                       String,
   perfil_facilitador:                       String,
   perfil_participante:                      String,
-  active_coparticipacion:                   String,
+  active_coparticipacion:                   Boolean,
   coparticipacion_convenio:                 String,
-  coparticipacion_institucion_validante:    String ,
-  coparticipacion:[
-  {
-    nombre:                                 String
-  }],
+  coparticipacion_institucion_validante:    String,
+  coparticipacion:                          [coparticipacion_schema],
   estatus_sec_1:                            String,//Primer apartado de acciones de formacion
   justificacion:                            String,
   finalidad:                                String,
@@ -36,20 +64,12 @@ var accionesSchema = new Schema({
   subarea_dirigido_accion:                  String,
   estatus_sec_2:                            String,//Segundo apartado de acciones de formacion
   competencia:                              String,
-  resultado_apredizaje_propuesto:[{
-    logro:                                  String
-  }],
+  resultado_apredizaje_propuesto:           [resultado_apredizaje_propuesto_schema],
   metodologia_didactica:                    String,
   metodologia_resultado:                    String,
   lineamientos_acreditacion:                String,
   estatus_sec_3 :                           String,//Tercer apartado de acciones de formacion
-  planeacion_didactica:[{
-      aprendizajes_esperados:               String,
-      tiempo_hrs:                           String,
-      tiempo_min:                           String,
-      contenido:                            String,
-      referencias:                          String
-  }],
+  planeacion_didactica:                     [planeacion_didactica_schema],
   estatus_sec_4 :                           String //Cuarto apartado de acciones de formacion
 
 },

@@ -161,7 +161,11 @@ block content
                 .form-group
                   span(class="control-label col-md-3")
                   div(class="col-md-9")
-                    input#active_coparticipacion(type="checkbox", name="active_coparticipacion", onclick="checkCoparticipacion(this)")
+                    if accionFormacion.active_coparticipacion == "on"
+                      input#active_coparticipacion(type="checkbox", name="active_coparticipacion", onclick="checkCoparticipacion(this)", checked)
+                    else
+                      input#active_coparticipacion(type="checkbox", name="active_coparticipacion", onclick="checkCoparticipacion(this)")
+                          
                     span.fa-l En coparticipación con otras Dependencias Politécnicas
                     +ayuda("Seleccionar solo en caso de que la acción de formación se lleve a cabo en colaboración con otra unidad responsable.")
                           
@@ -177,6 +181,26 @@ block content
                       a.btn.btn-success.fa-r(onclick="addUnidadCop()")
                         i.fa.fa-plus-circle.fa-r
                         | Agregar dependencia coparticipante
+                        
+                        
+                if accionFormacion.coparticipacion.length >0
+                  - var coparticipacion = accionFormacion.coparticipacion
+                  - var i = 0
+                  each cop in coparticipacion
+                    - var contenedor = "divCopCont"+i
+                    div(id=contenedor)
+                      hr
+                      
+                      +h-input("text", "Nombre de la unidad o institución participante:", "coparticipacion["+i+++"][nombre]", "Nombre", cop.nombre, 9, 3, "", "","")
+                      div#dependenciaCoparticipanteAdd.form-group
+                        span.control-label.col-md-3
+                        div.col-md-9
+                          a.btn.btn-danger.fa-r(onclick='delUnidadCop("'+contenedor+'")')
+                            i.fa.fa-trash.fa-r
+                            | Eliminar
+                            
+                
+                    
         
                 div#dependenciasCoparticipantesDiv
                   
@@ -202,12 +226,14 @@ block content
     script.
       //Scrits de carga como estamos en update se tienen quw cargar los valores conforme a lo que esta registrado
       //- console.log("!{accionFormacion.coparticipacion}"); //De esta manera se traen los valores que vienen de los contoladores 
+      //- console.log("!{accionFormacion.coparticipacion.length}");
       var valor = $('#dependencia').val();
       if (valor==""){
         $("#unidad").empty();
         $("#unidad").append("<option value=''>Seleccione unidad ...</option>");
         $('#unidadForm').hide();
       }else{
+        revisaUnidades(valor);
         revisaUnidadesUp(valor);
         $('#unidadForm').show();
       }
@@ -218,7 +244,8 @@ block content
       
       
       //- Variable temporal para invrementar id de participantes
-      var participante = 0;
+      var participante = "!{accionFormacion.coparticipacion.length}";
+      console.log(participante);
       
       
       //- $('#unidadForm').hide();
@@ -330,7 +357,12 @@ block content
                 $("#unidad").empty();
                 add_append_select("unidad","","Seleccione unidad ...");
                 $.each(source.escuelas, function(index, escuela) {
-                  add_append_select("unidad",escuela.nombre,escuela.nombre);
+                  if(escuela.nombre=="!{accionFormacion.unidad}"){
+                    $("#unidad").append("<option value='"+escuela.nombre+"' selected='selected'>"+escuela.nombre+"</option>");
+                  }else{
+                    $("#unidad").append("<option value='"+escuela.nombre+"'>"+escuela.nombre+"</option>");
+                  }
+                  
                 });
               }},
             error: function(dato){

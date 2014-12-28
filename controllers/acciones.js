@@ -20,7 +20,7 @@ exports.findById = function(req, res, next) {
   accionesFormacion.findById(req.params.id, function(err, accionFormacion) {
     if(err) return res.send(500, err.message);
 
-    // console.log(accionFormacion);
+    console.log(accionFormacion.coparticipacion);
     res.locals.accionFormacion = accionFormacion;
     return next();
   });
@@ -64,7 +64,31 @@ exports.deleteAccion = function(req, res, next) {
       }
       console.log('Accion borrada / ');
       return next(), req.flash('message','Accion borrada correctamente.');
-    })
+    });
   });
 
+};
+
+
+
+//Agrega planeacion didactica
+exports.addPlaneacionDidactica = function(req, res, next){
+    accionesFormacion.findOneAndUpdate(
+      {
+        _id:req.params.id
+      },
+      { $push :{
+                  planeacion_didactica: req.body
+               }
+      },function (err, accion) {
+          if(err){
+            console.log(err);
+          }else{
+            console.log("Planeacion agregada");
+            res.accionFormacion = accion;
+            return next();
+          }
+      }
+    );
+  // console.log("agregando planeacion");
 };
