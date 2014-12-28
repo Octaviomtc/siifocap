@@ -1,5 +1,11 @@
-var mongoose = require('mongoose'),
-    Schema   = mongoose.Schema;
+var mongoose          = require('mongoose');
+var Schema            = mongoose.Schema;
+var crate             = require('mongoose-crate');
+var LocalFS           = require('mongoose-crate-localfs');
+
+
+
+
 
 var planeacion_didactica_schema = new Schema(
   {
@@ -77,5 +83,17 @@ var accionesSchema = new Schema({
   collection : 'acciones_formacion'
 }
 );
+
+
+// SE CONFIGURA EL ESQUEMA PARA USAR EL STORAGE
+accionesSchema.plugin(crate, {
+  storage: new LocalFS({
+    directory: '/path/to/storage/directory'
+  }),
+  fields: {
+    attachment: {}
+  }
+});
+
 
 module.exports = mongoose.model('acciones', accionesSchema);
