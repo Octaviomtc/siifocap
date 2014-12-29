@@ -75,19 +75,19 @@ exports.deleteAccion = function(req, res, next) {
 
 //Agrega planeacion didactica
 exports.addPlaneacionDidactica = function(req, res, next){
-
-    function acciones_formacion(cur){
-      accionesFormacion.findById(req.params.id, function(err, accionFormacion) {
-        if(err) return res.send(500, err.message);
-        cur = accionFormacion.cur;
-        return cur;
-      });
-    }
-
-    var cur = "";
-    acciones_formacion(cur);
-    console.log(cur);
-
+    // 
+    // function acciones_formacion(cur){
+    //   accionesFormacion.findById(req.params.id, function(err, accionFormacion) {
+    //     if(err) return res.send(500, err.message);
+    //     cur = accionFormacion.cur;
+    //     return cur;
+    //   });
+    // }
+    //
+    // var cur = "";
+    // acciones_formacion(cur);
+    // console.log(cur);
+    //
 
     accionesFormacion.findOneAndUpdate(
       {
@@ -100,6 +100,8 @@ exports.addPlaneacionDidactica = function(req, res, next){
           if(err){
             console.log(err);
           }else{
+
+
             if(_.isEmpty(req.files)){
               console.log("no hay archivos que agregar");
             }else{
@@ -114,6 +116,8 @@ exports.addPlaneacionDidactica = function(req, res, next){
                 console.log("success!");
               });
             }
+
+
             console.log("Planeacion agregada");
             res.accionFormacion = accion;
             console.log(accion.planeacion_didactica);
