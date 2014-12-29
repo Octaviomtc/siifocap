@@ -1,21 +1,23 @@
-var mongoose = require('mongoose');
-var escuela  = mongoose.model('escuela');
-var dependencia  = mongoose.model('dependencia');
-var request = require('superagent');
-
-var usuarios  = mongoose.model('User');
-
-
+var mongoose              = require('mongoose');
+var request               = require('superagent');
+var logger                = require("../utils/winston");
+var escuela               = mongoose.model('escuela');
+var dependencia           = mongoose.model('dependencia');
+var usuarios              = mongoose.model('User');
 
 // Dependencias
 exports.findAllDependencias = function(req, res, next) {
+    logger.debug('[DEPENDENCIAS] Obteniendo Dependencias')
     dependencia.find(function(err, dependencias) {
-        if(err) res.send(500, err.message);
-        console.log('GET / dependecias');
-        res.locals.dependencias = dependencias;
+        if (!err){
+          logger.info('[DEPENDENCIAS] Registros obtenidos ::' +dependencias.length)
+          res.locals.dependencias = dependencias;
+        }else{
+          logger.error('[DEPENDENCIAS] Error DB :: '+err.message)
+          res.send(500, err.message);
+        }
         return next();
     });
-
 };
 
 

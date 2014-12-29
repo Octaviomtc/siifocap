@@ -1,52 +1,84 @@
-var mongoose = require('mongoose'),
-    Schema   = mongoose.Schema;
+var mongoose          = require('mongoose');
+var Schema            = mongoose.Schema;
+
+
+var planeacion_didactica_schema = new Schema(
+  {
+    aprendizajes_esperados:                 String,
+    tiempo_hrs:                             String,
+    tiempo_min:                             String,
+    contenido:                              String,
+    referencias:                            String,
+    nombre_actividad:                       String,
+    objetivo_actividad:                     String,
+    recursos:                               String,
+    tiempo_realizacion:                     String,
+    evidencia:                              String,
+    instrumento_evaluacion:                 String,
+    instrumento_otro_evaluacion:            String,
+    instrumento_archivo_evaluacion:         String
+  }
+);
+
+
+var coparticipacion_schema = new Schema(
+  {
+    nombre:                                 String
+  }
+);
+
+var resultado_apredizaje_propuesto_schema = new Schema(
+  {
+    logro:                                  String
+  }
+);
 
 var accionesSchema = new Schema({
-  id: { type: String },
-  registro_date: { type: Date, default: Date.now },
-  estatus_accion: {type: String, default: "Pendiente"},
-  dependencia: { type: String },
-  unidad: { type: String },
-  dirigido_a: { type: String},
-  dirigido_a_tipo: {type: String},
-  nombre_institucion: {type: String},
-  dirigido_a_dependencia: {type: String},
-  nombre_accion_Formacion: {type: String},
-  tipo_accion_Formacion: {type: String},
-  modalidad_accion_Formacion: {type: String},
-  horas_presencial: {type: String},
-  horas_linea: {type: String},
-  modalidad_fecha_inicio: {type: String},
-  modalidad_fecha_fin: { type: String },
-  modalidad_hora_inicio: { type: String },
-  modalidad_hora_fin: { type: String },
-  perfil_facilitador: { type: String },
-  perfil_participante:{ type: String },
-  active_coparticipacion: { type: String },
-  coparticipacion_convenio: { type: String },
-  coparticipacion_institucion_validante: { type: String },
-  coparticipacion:[{
-      nombre: { type: String }
-  }],
-  estatus_sec_1 : {type: String},//Primer apartado de acciones de formacion
-  justificacion : {type: String},
-  finalidad: {type: String},
-  area_dirigido_accion: {type: String},
-  subarea_dirigido_accion: {type: String},
-  estatus_sec_2 : {type: String},
-  competencia: {type: String},
-  resultado_apredizaje_propuesto:[{
-    logro: { type: String }
-  }],
-  metodologia_didactica: {type: String},
-  metodologia_resultado: {type: String},
-  lineamientos_acreditacion: {type: String},
-  estatus_sec_3 : {type: String},
-  estatus_sec_4 : {type: String}
+  //id: { type: String },//NECESARIO
+  cur:                                      {type: String, default: "00000000"},
+  registro_date:                            { type: Date, default: Date.now },
+  estatus_accion:                           {type: String, default: "Pendiente"},
+  dependencia:                              String,
+  unidad:                                   String,
+  dirigido_a:                               String,
+  dirigido_a_tipo:                          String,
+  nombre_institucion:                       String,
+  dirigido_a_dependencia:                   String,
+  nombre_accion_Formacion:                  String,
+  tipo_accion_Formacion:                    String,
+  modalidad_accion_Formacion:               String,
+  horas_presencial:                         String,
+  horas_linea:                              String,
+  modalidad_fecha_inicio:                   String,
+  modalidad_fecha_fin:                      String,
+  modalidad_hora_inicio:                    String,
+  modalidad_hora_fin:                       String,
+  perfil_facilitador:                       String,
+  perfil_participante:                      String,
+  active_coparticipacion:                   Boolean,
+  coparticipacion_convenio:                 String,
+  coparticipacion_institucion_validante:    String,
+  coparticipacion:                          [coparticipacion_schema],
+  estatus_sec_1:                            String,//Primer apartado de acciones de formacion
+  justificacion:                            String,
+  finalidad:                                String,
+  area_dirigido_accion:                     String,
+  subarea_dirigido_accion:                  String,
+  estatus_sec_2:                            String,//Segundo apartado de acciones de formacion
+  competencia:                              String,
+  resultado_apredizaje_propuesto:           [resultado_apredizaje_propuesto_schema],
+  metodologia_didactica:                    String,
+  metodologia_resultado:                    String,
+  lineamientos_acreditacion:                String,
+  estatus_sec_3 :                           String,//Tercer apartado de acciones de formacion
+  planeacion_didactica:                     [planeacion_didactica_schema],
+  estatus_sec_4 :                           String //Cuarto apartado de acciones de formacion
+
 },
 {
   collection : 'acciones_formacion'
 }
 );
+
 
 module.exports = mongoose.model('acciones', accionesSchema);

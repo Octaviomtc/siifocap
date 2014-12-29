@@ -9,27 +9,27 @@
               
     .collapse.navbar-collapse.navbar-ex1-collapse
       ul.nav.navbar-nav
-        li.active
+        li
           a(href='#')
             i.fa.fa-r.fa-user
             | #{user.username}
-        li
+        li(class=datos.estado=="home" ? "active":"")
           a(href='/home')
             i.fa.fa-r.fa-home
             | Inicio
-        li
+        li(class=datos.estado=="acciones" ? "active":"")
           a(href='/acciones-formacion')
             i.fa.fa-r.fa-archive
             | Aciones de formación
-        li
-          a(href='#')
+        li(class=datos.estado=="participantes" ? "active":"")
+          a(href='/participantes')
             i.fa.fa-r.fa-users
             | Participantes
         li
           a(href='#')
             i.fa.fa-r.fa-graduation-cap
             | Facilitadores
-        li
+        li(class=datos.estado=="unidades" ? "active":"")
           a(href='/unidades')
             i.fa.fa-r.fa-building-o
             | Unidades Politécnicas
@@ -42,7 +42,7 @@
             i.fa.fa-r.fa-file-text-o
             | Reportes
         if user.rol == "admin"
-          li
+          li(class=datos.estado=="administracion" ? "active":"")
             a(href='/administracion')
               i.fa.fa-r.fa-cogs
               | Administración

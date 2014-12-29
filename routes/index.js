@@ -1,16 +1,18 @@
 var express         = require('express');
+var multer          = require('multer'); //Multipart form
 //Modelos
 var escuela         = require('../models/escuela');
-var acciones         = require('../models/acciones');
+var acciones        = require('../models/acciones');
 var dependencia     = require('../models/dependencia');
 var rol             = require('../models/rol');
+var participante    = require('../models/participante')
 //Controladores
 var usuariosMid     = require('../controllers/usuarios');
 var escuelaMid      = require('../controllers/escuelas');
 var accionesMid     = require('../controllers/acciones');
+var participMid     = require('../controllers/participantes')
+
 var router          = express.Router();
-
-
 
 // Validadores Autenticacion
 var isAuthenticated = function (req, res, next) {
@@ -54,7 +56,8 @@ module.exports = function(passport){
     router.get('/home', isAuthenticated, function(req, res){
         param={
             icon: "fa-home",
-            seccion: "Presentación"
+            seccion: "Presentación",
+            estado: "home"
         };
         res.render('app/landing/index', {
           user: req.user,
@@ -69,12 +72,12 @@ module.exports = function(passport){
     });
 
     /*****************************************************************/
-
     // Rutas para panel de administracion
     router.get('/administracion', isAuthenticatedAdmin, usuariosMid.allUsers, function(req, res){
         param={
             icon: "fa-cogs",
-            seccion: "Administración"
+            seccion: "Administración",
+            estado: "administracion"
         }
         res.render('app/admin/admin', { message: req.flash('message'), user: req.user, datos: param});
     });
@@ -84,7 +87,8 @@ module.exports = function(passport){
     router.get('/administracion/usuarios/nuevo', isAuthenticatedAdmin, usuariosMid.allRoles, function(req, res){
         param={
             icon: "fa-cogs",
-            seccion: "Administración"
+            seccion: "Administración",
+            estado: "administracion"
         }
         res.render('app/usuarios/nuevo',{message: req.flash('message'), user: req.user, datos: param});
     });
@@ -100,12 +104,16 @@ module.exports = function(passport){
         res.redirect('/administracion');
     });
 
+
+
     /*****************************************************************/
     //  UNIDADES ACADEMICAS
     router.get('/unidades', isAuthenticated, escuelaMid.findAllEscuelas, function(req, res){
         param={
             icon: "fa-building-o",
-            seccion: "Unidades Politécnicas"
+            seccion: "Unidades Politécnicas",
+            estado: "unidades"
+
         }
         res.render('app/unidades/index', { message: req.flash('message'), user: req.user, datos: param});
     });
@@ -119,7 +127,8 @@ module.exports = function(passport){
     router.get('/unidades/ver/:id', isAuthenticated, escuelaMid.findById, function(req, res){
        param={
             icon: "fa-building-o",
-            seccion: res.locals.escuela.nombre
+            seccion: res.locals.escuela.nombre,
+            estado: "unidades"
         }
 
         res.render('app/unidades/ver',{message: req.flash('message'), user: req.user, datos: param});
@@ -145,7 +154,8 @@ module.exports = function(passport){
     router.get('/unidades/nueva', isAuthenticated, escuelaMid.findAllDependencias, function(req, res){
       param={
         icon: "fa-building-o",
-        seccion: "Nueva unidad"
+        seccion: "Nueva unidad",
+        estado: "unidades"
       }
 
       res.render('app/unidades/nueva',{message: req.flash('message'), user: req.user, datos: param});
@@ -159,7 +169,8 @@ module.exports = function(passport){
     router.get('/unidades/actualizar/:id', isAuthenticated, escuelaMid.findById, escuelaMid.findAllDependencias, function(req, res){
        param={
             icon: "fa-building-o",
-            seccion: res.locals.escuela.nombre
+            seccion: res.locals.escuela.nombre,
+            estado: "unidades"
         }
 
         res.render('app/unidades/editar',{message: req.flash('message'), user: req.user, datos: param});
@@ -174,13 +185,15 @@ module.exports = function(passport){
 
 
 
+
     /*****************************************************************/
     //  ACCIONES DE FORMACIÓN
     //  Index de acciones de formacion se obtiene tabla con datos
     router.get('/acciones-formacion', isAuthenticated, accionesMid.allAccionFormacion, function(req, res){
         param={
             icon: "fa-archive",
-            seccion: "Acciones de formación"
+            seccion: "Acciones de formación",
+            estado: "acciones"
         }
         res.render('app/acciones/index', { message: req.flash('message'), user: req.user, datos: param});
     });
@@ -189,7 +202,9 @@ module.exports = function(passport){
     router.get('/acciones-formacion/nueva/datos-generales', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, function(req, res){
        param={
             icon: "fa-plus-circle",
-            seccion: "Nueva acción de formación"
+            seccion: "Nueva acción de formación",
+            estado: "acciones",
+            paso: "1"
         }
 
         res.render('app/acciones/nueva/datos-generales',{message: req.flash('message'), user: req.user, datos: param});
@@ -207,7 +222,9 @@ module.exports = function(passport){
     router.get('/acciones-formacion/nueva/:id/datos-generales', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, accionesMid.findById, function(req, res){
       param={
         icon: "fa-plus-circle",
-        seccion: "Nueva acción de formación"
+        seccion: "Nueva acción de formación",
+        estado: "acciones",
+        paso: "1"
       }
 
       res.render('app/acciones/actualizar/datos-generales',{message: req.flash('message'), user: req.user, datos: param});
@@ -227,7 +244,9 @@ module.exports = function(passport){
     router.get('/acciones-formacion/nueva/:id/justificacion', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, accionesMid.findById, function(req, res){
       param={
         icon: "fa-plus-circle",
-        seccion: "Nueva acción de formación"
+        seccion: "Nueva acción de formación",
+        estado: "acciones",
+        paso: "2"
       }
       res.render('app/acciones/actualizar/justificacion',{message: req.flash('message'), user: req.user, datos: param});
     });
@@ -245,7 +264,9 @@ module.exports = function(passport){
     router.get('/acciones-formacion/nueva/:id/encuadre', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, accionesMid.findById, function(req, res){
       param={
         icon: "fa-plus-circle",
-        seccion: "Nueva acción de formación"
+        seccion: "Nueva acción de formación",
+        estado: "acciones",
+        paso: "3"
       }
       res.render('app/acciones/actualizar/encuadre',{message: req.flash('message'), user: req.user, datos: param});
     });
@@ -259,14 +280,13 @@ module.exports = function(passport){
 
 
 
-
-
-
     //PASO 4 Encuadre
     router.get('/acciones-formacion/nueva/:id/planeacion', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, accionesMid.findById, function(req, res){
       param={
         icon: "fa-plus-circle",
-        seccion: "Nueva acción de formación"
+        seccion: "Nueva acción de formación",
+        estado: "acciones",
+        paso: "4"
       }
       res.render('app/acciones/actualizar/planeacion',{message: req.flash('message'), user: req.user, datos: param});
     });
@@ -280,10 +300,68 @@ module.exports = function(passport){
 
 
 
+    //update paso 4 AGREGAR PLANEACION DIDACTICA
+
+    // se configura para recibir archivos temporales
+    router.post('/acciones-formacion/nueva/:id/planeacion/didactica', isAuthenticated, multer({
+      dest: __dirname+ "/.."+"/temp/uploads/acciones_formacion/planeacion_didactica"
+    }));
+
+    router.post('/acciones-formacion/nueva/:id/planeacion/didactica', isAuthenticated, accionesMid.addPlaneacionDidactica, function(req, res){
+      // console.log(res.accionFormacion);
+      res.redirect('/acciones-formacion/nueva/'+res.accionFormacion._id+'/planeacion');
+    });
+
+
+
+
+
+
     //Borrar una accion de formacion
     router.get('/acciones-formacion/borrar/:id', isAuthenticated, accionesMid.deleteAccion, function(req, res){
       res.redirect('/acciones-formacion');
     });
+
+
+
+
+
+    /*****************************************************************/
+    // SECCIÓN PARTICIPANTES
+
+
+
+    router.get('/participantes', isAuthenticated, participMid.allParticipantes, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Participantes",
+        estado: "participantes"
+      }
+      res.render('app/participantes/index',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+    router.get('/participantes/nuevo', isAuthenticated, accionesMid.allAccionFormacion, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Nuevo Participante",
+        estado: "participantes"
+      }
+      res.render('app/participantes/nuevo',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+    router.post('/participantes/nuevo', isAuthenticated, participMid.addParticipante, function (req, res){
+      res.set('Content-Type', 'application/javascript');
+      res.redirect('/participantes');
+    });
+
+    router.get('/participantes/borrar/:id', isAuthenticated, participMid.deleteParticipante, function(req, res){
+      res.redirect('/participantes');
+    });
+
+
+
+
+
 
     return router;
 }
