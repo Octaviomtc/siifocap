@@ -686,3 +686,375 @@
 {"level":"info","message":"Validando login |admin|aa","timestamp":"2014-12-28T22:57:55.717Z"}
 {"level":"warn","message":"Contraseña incorrecta","timestamp":"2014-12-28T22:57:55.960Z"}
 {"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-28T22:58:00.226Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-28T23:03:42.899Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T02:38:57.975Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T02:39:01.594Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T02:39:05.217Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T02:39:06.996Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T02:39:08.429Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T02:39:09.771Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T02:39:11.109Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T02:39:13.462Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T02:39:16.589Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T02:39:31.794Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T03:07:32.775Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T03:08:10.722Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T03:08:13.470Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T03:08:14.922Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T03:08:16.274Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T03:08:17.577Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T03:08:20.314Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T03:08:25.035Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T03:08:41.402Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T03:09:05.081Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T03:09:37.928Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T03:12:08.169Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T03:12:11.037Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T03:12:12.777Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T03:12:15.204Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T03:12:17.493Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T03:12:20.413Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T03:12:23.379Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T03:12:33.518Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T03:14:42.462Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T03:14:45.448Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T03:14:47.962Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T03:14:49.897Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T03:14:51.677Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T03:14:52.845Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T03:14:53.921Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T03:14:55.532Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T03:14:57.150Z"}
+{"date":"Sun Dec 28 2014 21:50:04 GMT-0600 (CST)","process":{"pid":33491,"uid":501,"gid":20,"cwd":"/Users/octaviomtc/Dev/siifocap","execPath":"/usr/local/bin/node","version":"v0.10.32","argv":["node","/Users/octaviomtc/Dev/siifocap/bin/www"],"memoryUsage":{"rss":46977024,"heapTotal":30119424,"heapUsed":18942712}},"os":{"loadavg":[2.48828125,2.53125,2.4228515625],"uptime":368960},"trace":[{"column":107,"file":"/Users/octaviomtc/Dev/siifocap/routes/index.js","function":"module.exports","line":304,"method":"exports","native":false},{"column":54,"file":"/Users/octaviomtc/Dev/siifocap/app.js","function":"","line":12,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":474,"method":"Module._extensions..js","native":false},{"column":32,"file":"module.js","function":"Module.load","line":356,"method":"load","native":false},{"column":12,"file":"module.js","function":"Function.Module._load","line":312,"method":"Module._load","native":false},{"column":17,"file":"module.js","function":"Module.require","line":364,"method":"require","native":false},{"column":17,"file":"module.js","function":"require","line":380,"method":null,"native":false},{"column":29,"file":"/Users/octaviomtc/Dev/siifocap/bin/www","function":"","line":3,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false}],"stack":["ReferenceError: config is not defined","    at module.exports (/Users/octaviomtc/Dev/siifocap/routes/index.js:304:107)","    at Object.<anonymous> (/Users/octaviomtc/Dev/siifocap/app.js:12:54)","    at Module._compile (module.js:456:26)","    at Object.Module._extensions..js (module.js:474:10)","    at Module.load (module.js:356:32)","    at Function.Module._load (module.js:312:12)","    at Module.require (module.js:364:17)","    at require (module.js:380:17)","    at Object.<anonymous> (/Users/octaviomtc/Dev/siifocap/bin/www:3:29)","    at Module._compile (module.js:456:26)"],"level":"error","message":"uncaughtException: config is not defined","timestamp":"2014-12-29T03:50:04.176Z"}
+{"date":"Sun Dec 28 2014 21:50:08 GMT-0600 (CST)","process":{"pid":33498,"uid":501,"gid":20,"cwd":"/Users/octaviomtc/Dev/siifocap","execPath":"/usr/local/bin/node","version":"v0.10.32","argv":["node","/Users/octaviomtc/Dev/siifocap/bin/www"],"memoryUsage":{"rss":46256128,"heapTotal":30119424,"heapUsed":18925960}},"os":{"loadavg":[2.60888671875,2.55517578125,2.431640625],"uptime":368964},"trace":[{"column":107,"file":"/Users/octaviomtc/Dev/siifocap/routes/index.js","function":"module.exports","line":304,"method":"exports","native":false},{"column":54,"file":"/Users/octaviomtc/Dev/siifocap/app.js","function":"","line":12,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":474,"method":"Module._extensions..js","native":false},{"column":32,"file":"module.js","function":"Module.load","line":356,"method":"load","native":false},{"column":12,"file":"module.js","function":"Function.Module._load","line":312,"method":"Module._load","native":false},{"column":17,"file":"module.js","function":"Module.require","line":364,"method":"require","native":false},{"column":17,"file":"module.js","function":"require","line":380,"method":null,"native":false},{"column":29,"file":"/Users/octaviomtc/Dev/siifocap/bin/www","function":"","line":3,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false}],"stack":["ReferenceError: config is not defined","    at module.exports (/Users/octaviomtc/Dev/siifocap/routes/index.js:304:107)","    at Object.<anonymous> (/Users/octaviomtc/Dev/siifocap/app.js:12:54)","    at Module._compile (module.js:456:26)","    at Object.Module._extensions..js (module.js:474:10)","    at Module.load (module.js:356:32)","    at Function.Module._load (module.js:312:12)","    at Module.require (module.js:364:17)","    at require (module.js:380:17)","    at Object.<anonymous> (/Users/octaviomtc/Dev/siifocap/bin/www:3:29)","    at Module._compile (module.js:456:26)"],"level":"error","message":"uncaughtException: config is not defined","timestamp":"2014-12-29T03:50:08.622Z"}
+{"date":"Sun Dec 28 2014 21:50:24 GMT-0600 (CST)","process":{"pid":33526,"uid":501,"gid":20,"cwd":"/Users/octaviomtc/Dev/siifocap","execPath":"/usr/local/bin/node","version":"v0.10.32","argv":["node","/Users/octaviomtc/Dev/siifocap/bin/www"],"memoryUsage":{"rss":46641152,"heapTotal":30119424,"heapUsed":18917624}},"os":{"loadavg":[2.57177734375,2.544921875,2.4287109375],"uptime":368980},"trace":[{"column":107,"file":"/Users/octaviomtc/Dev/siifocap/routes/index.js","function":"module.exports","line":304,"method":"exports","native":false},{"column":54,"file":"/Users/octaviomtc/Dev/siifocap/app.js","function":"","line":12,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":474,"method":"Module._extensions..js","native":false},{"column":32,"file":"module.js","function":"Module.load","line":356,"method":"load","native":false},{"column":12,"file":"module.js","function":"Function.Module._load","line":312,"method":"Module._load","native":false},{"column":17,"file":"module.js","function":"Module.require","line":364,"method":"require","native":false},{"column":17,"file":"module.js","function":"require","line":380,"method":null,"native":false},{"column":29,"file":"/Users/octaviomtc/Dev/siifocap/bin/www","function":"","line":3,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false}],"stack":["ReferenceError: config is not defined","    at module.exports (/Users/octaviomtc/Dev/siifocap/routes/index.js:304:107)","    at Object.<anonymous> (/Users/octaviomtc/Dev/siifocap/app.js:12:54)","    at Module._compile (module.js:456:26)","    at Object.Module._extensions..js (module.js:474:10)","    at Module.load (module.js:356:32)","    at Function.Module._load (module.js:312:12)","    at Module.require (module.js:364:17)","    at require (module.js:380:17)","    at Object.<anonymous> (/Users/octaviomtc/Dev/siifocap/bin/www:3:29)","    at Module._compile (module.js:456:26)"],"level":"error","message":"uncaughtException: config is not defined","timestamp":"2014-12-29T03:50:24.306Z"}
+{"date":"Sun Dec 28 2014 22:25:15 GMT-0600 (CST)","process":{"pid":35546,"uid":501,"gid":20,"cwd":"/Users/octaviomtc/Dev/siifocap","execPath":"/usr/local/bin/node","version":"v0.10.32","argv":["node","/Users/octaviomtc/Dev/siifocap/bin/www"],"memoryUsage":{"rss":46514176,"heapTotal":30119424,"heapUsed":18918080}},"os":{"loadavg":[2.80615234375,2.64501953125,2.5078125],"uptime":371071},"trace":[{"column":107,"file":"/Users/octaviomtc/Dev/siifocap/routes/index.js","function":"module.exports","line":304,"method":"exports","native":false},{"column":54,"file":"/Users/octaviomtc/Dev/siifocap/app.js","function":"","line":12,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":474,"method":"Module._extensions..js","native":false},{"column":32,"file":"module.js","function":"Module.load","line":356,"method":"load","native":false},{"column":12,"file":"module.js","function":"Function.Module._load","line":312,"method":"Module._load","native":false},{"column":17,"file":"module.js","function":"Module.require","line":364,"method":"require","native":false},{"column":17,"file":"module.js","function":"require","line":380,"method":null,"native":false},{"column":29,"file":"/Users/octaviomtc/Dev/siifocap/bin/www","function":"","line":3,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false}],"stack":["ReferenceError: config is not defined","    at module.exports (/Users/octaviomtc/Dev/siifocap/routes/index.js:304:107)","    at Object.<anonymous> (/Users/octaviomtc/Dev/siifocap/app.js:12:54)","    at Module._compile (module.js:456:26)","    at Object.Module._extensions..js (module.js:474:10)","    at Module.load (module.js:356:32)","    at Function.Module._load (module.js:312:12)","    at Module.require (module.js:364:17)","    at require (module.js:380:17)","    at Object.<anonymous> (/Users/octaviomtc/Dev/siifocap/bin/www:3:29)","    at Module._compile (module.js:456:26)"],"level":"error","message":"uncaughtException: config is not defined","timestamp":"2014-12-29T04:25:15.032Z"}
+{"date":"Sun Dec 28 2014 22:26:32 GMT-0600 (CST)","process":{"pid":35628,"uid":501,"gid":20,"cwd":"/Users/octaviomtc/Dev/siifocap","execPath":"/usr/local/bin/node","version":"v0.10.32","argv":["node","/Users/octaviomtc/Dev/siifocap/bin/www"],"memoryUsage":{"rss":46776320,"heapTotal":30119424,"heapUsed":18951072}},"os":{"loadavg":[1.95068359375,2.40966796875,2.427734375],"uptime":371148},"trace":[{"column":107,"file":"/Users/octaviomtc/Dev/siifocap/routes/index.js","function":"module.exports","line":304,"method":"exports","native":false},{"column":54,"file":"/Users/octaviomtc/Dev/siifocap/app.js","function":"","line":12,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":474,"method":"Module._extensions..js","native":false},{"column":32,"file":"module.js","function":"Module.load","line":356,"method":"load","native":false},{"column":12,"file":"module.js","function":"Function.Module._load","line":312,"method":"Module._load","native":false},{"column":17,"file":"module.js","function":"Module.require","line":364,"method":"require","native":false},{"column":17,"file":"module.js","function":"require","line":380,"method":null,"native":false},{"column":29,"file":"/Users/octaviomtc/Dev/siifocap/bin/www","function":"","line":3,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false}],"stack":["ReferenceError: config is not defined","    at module.exports (/Users/octaviomtc/Dev/siifocap/routes/index.js:304:107)","    at Object.<anonymous> (/Users/octaviomtc/Dev/siifocap/app.js:12:54)","    at Module._compile (module.js:456:26)","    at Object.Module._extensions..js (module.js:474:10)","    at Module.load (module.js:356:32)","    at Function.Module._load (module.js:312:12)","    at Module.require (module.js:364:17)","    at require (module.js:380:17)","    at Object.<anonymous> (/Users/octaviomtc/Dev/siifocap/bin/www:3:29)","    at Module._compile (module.js:456:26)"],"level":"error","message":"uncaughtException: config is not defined","timestamp":"2014-12-29T04:26:32.631Z"}
+{"date":"Sun Dec 28 2014 22:27:03 GMT-0600 (CST)","process":{"pid":35666,"uid":501,"gid":20,"cwd":"/Users/octaviomtc/Dev/siifocap","execPath":"/usr/local/bin/node","version":"v0.10.32","argv":["node","/Users/octaviomtc/Dev/siifocap/bin/www"],"memoryUsage":{"rss":46792704,"heapTotal":30119424,"heapUsed":18918600}},"os":{"loadavg":[2.52734375,2.51123046875,2.462890625],"uptime":371179},"trace":[{"column":106,"file":"/Users/octaviomtc/Dev/siifocap/routes/index.js","function":"module.exports","line":304,"method":"exports","native":false},{"column":54,"file":"/Users/octaviomtc/Dev/siifocap/app.js","function":"","line":12,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":474,"method":"Module._extensions..js","native":false},{"column":32,"file":"module.js","function":"Module.load","line":356,"method":"load","native":false},{"column":12,"file":"module.js","function":"Function.Module._load","line":312,"method":"Module._load","native":false},{"column":17,"file":"module.js","function":"Module.require","line":364,"method":"require","native":false},{"column":17,"file":"module.js","function":"require","line":380,"method":null,"native":false},{"column":29,"file":"/Users/octaviomtc/Dev/siifocap/bin/www","function":"","line":3,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false}],"stack":["ReferenceError: __dir is not defined","    at module.exports (/Users/octaviomtc/Dev/siifocap/routes/index.js:304:106)","    at Object.<anonymous> (/Users/octaviomtc/Dev/siifocap/app.js:12:54)","    at Module._compile (module.js:456:26)","    at Object.Module._extensions..js (module.js:474:10)","    at Module.load (module.js:356:32)","    at Function.Module._load (module.js:312:12)","    at Module.require (module.js:364:17)","    at require (module.js:380:17)","    at Object.<anonymous> (/Users/octaviomtc/Dev/siifocap/bin/www:3:29)","    at Module._compile (module.js:456:26)"],"level":"error","message":"uncaughtException: __dir is not defined","timestamp":"2014-12-29T04:27:03.202Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T04:27:44.914Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T04:27:48.741Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T04:27:50.588Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T04:27:51.907Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T04:27:53.060Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T04:27:53.975Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T04:27:56.699Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T04:27:58.898Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T04:28:18.537Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T04:48:07.845Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T04:48:11.799Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T04:48:13.472Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T04:48:16.863Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T04:48:19.490Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T04:48:21.208Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T04:48:22.493Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T04:48:24.789Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T04:48:26.906Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T04:48:28.992Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T04:52:25.917Z"}
+{"date":"Sun Dec 28 2014 22:59:19 GMT-0600 (CST)","process":{"pid":37545,"uid":501,"gid":20,"cwd":"/Users/octaviomtc/Dev/siifocap","execPath":"/usr/local/bin/node","version":"v0.10.32","argv":["node","/Users/octaviomtc/Dev/siifocap/bin/www"],"memoryUsage":{"rss":47140864,"heapTotal":30119424,"heapUsed":18922264}},"os":{"loadavg":[2.51220703125,2.22900390625,2.29150390625],"uptime":373115},"trace":[{"column":106,"file":"/Users/octaviomtc/Dev/siifocap/routes/index.js","function":"module.exports","line":304,"method":"exports","native":false},{"column":54,"file":"/Users/octaviomtc/Dev/siifocap/app.js","function":"","line":12,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":474,"method":"Module._extensions..js","native":false},{"column":32,"file":"module.js","function":"Module.load","line":356,"method":"load","native":false},{"column":12,"file":"module.js","function":"Function.Module._load","line":312,"method":"Module._load","native":false},{"column":17,"file":"module.js","function":"Module.require","line":364,"method":"require","native":false},{"column":17,"file":"module.js","function":"require","line":380,"method":null,"native":false},{"column":29,"file":"/Users/octaviomtc/Dev/siifocap/bin/www","function":"","line":3,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false}],"stack":["ReferenceError: config is not defined","    at module.exports (/Users/octaviomtc/Dev/siifocap/routes/index.js:304:106)","    at Object.<anonymous> (/Users/octaviomtc/Dev/siifocap/app.js:12:54)","    at Module._compile (module.js:456:26)","    at Object.Module._extensions..js (module.js:474:10)","    at Module.load (module.js:356:32)","    at Function.Module._load (module.js:312:12)","    at Module.require (module.js:364:17)","    at require (module.js:380:17)","    at Object.<anonymous> (/Users/octaviomtc/Dev/siifocap/bin/www:3:29)","    at Module._compile (module.js:456:26)"],"level":"error","message":"uncaughtException: config is not defined","timestamp":"2014-12-29T04:59:19.908Z"}
+{"date":"Sun Dec 28 2014 22:59:52 GMT-0600 (CST)","process":{"pid":37595,"uid":501,"gid":20,"cwd":"/Users/octaviomtc/Dev/siifocap","execPath":"/usr/local/bin/node","version":"v0.10.32","argv":["node","/Users/octaviomtc/Dev/siifocap/bin/www"],"memoryUsage":{"rss":47218688,"heapTotal":30119424,"heapUsed":18925632}},"os":{"loadavg":[2.47021484375,2.23876953125,2.29150390625],"uptime":373148},"trace":[{"column":16,"file":"/Users/octaviomtc/Dev/siifocap/routes/index.js","function":"module.exports","line":304,"method":"exports","native":false},{"column":54,"file":"/Users/octaviomtc/Dev/siifocap/app.js","function":"","line":12,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":474,"method":"Module._extensions..js","native":false},{"column":32,"file":"module.js","function":"Module.load","line":356,"method":"load","native":false},{"column":12,"file":"module.js","function":"Function.Module._load","line":312,"method":"Module._load","native":false},{"column":17,"file":"module.js","function":"Module.require","line":364,"method":"require","native":false},{"column":17,"file":"module.js","function":"require","line":380,"method":null,"native":false},{"column":29,"file":"/Users/octaviomtc/Dev/siifocap/bin/www","function":"","line":3,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false}],"stack":["ReferenceError: config is not defined","    at module.exports (/Users/octaviomtc/Dev/siifocap/routes/index.js:304:16)","    at Object.<anonymous> (/Users/octaviomtc/Dev/siifocap/app.js:12:54)","    at Module._compile (module.js:456:26)","    at Object.Module._extensions..js (module.js:474:10)","    at Module.load (module.js:356:32)","    at Function.Module._load (module.js:312:12)","    at Module.require (module.js:364:17)","    at require (module.js:380:17)","    at Object.<anonymous> (/Users/octaviomtc/Dev/siifocap/bin/www:3:29)","    at Module._compile (module.js:456:26)"],"level":"error","message":"uncaughtException: config is not defined","timestamp":"2014-12-29T04:59:52.805Z"}
+{"date":"Sun Dec 28 2014 23:00:00 GMT-0600 (CST)","process":{"pid":37617,"uid":501,"gid":20,"cwd":"/Users/octaviomtc/Dev/siifocap","execPath":"/usr/local/bin/node","version":"v0.10.32","argv":["node","/Users/octaviomtc/Dev/siifocap/bin/www"],"memoryUsage":{"rss":46710784,"heapTotal":30119424,"heapUsed":18925592}},"os":{"loadavg":[2.41015625,2.23095703125,2.28759765625],"uptime":373156},"trace":[{"column":16,"file":"/Users/octaviomtc/Dev/siifocap/routes/index.js","function":"module.exports","line":304,"method":"exports","native":false},{"column":54,"file":"/Users/octaviomtc/Dev/siifocap/app.js","function":"","line":12,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":474,"method":"Module._extensions..js","native":false},{"column":32,"file":"module.js","function":"Module.load","line":356,"method":"load","native":false},{"column":12,"file":"module.js","function":"Function.Module._load","line":312,"method":"Module._load","native":false},{"column":17,"file":"module.js","function":"Module.require","line":364,"method":"require","native":false},{"column":17,"file":"module.js","function":"require","line":380,"method":null,"native":false},{"column":29,"file":"/Users/octaviomtc/Dev/siifocap/bin/www","function":"","line":3,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false}],"stack":["ReferenceError: config is not defined","    at module.exports (/Users/octaviomtc/Dev/siifocap/routes/index.js:304:16)","    at Object.<anonymous> (/Users/octaviomtc/Dev/siifocap/app.js:12:54)","    at Module._compile (module.js:456:26)","    at Object.Module._extensions..js (module.js:474:10)","    at Module.load (module.js:356:32)","    at Function.Module._load (module.js:312:12)","    at Module.require (module.js:364:17)","    at require (module.js:380:17)","    at Object.<anonymous> (/Users/octaviomtc/Dev/siifocap/bin/www:3:29)","    at Module._compile (module.js:456:26)"],"level":"error","message":"uncaughtException: config is not defined","timestamp":"2014-12-29T05:00:00.614Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T05:10:18.918Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T05:10:22.498Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T05:10:44.067Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T05:10:45.453Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T05:10:46.832Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T05:10:47.858Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T05:10:50.374Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T05:10:52.277Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T05:11:11.463Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T05:15:44.465Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T05:15:51.887Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T05:15:53.904Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T05:15:55.895Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T05:15:57.269Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T05:15:58.377Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T05:16:00.132Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T05:16:02.286Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T05:16:04.016Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T05:16:13.748Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T05:21:23.389Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T05:21:27.861Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T05:21:29.678Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T05:21:31.417Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T05:21:32.897Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T05:21:34.131Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T05:21:36.557Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T05:21:39.084Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T05:21:51.469Z"}
+{"date":"Sun Dec 28 2014 23:24:10 GMT-0600 (CST)","process":{"pid":39167,"uid":501,"gid":20,"cwd":"/Users/octaviomtc/Dev/siifocap","execPath":"/usr/local/bin/node","version":"v0.10.32","argv":["node","/Users/octaviomtc/Dev/siifocap/bin/www"],"memoryUsage":{"rss":47087616,"heapTotal":30119424,"heapUsed":18944464}},"os":{"loadavg":[2.89794921875,2.48681640625,2.45166015625],"uptime":374606},"trace":[{"column":41,"file":"/Users/octaviomtc/Dev/siifocap/routes/index.js","function":"module.exports","line":307,"method":"exports","native":false},{"column":54,"file":"/Users/octaviomtc/Dev/siifocap/app.js","function":"","line":12,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":474,"method":"Module._extensions..js","native":false},{"column":32,"file":"module.js","function":"Module.load","line":356,"method":"load","native":false},{"column":12,"file":"module.js","function":"Function.Module._load","line":312,"method":"Module._load","native":false},{"column":17,"file":"module.js","function":"Module.require","line":364,"method":"require","native":false},{"column":17,"file":"module.js","function":"require","line":380,"method":null,"native":false},{"column":29,"file":"/Users/octaviomtc/Dev/siifocap/bin/www","function":"","line":3,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false}],"stack":["ReferenceError: req is not defined","    at module.exports (/Users/octaviomtc/Dev/siifocap/routes/index.js:307:41)","    at Object.<anonymous> (/Users/octaviomtc/Dev/siifocap/app.js:12:54)","    at Module._compile (module.js:456:26)","    at Object.Module._extensions..js (module.js:474:10)","    at Module.load (module.js:356:32)","    at Function.Module._load (module.js:312:12)","    at Module.require (module.js:364:17)","    at require (module.js:380:17)","    at Object.<anonymous> (/Users/octaviomtc/Dev/siifocap/bin/www:3:29)","    at Module._compile (module.js:456:26)"],"level":"error","message":"uncaughtException: req is not defined","timestamp":"2014-12-29T05:24:10.998Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T06:23:57.147Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:24:00.241Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:24:02.662Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:24:03.740Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:24:05.115Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:24:05.360Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:24:06.602Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:24:09.015Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:24:10.782Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:24:20.609Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:25:26.865Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T06:31:00.412Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:31:14.737Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:31:17.812Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:31:20.136Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:31:23.044Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:31:27.767Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:31:39.117Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:31:40.793Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T06:33:07.518Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:33:11.239Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:34:09.061Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:34:12.873Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:34:14.779Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:34:16.507Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:34:17.978Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:34:20.278Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:34:22.158Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:34:25.095Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:34:57.735Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T06:38:18.444Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:38:22.279Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:38:24.399Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:38:26.527Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:38:28.176Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:38:30.382Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:38:33.326Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:38:37.612Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:38:47.986Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:39:03.641Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T06:40:38.110Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:40:41.084Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:40:43.240Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:40:44.869Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:40:45.930Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:40:46.930Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:40:49.489Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:40:49.704Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:40:51.200Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:41:04.723Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T06:42:01.764Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:43:54.671Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:43:59.982Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:44:01.464Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:44:04.694Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:44:06.170Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:44:15.789Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:44:20.003Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:44:38.114Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:46:59.877Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:48:16.479Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T06:52:10.190Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:52:13.723Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:52:16.072Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:52:17.499Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:52:19.606Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:52:21.084Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:52:23.545Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:52:24.933Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T06:52:34.940Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T07:06:19.487Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:06:23.698Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:06:25.763Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:06:26.945Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:14:24.468Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T07:14:41.885Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:14:46.373Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:14:48.673Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:14:49.721Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:14:51.888Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:14:54.991Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:14:58.662Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:15:01.204Z"}
+{"date":"Mon Dec 29 2014 01:15:21 GMT-0600 (CST)","process":{"pid":46002,"uid":501,"gid":20,"cwd":"/Users/octaviomtc/Dev/siifocap","execPath":"/usr/local/bin/node","version":"v0.10.32","argv":["node","/Users/octaviomtc/Dev/siifocap/bin/www"],"memoryUsage":{"rss":99307520,"heapTotal":75773768,"heapUsed":47579520}},"os":{"loadavg":[2.3037109375,2.34033203125,2.404296875],"uptime":381277},"trace":[{"column":21,"file":"/Users/octaviomtc/Dev/siifocap/controllers/acciones.js","function":"","line":85,"method":null,"native":false},{"column":8,"file":"/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/node_modules/mpromise/lib/promise.js","function":"","line":177,"method":null,"native":false},{"column":17,"file":"events.js","function":"Promise.emit","line":95,"method":"emit","native":false},{"column":38,"file":"/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/node_modules/mpromise/lib/promise.js","function":"Promise.emit","line":84,"method":"emit","native":false},{"column":20,"file":"/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/node_modules/mpromise/lib/promise.js","function":"Promise.fulfill","line":97,"method":"fulfill","native":false},{"column":13,"file":"/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/query.js","function":null,"line":1394,"method":null,"native":false},{"column":11,"file":"/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/document.js","function":"model.Document.init","line":250,"method":"Document.init","native":false},{"column":10,"file":"/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/query.js","function":"completeOne","line":1392,"method":null,"native":false},{"column":11,"file":"/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/query.js","function":"cb","line":1560,"method":null,"native":false},{"column":16,"file":"/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/utils.js","function":null,"line":408,"method":null,"native":false}],"stack":["ReferenceError: planeacion_didactica is not defined","    at Promise.<anonymous> (/Users/octaviomtc/Dev/siifocap/controllers/acciones.js:85:21)","    at Promise.<anonymous> (/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/node_modules/mpromise/lib/promise.js:177:8)","    at Promise.emit (events.js:95:17)","    at Promise.emit (/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/node_modules/mpromise/lib/promise.js:84:38)","    at Promise.fulfill (/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/node_modules/mpromise/lib/promise.js:97:20)","    at /Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/query.js:1394:13","    at model.Document.init (/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/document.js:250:11)","    at completeOne (/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/query.js:1392:10)","    at cb (/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/query.js:1560:11)","    at /Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/utils.js:408:16"],"level":"error","message":"uncaughtException: planeacion_didactica is not defined","timestamp":"2014-12-29T07:15:21.441Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T07:16:17.265Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:16:21.537Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:16:24.921Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:16:26.241Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:16:27.816Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:16:30.356Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:16:34.377Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:16:36.342Z"}
+{"date":"Mon Dec 29 2014 01:20:20 GMT-0600 (CST)","process":{"pid":46396,"uid":501,"gid":20,"cwd":"/Users/octaviomtc/Dev/siifocap","execPath":"/usr/local/bin/node","version":"v0.10.32","argv":["node","/Users/octaviomtc/Dev/siifocap/bin/www"],"memoryUsage":{"rss":43909120,"heapTotal":30119424,"heapUsed":10651520}},"os":{"loadavg":[2.3251953125,2.4052734375,2.4091796875],"uptime":381576},"trace":[{"column":69,"file":"/Users/octaviomtc/Dev/siifocap/models/acciones.js","function":"","line":38,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":474,"method":"Module._extensions..js","native":false},{"column":32,"file":"module.js","function":"Module.load","line":356,"method":"load","native":false},{"column":12,"file":"module.js","function":"Function.Module._load","line":312,"method":"Module._load","native":false},{"column":17,"file":"module.js","function":"Module.require","line":364,"method":"require","native":false},{"column":17,"file":"module.js","function":"require","line":380,"method":null,"native":false},{"column":23,"file":"/Users/octaviomtc/Dev/siifocap/routes/index.js","function":"","line":5,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":474,"method":"Module._extensions..js","native":false}],"stack":["ReferenceError: id is not defined","    at Object.<anonymous> (/Users/octaviomtc/Dev/siifocap/models/acciones.js:38:69)","    at Module._compile (module.js:456:26)","    at Object.Module._extensions..js (module.js:474:10)","    at Module.load (module.js:356:32)","    at Function.Module._load (module.js:312:12)","    at Module.require (module.js:364:17)","    at require (module.js:380:17)","    at Object.<anonymous> (/Users/octaviomtc/Dev/siifocap/routes/index.js:5:23)","    at Module._compile (module.js:456:26)","    at Object.Module._extensions..js (module.js:474:10)"],"level":"error","message":"uncaughtException: id is not defined","timestamp":"2014-12-29T07:20:20.107Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T07:48:03.194Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:48:05.966Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:48:07.711Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:48:09.042Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:48:11.066Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:48:12.496Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:48:15.093Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:48:17.396Z"}
+{"date":"Mon Dec 29 2014 01:48:31 GMT-0600 (CST)","process":{"pid":46724,"uid":501,"gid":20,"cwd":"/Users/octaviomtc/Dev/siifocap","execPath":"/usr/local/bin/node","version":"v0.10.32","argv":["node","/Users/octaviomtc/Dev/siifocap/bin/www"],"memoryUsage":{"rss":97951744,"heapTotal":75773768,"heapUsed":49720160}},"os":{"loadavg":[2.73486328125,2.33837890625,2.3134765625],"uptime":383268},"trace":[{"column":21,"file":"/Users/octaviomtc/Dev/siifocap/controllers/acciones.js","function":"","line":85,"method":null,"native":false},{"column":8,"file":"/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/node_modules/mpromise/lib/promise.js","function":"","line":177,"method":null,"native":false},{"column":17,"file":"events.js","function":"Promise.emit","line":95,"method":"emit","native":false},{"column":38,"file":"/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/node_modules/mpromise/lib/promise.js","function":"Promise.emit","line":84,"method":"emit","native":false},{"column":20,"file":"/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/node_modules/mpromise/lib/promise.js","function":"Promise.fulfill","line":97,"method":"fulfill","native":false},{"column":13,"file":"/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/query.js","function":null,"line":1394,"method":null,"native":false},{"column":11,"file":"/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/document.js","function":"model.Document.init","line":250,"method":"Document.init","native":false},{"column":10,"file":"/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/query.js","function":"completeOne","line":1392,"method":null,"native":false},{"column":11,"file":"/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/query.js","function":"cb","line":1560,"method":null,"native":false},{"column":16,"file":"/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/utils.js","function":null,"line":408,"method":null,"native":false}],"stack":["ReferenceError: $push is not defined","    at Promise.<anonymous> (/Users/octaviomtc/Dev/siifocap/controllers/acciones.js:85:21)","    at Promise.<anonymous> (/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/node_modules/mpromise/lib/promise.js:177:8)","    at Promise.emit (events.js:95:17)","    at Promise.emit (/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/node_modules/mpromise/lib/promise.js:84:38)","    at Promise.fulfill (/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/node_modules/mpromise/lib/promise.js:97:20)","    at /Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/query.js:1394:13","    at model.Document.init (/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/document.js:250:11)","    at completeOne (/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/query.js:1392:10)","    at cb (/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/query.js:1560:11)","    at /Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/utils.js:408:16"],"level":"error","message":"uncaughtException: $push is not defined","timestamp":"2014-12-29T07:48:31.741Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T07:55:42.371Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:57:19.926Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:57:25.347Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:57:27.088Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:57:28.627Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:57:29.693Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:57:32.535Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:57:34.263Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T07:57:49.453Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:00:16.808Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:00:19.465Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:00:23.948Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T08:00:38.094Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:00:41.277Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:00:43.855Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:00:45.155Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:00:46.729Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:00:48.373Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:00:55.377Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:00:57.010Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:01:08.966Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T08:05:31.837Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:05:39.497Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:05:42.204Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:05:44.200Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:05:46.887Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:05:48.081Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:05:51.002Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:05:52.726Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:06:30.975Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T08:16:00.328Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:16:03.997Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:16:06.062Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:16:07.018Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:16:08.634Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:16:10.020Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:16:12.180Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:16:13.897Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:16:25.548Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:16:37.206Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T08:19:01.370Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:19:05.220Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:19:08.030Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:19:09.585Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:19:11.408Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:19:13.275Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:19:19.853Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:19:21.433Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:19:34.138Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:25:29.709Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:25:32.529Z"}
+{"date":"Mon Dec 29 2014 02:25:36 GMT-0600 (CST)","process":{"pid":48953,"uid":501,"gid":20,"cwd":"/Users/octaviomtc/Dev/siifocap","execPath":"/usr/local/bin/node","version":"v0.10.32","argv":["node","/Users/octaviomtc/Dev/siifocap/bin/www"],"memoryUsage":{"rss":106852352,"heapTotal":84072336,"heapUsed":57305840}},"os":{"loadavg":[2.75341796875,2.59912109375,2.4326171875],"uptime":385493},"trace":[{"column":139,"file":"/Users/octaviomtc/Dev/siifocap/controllers/acciones.js","function":"","line":89,"method":null,"native":false},{"column":8,"file":"/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/node_modules/mpromise/lib/promise.js","function":"","line":177,"method":null,"native":false},{"column":17,"file":"events.js","function":"Promise.emit","line":95,"method":"emit","native":false},{"column":38,"file":"/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/node_modules/mpromise/lib/promise.js","function":"Promise.emit","line":84,"method":"emit","native":false},{"column":20,"file":"/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/node_modules/mpromise/lib/promise.js","function":"Promise.fulfill","line":97,"method":"fulfill","native":false},{"column":13,"file":"/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/query.js","function":null,"line":1394,"method":null,"native":false},{"column":11,"file":"/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/document.js","function":"model.Document.init","line":250,"method":"Document.init","native":false},{"column":10,"file":"/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/query.js","function":"completeOne","line":1392,"method":null,"native":false},{"column":11,"file":"/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/query.js","function":"cb","line":1560,"method":null,"native":false},{"column":16,"file":"/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/utils.js","function":null,"line":408,"method":null,"native":false}],"stack":["TypeError: Cannot read property 'name' of undefined","    at Promise.<anonymous> (/Users/octaviomtc/Dev/siifocap/controllers/acciones.js:89:139)","    at Promise.<anonymous> (/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/node_modules/mpromise/lib/promise.js:177:8)","    at Promise.emit (events.js:95:17)","    at Promise.emit (/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/node_modules/mpromise/lib/promise.js:84:38)","    at Promise.fulfill (/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/node_modules/mpromise/lib/promise.js:97:20)","    at /Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/query.js:1394:13","    at model.Document.init (/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/document.js:250:11)","    at completeOne (/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/query.js:1392:10)","    at cb (/Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/query.js:1560:11)","    at /Users/octaviomtc/Dev/siifocap/node_modules/mongoose/lib/utils.js:408:16"],"level":"error","message":"uncaughtException: Cannot read property 'name' of undefined","timestamp":"2014-12-29T08:25:36.480Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T08:25:58.946Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:26:02.808Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:26:08.101Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:26:09.710Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:26:11.165Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:26:12.837Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:26:14.958Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:26:16.633Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:26:20.460Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:26:29.868Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T08:40:33.679Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:40:38.006Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:40:39.947Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:40:41.077Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:40:44.527Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:40:45.852Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:40:48.723Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:40:50.610Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:41:15.544Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:41:35.119Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T08:57:16.846Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:57:23.718Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:57:25.658Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:57:27.550Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:57:28.744Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:57:37.263Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:57:39.736Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:57:58.386Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:58:04.509Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:58:29.476Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T08:58:46.081Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:00:06.528Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:00:08.256Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T09:00:17.264Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:00:20.643Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:00:22.568Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:00:23.719Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:00:25.463Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:00:26.523Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:00:29.340Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:00:30.580Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:00:35.668Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:01:10.467Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T09:01:49.508Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:01:58.015Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:01:59.447Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:02:00.680Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:02:02.245Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:02:03.341Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:02:05.552Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:02:06.865Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:02:17.436Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:02:29.122Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T09:03:05.753Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:03:10.119Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:03:12.457Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:03:13.556Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:03:15.070Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:03:16.093Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:03:18.429Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:03:22.370Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:03:57.469Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T09:04:02.024Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T17:06:01.619Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:06:04.969Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:06:40.335Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:06:41.654Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:06:43.385Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:06:44.382Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:06:47.788Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:06:49.706Z"}
+{"level":"info","message":"Validando login |admin|admon","timestamp":"2014-12-29T17:07:44.549Z"}
+{"level":"warn","message":"Contraseña incorrecta","timestamp":"2014-12-29T17:07:44.794Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T17:07:50.100Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:07:57.822Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:08:00.242Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:08:01.809Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:08:02.893Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:08:03.991Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:08:06.040Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:08:07.669Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:08:11.816Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T17:09:32.915Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:09:36.579Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:09:37.942Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:09:39.077Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:09:40.577Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:09:42.009Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:09:45.751Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:09:47.107Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:09:50.295Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T17:13:29.897Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:13:33.568Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:13:35.438Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:13:37.124Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:13:38.337Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:13:39.308Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:13:42.000Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:13:43.603Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:13:46.966Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:13:55.509Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T17:14:37.194Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:14:40.228Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:14:41.871Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:14:43.085Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:14:44.077Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:14:45.347Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:14:47.622Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:14:51.239Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:14:54.938Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:15:03.557Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-29T17:15:14.895Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:15:35.362Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:15:39.725Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:15:40.821Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:15:42.053Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:15:42.979Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:15:52.049Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:15:53.902Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:18:00.004Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-29T17:18:08.083Z"}

@@ -1,6 +1,8 @@
-var mongoose = require('mongoose');
-var accionesFormacion  = mongoose.model('acciones');
+var mongoose              = require('mongoose');
+var accionesFormacion     = mongoose.model('acciones');
 var logger                = require("../utils/winston");
+var fs                    = require('fs-extra');
+var _                     = require('underscore');
 
 // Agregar accione de formacion
 exports.addAccionFormacion = function(req, res, next) {
@@ -73,6 +75,20 @@ exports.deleteAccion = function(req, res, next) {
 
 //Agrega planeacion didactica
 exports.addPlaneacionDidactica = function(req, res, next){
+
+    function acciones_formacion(cur){
+      accionesFormacion.findById(req.params.id, function(err, accionFormacion) {
+        if(err) return res.send(500, err.message);
+        cur = accionFormacion.cur;
+        return cur;
+      });
+    }
+
+    var cur = "";
+    acciones_formacion(cur);
+    console.log(cur);
+
+
     accionesFormacion.findOneAndUpdate(
       {
         _id:req.params.id
@@ -84,8 +100,23 @@ exports.addPlaneacionDidactica = function(req, res, next){
           if(err){
             console.log(err);
           }else{
+            if(_.isEmpty(req.files)){
+              console.log("no hay archivos que agregar");
+            }else{
+              // RUTA DE ARCHIVOS TEMPORALES
+              var temp_file = config.root+ "/temp/uploads/acciones_formacion/planeacion_didactica/"+req.files.instrumento_archivo_evaluacion.name;
+              // RUTA PARA NUEVOS ARCHIVOS
+              var new_file = config.root+ "/uploads/acciones_formacion/planeacion_didactica/"+req.params.id+"/"+req.params.id+"."+req.files.instrumento_archivo_evaluacion.extension;
+
+              // Se mueve el archivo temporal
+              fs.move(temp_file, new_file, function(err) {
+                if (err) return console.error(err);
+                console.log("success!");
+              });
+            }
             console.log("Planeacion agregada");
             res.accionFormacion = accion;
+            console.log(accion.planeacion_didactica);
             return next();
           }
       }

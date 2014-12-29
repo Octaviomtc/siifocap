@@ -1,7 +1,4 @@
 var path = require('path');
-var ip = require('ip');
-
-
 
 var root = path.normalize(__dirname+"/..");
 

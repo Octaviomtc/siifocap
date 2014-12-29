@@ -1,7 +1,8 @@
 var express         = require('express');
+var multer          = require('multer'); //Multipart form
 //Modelos
 var escuela         = require('../models/escuela');
-var acciones         = require('../models/acciones');
+var acciones        = require('../models/acciones');
 var dependencia     = require('../models/dependencia');
 var rol             = require('../models/rol');
 var participante    = require('../models/participante')
@@ -300,9 +301,14 @@ module.exports = function(passport){
 
 
     //update paso 4 AGREGAR PLANEACION DIDACTICA
+
+    // se configura para recibir archivos temporales
+    router.post('/acciones-formacion/nueva/:id/planeacion/didactica', isAuthenticated, multer({
+      dest: __dirname+ "/.."+"/temp/uploads/acciones_formacion/planeacion_didactica"
+    }));
+
     router.post('/acciones-formacion/nueva/:id/planeacion/didactica', isAuthenticated, accionesMid.addPlaneacionDidactica, function(req, res){
       // console.log(res.accionFormacion);
-      res.set('Content-Type', 'application/javascript');
       res.redirect('/acciones-formacion/nueva/'+res.accionFormacion._id+'/planeacion');
     });
 

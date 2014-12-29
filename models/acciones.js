@@ -1,10 +1,5 @@
 var mongoose          = require('mongoose');
 var Schema            = mongoose.Schema;
-var crate             = require('mongoose-crate');
-var LocalFS           = require('mongoose-crate-localfs');
-
-
-
 
 
 var planeacion_didactica_schema = new Schema(
@@ -40,6 +35,7 @@ var resultado_apredizaje_propuesto_schema = new Schema(
 
 var accionesSchema = new Schema({
   //id: { type: String },//NECESARIO
+  cur:                                      {type: String, default: "00000000"},
   registro_date:                            { type: Date, default: Date.now },
   estatus_accion:                           {type: String, default: "Pendiente"},
   dependencia:                              String,
@@ -83,17 +79,6 @@ var accionesSchema = new Schema({
   collection : 'acciones_formacion'
 }
 );
-
-
-// SE CONFIGURA EL ESQUEMA PARA USAR EL STORAGE
-accionesSchema.plugin(crate, {
-  storage: new LocalFS({
-    directory: '/path/to/storage/directory'
-  }),
-  fields: {
-    attachment: {}
-  }
-});
 
 
 module.exports = mongoose.model('acciones', accionesSchema);

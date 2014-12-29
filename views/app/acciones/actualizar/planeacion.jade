@@ -96,7 +96,7 @@ block content
   .modal.fade(id="secDidacticaModal")
     .modal-dialog.modal-lg
       .modal-content
-        form(method='post', action="/acciones-formacion/nueva/#{accionFormacion._id}/planeacion/didactica", enctype='application/json')
+        form(method='post', action="/acciones-formacion/nueva/#{accionFormacion._id}/planeacion/didactica", enctype='multipart/form-data')
           .modal-header
             i.fa.fa-book.fa-r
             | Nueva Planeación didáctica
