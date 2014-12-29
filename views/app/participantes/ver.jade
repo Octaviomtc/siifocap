@@ -1,0 +1,107 @@
+extends ../../layouts/app
+
+block content
+  a.btn.btn-primary.sp-btn(href='/participantes')
+    i.fa.fa-r.fa-chevron-circle-left
+    | Regresar
+      
+      
+  table(data-toggle="table", data-cache="false", data-height='299', data-card-view='true')
+    thead
+      tr
+        th(data-field='nombre') Nombre
+        th(data-field='apellidos') Apellidos
+        th(data-field='curp') CURP
+        th(data-field='rfc') RFC
+        th(data-field='genero') Genero
+        th(data-field='entidad') Entidad
+        th(data-field='unidad') Unidad
+        th(data-field='email_inst') Correo Institucional
+        th(data-field='email_pers') Correo
+        th(data-field='telefono') Telefono
+        th(data-field='celular') Celular
+        th(data-field='grupo') Grupo
+        th(data-field='accion') Accion
+    tbody
+      tr        
+        td #{participante.nombre}
+        td #{participante.apellidos}
+        td #{participante.curp}
+        td #{participante.rfc}
+        case participante.entidad
+          when "AG" 
+            td Aguascalientes
+           when "BC" 
+            td Baja California
+           when "BS" 
+            td Baja California Sur
+           when "CA" 
+            td Campeche
+           when "CP" 
+            td Chiapas
+           when "CH" 
+            td Chihuahua
+           when "CU" 
+            td Coahuila
+           when "CO" 
+            td Colima
+           when "DF" 
+            td Distrito Federal
+           when "DU" 
+            td Durango
+           when "GJ" 
+            td Guanajuato
+           when "GR" 
+            td Guerrero
+           when "HD" 
+            td Hidalgo
+           when "JA" 
+            td Jalisco
+           when "MX" 
+            td México
+           when "MC" 
+            td Michoacán
+           when "MO" 
+            td Morelos
+           when "NA" 
+            td Nayarit
+           when "NL" 
+            td Nuevo León
+           when "OX" 
+            td Oaxaca
+           when "PU" 
+            td Puebla
+           when "QE" 
+            td Querétaro
+           when "QR" 
+            td Quintana Roo
+           when "SL" 
+            td San Luis Potosí
+           when "SI" 
+            td Sinaloa
+           when "SO" 
+            td Sonora
+           when "TB" 
+            td Tabasco
+           when "TA" 
+            td Tamaulipas
+           when "TL" 
+            td Tlaxcala
+           when "VZ" 
+            td Veracruz
+           when "YT" 
+            td Yucatán
+           when "ZA" 
+            td Zacatecas
+            
+        if (participante.genero === 'H')
+          td Hombre
+        else
+          td Mujer        
+        td #{participante.unidad}
+        td #{participante.email_inst}
+        td #{participante.email_pers}
+        td #{participante.telefono}
+        td #{participante.celular}
+        td #{participante.grupo}
+        td #{participante.accion}
