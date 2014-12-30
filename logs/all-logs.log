@@ -216,6 +216,7 @@
 {"level":"info","message":"Participante eliminado correctamente","timestamp":"2014-12-23T23:41:19.513Z"}
 {"level":"info","message":"Validando login |danmendieta|1234","timestamp":"2014-12-23T23:41:58.440Z"}
 {"level":"info","message":"Participante eliminado correctamente","timestamp":"2014-12-24T02:20:45.948Z"}
+<<<<<<< HEAD
 >>>>>>> backend
 {"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-24T07:23:03.375Z"}
 {"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-24T07:23:07.054Z"}
@@ -1316,3 +1317,25 @@
 {"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-30T05:30:41.527Z"}
 {"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-30T05:30:44.867Z"}
 {"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2014-12-30T05:30:50.499Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2014-12-30T06:50:34.817Z"}
+=======
+{"level":"info","message":"Validando login |danmendieta|123","timestamp":"2014-12-29T18:13:12.833Z"}
+{"level":"warn","message":"Contraseña incorrecta","timestamp":"2014-12-29T18:13:13.111Z"}
+{"level":"info","message":"Validando login |danmendieta|1234","timestamp":"2014-12-29T18:13:17.170Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::0","timestamp":"2014-12-29T18:27:04.715Z"}
+{"level":"info","message":"Validando login |danmendieta|1234","timestamp":"2014-12-29T18:33:16.082Z"}
+{"level":"info","message":"Validando login |danmendieta|1234","timestamp":"2014-12-29T18:37:18.322Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::0","timestamp":"2014-12-29T18:46:48.894Z"}
+{"level":"info","message":"Validando login |danmendieta|1234","timestamp":"2014-12-29T19:20:00.916Z"}
+{"level":"info","message":"Validando login |danmendieta|1234","timestamp":"2014-12-29T19:20:23.849Z"}
+{"level":"info","message":"Validando login |danmendieta|1234","timestamp":"2014-12-29T19:48:53.795Z"}
+{"level":"info","message":"Validando login |danmendieta|12132323","timestamp":"2014-12-29T19:52:48.852Z"}
+{"level":"warn","message":"Contraseña incorrecta","timestamp":"2014-12-29T19:52:49.150Z"}
+{"level":"info","message":"Validando login |danmendieta|1234","timestamp":"2014-12-29T19:52:54.711Z"}
+{"level":"info","message":"Participante eliminado correctamente","timestamp":"2014-12-29T19:53:31.403Z"}
+{"level":"info","message":"Validando login |danmendieta|1234","timestamp":"2014-12-29T19:55:20.140Z"}
+{"level":"info","message":"Validando login |danmendieta|1234","timestamp":"2014-12-29T19:56:41.718Z"}
+{"level":"info","message":"Validando login |danmendieta|1234","timestamp":"2014-12-29T19:57:34.789Z"}
+{"level":"info","message":"Participante eliminado correctamente","timestamp":"2014-12-29T20:00:35.633Z"}
+>>>>>>> origin/backend
+{"date":"Tue Dec 30 2014 01:04:25 GMT-0600 (CST)","process":{"pid":97258,"uid":501,"gid":20,"cwd":"/Users/octaviomtc/Dev/ipn/siifocap","execPath":"/usr/local/bin/node","version":"v0.10.32","argv":["node","/Users/octaviomtc/Dev/ipn/siifocap/bin/www"],"memoryUsage":{"rss":35098624,"heapTotal":28055552,"heapUsed":15161552}},"os":{"loadavg":[2.296875,2.2197265625,2.763671875],"uptime":467021},"trace":[{"column":25,"file":"module.js","function":"Module._compile","line":439,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":474,"method":"Module._extensions..js","native":false},{"column":32,"file":"module.js","function":"Module.load","line":356,"method":"load","native":false},{"column":12,"file":"module.js","function":"Function.Module._load","line":312,"method":"Module._load","native":false},{"column":17,"file":"module.js","function":"Module.require","line":364,"method":"require","native":false},{"column":17,"file":"module.js","function":"require","line":380,"method":null,"native":false},{"column":29,"file":"/Users/octaviomtc/Dev/ipn/siifocap/app.js","function":"","line":12,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":474,"method":"Module._extensions..js","native":false},{"column":32,"file":"module.js","function":"Module.load","line":356,"method":"load","native":false}],"stack":["SyntaxError: Unexpected token <<","    at Module._compile (module.js:439:25)","    at Object.Module._extensions..js (module.js:474:10)","    at Module.load (module.js:356:32)","    at Function.Module._load (module.js:312:12)","    at Module.require (module.js:364:17)","    at require (module.js:380:17)","    at Object.<anonymous> (/Users/octaviomtc/Dev/ipn/siifocap/app.js:12:29)","    at Module._compile (module.js:456:26)","    at Object.Module._extensions..js (module.js:474:10)","    at Module.load (module.js:356:32)"],"level":"error","message":"uncaughtException: Unexpected token <<","timestamp":"2014-12-30T07:04:25.722Z"}

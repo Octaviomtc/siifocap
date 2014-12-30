@@ -9,15 +9,14 @@ block content
     .col-lg-12
       .formulario.animated.fadeIn
         .titulo
-          | Agregar Participante
+          | Editar Participante
         .contenido
-          form.form-horizontal(method='post', action="/participantes/nuevo") 
-            ///form.form-horizontal(method='post', action="#") ?????? 
+          form.form-horizontal(method='post', action="/participantes/actualizar/"+participante._id)
             ////+h-input("text", "ETIQUETA", "NAME", "PLACEHOLDER", "VALUE", 6, 3, "autofocus", "empty","")
-            +h-input("text", "Nombre(s)", "nombre", "Nombre(s)", "", 6, 3, "autofocus", "empty","")
-            +h-input("text", "Apellidos", "apellidos", "Apellidos", "", 6, 3, "", "empty","")
-            +h-input("text", "CURP", "curp", "18 Dígitos", "", 6, 3, "", "empty","")
-            +h-input("text", "RFC", "rfc", "10 Dígitos", "", 6, 3, "", "empty","")
+            +h-input("text", "Nombre(s)", "nombre", "Nombre(s)", participante.nombre, 6, 3, "autofocus", "empty","")
+            +h-input("text", "Apellidos", "apellidos", "Apellidos", participante.apellidos, 6, 3, "", "empty","")
+            +h-input("text", "CURP", "curp", "18 Dígitos", participante.curp, 6, 3, "", "empty","")
+            +h-input("text", "RFC", "rfc", "10 Dígitos", participante.rfc, 6, 3, "", "empty","")
             .form-group
               span(class="control-label col-md-3")
                 | Género
@@ -62,14 +61,14 @@ block content
                   option(value="VZ") Veracruz
                   option(value="YT") Yucatán
                   option(value="ZA") Zacatecas
-            +h-input("text", "Unidad Académica", "unidad", "Unidad Académica de Adscripción", "", 6, 3, "", "empty","")
-            +h-input("email", "Correo Electrónico Institucional", "email_inst", "@", "", 6, 3, "", "empty","")
-            +h-input("email", "Correo Electrónico Personal", "email_pers", "@", "", 6, 3, "", "empty","")
-            +h-input("text", "Número Telefónico Casa", "telefono", "Casa (10 Dígitos)", "", 6, 3, "", "empty","")
-            +h-input("text", "Número Telefónico Celular", "celular", "Celular (10 Dígitos)", "", 6, 3, "", "empty","")
-            +h-input("text", "Usuario", "usuario", "Usuario", "", 6, 3, "", "empty","")
+            +h-input("text", "Unidad Académica", "unidad", "Unidad Académica de Adscripción",participante.unidad, 6, 3, "", "empty","")
+            +h-input("email", "Correo Electrónico Institucional", "email_inst", "@", participante.email_inst, 6, 3, "", "empty","")
+            +h-input("email", "Correo Electrónico Personal", "email_pers", "@", participante.email_pers, 6, 3, "", "empty","")
+            +h-input("text", "Número Telefónico Casa", "telefono", "Casa (10 Dígitos)", participante.telefono, 6, 3, "", "empty","")
+            +h-input("text", "Número Telefónico Celular", "celular", "Celular (10 Dígitos)", participante.celular, 6, 3, "", "empty","")
+            +h-input("text", "Usuario", "usuario", "Usuario", participante.usuario, 6, 3, "", "empty","")
             +h-input("password", "Contraseña", "password", "Contraseña", "", 6, 3, "", "empty","")
-            +h-input("text", "Grupo", "grupo", "Grupo", "", 6, 3, "", "empty","")
+            +h-input("text", "Grupo", "grupo", "Grupo", participante.grupo, 6, 3, "", "empty","")
             .form-group
               span(class="control-label col-md-3")
                 | Accion de Formación
@@ -82,16 +81,17 @@ block content
               .col-md-9.col-md-offset-3
                 button.btn.btn-success.fa-r(type='submit')
                   i.fa.fa-check-circle.fa-r
-                  | Agregar
-                  
+                  | Actualizar
+                    
                 button.btn.btn-default.fa-r(type='reset')
                   i.fa.fa-eraser.fa-r
                   | Limpiar campos
-                  
+                    
                 a.btn.btn-default(href="/participantes")
                   | Cancelar
-                    
-                                      
-                                      
-                                            
-                                            
+                        
+                                        
+                                          
+                                                          
+                                                            
+                                                            
