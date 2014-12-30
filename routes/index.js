@@ -358,12 +358,7 @@ module.exports = function(passport){
       res.redirect('/participantes');
     });
 
-<<<<<<< HEAD
 
-
-
-
-=======
     router.get('/participantes/ver/:id', isAuthenticated, participMid.findById, function(req, res){
       param={
         icon: "fa-building-o",
@@ -385,7 +380,6 @@ module.exports = function(passport){
       res.set('Content-Type', 'application/javascript');
       res.redirect('/participantes');
     });
->>>>>>> origin/backend
 
     return router;
 }
