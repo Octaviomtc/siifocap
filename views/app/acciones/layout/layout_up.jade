@@ -35,36 +35,48 @@ html
                   div#menu.collapse.navbar-collapse
                     ul.nav.navbar-nav
                       if accionFormacion.estatus_sec_1=='true'
-                        li
-                          a(href='/acciones-formacion/nueva/#{accionFormacion._id}/datos-generales') 
+                        li(class=datos.paso=="1" ? "active":"")
+                          a(href='/acciones-formacion/nueva/#{accionFormacion._id}/datos-generales', class=accionFormacion.estatus_sec_1=="true" ? "alert alert-success active-bar":"") 
                             i.fa.fa-check-circle.fa-r.fa-activo
                             | Datos generales
                       else
-                        li
+                        li(class=datos.paso=="1" ? "active":"")
                           a.disabled(href='') 
                             | Datos generales
                             
                             
                       if accionFormacion.estatus_sec_1=='true'
-                        li
-                          a(href='/acciones-formacion/nueva/#{accionFormacion._id}/justificacion')
+                        li(class=datos.paso=="2" ? "active":"")
+                          a(href='/acciones-formacion/nueva/#{accionFormacion._id}/justificacion', class=accionFormacion.estatus_sec_2=="true" ? "alert alert-success active-bar":"")
                             if accionFormacion.estatus_sec_2=='true'
                               i.fa.fa-check-circle.fa-r.fa-activo
                             | Justificación
                       else
-                        li
+                        li(class=datos.paso=="2" ? "active":"")
                           a.disabled Justificación
                           
                           
                           
                       if accionFormacion.estatus_sec_2=='true'
-                        li
-                          a(href='/acciones-formacion/nueva/#{accionFormacion._id}/encuadre') Encuadre de la acción de formación
+                        li(class=datos.paso=="3" ? "active":"")
+                          a(href='/acciones-formacion/nueva/#{accionFormacion._id}/encuadre', class=accionFormacion.estatus_sec_3=="true" ? "alert alert-success active-bar":"")
+                            if accionFormacion.estatus_sec_3=='true'
+                              i.fa.fa-check-circle.fa-r.fa-activo
+                            | Encuadre de la acción de formación
                       else
-                        li
+                        li(class=datos.paso=="3" ? "active":"")
                           a.disabled Encuadre de la acción de formación
-                      li
-                        a.disabled Planeación didáctica
+                          
+                      if accionFormacion.estatus_sec_3=='true'
+                        li(class=datos.paso=="4" ? "active":"")
+                          a(href='/acciones-formacion/nueva/#{accionFormacion._id}/planeacion', class=accionFormacion.estatus_sec_4=="true" ? "alert alert-success active-bar":"")
+                            if accionFormacion.estatus_sec_4=='true'
+                              i.fa.fa-check-circle.fa-r.fa-activo
+                            | Planeación didáctica
+                      else   
+                        li(class=datos.paso=="4" ? "active":"")
+                          a.disabled Planeación didáctica
+                          
               #form-mult
                 block content
     include ../../../includes/scripts

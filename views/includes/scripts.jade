@@ -4,8 +4,17 @@ script(src='/vendor/bootstrap-table/src/bootstrap-table.js')
 script(src='/vendor/bootstrap-table/dist/locale/bootstrap-table-es-AR.min.js')
 script(src='/vendor/jquery-form-validator/form-validator/jquery.form-validator.min.js')
 script(src='/vendor/bootstrap-switch/dist/js/bootstrap-switch.min.js')
+script(src='/vendor/bootstrap-filestyle/src/bootstrap-filestyle.js')
 
 script.
+    // Estilos para input files
+    $(":file").filestyle({
+      buttonText:     "Seleccionar archivo",
+      buttonName:     "btn-primary",
+      buttonBefore:   true,
+      iconName:       "fa fa-file fa-r"
+    });
+  
     //Se genera switch en checkbox
     $.fn.bootstrapSwitch.defaults.size = 'small';
     $.fn.bootstrapSwitch.defaults.onText = 'Si';

@@ -67,6 +67,19 @@ box-shadow:         0px 0px 0px 0px rgba(50, 50, 50, 0.75);
 
 
 
+.active-bar{
+	margin-bottom: -10px;
+	border-radius: 0px;
+}
+
+ul>li>a>.active-bar:hover{
+	background-color: $state-success-bg;
+}
+
+.alert .alert-success:hover{
+	background-color: $state-success-bg;
+}
+
 //ICONOS DE AYUDA
 .fa-ayuda{
 	font-size: 10px;
@@ -90,6 +103,11 @@ box-shadow:         0px 0px 0px 0px rgba(50, 50, 50, 0.75);
 	color: #68bf76;
 	font-size: 15px;
 }
+
+.sepTop{
+	margin-top: 10px;
+}
+
 
 .tooltip-inner{
 	max-width: 650px;

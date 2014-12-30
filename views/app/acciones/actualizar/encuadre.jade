@@ -12,90 +12,77 @@ block content
         .contenido
           .row
             .col-md-11
-              form.form-horizontal(method='post', action="/acciones-formacion/nueva/#{accionFormacion._id}/justificacion", enctype='application/json')
+              form.form-horizontal(method='post', action="/acciones-formacion/nueva/#{accionFormacion._id}/encuadre", enctype='application/json')
                 
                 
                 span(class="col-md-11 col-md-offset-1 alert alert-info")
-                  | Desarrolle los siguientes puntos para integrar la justificación de la acción de formación:
+                  | A partir de la justificación, redacte la competencia a desarrollar.
+                span(class="col-md-11 col-md-offset-1")
+                    | Competencia:
+                    +ayuda-bottom('<p>Una competencia debe contener:</p><p>&nbsp</p><UL type = disk ><LI>La acción que debe ejecutarse y verificarse.<LI>El objeto, que es el conocimiento o habilidad en términos de la acción<LI>La condición, que es el contexto de aplicación a partir del cual se realizará la acción planteada y justificará el para qué de la misma</UL><p>&nbsp</p><p>Ejemplo: “Elabora (acción) una propuesta de gestión educativa (objeto) fundamentada en el conocimiento de las problemáticas de la administración institucional (condición o contexto).”</p>')
+                  
+                div(class="col-md-11 col-md-offset-1")
+                  textarea.form-control(id="competencia", name="competencia", data-validation="empty", data-toggle="tooltip", data-placement="top", title="",  rows="8")
+                  hr
                 span(class="col-md-11 col-md-offset-1 alert alert-info")
-                  | Necesitdad
-                  +ayuda("Argumente a través de qué medio o instrumento (cuestionario, observación, encuesta, entre otros) identificó que la acción de formación que propone es necesaria para el personal al que va dirigida.")
-                  span.fa-l-big
-                    | Indicadores
-                    +ayuda("Indique los datos cuantitativos y/o cualitativos del medio o instrumento que haya aplicado para obtener información para justificar la acción de formación.")
-                  span.fa-l-big
-                    | Intención
-                    +ayuda("Explique cuáles son los beneficios para la formación y las trayectorias del  desarrollo profesional de los participantes al cursar la acción de formación propuesta.")
-                  span.fa-l-big
-                    | Alcance
-                    +ayuda("Señale cuál es la trascendencia de la acción de formación para el fortalecimiento  o desarrollo de competencias.")
-                .form-group
-                  span(class="control-label col-md-3") Justicación:
-                  div(class="col-md-9")
-                    textarea.form-control(id="justificacion", name="justificacion", data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                  | Defina y redacte los resultados de aprendizaje propuestos que se requieren para lograr la competencia establecida:
                 
-                .form-group
-                  span.control-label.col-md-3
-                    | Finalidad
-                    +ayuda("<p>A partir de la información anterior y con propósitos estadísticos, le solicitamos que elija el propósito de la acción de formación.  </p><p>Para responder, revise cada una de las finalidades establecidas por la Función Pública.</p")
-                  .col-md-9
-                    select#finalidad.form-control(name='finalidad', data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
-                      option(value='') Seleccione ...
-                      option(value='Inducción') Inducción
-                      option(value='Fortalecimiento') Fortalecimiento
-                      option(value='Actualización') Actualización
-                      option(value='Desarrollo') Desarrollo   
-                      option(value='Certificacion') Certificación 
-                      
-                      
-                      
-                .form-group
-                  span.control-label.col-md-3
-                  .col-md-9
-                    br
-                    +ayuda("Acciones de formación dirigidas al personal de nuevo ingreso o con menos de un año en el instituto, con la finalidad de inducirlo a la institución y/o al puesto.")
-                    span.fa-l Inducción
-                    br
-                    +ayuda("Acciones de formación que tienen por objeto reforzar, complementar y perfeccionar el desempeño de las funciones del puesto.")
-                    span.fa-l Fortalecimiento
-                    br
-                    +ayuda("Acciones de formación cuya finalidad es mantener vigentes los conocimientos, habilidades y aptitudes que el desempeño de las funciones del puesto exige al personal del instituto.")
-                    span.fa-l Actualización
-                    br
-                    +ayuda("Acciones de formación dirigidos a incrementar los conocimientos, habilidades y aptitudes del personal del instituto.")
-                    span.fa-l Desarrollo
-                    br
-                    +ayuda("Acciones de formación encaminadas a la validación los conocimientos, habilidades y aptitudes en un campo disciplinar o laboral específico.")
-                    span.fa-l Certificación
+                span(class="col-md-11 col-md-offset-1")
+                  | Resultados de Aprendizaje Propuestos:
+                  +ayuda-bottom('<p>Los resultados de aprendizaje propuestos determinan lo que se espera que el participante deba saber, comprender y/o ser capaz de demostrar al finalizar el proceso de aprendizaje. (Manual ECTS, 2005).</p><p>&nbsp</p><p>Para redactar un Resultado de Aprendizaje Propuesto se debe:</p><p>&nbsp</p><UL type = disk ><LI>Utilizar un verbo de acción.<LI>Considerar el tiempo para lograrlo.<LI>Ser congruente con el proceso de aprendizaje.<LI>Asegurar que son observables y medibles y por tanto puedan evaluarse. (Modificado de: Kennedy, D., 2007).</UL><p>&nbsp</p><label>Importante. El total de resultados de aprendizaje propuestos deberá asegurar el desarrollo de la competencia establecida. En este sentido, se sugiere considerar al menos tres.</label><p>&nbsp</p>')
+                  
+                
+                div.col-md-11.col-md-offset-1
+                  hr
+                  a.btn.btn-success.fa-r(onclick='addRAP()')
+                    i.fa.fa-plus-circle.fa-r
+                    | Agregar RAP
                     
-                    
-                    
-                    
-                    
+                  hr
+                div#seccionRAPdiv
+                
+                
+                
+                
+                
+                
+                
                 span(class="col-md-11 col-md-offset-1 alert alert-info")
-                  | Personal al que se dirige
-                      
-                .form-group
-                  span.control-label.col-md-3
-                    | Área
-                    +ayuda("Seleccione el área de formación a la que corresponde la acción de formación, según el público objetivo al que va dirigida.")
-                  .col-md-9
-                    select#area_dirigido_accion.form-control(name='area_dirigido_accion')
-                      option(value='') Seleccione ...
-                      option(value='Docentes') Docentes
-                      option(value='Directivos/Funcionarios') Directivos/Funcionarios
-                      option(value='PAAE') PAAE
-                      
-                .form-group
-                  span.control-label.col-md-3
-                    | 
-                  .col-md-9
-                    select#subarea_dirigido_accion.form-control(name='subarea_dirigido_accion')
-                      option(value='') Seleccione ...
-                        
-                
+                  | Metodología didáctica:
+                  +ayuda-bottom('<p>La metodología didáctica implica la forma en la que se llevan a cabo los procesos de enseñanza y de aprendizaje. En este sentido, constituye la descripción general del proceso formativo para el logro de los aprendizajes.</p><p>&nbsp</p><p>(Elaboración propia considerando las referencias: Fortea Bagán Miguel Ángel 2009. Metodologías didácticas para la enseñanza-aprendizaje de competencias.   Manuel S. Saavedra. 2008. Diccionario de pedagogía.)</p><p>&nbsp</p><p>En este apartado enuncie de manera general lo siguiente:</p><p>&nbsp</p><OL><LI>El modelo educativo (principios y bases metodológicas y conceptuales del proceso a implementar en su acción de formación).<LI>El rol del facilitador (quien orienta y guía al participante en su proceso de aprendizaje) y de los participantes (como responsables de su aprendizaje).<LI>Las actividades de aprendizaje y su pertinencia para el logro de la competencia y aprendizajes esperados.<LI>El proceso de evaluación incluyendo tipos e instrumentos de evaluación. Procure que éstos sean acordes a la función formativa de la evaluación.<LI>La relevancia de desarrollar la acción de formación en la modalidad propuesta.</OL>')
+                          
+                span(class="col-md-11 col-md-offset-1")
+                  | Describa la metodología didáctica de la acción de formación.
+                div(class="col-md-11 col-md-offset-1")
+                    textarea.form-control(id="metodologia_didactica", name="metodologia_didactica", data-validation="empty", data-toggle="tooltip", data-placement="top", title="", rows="10")
                               
-                +h-input("hidden", "", "estatus_sec_2", "", "true", 9, 3, "", "","") 
+                              
+                
+                
+                
+                
+                span(class="col-md-11 col-md-offset-1 sepTop")
+                  | A partir de la información anterior, señale de qué manera la metodología planteada contribuirá al logro de la competencia de la acción de formación.
+                div(class="col-md-11 col-md-offset-1")
+                  textarea.form-control(id="metodologia_resultado", name="metodologia_resultado", data-validation="empty", data-toggle="tooltip", data-placement="top", title="", rows="10")
+                            
+                
+                
+                
+                
+                
+                
+                span(class="col-md-11 col-md-offset-1 alert alert-info sepTop")
+                  | Lineamientos de acreditación:
+                  +ayuda('<p></p><UL type = disk ><LI><b>Curso y Taller.</b> 8.0 o 80%  como calificación mínima de aprobación (con excepción de los Servidores Públicos de Carrera, para quienes de acuerdo con la Ley de SPC la calificación mínima es de 70 puntos).  80% de asistencia para escolarizada y mixta. 80% de las actividades entregadas para modalidad no escolarizada.<LI><b>Diplomado.</b> Promediar un mínimo 8.0 o 80% en cada módulo y como calificación final.  Contar con examen final o trabajo recepcional. Tener 80% de asistencia.<LI><b>Seminario.</b> Contar con un trabajo recepcional. 80% mínimo de asistencia.</UL>')
+                
+                div(class="col-md-11 col-md-offset-1")
+                  textarea.form-control(id="lineamientos_acreditacion", name="lineamientos_acreditacion", data-validation="empty", data-toggle="tooltip", data-placement="top", title="", rows="10")
+          
+                              
+                              
+                              
+                +h-input("hidden", "", "estatus_sec_3", "", "true", 9, 3, "", "","") 
                 .row
                   .col-md-12
                     hr
@@ -104,8 +91,8 @@ block content
                       i.fa.fa-save.fa-r
                       | Guardar 
                     
-                    if accionFormacion.estatus_sec_2=='true'
-                      a.btn.btn-success.fa-r(href="")
+                    if accionFormacion.estatus_sec_3=='true'
+                      a.btn.btn-success.fa-r(href=href="/acciones-formacion/nueva/#{accionFormacion._id}/planeacion")
                         i.fa.fa-check-circle.fa-r
                         | Continuar
                     else
@@ -113,43 +100,24 @@ block content
                         i.fa.fa-check-circle.fa-r
                         | Continuar
                         
-                    a.btn.btn-default(href="")
+                    a.btn.btn-danger(href="")
                       | Cancelar
-
 
   append javascript
     script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
     script.
-      $("#area_dirigido_accion").change(function() {
-        var textDirigido = $('#area_dirigido_accion :selected').text();
-        if (textDirigido === "Docentes") {
-          $("#subarea_dirigido_accion").empty();
-          $("#subarea_dirigido_accion").append("<option value=''>Seleccione ...</option>" +
-            "<option value='Didactica'>Didáctica-Pedagógica</option>" +
-            "<option value='Conocimientos'>Conocimientos de área disciplinar específica</option>" +
-            "<option value='Investigacion'>Investigación educativa</option>" +
-            "<option value='Desarrollo'>Desarrollo Humano</option>" +
-            "<option value='Complementarios'>Conocimientos complementarios</option>");
-        } else {
-          if (textDirigido === "Directivos/Funcionarios") {
-            $("#subarea_dirigido_accion").empty();
-            $("#subarea_dirigido_accion").append("<option value=''>Seleccione ...</option>" +
-              "<option value='Etica'>Ética y normatividad</option>" +
-              "<option value='Gestion'>Gestión para la innovación</option>" +
-              "<option value='Habilidades'>Habilidades directivas</option>" +
-              "<option value='Direccion'>Dirección académica</option>");
-          } else {
-              if (textDirigido === "PAAE") {
-                $("#subarea_dirigido_accion").empty();
-                $("#subarea_dirigido_accion").append("<option value=''>Seleccione ...</option>" +
-                  "<option value='TIC'>Integración de las TIC</option>" +
-                  "<option value='Comunicacion'>Comunicación y expresión</option>" +
-                  "<option value='Sociales'>Habilidades sociales</option>" +
-                  "<option value='Renovacion'>Renovación de la gestión</option>");
-              } else {
-                  $("#subarea_dirigido_accion").empty();
-                  $("#subarea_dirigido_accion").append("<option value=''>Seleccione ...</option>");
-              }
-          }
-        }
-      });
+      //- Variable temporal para incrementar id de RAP
+      var rap = 0;
+      
+      //- Funcion para crear un nuevo resultado propuesto
+      function addRAP(){
+        var rap1=rap+1;
+        $('#seccionRAPdiv').append('<div id="divCopCont'+rap+'"><hr><div id="resultado_apredizaje_propuesto['+rap+'][logro]_Form" class="form-group"><span class="control-label col-md-3">Resultado de Aprendizaje Propuesto '+rap1+':</span><div class="col-md-9"><textarea id="resultado_apredizaje_propuesto['+rap+'][logro]" name="resultado_apredizaje_propuesto['+rap+'][logro]" value="" data-validation="" data-toggle="tooltip" data-placement="top" title="" class="form-control" rows="5"></textarea></div><div id="dependenciaCoparticipanteAdd" class="form-group"><span class="control-label col-md-3"></span><div class="col-md-9">'+
+        '<a onclick=delRap("divCopCont'+rap+'") class="btn btn-danger sepTop fa-r"><i class="fa fa-trash fa-r"></i>Eliminar</a></div></div></div>');
+        rap=rap+1;
+      }
+      
+      
+      function delRap(id){
+        $("#"+id).empty();
+      }

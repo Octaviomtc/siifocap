@@ -1756,46 +1756,18 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 .embed-responsive.embed-responsive-16by9 { padding-bottom: 56.25%; }
 .embed-responsive.embed-responsive-4by3 { padding-bottom: 75%; }
 
+.well { min-height: 20px; padding: 19px; margin-bottom: 20px; background-color: #f5f5f5; border: 1px solid #e3e3e3; border-radius: 4px; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05); }
+.well blockquote { border-color: #ddd; border-color: rgba(0, 0, 0, 0.15); }
+
+.well-lg { padding: 24px; border-radius: 6px; }
+
+.well-sm { padding: 9px; border-radius: 3px; }
+
 .close { float: right; font-size: 16.5px; font-weight: bold; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: 0.2; filter: alpha(opacity=20); }
 .close:hover, .close:focus { color: #000; text-decoration: none; cursor: pointer; opacity: 0.5; filter: alpha(opacity=50); }
 
 button.close { padding: 0; cursor: pointer; background: transparent; border: 0; -webkit-appearance: none; }
 
-.modal-open { overflow: hidden; }
-
-.modal { display: none; overflow: auto; overflow-y: scroll; position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 1050; -webkit-overflow-scrolling: touch; outline: 0; }
-.modal.fade .modal-dialog { -webkit-transform: translate(0, -25%); -ms-transform: translate(0, -25%); -o-transform: translate(0, -25%); transform: translate(0, -25%); -webkit-transition: -webkit-transform 0.3s ease-out; -moz-transition: -moz-transform 0.3s ease-out; -o-transition: -o-transform 0.3s ease-out; transition: transform 0.3s ease-out; }
-.modal.in .modal-dialog { -webkit-transform: translate(0, 0); -ms-transform: translate(0, 0); -o-transform: translate(0, 0); transform: translate(0, 0); }
-
-.modal-dialog { position: relative; width: auto; margin: 10px; }
-
-.modal-content { position: relative; background-color: #fff; border: 1px solid #999; border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 6px; -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5); box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5); background-clip: padding-box; outline: 0; }
-
-.modal-backdrop { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 1040; background-color: #000; }
-.modal-backdrop.fade { opacity: 0; filter: alpha(opacity=0); }
-.modal-backdrop.in { opacity: 0.5; filter: alpha(opacity=50); }
-
-.modal-header { padding: 15px; border-bottom: 1px solid #e5e5e5; min-height: 16.42857px; }
-
-.modal-header .close { margin-top: -2px; }
-
-.modal-title { margin: 0; line-height: 1.42857; }
-
-.modal-body { position: relative; padding: 15px; }
-
-.modal-footer { padding: 15px; text-align: right; border-top: 1px solid #e5e5e5; }
-.modal-footer:before, .modal-footer:after { content: " "; display: table; }
-.modal-footer:after { clear: both; }
-.modal-footer .btn + .btn { margin-left: 5px; margin-bottom: 0; }
-.modal-footer .btn-group .btn + .btn { margin-left: -1px; }
-.modal-footer .btn-block + .btn-block { margin-left: 0; }
-
-.modal-scrollbar-measure { position: absolute; top: -9999px; width: 50px; height: 50px; overflow: scroll; }
-
-@media (min-width: 768px) { .modal-dialog { width: 600px; margin: 30px auto; }
-  .modal-content { -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); }
-  .modal-sm { width: 300px; } }
-@media (min-width: 992px) { .modal-lg { width: 900px; } }
 .tooltip { position: absolute; z-index: 1070; display: block; visibility: visible; font-size: 10px; line-height: 1.4; opacity: 0; filter: alpha(opacity=0); }
 .tooltip.in { opacity: 0.9; filter: alpha(opacity=90); }
 .tooltip.top { margin-top: -3px; padding: 5px 0; }
@@ -1841,6 +1813,43 @@ button.close { padding: 0; cursor: pointer; background: transparent; border: 0; 
 .popover.left > .arrow { top: 50%; right: -11px; margin-top: -11px; border-right-width: 0; border-left-color: #999999; border-left-color: rgba(0, 0, 0, 0.05); }
 .popover.left > .arrow:after { content: " "; right: 1px; border-right-width: 0; border-left-color: #fff; bottom: -10px; }
 
+.carousel { position: relative; }
+
+.carousel-inner { position: relative; overflow: hidden; width: 100%; }
+.carousel-inner > .item { display: none; position: relative; -webkit-transition: 0.6s ease-in-out left; -o-transition: 0.6s ease-in-out left; transition: 0.6s ease-in-out left; }
+.carousel-inner > .item > img, .carousel-inner > .item > a > img { display: block; max-width: 100%; height: auto; line-height: 1; }
+.carousel-inner > .active, .carousel-inner > .next, .carousel-inner > .prev { display: block; }
+.carousel-inner > .active { left: 0; }
+.carousel-inner > .next, .carousel-inner > .prev { position: absolute; top: 0; width: 100%; }
+.carousel-inner > .next { left: 100%; }
+.carousel-inner > .prev { left: -100%; }
+.carousel-inner > .next.left, .carousel-inner > .prev.right { left: 0; }
+.carousel-inner > .active.left { left: -100%; }
+.carousel-inner > .active.right { left: 100%; }
+
+.carousel-control { position: absolute; top: 0; left: 0; bottom: 0; width: 15%; opacity: 0.5; filter: alpha(opacity=50); font-size: 20px; color: #fff; text-align: center; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); }
+.carousel-control.left { background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.5) 0%), color-stop(rgba(0, 0, 0, 0.0001) 100%)); background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%); background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%); background-repeat: repeat-x; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1); }
+.carousel-control.right { left: auto; right: 0; background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.0001) 0%), color-stop(rgba(0, 0, 0, 0.5) 100%)); background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%); background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%); background-repeat: repeat-x; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1); }
+.carousel-control:hover, .carousel-control:focus { outline: 0; color: #fff; text-decoration: none; opacity: 0.9; filter: alpha(opacity=90); }
+.carousel-control .icon-prev, .carousel-control .icon-next, .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right { position: absolute; top: 50%; z-index: 5; display: inline-block; }
+.carousel-control .icon-prev, .carousel-control .glyphicon-chevron-left { left: 50%; margin-left: -10px; }
+.carousel-control .icon-next, .carousel-control .glyphicon-chevron-right { right: 50%; margin-right: -10px; }
+.carousel-control .icon-prev, .carousel-control .icon-next { width: 20px; height: 20px; margin-top: -10px; font-family: serif; }
+.carousel-control .icon-prev:before { content: '\2039'; }
+.carousel-control .icon-next:before { content: '\203a'; }
+
+.carousel-indicators { position: absolute; bottom: 10px; left: 50%; z-index: 15; width: 60%; margin-left: -30%; padding-left: 0; list-style: none; text-align: center; }
+.carousel-indicators li { display: inline-block; width: 10px; height: 10px; margin: 1px; text-indent: -999px; border: 1px solid #fff; border-radius: 10px; cursor: pointer; background-color: #000 \9; background-color: transparent; }
+.carousel-indicators .active { margin: 0; width: 12px; height: 12px; background-color: #fff; }
+
+.carousel-caption { position: absolute; left: 15%; right: 15%; bottom: 20px; z-index: 10; padding-top: 20px; padding-bottom: 20px; color: #fff; text-align: center; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); }
+.carousel-caption .btn { text-shadow: none; }
+
+@media screen and (min-width: 768px) { .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-prev, .carousel-control .icon-next { width: 30px; height: 30px; margin-top: -15px; font-size: 30px; }
+  .carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev { margin-left: -15px; }
+  .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next { margin-right: -15px; }
+  .carousel-caption { left: 20%; right: 20%; padding-bottom: 30px; }
+  .carousel-indicators { bottom: 20px; } }
 .clearfix:before, .clearfix:after { content: " "; display: table; }
 .clearfix:after { clear: both; }
 
@@ -2025,6 +2034,12 @@ a:hover, a:focus { text-decoration: none; color: #6d1a42; filter: alpha(opacity=
 
 .error-message { margin-top: 20px; font-size: 14px; }
 
+.active-bar { margin-bottom: -10px; border-radius: 0px; }
+
+ul > li > a > .active-bar:hover { background-color: #dff0d8; }
+
+.alert .alert-success:hover { background-color: #dff0d8; }
+
 .fa-ayuda { font-size: 10px; color: #6d1a42; }
 
 .fa-ayuda:hover { color: #444; cursor: help; }
@@ -2034,6 +2049,8 @@ a:hover, a:focus { text-decoration: none; color: #6d1a42; filter: alpha(opacity=
 .disabled:hover { cursor: not-allowed; }
 
 .fa-activo { color: #68bf76; font-size: 15px; }
+
+.sepTop { margin-top: 10px; }
 
 .tooltip-inner { max-width: 650px; background-color: #6d1a42; }
 
@@ -2069,72 +2086,46 @@ table th { color: #6d1a42; background-color: #f5f5f5; font-weight: normal; }
 
 .card-view .value { font-weight: normal; font-size: 12px; }
 
-/* ========================================================================
-* bootstrap-switch - v3.2.2
-* http://www.bootstrap-switch.org
-* ========================================================================
-* Copyright 2012-2013 Mattia Larentis
-*
-* ========================================================================
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*     http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-* ========================================================================
-*/
-.bootstrap-switch { display: inline-block; cursor: pointer; border-radius: 4px; border: 1px solid; border-color: #cccccc; position: relative; text-align: left; overflow: hidden; line-height: 8px; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; vertical-align: middle; -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }
+.modal-open { overflow: hidden; }
 
-.bootstrap-switch .bootstrap-switch-container { display: inline-block; top: 0; border-radius: 4px; -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+.modal { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 1040; display: none; overflow: hidden; -webkit-overflow-scrolling: touch; outline: 0; }
 
-.bootstrap-switch .bootstrap-switch-handle-on, .bootstrap-switch .bootstrap-switch-handle-off, .bootstrap-switch .bootstrap-switch-label { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; cursor: pointer; display: inline-block !important; padding: 6px 12px; font-size: 14px; line-height: 20px; }
+.modal.fade .modal-dialog { -webkit-transition: -webkit-transform .3s ease-out; -o-transition: -o-transform .3s ease-out; transition: transform .3s ease-out; -webkit-transform: translate(0, -25%); -ms-transform: translate(0, -25%); -o-transform: translate(0, -25%); transform: translate(0, -25%); }
 
-.bootstrap-switch .bootstrap-switch-handle-on, .bootstrap-switch .bootstrap-switch-handle-off { text-align: center; z-index: 1; }
+.modal.in .modal-dialog { -webkit-transform: translate(0, 0); -ms-transform: translate(0, 0); -o-transform: translate(0, 0); transform: translate(0, 0); }
 
-.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary { color: #fff; background: #428bca; }
+.modal-open .modal { overflow-x: hidden; overflow-y: auto; }
 
-.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-info, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-info { color: #fff; background: #5bc0de; }
+.modal-dialog { position: relative; width: auto; margin: 10px; }
 
-.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-success, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-success { color: #fff; background: #6d1a42; }
+.modal-content { position: relative; background-color: #fff; -webkit-background-clip: padding-box; background-clip: padding-box; border: 1px solid #999; border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 6px; outline: 0; -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5); box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5); }
 
-.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-warning, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-warning { background: #f0ad4e; color: #fff; }
+.modal-backdrop { background-color: #000; }
 
-.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-danger, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-danger { color: #fff; background: #d9534f; }
+.modal-backdrop.fade { filter: alpha(opacity=0); opacity: 0; }
 
-.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-default, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-default { color: #000; background: #eeeeee; }
+.modal-backdrop.in { filter: alpha(opacity=50); opacity: .5; }
 
-.bootstrap-switch .bootstrap-switch-label { text-align: center; margin-top: -1px; margin-bottom: -1px; z-index: 100; color: #333333; background: #ffffff; }
+.modal-header { min-height: 16.42857143px; padding: 15px; border-bottom: 1px solid #e5e5e5; }
 
-.bootstrap-switch .bootstrap-switch-handle-on { border-bottom-left-radius: 3px; border-top-left-radius: 3px; }
+.modal-header .close { margin-top: -2px; }
 
-.bootstrap-switch .bootstrap-switch-handle-off { border-bottom-right-radius: 3px; border-top-right-radius: 3px; }
+.modal-title { margin: 0; line-height: 1.42857143; }
 
-.bootstrap-switch input[type='radio'], .bootstrap-switch input[type='checkbox'] { position: absolute !important; top: 0; left: 0; opacity: 0; filter: alpha(opacity=0); z-index: -1; }
+.modal-body { position: relative; padding: 15px; }
 
-.bootstrap-switch input[type='radio'].form-control, .bootstrap-switch input[type='checkbox'].form-control { height: auto; }
+.modal-footer { padding: 15px; text-align: right; border-top: 1px solid #e5e5e5; }
 
-.bootstrap-switch.bootstrap-switch-mini .bootstrap-switch-handle-on, .bootstrap-switch.bootstrap-switch-mini .bootstrap-switch-handle-off, .bootstrap-switch.bootstrap-switch-mini .bootstrap-switch-label { padding: 1px 5px; font-size: 12px; line-height: 1.5; }
+.modal-footer .btn + .btn { margin-bottom: 0; margin-left: 5px; }
 
-.bootstrap-switch.bootstrap-switch-small .bootstrap-switch-handle-on, .bootstrap-switch.bootstrap-switch-small .bootstrap-switch-handle-off, .bootstrap-switch.bootstrap-switch-small .bootstrap-switch-label { padding: 5px 10px; font-size: 12px; line-height: 1.5; }
+.modal-footer .btn-group .btn + .btn { margin-left: -1px; }
 
-.bootstrap-switch.bootstrap-switch-large .bootstrap-switch-handle-on, .bootstrap-switch.bootstrap-switch-large .bootstrap-switch-handle-off, .bootstrap-switch.bootstrap-switch-large .bootstrap-switch-label { padding: 6px 16px; font-size: 18px; line-height: 1.33; }
+.modal-footer .btn-block + .btn-block { margin-left: 0; }
 
-.bootstrap-switch.bootstrap-switch-disabled, .bootstrap-switch.bootstrap-switch-readonly, .bootstrap-switch.bootstrap-switch-indeterminate { cursor: default !important; }
+.modal-scrollbar-measure { position: absolute; top: -9999px; width: 50px; height: 50px; overflow: scroll; }
 
-.bootstrap-switch.bootstrap-switch-disabled .bootstrap-switch-handle-on, .bootstrap-switch.bootstrap-switch-readonly .bootstrap-switch-handle-on, .bootstrap-switch.bootstrap-switch-indeterminate .bootstrap-switch-handle-on, .bootstrap-switch.bootstrap-switch-disabled .bootstrap-switch-handle-off, .bootstrap-switch.bootstrap-switch-readonly .bootstrap-switch-handle-off, .bootstrap-switch.bootstrap-switch-indeterminate .bootstrap-switch-handle-off, .bootstrap-switch.bootstrap-switch-disabled .bootstrap-switch-label, .bootstrap-switch.bootstrap-switch-readonly .bootstrap-switch-label, .bootstrap-switch.bootstrap-switch-indeterminate .bootstrap-switch-label { opacity: 0.5; filter: alpha(opacity=50); cursor: default !important; }
-
-.bootstrap-switch.bootstrap-switch-animate .bootstrap-switch-container { -webkit-transition: margin-left 0.5s; transition: margin-left 0.5s; }
-
-.bootstrap-switch.bootstrap-switch-inverse .bootstrap-switch-handle-on { border-bottom-left-radius: 0; border-top-left-radius: 0; border-bottom-right-radius: 3px; border-top-right-radius: 3px; }
-
-.bootstrap-switch.bootstrap-switch-inverse .bootstrap-switch-handle-off { border-bottom-right-radius: 0; border-top-right-radius: 0; border-bottom-left-radius: 3px; border-top-left-radius: 3px; }
-
-.bootstrap-switch.bootstrap-switch-on .bootstrap-switch-label, .bootstrap-switch.bootstrap-switch-inverse.bootstrap-switch-off .bootstrap-switch-label { border-bottom-right-radius: 3px; border-top-right-radius: 3px; }
-
-.bootstrap-switch.bootstrap-switch-off .bootstrap-switch-label, .bootstrap-switch.bootstrap-switch-inverse.bootstrap-switch-on .bootstrap-switch-label { border-bottom-left-radius: 3px; border-top-left-radius: 3px; }
+@media (min-width: 768px) { .modal-dialog { width: 600px; margin: 30px auto; }
+  .modal-content { -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); }
+  .modal-sm { width: 300px; } }
+@media (min-width: 992px) { .modal-lg { width: 900px; } }
+.divModal { height: 400px; overflow: scroll; }
