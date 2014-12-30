@@ -35,8 +35,20 @@ var resultado_apredizaje_propuesto_schema = new Schema(
 
 var accionesSchema = new Schema({
   //id: { type: String },//NECESARIO
-  cur:                                      {type: String, default: "00000000"},
-  registro_date:                            { type: Date, default: Date.now },
+  cur:{
+      titulo        : {type: String, default: "CGFIE"},
+      anio          : {type: Number},
+      consecutivo   : {type: Number},
+      terminacion   : {type: String},
+      personal      : {type: String},
+      tipo          : {type: String},
+      costo         : {type: String},
+      modalidad     : {type: String},
+      unidad_res    : {type: String},
+      vigencia      : {type: String},
+      cur           : {type: String}
+    },
+  registro_date:                            {type: Date, default: Date.now },
   estatus_accion:                           {type: String, default: "Pendiente"},
   dependencia:                              String,
   unidad:                                   String,
