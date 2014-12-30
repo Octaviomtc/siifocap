@@ -42,11 +42,13 @@ exports.allParticipantes = function (req, res, next){
 
 
 exports.findById = function(req, res, next) {
+  logger.debug('Buscando por ID participante : ' +req.params.id);
   participantes.findById(req.params.id, function(err, participante) {
     if(!err){
       res.locals.participante = participante;
       return next();
     }else{
+      logger.error('Buscando por ID participante | '+err.message)
       return res.send(500, err.message);
     }
   });
@@ -73,11 +75,10 @@ exports.addParticipante= function(req, res, next){
 
 
 exports.updateParticipante = function(req, res, next) {
-  logger.debug('Actualizando participante');
-  participante.findOneAndUpdate({_id:req.params.id}, req.body, function (err, participante) {
+  logger.debug('Actualizando participante : '+req.params.id);
+  participantes.findOneAndUpdate({_id:req.params.id}, req.body, function (err, participante) {
     if(!err){
-      res.participante = participante;
-      return next();
+      return next(), req.flash('message','Participante actualizado correctamente');
     }else{
       logger.error('Actualizando participante | '+err.message);
       res.send(500, err.message);

@@ -358,10 +358,34 @@ module.exports = function(passport){
       res.redirect('/participantes');
     });
 
+<<<<<<< HEAD
 
 
 
 
+=======
+    router.get('/participantes/ver/:id', isAuthenticated, participMid.findById, function(req, res){
+      param={
+        icon: "fa-building-o",
+        seccion: res.locals.participante.apellidos +  ", "+  res.locals.participante.nombre
+      }
+      res.render('app/participantes/ver',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+    router.get('/participantes/actualizar/:id', isAuthenticated, accionesMid.allAccionFormacion, participMid.findById, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Actualizar Participante"
+      }
+      res.render('app/participantes/editar',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+
+    router.post('/participantes/actualizar/:id', isAuthenticated, participMid.updateParticipante, function (req, res){
+      res.set('Content-Type', 'application/javascript');
+      res.redirect('/participantes');
+    });
+>>>>>>> origin/backend
 
     return router;
 }
