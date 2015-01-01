@@ -5,12 +5,14 @@ var escuela         = require('../models/escuela');
 var acciones        = require('../models/acciones');
 var dependencia     = require('../models/dependencia');
 var rol             = require('../models/rol');
-var participante    = require('../models/participante')
+var participante    = require('../models/participante');
+var evaluadores     = require('../models/evaluadores');
 //Controladores
 var usuariosMid     = require('../controllers/usuarios');
 var escuelaMid      = require('../controllers/escuelas');
 var accionesMid     = require('../controllers/acciones');
-var participMid     = require('../controllers/participantes')
+var participMid     = require('../controllers/participantes');
+var evaluadoresMid  = require('../controllers/evaluadores');
 
 var router          = express.Router();
 
@@ -380,6 +382,52 @@ module.exports = function(passport){
       res.set('Content-Type', 'application/javascript');
       res.redirect('/participantes');
     });
+
+    /*****************************************************************/
+    // SECCIÓN EVALUADORES
+    router.get('/evaluadores', isAuthenticated, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Evaluadores",
+        estado: "evaluadores"
+      }
+      res.render('app/evaluadores/index',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+
+    // nuevo evaluador paso 1
+    router.get('/evaluadores/crear/datos-personales', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Nuevo evaluador",
+        estado: "evaluadores",
+        paso: "1"
+      }
+
+      res.render('app/evaluadores/nuevo/datos-personales',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+
+    router.post('/evaluadores/crear/datos-personales', isAuthenticated, evaluadoresMid.addEvaluadores, function(req, res){
+      res.set('Content-Type', 'application/javascript');
+      // res.redirect('/acciones-formacion/nueva/'+res.accionFormacion._id+'/datos-generales');
+      res.redirect("/evaluadores/"+res.evaluadores._id+"/datos-personales");
+      // res.render('app/evaluadores/nuevo/datos-personales',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+
+    // nuevo evaluador paso 1 actualizar
+    router.get('/evaluadores/:id/datos-personales', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, evaluadoresMid.findById, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Nuevo evaluador",
+        estado: "evaluadores",
+        paso: "1"
+      }
+
+      res.render('app/evaluadores/actualizar/datos-personales',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
 
     return router;
 }

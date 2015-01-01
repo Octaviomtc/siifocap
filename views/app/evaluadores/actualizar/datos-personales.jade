@@ -1,0 +1,219 @@
+extends ../layout/layout-up
+
+block content
+  #message
+    if message
+      .error-message
+          a.text-center #{message}
+  .row
+    .col-md-12
+      .formulario.animated.fadeIn
+        
+        .contenido
+          .row
+            .col-md-11
+              form.form-horizontal(method='post', action="/evaluadores/#{evaluador._id}/datos-personales", enctype='application/json')
+                span(class="col-md-11 col-md-offset-1 alert alert-info")
+                  | Los datos personales recabados serán protegidos y serán incorporados y tratados en el Sistema de Registro de Acciones de Formación, con fundamento en la Ley Federal de Transparencia y Acceso a la Información Pública Gubernamental (Art. 14, Fracc. I; Art. 18, Fracc. II; Art. 19; y Art. 20, Fracc. I) y cuya finalidad es la obtención de datos para identificación y control interno. La Unidad Administrativa responsable del Sistema de Registro de Acciones de Formación es la Coordinación General de Formación e Innovación Educativa y la dirección donde el interesado podrá ejercer los derechos de acceso y corrección ante la misma es Edificio “Adolfo Ruiz Cortines” Av. Wilfrido Massieu s/n esq. Luis Enrique Erro, Unidad Profesional "Adolfo López Mateos", Zacatenco, Ciudad de México, D. F., C.P. 07738. Lo anterior se informa en cumplimiento del Decimoséptimo de los Lineamientos de Protección de Datos Personales, publicados en el Diario Oficial de la Federación el 30 de septiembre de 2005.
+                
+                label(class="col-md-11 col-md-offset-1 alert alert-info") Registre la información que se solicita del evaluador. Todos los datos con asterisco son obligatorios.
+                label(class="col-md-11 col-md-offset-1 alert alert-info") Escriba su(s) nombre(s) y apellido(s) de acuerdo al registro oficial establecido (acta de nacimiento o pasaporte)
+                +hr()
+                +h-input("text", "* Nombre(s)", "nombre", "Nombre(s)", evaluador.nombre, 9, 3, "autofocus", "empty","En mayúsculas y minúsculas, con acentos.")
+                
+                +h-input("text", "* Apellidos", "apellidos", "Apellidos", "", 9, 3, "", "empty","En mayúsculas y minúsculas, con acentos.")
+                
+                +h-input("text", "* Clave Única de Registro de Población (CURP):", "curp", "18 dígitos", "", 9, 3, "", "empty","")
+                
+                +hr()
+                label(class="col-md-11 col-md-offset-1 alert alert-info") * Lugar de residencia
+                +h-input("text", "", "calle", "Calle y número", "", 9, 3, "", "empty","")
+                +h-input("text", "", "interior", "Interior", "", 6, 3, "", "empty","")
+                +h-input("text", "", "colonia", "Colonia", "", 6, 3, "", "empty","")
+                +h-input("text", "", "delegacion", "Delegación/Municipio", "", 6, 3, "", "empty","")
+                +h-input("text", "", "cp", "C.P.", "", 6, 3, "", "empty","")
+                .form-group
+                  .col-md-6.col-md-offset-3
+                    select#entidad.form-control(name='entidad',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                      option(value="") Seleccione estado de residencia
+                      option(value="AG") Aguascalientes
+                      option(value="BC") Baja California
+                      option(value="BS") Baja California Sur
+                      option(value="CA") Campeche
+                      option(value="CP") Chiapas
+                      option(value="CH") Chihuahua
+                      option(value="CU") Coahuila
+                      option(value="CO") Colima
+                      option(value="DF") Distrito Federal
+                      option(value="DU") Durango
+                      option(value="GJ") Guanajuato
+                      option(value="GR") Guerrero
+                      option(value="HD") Hidalgo
+                      option(value="JA") Jalisco
+                      option(value="MX") México
+                      option(value="MC") Michoacán
+                      option(value="MO") Morelos
+                      option(value="NA") Nayarit
+                      option(value="NL") Nuevo León
+                      option(value="OX") Oaxaca
+                      option(value="PU") Puebla
+                      option(value="QE") Querétaro
+                      option(value="QR") Quintana Roo
+                      option(value="SL") San Luis Potosí
+                      option(value="SI") Sinaloa
+                      option(value="SO") Sonora
+                      option(value="TB") Tabasco
+                      option(value="TA") Tamaulipas
+                      option(value="TL") Tlaxcala
+                      option(value="VZ") Veracruz
+                      option(value="YT") Yucatán
+                      option(value="ZA") Zacatecas
+                +hr()
+                
+                .col-md-4.col-md-offset-3
+                  input(type="radio", id="tipo", name="tipo", value="personal_ipn")
+                  label.fa-l
+                    | Personal del IPN
+                .col-md-4
+                  input.fa-r(type="radio", id="tipo", name="tipo", value="personal_externo")
+                  label.fa-l
+                    | Evaluador Externo
+                    
+                //- ************************************************************************
+                .personal_ipn(id='personal_ipn')
+                  +hr()
+                  +h-input("date", "Fecha de ingreso al IPN:", "tipo_ipn[fecha_ingreso_ipn]", "Calle y número", "", 6, 3, "", "","")
+                  +h-input("text", "No. de Empleado:", "tipo_ipn[empleado_ipn]", "#", "", 6, 3, "", "","")
+                  
+                  .form-group
+                    span(class="control-label col-md-3")
+                      | Unidad de adscripción:
+                    div(class="col-md-9")
+                      select#dependencia.form-control(name='tipo_ipn[dependencia]',data-validation="", data-toggle="tooltip", data-placement="top", title="")
+                        option(value="") Seleccione dependencia ...
+                        each dependencia in dependencias
+                          option(value=dependencia.value)= dependencia.text
+                  
+                          
+                  .form-group#unidadForm
+                    span(class="control-label col-md-3")
+                      | 
+                    div(class="col-md-9")
+                      select#unidad.form-control(name='tipo_ipn[unidad]',data-validation="", data-toggle="tooltip", data-placement="top", title="")
+                          option(value="") Seleccione unidad ...
+                  
+                  .form-group
+                    span(class="control-label col-md-3")
+                      | Tipo de contratación:
+                    div(class="col-md-9")
+                      select#tipo_contratacion.form-control(name='tipo_ipn[tipo_contratacion]',data-validation="", data-toggle="tooltip", data-placement="top", title="")
+                        option(value="") Seleccione ...
+                        option(value='Base') Base
+                        option(value='Interinato') Interinato 
+                        option(value='Plaza puesto') Plaza puesto
+                        option(value='Confianza') Confianza
+                  
+                  
+                  .form-group
+                    span(class="control-label col-md-3")
+                      | Función:
+                    div(class="col-md-9")
+                      select#funcion.form-control(name='tipo_ipn[funcion]',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                        option(value="") Seleccione ...
+                        option(value='Directiva') Directiva
+                        option(value='Docente') Docente 
+                        option(value='Apoyo y Asistencia a la Educación') Apoyo y Asistencia a la Educación
+                        
+                  .form-group
+                    span(class="control-label col-md-3")
+                      | Correo electrónico:
+                    div(class="col-md-4")
+                      +h-input("text", "", "tipo_ipn[correo_ipn]", "Correo institucional", "", 12, 0, "", "","")
+                    div(class="col-md-4")
+                      +h-input("text", "", "", "Confirmar orreo institucional", "", 12, 0, "", "","")
+                      
+                  
+                  .form-group
+                    span(class="control-label col-md-3")
+                      | 
+                    div(class="col-md-4")
+                      +h-input("text", "", "tipo_ipn[correo_alternativo]", "Confirmar correo alternativo", "", 12, 0, "", "","")
+                    div(class="col-md-4")
+                      +h-input("text", "", "", "Confirmar orreo alternativo", "", 12, 0, "", "","")
+                  
+                  
+                  .form-group
+                    span(class="control-label col-md-3")
+                      | Número Telefónico:
+                    div(class="col-md-3")
+                      +h-input("text", "", "tipo_ipn[tel_particular]", "Ingresa número particular (10 digítos)", "", 12, 0, "", "","")
+                    div(class="col-md-3")
+                      +h-input("text", "", "tipo_ipn[tel_trabajo]", "Ingresa número de trabajo (10 digítos)", "", 12, 0, "", "","")
+                    div(class="col-md-2")
+                      +h-input("text", "", "tipo_ipn[tel_extension]", "Extensión", "", 12, 0, "", "","")
+                
+                
+                //- ************************************************************************
+                .personal_externo(id="personal_externo")
+                  +hr()
+                  +h-input("text", "Institución donde labora actualmente:", "tipo_externo[institucion]", "Institución donde labora actualmente", "", 9, 3, "autofocus", "","")
+                  +h-input("text", "Correo electrónico:", "tipo_externo[correo]", "Correo@", "", 9, 3, "", "","")
+                  +h-input("text", "Teléfono:", "tipo_externo[telefono]", "Teléfono", "", 9, 3, "", "","")
+                  
+                  
+
+                +h-input("hidden", "", "estatus_sec_1", "", "true", 9, 3, "", "","") 
+                  
+                +hr()
+                .col-md-9.col-md-offset-3
+                    button.btn.btn-success.fa-r(type='submit')
+                      i.fa.fa-save.fa-r
+                      | Guardar
+
+                    a.btn.btn-success.fa-r(href="/evaluadores/#{evaluador._id}/pendiente")
+                      i.fa.fa-check-circle.fa-r
+                      | Continuar
+
+                    a.btn.btn-danger(href="#")
+                      | Cancelar
+
+
+  append javascript
+    script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
+    script.
+      
+      $( "#dependencia" ).change(function(){
+        var valor = $('#dependencia :selected').val();
+        if (valor==""){
+          $("#unidad").empty();
+          add_append_select("unidad","","Seleccione unidad ...");
+        }else{
+          revisaUnidades(valor);
+        }
+        
+      });
+      
+      function revisaUnidades(dependenciaVal){
+        //- console.log(dependenciaVal);
+        $.ajax({
+          url: "/unidades/consulta/dependencia",
+          data: {
+            dependencia: dependenciaVal
+          },                      
+          type: "POST",
+          dataType: "json",
+          success: function(source){
+            if (source.success === true){
+                $("#unidad").empty();
+                add_append_select("unidad","","Seleccione unidad ...");
+                $.each(source.escuelas, function(index, escuela) {
+                  add_append_select("unidad",escuela._id,escuela.nombre);
+                });
+            }
+          },
+          error: function(dato){
+          
+          }
+        }); //end ajax
+        return false;
+      }

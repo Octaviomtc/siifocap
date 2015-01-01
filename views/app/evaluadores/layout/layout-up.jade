@@ -1,0 +1,63 @@
+include ../../../includes/mixins
+html
+  head
+    include ../../../includes/head
+    include ../../../includes/head_scripts
+
+  body
+    #encabezados
+      include ../../../includes/titulos
+      include ../../../includes/barraSup
+      include ../../../includes/navbar
+    #content
+      #app
+        .container
+          .col-md-3.col-lg-2.col-sm-3
+            include ../../../includes/menu
+          .col-md-9.col-lg-10.col-sm-9
+            nav.navbar.navbar-default(role='navigation')
+              .container-fluid
+                .navbar-header
+                  a.navbar-brand(href='#')
+                    i(class="fa fa-r #{datos.icon}")
+                    | #{datos.seccion}
+            .animated.fadeIn
+              nav.navbar.navbar-default(role='navigation')
+                div.container-fluid
+                  div.navbar-header
+                    button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#menu')
+                      span.sr-only Toggle navigation
+                      span.icon-bar
+                      span.icon-bar
+                      span.icon-bar
+                    a.navbar-brand()
+                      i.fa.fa-r.fa-building-o.fa-l
+                  div#menu.collapse.navbar-collapse
+                    ul.nav.navbar-nav
+                      if evaluador.estatus_sec_1=='true'
+                        li(class=datos.paso=="1" ? "active":"")
+                          a(href='/evaluadores/#{evaluador._id}/datos-personales', class=evaluador.estatus_sec_1=="true" ? "alert alert-success active-bar":"") 
+                            i.fa.fa-check-circle.fa-r.fa-activo
+                            | Datos personales
+                      else
+                        li(class=datos.paso=="1" ? "active":"")
+                          a.disabled(href='') 
+                            | Datos personales
+                            
+                      if evaluador.estatus_sec_1=='true'      
+                        li
+                          a() Formación académica
+                      else
+                        li
+                          a.disabled() Formación académica
+                        
+                      li
+                        a.disabled() Experiencia laboral
+                      li
+                        a.disabled() Experiencia como evaluador
+                      li
+                        a.disabled() Competencias del evaluador
+              #form-mult
+                block content
+    include ../../../includes/scripts
+    include ../../../includes/footer
