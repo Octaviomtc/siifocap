@@ -410,9 +410,7 @@ module.exports = function(passport){
 
     router.post('/evaluadores/crear/datos-personales', isAuthenticated, evaluadoresMid.addEvaluadores, function(req, res){
       res.set('Content-Type', 'application/javascript');
-      // res.redirect('/acciones-formacion/nueva/'+res.accionFormacion._id+'/datos-generales');
       res.redirect("/evaluadores/"+res.evaluadores._id+"/datos-personales");
-      // res.render('app/evaluadores/nuevo/datos-personales',{message: req.flash('message'), user: req.user, datos: param});
     });
 
 
@@ -426,6 +424,25 @@ module.exports = function(passport){
       }
 
       res.render('app/evaluadores/actualizar/datos-personales',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+
+    router.post('/evaluadores/:id/datos-personales', isAuthenticated, evaluadoresMid.addEvaluadores, function(req, res){
+      res.set('Content-Type', 'application/javascript');
+      res.redirect("/evaluadores/"+res.evaluadores._id+"/datos-personales");
+    });
+
+
+    // nuevo evaluador paso 2 actualizar
+    router.get('/evaluadores/:id/formacion-academica', isAuthenticated, evaluadoresMid.findById, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Nuevo evaluador",
+        estado: "evaluadores",
+        paso: "1"
+      }
+
+      res.render('app/evaluadores/actualizar/formacion-academica',{message: req.flash('message'), user: req.user, datos: param});
     });
 
 

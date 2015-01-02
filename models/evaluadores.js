@@ -33,7 +33,11 @@ var evaluadoresSchema = new Schema({
     correo                                  :String,
     telefono                                :String
   },
-  estatus_sec_1                           :String
+  estatus_sec_1                           :String,
+  estatus_sec_2                           :String,
+  estatus_sec_3                           :String,
+  estatus_sec_4                           :String,
+  estatus_sec_5                           :String
 },
 {
   collection : 'evaluadores'

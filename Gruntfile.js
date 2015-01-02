@@ -1,6 +1,13 @@
 /*
 Archivo que configura la lista de tareas
  */
+
+ var env = process.env.NODE_ENV || 'development';
+
+ //Carga de configuracion
+ GLOBAL.config = config = require('./config/config')[env];
+
+
 module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON("package.json"),
@@ -23,6 +30,30 @@ module.exports = function(grunt) {
         }
       }
     },
+
+
+    mongoimport: {
+      options: {
+            db : config.name_db,
+            host : config.host_db,
+            port: '27017', //optional
+            username : '', //optional
+            password : '',  //optional
+            stopOnError : false,  //optional
+            collections : [
+          {
+            name : 'formacion',
+            type : 'json',
+            file : 'models/formacion.json',
+            jsonArray : true,  //optional
+            upsert : true,  //optional
+            drop : true  //optional
+          }
+        ]
+      }
+    },
+
+
     watch: {
       compass: {
         files: ["lib/assets/sass/**/*.scss"],
@@ -30,6 +61,7 @@ module.exports = function(grunt) {
       }
     }
   });
+  grunt.loadNpmTasks('grunt-mongoimport');
   grunt.loadNpmTasks("grunt-contrib-compass");
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-nodemon");
@@ -37,6 +69,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-codo");
   grunt.registerTask("default", ["nodemon:dev"]);
   grunt.registerTask("assets", ["watch:compass"]);
+  grunt.registerTask("carga-inicial", ["mongoimport"]);
   grunt.registerTask("docs", ["docco:code"]);
+
+
+
   return grunt.registerTask("build", ["compass:dev"]);
 };
