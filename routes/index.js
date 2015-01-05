@@ -11,6 +11,7 @@ var usuariosMid     = require('../controllers/usuarios');
 var escuelaMid      = require('../controllers/escuelas');
 var accionesMid     = require('../controllers/acciones');
 var participMid     = require('../controllers/participantes')
+var facilitaMid     = require('../controllers/facilitadores')
 
 var router          = express.Router();
 
@@ -380,6 +381,36 @@ module.exports = function(passport){
       res.set('Content-Type', 'application/javascript');
       res.redirect('/participantes');
     });
+
+
+    /*****************************************************************/
+    // SECCIÓN FACILITADORES
+
+    router.get('/facilitadores', isAuthenticated, facilitaMid.allFacilitadores, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Facilitadres",
+        estado: "facilitadres"
+      }
+      res.render('app/facilitadores/index',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+
+    router.get('/facilitadores/nuevo', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, function(req, res){
+       param={
+            icon: "fa-plus-circle",
+            seccion: "Nuevo Facilitador",
+            estado: "acciones",
+            paso: "1"
+        }
+
+        res.render('app/facilitadores/nuevo',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+
+
+
+
 
     return router;
 }

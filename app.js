@@ -11,7 +11,7 @@ var flash                 = require('connect-flash');
 var initPassport          = require('./passport/init');
 var routes                = require('./routes/index')(passport);
 var logger                = require("./utils/winston");
-
+var init                  = require('./config/init');
 
 // Se configura ambiente
 var env = process.env.NODE_ENV || 'development';
@@ -30,28 +30,29 @@ logger.debug('Configurando app');
 app.set('views', path.join(config.root, 'views'));
 app.set('view engine', 'jade');
 app.use(favicon());
-//////////////app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(config.root, 'public')));
+
+
 // Configuring Passport
 app.use(expressSession({secret: 'mySecretKey'}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
+
 // Initialize Passport
 logger.debug('Configurando passport');
 initPassport(passport);
 
 
-
-
 logger.debug('Configurando rutas');
 app.use('/', routes);
 
-
+logger.debug('Configurando administrador');
+init.InicializaAdmin();
 
 logger.debug('Configurando 404');
 /// Cacha mensaje 404
