@@ -46,10 +46,10 @@ html
                             
                       if evaluador.estatus_sec_1=='true'      
                         li
-                          a() Formación académica
+                          a(href="/evaluadores/#{evaluador._id}/formacion-academica") Formación académica
                       else
                         li
-                          a.disabled() Formación académica
+                          a.disabled(href='') Formación académica
                         
                       li
                         a.disabled() Experiencia laboral

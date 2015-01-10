@@ -44,7 +44,31 @@ module.exports = function(grunt) {
           {
             name : 'formacion',
             type : 'json',
-            file : 'models/formacion.json',
+            file : 'models/json/formacion.json',
+            jsonArray : true,  //optional
+            upsert : true,  //optional
+            drop : true  //optional
+          },
+          {
+            name : 'entidades',
+            type : 'json',
+            file : 'models/json/entidades.json',
+            jsonArray : true,  //optional
+            upsert : true,  //optional
+            drop : true  //optional
+          },
+          {
+            name : 'escuelas_privadas',
+            type : 'json',
+            file : 'models/json/escuelas_privadas.json',
+            jsonArray : true,  //optional
+            upsert : true,  //optional
+            drop : true  //optional
+          },
+          {
+            name : 'escuelas_publicas',
+            type : 'json',
+            file : 'models/json/escuelas_publicas.json',
             jsonArray : true,  //optional
             upsert : true,  //optional
             drop : true  //optional

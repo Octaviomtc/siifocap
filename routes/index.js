@@ -7,12 +7,21 @@ var dependencia     = require('../models/dependencia');
 var rol             = require('../models/rol');
 var participante    = require('../models/participante');
 var evaluadores     = require('../models/evaluadores');
+var formacion       = require('../models/formacion');
+var entidades       = require('../models/entidades');
+var escuelas_privadas = require('../models/escuelas_privadas');
+var escuelas_publicas = require('../models/escuelas_publicas');
 //Controladores
 var usuariosMid     = require('../controllers/usuarios');
 var escuelaMid      = require('../controllers/escuelas');
 var accionesMid     = require('../controllers/acciones');
 var participMid     = require('../controllers/participantes');
 var evaluadoresMid  = require('../controllers/evaluadores');
+var formacionMid    = require('../controllers/formacion');
+var entidadesMid    = require('../controllers/entidades');
+var escuelas_privadasMid    = require('../controllers/escuelas_privadas');
+var escuelas_publicasMid    = require('../controllers/escuelas_publicas');
+
 
 var router          = express.Router();
 
@@ -396,7 +405,7 @@ module.exports = function(passport){
 
 
     // nuevo evaluador paso 1
-    router.get('/evaluadores/crear/datos-personales', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, function(req, res){
+    router.get('/evaluadores/crear/datos-personales', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, entidadesMid.findAllEntidades, function(req, res){
       param={
         icon: "fa-plus-circle",
         seccion: "Nuevo evaluador",
@@ -415,7 +424,7 @@ module.exports = function(passport){
 
 
     // nuevo evaluador paso 1 actualizar
-    router.get('/evaluadores/:id/datos-personales', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, evaluadoresMid.findById, function(req, res){
+    router.get('/evaluadores/:id/datos-personales', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, evaluadoresMid.findById, entidadesMid.findAllEntidades, function(req, res){
       param={
         icon: "fa-plus-circle",
         seccion: "Nuevo evaluador",
@@ -434,7 +443,7 @@ module.exports = function(passport){
 
 
     // nuevo evaluador paso 2 actualizar
-    router.get('/evaluadores/:id/formacion-academica', isAuthenticated, evaluadoresMid.findById, function(req, res){
+    router.get('/evaluadores/:id/formacion-academica', isAuthenticated, evaluadoresMid.findById, formacionMid.findAllFormacion, entidadesMid.findAllEntidades, escuelas_privadasMid.findAllEscuelas, escuelas_publicasMid.findAllEscuelas, function(req, res){
       param={
         icon: "fa-plus-circle",
         seccion: "Nuevo evaluador",
@@ -444,6 +453,31 @@ module.exports = function(passport){
 
       res.render('app/evaluadores/actualizar/formacion-academica',{message: req.flash('message'), user: req.user, datos: param});
     });
+
+
+    // se configura para recibir archivos temporales
+    router.post('/evaluadores/:id/formacion-academica', isAuthenticated, multer({
+      dest: __dirname+ "/.."+"/temp/uploads/evaluadores/files"
+    }));
+
+    router.post('/evaluadores/:id/formacion-academica', isAuthenticated, evaluadoresMid.addEvaluadores, function(req, res){
+      res.redirect("/evaluadores/"+res.evaluadores._id+"/formacion-academica");
+    });
+
+
+
+    //************************************************ CATALOGOS
+    //CLASIFICACION DE ESCUELAS
+    router.post('/formacion/consulta/campo_especifico', formacionMid.findCampoEspecifico, function(req, res){
+    });
+
+    router.post('/formacion/consulta/carrera', formacionMid.findCampoCarrera, function(req, res){
+    });
+
+    //ENTIDADES FEDERATIVAS -- Error
+    router.post('/entidades/catalogo', entidadesMid.findAllEntidades, function(req, res){
+    });
+
 
 
     return router;

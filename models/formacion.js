@@ -3,12 +3,12 @@ var Schema            = mongoose.Schema;
 
 var formacionSchema = new Schema({
   nombre_campo_amplio: String,
-  campo_especifico:{
-    nombre_campo_especifico: String,
-    campo_detallado:{
-      nombre_campo_detallado: String
-    }
-  }
+  campo_especifico:[{
+    nombre: String,
+    campo_detallado:[{
+      nombre: String
+    }]
+  }]
 },
 {
   collection : 'formacion'
