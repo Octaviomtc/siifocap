@@ -89,7 +89,16 @@ module.exports = function(grunt) {
             jsonArray : true,  //optional
             upsert : true,  //optional
             drop : true  //optional
+          },
+          {
+            name : 'rol_usuario',
+            type : 'json',
+            file : 'models/json/roles.json',
+            jsonArray : true,  //optional
+            upsert : true,  //optional
+            drop : true  //optional
           }
+
         ]
       }
     },
