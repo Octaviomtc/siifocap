@@ -13,7 +13,7 @@ config.development = {
   host_db:        "localhost",
   db:             "mongodb://localhost/test_siffocap",
   env:            "development",
-  port:           process.env.PORT || 5050
+  port:           process.env.PORT || 3000
 };
 
 

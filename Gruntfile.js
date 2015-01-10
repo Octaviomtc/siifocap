@@ -2,6 +2,7 @@
 Archivo que configura la lista de tareas
  */
 
+
  var env = process.env.NODE_ENV || 'development';
 
  //Carga de configuracion
@@ -72,11 +73,26 @@ module.exports = function(grunt) {
             jsonArray : true,  //optional
             upsert : true,  //optional
             drop : true  //optional
+          },
+          {
+            name : 'users',
+            type : 'json',
+            file : 'models/json/user.json',
+            jsonArray : true,  //optional
+            upsert : true,  //optional
+            drop : true  //optional
+          },
+          {
+            name : 'dependencia_unidad',
+            type : 'json',
+            file : 'models/json/dependencias.json',
+            jsonArray : true,  //optional
+            upsert : true,  //optional
+            drop : true  //optional
           }
         ]
       }
     },
-
 
     watch: {
       compass: {
@@ -95,6 +111,8 @@ module.exports = function(grunt) {
   grunt.registerTask("assets", ["watch:compass"]);
   grunt.registerTask("carga-inicial", ["mongoimport"]);
   grunt.registerTask("docs", ["docco:code"]);
+
+  grunt.loadTasks("tasks");
 
 
 
