@@ -46,3 +46,8 @@ mixin textarea(name, value, label, size, error, error_dir, disabled, placeholder
       textarea.form-control(disabled, name=name, rows=size, data-validation=error, data-toggle="tooltip", data-placement=error_dir, title="", placeholder=placeholder) #{value}
     else
       textarea.form-control(name=name, rows=size, data-validation=error, data-toggle="tooltip", data-placement=error_dir, title="", placeholder=placeholder) #{value}
+
+mixin hr()
+  .row
+    .col-md-11.col-md-offset-1
+      hr
