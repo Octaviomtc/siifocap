@@ -33,16 +33,16 @@
           a(href='/unidades')
             i.fa.fa-r.fa-building-o
             | Unidades Politécnicas
-        li
-          a(href='#')
+        li(class=datos.estado=="evaluadores" ? "active":"")
+          a(href='/evaluadores')
             i.fa.fa-r.fa-eye
             | Evaluadores
+        //- li
+        //-   a(href='#')
+        //-     i.fa.fa-bookmark.fa-r
+        //-     | Áreas de conocimiento
         li
-          a(href='#')
-            i.fa.fa-bookmark.fa-r
-            | Áreas de conocimiento
-        li
-          a(href='#')
+          a(href='/dictaminacion')
             i.fa.fa-gavel.fa-r
             | Dictaminación
         li

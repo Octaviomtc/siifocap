@@ -4,12 +4,10 @@ block content
   
   .row.contenedorTb
     .col-md-12
-      a.btn.btn-primary.fa-r(href='/acciones-formacion/nueva/datos-generales')
+      a.btn.btn-primary.fa-r(href='/evaluadores/crear/datos-personales')
         i.fa.fa-r.fa-plus-circle
-        | Nueva acción de formación
-      a.btn.btn-primary(href='#')
-        i.fa.fa-r.fa-refresh
-        | Renovar acción de formación
+        | Nuevo evaluador
+    
       if message
         .error-message
           a.text-center #{message}
@@ -21,29 +19,28 @@ block content
             th(data-field='dirigido_a_dependencia', data-align='left', data-sortable='true') Dependencia a la que se solicita el registro
             th(data-align='left', data-sortable='true') Estatus
             th(data-align='right', data-sortable='true')
-            th(data-align='right', data-sortable='true')
-            th(data-align='right', data-sortable='true')
         tbody
-          each accion in acciones
-            tr
-              td
-                | #{accion.nombre_accion_Formacion}
-              td
-                | #{accion.unidad}
-              td
-                | #{accion.dirigido_a_dependencia}
-                
-              td
-                | #{accion.estatus_accion}
-              td
-                a.btn.btn-default(href="/unidades/ver/#{accion._id}")
-                  i.fa.fa-print
-              td
-                a.btn.btn-default(href="/unidades/actualizar/#{accion._id}")
-                  i.fa.fa-edit
-              td
-                a.btn.btn-default(href="/acciones-formacion/borrar/#{accion._id}")
-                  i.fa.fa-trash
+          //- each accion in acciones
+          //-   tr
+          //-     td
+          //-       | #{accion.nombre_accion_Formacion}
+          //-     td
+          //-       | #{accion.unidad}
+          //-     td
+          //-       | #{accion.dirigido_a_dependencia}
+          //-       
+          //-     td
+          //-       | #{accion.estatus_accion}
+          //-     td
+          //-       a.btn.btn-default(href="/unidades/ver/#{accion._id}")
+          //-         i.fa.fa-r.fa-print
+          //-         | PDF
+          //-       a.btn.btn-default(href="/unidades/actualizar/#{accion._id}")
+          //-         i.fa.fa-r.fa-edit
+          //-         | Editar
+          //-       a.btn.btn-default(href="/acciones-formacion/borrar/#{accion._id}")
+          //-         i.fa.fa-r.fa-trash
+          //-         | Borrar
                 
                                   
                                       
