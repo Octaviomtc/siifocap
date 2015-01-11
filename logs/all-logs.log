@@ -1690,3 +1690,54 @@
 {"date":"Sat Jan 10 2015 21:22:40 GMT-0600 (CST)","process":{"pid":87251,"uid":501,"gid":20,"cwd":"/Users/octaviomtc/Dev/ipn/siifocap","execPath":"/usr/local/bin/node","version":"v0.10.32","argv":["node","/Users/octaviomtc/Dev/ipn/siifocap/bin/www"],"memoryUsage":{"rss":50159616,"heapTotal":33203200,"heapUsed":15306656}},"os":{"loadavg":[1.62646484375,2.21826171875,2.26416015625],"uptime":719530},"trace":[{"column":74,"file":"/Users/octaviomtc/Dev/ipn/siifocap/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/server.js","function":"","line":549,"method":null,"native":false},{"column":17,"file":"events.js","function":"emit","line":106,"method":null,"native":false},{"column":15,"file":"/Users/octaviomtc/Dev/ipn/siifocap/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/connection_pool.js","function":"","line":150,"method":null,"native":false},{"column":17,"file":"events.js","function":"emit","line":98,"method":null,"native":false},{"column":10,"file":"/Users/octaviomtc/Dev/ipn/siifocap/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/connection.js","function":"","line":533,"method":null,"native":false},{"column":17,"file":"events.js","function":"Socket.emit","line":95,"method":"emit","native":false},{"column":14,"file":"net.js","function":null,"line":440,"method":null,"native":false},{"column":13,"file":"node.js","function":"process._tickCallback","line":419,"method":"_tickCallback","native":false}],"stack":["Error: failed to connect to [162.243.120.124:27017]","    at null.<anonymous> (/Users/octaviomtc/Dev/ipn/siifocap/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/server.js:549:74)","    at emit (events.js:106:17)","    at null.<anonymous> (/Users/octaviomtc/Dev/ipn/siifocap/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/connection_pool.js:150:15)","    at emit (events.js:98:17)","    at Socket.<anonymous> (/Users/octaviomtc/Dev/ipn/siifocap/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/connection.js:533:10)","    at Socket.emit (events.js:95:17)","    at net.js:440:14","    at process._tickCallback (node.js:419:13)"],"level":"error","message":"uncaughtException: failed to connect to [162.243.120.124:27017]","timestamp":"2015-01-11T03:22:40.069Z"}
 {"date":"Sat Jan 10 2015 21:26:15 GMT-0600 (CST)","process":{"pid":87473,"uid":501,"gid":20,"cwd":"/Users/octaviomtc/Dev/ipn/siifocap","execPath":"/usr/local/bin/node","version":"v0.10.32","argv":["node","/Users/octaviomtc/Dev/ipn/siifocap/bin/www"],"memoryUsage":{"rss":50024448,"heapTotal":33203200,"heapUsed":15303912}},"os":{"loadavg":[2.98291015625,2.46728515625,2.3447265625],"uptime":719745},"trace":[{"column":74,"file":"/Users/octaviomtc/Dev/ipn/siifocap/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/server.js","function":"","line":549,"method":null,"native":false},{"column":17,"file":"events.js","function":"emit","line":106,"method":null,"native":false},{"column":15,"file":"/Users/octaviomtc/Dev/ipn/siifocap/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/connection_pool.js","function":"","line":150,"method":null,"native":false},{"column":17,"file":"events.js","function":"emit","line":98,"method":null,"native":false},{"column":10,"file":"/Users/octaviomtc/Dev/ipn/siifocap/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/connection.js","function":"","line":533,"method":null,"native":false},{"column":17,"file":"events.js","function":"Socket.emit","line":95,"method":"emit","native":false},{"column":14,"file":"net.js","function":null,"line":440,"method":null,"native":false},{"column":13,"file":"node.js","function":"process._tickCallback","line":419,"method":"_tickCallback","native":false}],"stack":["Error: failed to connect to [162.243.120.124:27017]","    at null.<anonymous> (/Users/octaviomtc/Dev/ipn/siifocap/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/server.js:549:74)","    at emit (events.js:106:17)","    at null.<anonymous> (/Users/octaviomtc/Dev/ipn/siifocap/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/connection_pool.js:150:15)","    at emit (events.js:98:17)","    at Socket.<anonymous> (/Users/octaviomtc/Dev/ipn/siifocap/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/connection.js:533:10)","    at Socket.emit (events.js:95:17)","    at net.js:440:14","    at process._tickCallback (node.js:419:13)"],"level":"error","message":"uncaughtException: failed to connect to [162.243.120.124:27017]","timestamp":"2015-01-11T03:26:15.560Z"}
 {"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-11T06:37:14.284Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:13:09.928Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:13:13.118Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:13:15.737Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:13:17.662Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:13:20.515Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:13:22.054Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:13:25.297Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:13:28.165Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:19:22.194Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-11T12:23:39.820Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:23:44.465Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:23:47.414Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:23:49.165Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:23:50.947Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:23:52.442Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:23:56.593Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:23:58.246Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-11T12:25:59.031Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:26:03.546Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:26:05.028Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:26:06.888Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:26:09.713Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:26:10.817Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:26:15.027Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:26:16.552Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-11T12:29:05.599Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:29:09.780Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:29:16.205Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:29:17.670Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:29:19.471Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:29:21.012Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:29:24.307Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:29:30.151Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-11T12:30:11.244Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:31:41.737Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:31:44.154Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:31:46.455Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:31:50.836Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:32:09.180Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:32:10.512Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:32:12.682Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:32:35.060Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:32:37.354Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-11T12:35:30.656Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:35:37.036Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:35:41.328Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:35:42.741Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:35:44.885Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:35:45.873Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:35:48.873Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T12:35:51.091Z"}

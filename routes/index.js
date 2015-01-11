@@ -479,6 +479,12 @@ module.exports = function(passport){
     });
 
 
+    //DOCUMENTO DE REFERENCIAS APA
+    router.get('/referencias-apa', function(req, res){
+      // console.log(config);
+      res.download(config.root+"/uploads/referencias_apa.pdf")
+    });
+
 
     return router;
 }
