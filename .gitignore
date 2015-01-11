@@ -3,4 +3,4 @@ public/vendor
 .sass-cache
 npm-debug.log
 temp
-logs
+logs/all-logs.log
