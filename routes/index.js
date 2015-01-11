@@ -436,7 +436,7 @@ module.exports = function(passport){
     });
 
 
-    router.post('/evaluadores/:id/datos-personales', isAuthenticated, evaluadoresMid.addEvaluadores, function(req, res){
+    router.post('/evaluadores/:id/datos-personales', isAuthenticated, evaluadoresMid.updateEvaluador, function(req, res){
       res.set('Content-Type', 'application/javascript');
       res.redirect("/evaluadores/"+res.evaluadores._id+"/datos-personales");
     });
@@ -460,7 +460,7 @@ module.exports = function(passport){
       dest: __dirname+ "/.."+"/temp/uploads/evaluadores/files"
     }));
 
-    router.post('/evaluadores/:id/formacion-academica', isAuthenticated, evaluadoresMid.addEvaluadores, function(req, res){
+    router.post('/evaluadores/:id/formacion-academica', isAuthenticated, evaluadoresMid.updateEvaluadorFiles, function(req, res){
       res.redirect("/evaluadores/"+res.evaluadores._id+"/formacion-academica");
     });
 
