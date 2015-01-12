@@ -1,0 +1,265 @@
+extends ../layout/layout-up
+
+block content
+  #message
+    if message
+      .error-message
+          a.text-center #{message}
+  .row
+    .col-md-12
+      .formulario.animated.fadeIn
+        
+        .contenido
+          .row
+            .col-md-11
+              form.form-horizontal(method='post', action="/evaluadores/#{evaluador._id}/formacion-academica", enctype='multipart/form-data')
+                
+                
+                label(class="col-md-11 col-md-offset-1 alert alert-info") Estudios Profesionales
+                span(class="col-md-11 col-md-offset-1 alert alert-info")
+                  | Integre la información correspondiente a su formación profesional de licenciatura.
+                  
+                
+                +h-input("hidden", "", "estatus_sec_2", "", "true", 9, 3, "", "","") 
+                
+                
+                .form-group
+                  span(class="control-label col-md-3")
+                    |* Campo de formación académica:
+                  div(class="col-md-9")
+                    select#formacion_academica.form-control(name='formacion_academica',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                      option(value="") Seleccione ...
+                      each formaciones in formacion
+                        option(value=formaciones.nombre_campo_amplio)= formaciones.nombre_campo_amplio
+                
+                .form-group
+                  span(class="control-label col-md-3")
+                    |* Campo de formación específico:
+                  div(class="col-md-9")
+                    select#formacion_academica_especifico.form-control(name='formacion_academica_especifico',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                      option(value="") Seleccione ...
+                      
+                
+                
+                
+                .form-group
+                  span(class="control-label col-md-3")
+                    |* Nombre de la carrera
+                  div(class="col-md-9")
+                    select#formacion_academica_carrera.form-control(name='formacion_academica_carrera',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                      option(value="") Seleccione ...
+                
+                
+                
+                
+                .form-group
+                  span(class="control-label col-md-3")
+                    |* Institución donde realizó sus estudios
+                  div(class="col-md-9")
+                    select#institucion_realizacion_estudios.form-control(name='institucion_realizacion_estudios',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                      option(value="") Seleccione ...
+                      option(value="nacional") Institución educativa nacional
+                      option(value="internacional") Institución educativa en el extranjero
+                      
+                      
+                      
+                      
+                .form-group
+                  span(class="control-label col-md-3")
+                    | Entidad federativa
+                  div(class="col-md-9")
+                    select#entidad_federativa.form-control(name='entidad_federativa')
+                      option(value="") Seleccione ...
+                      each entidad in entidades
+                        option(value=entidad.abr)= entidad.nombre
+                
+                
+                +hr()
+                        
+                .col-md-4.col-md-offset-3
+                  input(type="radio", id="tipo", name="tipo_institucion", value="institucion_publica")
+                  label.fa-l
+                    | Institución educativa pública
+                .col-md-4
+                  input.fa-r(type="radio", id="tipo", name="tipo_institucion", value="institucion_privada")
+                  label.fa-l
+                    | Institución educativa privada
+                
+                
+                
+                //- ************************************************************************
+                .escuelas(id='escuelas_publicas')
+                  +hr()
+                  span(class="control-label col-md-3")
+                    | Escuelas públicas
+                  div(class="col-md-9")
+                    select#escuela_publica.form-control(name='escuela_publica')
+                      option(value='') Seleccione ...
+                      each escuela in escuelas_privadas
+                        option(value=escuela.nombre)= escuela.nombre
+                
+                //- ************************************************************************
+                .escuelas(id='escuelas_publicas')
+                  +hr()
+                  span(class="control-label col-md-3")
+                    | Escuelas públicas
+                  div(class="col-md-9")
+                    select#escuela_privada.form-control(name='escuela_privada')
+                      option(value='') Seleccione ...
+                      each escuela in escuelas_publicas
+                        option(value=escuela.nombre)= escuela.nombre
+                
+                
+                
+                
+                
+                +hr()
+                label(class="col-md-11 col-md-offset-1 alert alert-info") Estudios complementarios
+                span(class="control-label col-md-1")
+                div(class="col-md-9")
+                  a.btn.btn-success.fa-r(onclick="addEstudios()")
+                    i.fa.fa-plus-circle.fa-r
+                    | Agregar estudios complementarios
+                +hr()
+                +h-input("text", "Disciplina", "", "Disciplina", "", 9, 3, "", "","") 
+                +h-input("text", "Institución formadora", "", "Institución formadora", "", 9, 3, "", "","") 
+                
+                    
+                +hr()
+                label(class="col-md-11 col-md-offset-1 alert alert-info") Documentación
+                
+                +h-input("file", "Cédula profesional", "cedula_profesional", "", evaluador.cedula_profesional, 9, 3, "", "","Adjunte en PDF copia de su cédula profesional, de acuerdo al nivel de estudios profesionales registrado.") 
+                +h-input("file", "Documentación probatoria", "documentacion_probatoria", "", evaluador.documentacion_probatoria, 9, 3, "", "","Adjunte en formato PDF un documento con las  constancias, diplomas, certificaciones, entre otros, que comprueben la validez de los estudios complementarios  y eventos académicos registrados en este espacio.") 
+                
+                
+                
+                    
+                          
+            
+                  
+                +hr()
+                .col-md-9.col-md-offset-3
+                    button.btn.btn-success.fa-r(type='submit')
+                      i.fa.fa-save.fa-r
+                      | Guardar
+                      
+                    if evaluador.estatus_sec_2=='true'
+                      a.btn.btn-success.fa-r(href="/evaluadores/#{evaluador._id}/pendiente")
+                        i.fa.fa-check-circle.fa-r
+                        | Continuar
+                    else
+                      a.btn.btn-success.disabled.fa-r(href="")
+                        i.fa.fa-check-circle.fa-r
+                        | Continuar
+
+                  
+
+                    a.btn.btn-danger(href="#")
+                      | Cancelar
+
+
+  append javascript
+    script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
+    script.
+      $( "#formacion_academica" ).change(function(){
+        var valor = $('#formacion_academica :selected').val();
+        if (valor==""){
+          $("#formacion_academica_especifico").empty();
+          $("#formacion_academica_carrera").empty();
+          add_append_select("formacion_academica_especifico","","Seleccione ...");
+          add_append_select("formacion_academica_carrera","","Seleccione ...");
+    
+          }else{
+            $("#formacion_academica_especifico").empty();
+            $("#formacion_academica_carrera").empty();
+            //- alert(valor);
+            add_append_select("formacion_academica_carrera","","Seleccione ...");
+            revisaSegunNivel(valor);
+          }
+          
+      });
+      
+      function revisaSegunNivel(valor){
+        //- console.log(valor);
+        $("#formacion_academica_especifico").empty();
+        add_append_select("formacion_academica_especifico","","Seleccione ...");
+        $.ajax({
+          url: "/formacion/consulta/campo_especifico",
+          data: {
+            nombre_campo_amplio: valor
+          },                      
+          type: "POST",
+          dataType: "json",
+          success: function(source){
+            if (source.success === "true"){
+              var contenido = source.content;
+              $.each(contenido, function(index, contenidoEsp) {
+                $.each(contenidoEsp.campo_especifico, function(index, segundonivel){
+                  //- console.log(segundonivel.nombre);
+                  
+                  add_append_select("formacion_academica_especifico",segundonivel.nombre,segundonivel.nombre);
+                });
+              });
+            }},
+          error: function(dato){
+          
+          }
+        }); //end ajax
+      return false;
+      }
+      
+      
+      
+      $( "#formacion_academica_especifico").change(function(){
+      var valor = $('#formacion_academica_especifico :selected').val();
+      if (valor==""){
+        $("#formacion_academica_carrera").empty();
+        add_append_select("formacion_academica_carrera","","Seleccione ...");
+        
+        }else{
+        $("#formacion_academica_carrera").empty();
+        //- alert(valor);
+        add_append_select("formacion_academica_carrera","","Seleccione ...");
+        revisaTercerNivel(valor);
+        }
+        
+        });
+        
+        
+        
+        
+        function revisaTercerNivel(valor){
+          //- console.log(valor);
+          var general = $("#formacion_academica").val();
+          //- console.log(general);
+          $("#formacion_academica_carrera").empty();
+          $.ajax({
+          url: "/formacion/consulta/carrera",
+          data: {
+          nombre_campo_amplio: general,
+          nombre_campo_especifico: valor
+            },                      
+            type: "POST",
+            dataType: "json",
+            success: function(source){
+            console.log(source);
+            if (source.success === "true"){
+              var contenido = source.content;
+              //- console.log(source);
+              add_append_select("formacion_academica_carrera","","Seleccione ...");
+              $.each(contenido, function(index, contenidoEsp) {
+              //- console.log(segundonivel.nombre);
+              add_append_select("formacion_academica_carrera",contenidoEsp.nombre,contenidoEsp.nombre);
+              
+              });
+              }},
+              error: function(dato){
+              
+              }
+              }); //end ajax
+              return false;
+          }
+          
+          
+        
+        

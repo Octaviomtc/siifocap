@@ -5,12 +5,23 @@ var escuela         = require('../models/escuela');
 var acciones        = require('../models/acciones');
 var dependencia     = require('../models/dependencia');
 var rol             = require('../models/rol');
-var participante    = require('../models/participante')
+var participante    = require('../models/participante');
+var evaluadores     = require('../models/evaluadores');
+var formacion       = require('../models/formacion');
+var entidades       = require('../models/entidades');
+var escuelas_privadas = require('../models/escuelas_privadas');
+var escuelas_publicas = require('../models/escuelas_publicas');
 //Controladores
 var usuariosMid     = require('../controllers/usuarios');
 var escuelaMid      = require('../controllers/escuelas');
 var accionesMid     = require('../controllers/acciones');
-var participMid     = require('../controllers/participantes')
+var participMid     = require('../controllers/participantes');
+var evaluadoresMid  = require('../controllers/evaluadores');
+var formacionMid    = require('../controllers/formacion');
+var entidadesMid    = require('../controllers/entidades');
+var escuelas_privadasMid    = require('../controllers/escuelas_privadas');
+var escuelas_publicasMid    = require('../controllers/escuelas_publicas');
+
 
 var router          = express.Router();
 
@@ -359,8 +370,120 @@ module.exports = function(passport){
     });
 
 
+    router.get('/participantes/ver/:id', isAuthenticated, participMid.findById, function(req, res){
+      param={
+        icon: "fa-building-o",
+        seccion: res.locals.participante.apellidos +  ", "+  res.locals.participante.nombre
+      }
+      res.render('app/participantes/ver',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+    router.get('/participantes/actualizar/:id', isAuthenticated, accionesMid.allAccionFormacion, participMid.findById, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Actualizar Participante"
+      }
+      res.render('app/participantes/editar',{message: req.flash('message'), user: req.user, datos: param});
+    });
 
 
+    router.post('/participantes/actualizar/:id', isAuthenticated, participMid.updateParticipante, function (req, res){
+      res.set('Content-Type', 'application/javascript');
+      res.redirect('/participantes');
+    });
+
+    /*****************************************************************/
+    // SECCIÓN EVALUADORES
+    router.get('/evaluadores', isAuthenticated, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Evaluadores",
+        estado: "evaluadores"
+      }
+      res.render('app/evaluadores/index',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+
+    // nuevo evaluador paso 1
+    router.get('/evaluadores/crear/datos-personales', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, entidadesMid.findAllEntidades, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Nuevo evaluador",
+        estado: "evaluadores",
+        paso: "1"
+      }
+
+      res.render('app/evaluadores/nuevo/datos-personales',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+
+    router.post('/evaluadores/crear/datos-personales', isAuthenticated, evaluadoresMid.addEvaluadores, function(req, res){
+      res.set('Content-Type', 'application/javascript');
+      res.redirect("/evaluadores/"+res.evaluadores._id+"/datos-personales");
+    });
+
+
+    // nuevo evaluador paso 1 actualizar
+    router.get('/evaluadores/:id/datos-personales', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, evaluadoresMid.findById, entidadesMid.findAllEntidades, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Nuevo evaluador",
+        estado: "evaluadores",
+        paso: "1"
+      }
+
+      res.render('app/evaluadores/actualizar/datos-personales',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+
+    router.post('/evaluadores/:id/datos-personales', isAuthenticated, evaluadoresMid.updateEvaluador, function(req, res){
+      res.set('Content-Type', 'application/javascript');
+      res.redirect("/evaluadores/"+res.evaluadores._id+"/datos-personales");
+    });
+
+
+    // nuevo evaluador paso 2 actualizar
+    router.get('/evaluadores/:id/formacion-academica', isAuthenticated, evaluadoresMid.findById, formacionMid.findAllFormacion, entidadesMid.findAllEntidades, escuelas_privadasMid.findAllEscuelas, escuelas_publicasMid.findAllEscuelas, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Nuevo evaluador",
+        estado: "evaluadores",
+        paso: "1"
+      }
+
+      res.render('app/evaluadores/actualizar/formacion-academica',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+
+    // se configura para recibir archivos temporales
+    router.post('/evaluadores/:id/formacion-academica', isAuthenticated, multer({
+      dest: __dirname+ "/.."+"/temp/uploads/evaluadores/files"
+    }));
+
+    router.post('/evaluadores/:id/formacion-academica', isAuthenticated, evaluadoresMid.updateEvaluadorFiles, function(req, res){
+      res.redirect("/evaluadores/"+res.evaluadores._id+"/formacion-academica");
+    });
+
+
+
+    //************************************************ CATALOGOS
+    //CLASIFICACION DE ESCUELAS
+    router.post('/formacion/consulta/campo_especifico', formacionMid.findCampoEspecifico, function(req, res){
+    });
+
+    router.post('/formacion/consulta/carrera', formacionMid.findCampoCarrera, function(req, res){
+    });
+
+    //ENTIDADES FEDERATIVAS -- Error
+    router.post('/entidades/catalogo', entidadesMid.findAllEntidades, function(req, res){
+    });
+
+
+    //DOCUMENTO DE REFERENCIAS APA
+    router.get('/referencias-apa', function(req, res){
+      // console.log(config);
+      res.download(config.root+"/uploads/referencias_apa.pdf")
+    });
 
 
     return router;

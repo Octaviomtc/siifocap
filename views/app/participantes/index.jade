@@ -14,15 +14,18 @@ block content
           thead
             tr
               th(data-field='clave', data-align='left', data-sortable='true') Participante
-              th(data-align='left', data-sortable='true') Nombre
+              th(data-align='left', data-sortable='true') Usuario
+              th(data-align='left', data-sortable='true') Grupo
               th(data-align='right', data-sortable='true')
                 tbody
                   each participante in participantes
                     tr
                       td
-                        | #{participante.nombre}
+                        | #{participante.nombre} #{participante.apellidos}
                       td
-                        | #{participante.nombre}
+                        | #{participante.usuario}
+                      td
+                        | #{participante.grupo}
                       td
                         a.btn.btn-default.fa-r(href="/participantes/actualizar/#{participante._id}")
                           i.fa.fa-r.fa-edit

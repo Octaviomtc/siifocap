@@ -1,0 +1,168 @@
+.modal.fade(id="secDidacticaModal")
+  .modal-dialog.modal-lg
+    .modal-content
+      form(method='post', action="/acciones-formacion/nueva/#{accionFormacion._id}/planeacion/didactica", enctype='multipart/form-data')
+        .modal-header
+          i.fa.fa-book.fa-r
+          | Nueva Planeación didáctica
+        .modal-body
+          div.divModal
+            .container
+              
+                .form-group
+                  label Acción de Formación
+                  input.form-control(type="text", placeholder="Nombre de Acción", value=accionFormacion.nombre_accion_Formacion, required=required, data-validation="empty", data-toggle="tooltip", data-placement="top", title="", disabled)
+
+
+                +textarea("",accionFormacion.competencia, "Competencia", "8", "", "", "disabled")
+                
+                +textarea("aprendizajes_esperados","", "Aprendizajes esperados", "6", "emty", "top")
+              
+                .form-group
+                  label Tiempo para su desarrollo
+                
+                +v-input(4, "number", "Horas", "tiempo_hrs", "", "", "empty", "")
+                +v-input(4, "number", "Minutos", "tiempo_min", "", "", "empty", "")
+              
+              
+                .row
+                  .col-md-12
+                    hr
+                    .form-group
+                      label Contenido
+                      +ayuda-right('<p>Enliste los contenidos temáticos necesarios de abordar para la promoción del resultado de aprendizaje esperado seleccionado. Enlístelos.</p>')
+          
+                +textarea("contenido","", "", "6", "emty", "top")
+                
+                hr
+                .form-group
+                  label Referencias a utilizar
+                  +ayuda-right('Registre sus referencias con base al sistema APA')
+                
+                .form-group
+                  a(href='/referencias-apa') Inofrmación sobre referencias APA
+                
+                +textarea("referencias","", "", "6", "emty", "top")
+            
+                
+                
+                hr
+                .form-group
+                  label Actividad de aprendizaje
+                  +ayuda-right('Integre los puntos que se indican en el cuadro de texto.  Enumere las actividades de aprendizaje de forma continua a lo largo de su planeación didáctica.  No reinicie la numeración al comenzar el desarrollo de un nuevo RAP.')
+                    
+                +v-input(12, "text", "", "nombre_actividad", "Ingrese el nombre de la activdad de aprendizaje", "", "empty", "")
+                .row
+                  .col-md-12.sepTop
+                    +textarea("objetivo_actividad","", "", "6", "emty", "top", "", "Señale el objetivo de la actividad de aprendizaje. Enliste las acciones necesarias para llevar a cabo el desarrollo de la actividad planteada (acciones tanto del participante como del facilitador)")
+                
+                
+                
+                
+                
+                .form-group
+                  label Recursos educativos
+                  +ayuda-right('Materiales de apoyo (lecturas, video, formatos de trabajo, entre otros) que tienen como finalidad contribuir al desarrollo del aprendizaje del participante.')
+                  
+                    
+                +textarea("recursos","", "", "8", "", "", "")
+                    
+                  
+                    
+                .form-group
+                  label Tiempo de realización
+                      
+                +v-input(4, "number", "Horas", "tiempo_realizacion", "", "", "empty", "")
+                
+                
+                .col-md-12.sepTop
+                  .form-group
+                    label Producto o evidencia
+                    +ayuda-right('Entregables que se generan a partir del desarrollo  de las actividades de aprendizaje establecidas.')
+                  
+                +textarea("evidencia","", "", "8", "", "", "")
+                
+                
+                
+                
+                
+              
+                .form-group
+                  label Evaluación
+                  +ayuda-right('Proceso a través del cual se da seguimiento al proceso de aprendizaje del participante y se valida el nivel de desarrollo de los aprendizajes propuestos.')
+                
+                
+          
+                .row
+                  .col-md-4
+                    label Tipo
+                    br
+                    ul
+                      li 
+                        input(type="radio", name="tipo_evaluacion", value="Diagnostica") 
+                        span.fa-l Diagnóstica
+                      li
+                        input(type="radio", name="tipo_evaluacion", value="Formativa") 
+                        span.fa-l Formativa
+                      li
+                        input(type="radio", name="tipo_evaluacion", value="Sumativa") 
+                        span.fa-l Sumativa
+                    
+                  .col-md-4
+                    label Mecanismo
+                    br
+                    ul
+                      li  
+                        input(type="radio", name="mecanismo_evaluacion", value="Autoevaluacion") 
+                        span.fa-l Autoevaluación
+                      li
+                        input(type="radio", name="mecanismo_evaluacion", ivalued="Coevaluacion") 
+                        span.fa-l Coevaluación
+                      li
+                        input(type="radio", name="mecanismo_evaluacion", value="Heteroevaluacion") 
+                        span.fa-l Heteroevaluación
+                    
+                  .col-md-4
+                    label Valor
+                    br
+                    ul
+                      li
+                        input(type="radio", name="valor_evaluacion", value="valor") 
+                        span.fa-l Con valor
+                      li
+                        input(type="radio", name="valor_evaluacion", value="noValor") 
+                        span.fa-l Sin valor
+                    
+                .row    
+                  .col-md-4
+                    label Instrumento
+                    br
+                    ul
+                      li
+                        input(type="radio", name="instrumento_evaluacion", value="Cotejo") 
+                        span.fa-l Lista de cotejo
+                      li
+                        input(type="radio", name="instrumento_evaluacion", value="Rubrica") 
+                        span.fa-l Rúbrica
+                      li
+                        input(type="radio", name="instrumento_evaluacion", value="Guia") 
+                        span.fa-l Guía de observación
+                      li
+                        input(type="radio", name="instrumento_evaluacion", value="Otro") 
+                        span.fa-l Otro
+                  
+                  mixin v-input("12", "text", "", "instrumento_otro_evaluacion", "", "", "empty", "")
+                        
+                  
+              
+                hr
+                p.sepTop En caso de contar con material a utilizar para el desarrollo y evaluación de la actividad de aprendizaje (lecturas, formatos de trabajo, instrumentos de evaluación, entre otros), súbalo a través del siguiente botón.
+                hr
+                mixin v-input("12", "file", "Agregar Instrumento", "instrumento_archivo_evaluacion", "", "", "empty", "")
+
+
+
+        .modal-footer
+          button.btn.btn-primary.fa-r(type='submit') Agregar planeación didáctica
+          button.btn.btn-primary.fa-r(type='button', data-dismiss='modal', aria-hidden='true') Finalizar 
+          button.btn.btn-default.fa-r(type='button', data-dismiss='modal', aria-hidden='true') Cancelar
