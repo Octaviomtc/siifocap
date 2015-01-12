@@ -51,3 +51,16 @@ mixin hr()
   .row
     .col-md-11.col-md-offset-1
       hr
+
+
+mixin radio2(rubro, label_principal, name)
+  tr
+    td #{rubro}
+    td #{label_principal}
+    td 
+      input(type='radio', name="#{name}[respuesta]", value="2")
+    td 
+      input(type='radio', name="#{name}[respuesta]", value="1")
+    td
+      textarea(name="#{name}[comentario]") 
+    

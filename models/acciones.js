@@ -48,6 +48,8 @@ var accionesSchema = new Schema({
       vigencia      : {type: String},
       cur           : {type: String}
     },
+  puntaje_dictaminado:                      Number,
+  id_dictaminacion:                         String,
   registro_date:                            {type: Date, default: Date.now },
   estatus_accion:                           {type: String, default: "Pendiente"},
   dependencia:                              String,
