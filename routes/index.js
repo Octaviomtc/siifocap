@@ -11,6 +11,7 @@ var formacion       = require('../models/formacion');
 var entidades       = require('../models/entidades');
 var escuelas_privadas = require('../models/escuelas_privadas');
 var escuelas_publicas = require('../models/escuelas_publicas');
+var dictaminacion = require('../models/dictaminacion');
 //Controladores
 var usuariosMid     = require('../controllers/usuarios');
 var escuelaMid      = require('../controllers/escuelas');
@@ -21,6 +22,7 @@ var formacionMid    = require('../controllers/formacion');
 var entidadesMid    = require('../controllers/entidades');
 var escuelas_privadasMid    = require('../controllers/escuelas_privadas');
 var escuelas_publicasMid    = require('../controllers/escuelas_publicas');
+var dictaminacionMid    = require('../controllers/dictaminacion');
 
 
 var router          = express.Router();
@@ -462,6 +464,36 @@ module.exports = function(passport){
 
     router.post('/evaluadores/:id/formacion-academica', isAuthenticated, evaluadoresMid.updateEvaluadorFiles, function(req, res){
       res.redirect("/evaluadores/"+res.evaluadores._id+"/formacion-academica");
+    });
+
+
+
+
+    //************************************************ DICTAMINACION
+    router.get('/dictaminacion', isAuthenticated, accionesMid.allAccionFormacion, function(req, res){
+      param={
+        icon: "fa-gavel",
+        seccion: "Dictaminación",
+        estado: "dictaminacion"
+      }
+      res.render('app/dictaminacion/index',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+
+    router.get('/dictaminacion/:id', isAuthenticated, accionesMid.findById, function(req, res){
+      param={
+        icon: "fa-gavel",
+        seccion: "Dictaminación",
+        estado: "dictaminacion"
+      }
+      res.render('app/dictaminacion/nueva',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+
+
+
+    router.post('/dictaminacion/:id', isAuthenticated, dictaminacionMid.addDictamen, dictaminacionMid.addDictamenAccion, function(req, res){
+      res.redirect("/dictaminacion")
     });
 
 
