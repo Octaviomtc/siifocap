@@ -1,0 +1,28 @@
+extends ../../layouts/app
+
+block content
+  
+  .row.contenedorTb
+    .col-md-12
+      if message
+        .error-message
+          a.text-center #{message}
+      table(data-toggle="table", data-cache="true", data-page-size="25", data-page-list="[25, 50, 100, 200]", data-height="600",data-sort-order="asc",data-sort-name='nombre_accion_Formacion', id="table-pagination", data-pagination="true", data-search="true")
+        thead
+          tr
+            th(data-field='nombre_accion_Formacion', data-align='left', data-sortable='true') Nombre
+            th(data-align='right', data-sortable='true') Puntaje 
+            th(data-align='right', data-sortable='true')
+        tbody
+          each accion in acciones
+            tr
+              td
+                | #{accion.nombre_accion_Formacion}
+              td
+                | #{accion.puntaje_dictaminado}
+        
+              td
+                a.btn.btn-default(href="dictaminacion/#{accion._id}")
+                  i.fa.fa-gavel.fa-r
+                  | Hacer dictamen
+    

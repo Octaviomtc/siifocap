@@ -1,0 +1,48 @@
+extends ../../layouts/app
+
+block content
+  #message
+    if message
+      .error-message
+          a.text-center #{message}
+  .row
+    .col-lg-12
+      .formulario.animated.fadeIn
+        .titulo
+          | Nueva dictaminación para la accion de formacion: 
+          b #{accionFormacion.nombre_accion_Formacion}
+        .contenido
+          form.form-horizontal(method='post', action="#")
+            input(type="hidden" value="#{accionFormacion.id}" name="accion_id")
+            
+            table(data-toggle="table", data-cache="false")
+              thead
+                tr
+                  th Rubro
+                  th Indicador
+                  th Si(2)
+                  th No(1)
+                  th Compentario
+              tbody
+                +radio2("Nombre de la acción de formación","El nombre de la acción de formación es claro y expone la temática general a abordar.", "pregunta[0]")
+                +radio2("","El nombre de la acción de formación es claro y expone la temática general a abordar.", "pregunta[1]")
+        
+            
+            
+            
+            
+            
+          
+            .row
+              .col-md-9.col-md-offset-3
+                button.btn.btn-success.fa-r(type='submit')
+                  i.fa.fa-check-circle.fa-r
+                  | Hacer dictamen
+      
+
+                a.btn.btn-default(href="/dictaminacion")
+                  | Cancelar
+    
+    
+
+        

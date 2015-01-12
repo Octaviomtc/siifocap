@@ -1793,3 +1793,36 @@
 {"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-11T23:37:20.794Z"}
 {"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T23:37:25.377Z"}
 {"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-11T23:37:27.379Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T02:46:40.675Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T02:50:37.385Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T02:51:06.879Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T02:54:11.320Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T02:55:35.797Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-12T02:55:38.354Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-12T02:56:58.734Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T03:08:59.290Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T03:09:34.615Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-12T03:10:18.551Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-12T03:10:30.219Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-12T03:13:18.056Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::13","timestamp":"2015-01-12T03:13:24.324Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T03:15:42.250Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T03:40:30.307Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T03:41:32.794Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T03:45:53.888Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T03:52:16.408Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T03:55:20.953Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T04:02:40.279Z"}
+{"date":"Sun Jan 11 2015 22:07:28 GMT-0600 (CST)","process":{"pid":28498,"uid":501,"gid":20,"cwd":"/Users/octaviomtc/Dev/ipn/siifocap","execPath":"/usr/local/bin/node","version":"v0.10.32","argv":["node","/Users/octaviomtc/Dev/ipn/siifocap/bin/www"],"memoryUsage":{"rss":50331648,"heapTotal":31151360,"heapUsed":14155472}},"os":{"loadavg":[1.82275390625,2.068359375,2.07421875],"uptime":808627},"trace":[{"column":25,"file":"module.js","function":"Module._compile","line":439,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":474,"method":"Module._extensions..js","native":false},{"column":32,"file":"module.js","function":"Module.load","line":356,"method":"load","native":false},{"column":12,"file":"module.js","function":"Function.Module._load","line":312,"method":"Module._load","native":false},{"column":17,"file":"module.js","function":"Module.require","line":364,"method":"require","native":false},{"column":17,"file":"module.js","function":"require","line":380,"method":null,"native":false},{"column":27,"file":"/Users/octaviomtc/Dev/ipn/siifocap/routes/index.js","function":"","line":25,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":474,"method":"Module._extensions..js","native":false},{"column":32,"file":"module.js","function":"Module.load","line":356,"method":"load","native":false}],"stack":["SyntaxError: Unexpected token .","    at Module._compile (module.js:439:25)","    at Object.Module._extensions..js (module.js:474:10)","    at Module.load (module.js:356:32)","    at Function.Module._load (module.js:312:12)","    at Module.require (module.js:364:17)","    at require (module.js:380:17)","    at Object.<anonymous> (/Users/octaviomtc/Dev/ipn/siifocap/routes/index.js:25:27)","    at Module._compile (module.js:456:26)","    at Object.Module._extensions..js (module.js:474:10)","    at Module.load (module.js:356:32)"],"level":"error","message":"uncaughtException: Unexpected token .","timestamp":"2015-01-12T04:07:28.718Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T04:08:25.208Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T04:11:15.256Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T04:14:44.080Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T04:18:40.174Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T04:24:43.472Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T04:26:04.562Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T04:28:02.095Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T04:29:02.317Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T04:30:03.306Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T04:31:28.278Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T04:31:58.964Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-01-12T04:32:38.139Z"}
