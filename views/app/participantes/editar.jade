@@ -61,7 +61,25 @@ block content
                   option(value="VZ") Veracruz
                   option(value="YT") Yucatán
                   option(value="ZA") Zacatecas
-            +h-input("text", "Unidad Académica", "unidad", "Unidad Académica de Adscripción",participante.unidad, 6, 3, "", "empty","")
+                  
+            .form-group
+              span(class="control-label col-md-3")
+                | Unidad Académica:
+              div(class="col-md-6")
+                select#dependencia.form-control(name='dependencia',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                  option(value="") Seleccione dependencia ...
+                    each dependencia in dependencias
+                      option(value=dependencia.dependencia, selected= dependencia.dependencia == participante.dependencia)= dependencia.dependencia
+
+            .form-group#unidadForm
+              span(class="control-label col-md-3")
+                | 
+              div(class="col-md-6")
+                select#unidad.form-control(name='unidad',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                  option(value="") Seleccione unidad ...
+                  
+                  
+            //- +h-input("text", "Unidad Académica", "unidad", "Unidad Académica de Adscripción",participante.unidad, 6, 3, "", "empty","")
             +h-input("email", "Correo Electrónico Institucional", "email_inst", "@", participante.email_inst, 6, 3, "", "empty","")
             +h-input("email", "Correo Electrónico Personal", "email_pers", "@", participante.email_pers, 6, 3, "", "empty","")
             +h-input("text", "Número Telefónico Casa", "telefono", "Casa (10 Dígitos)", participante.telefono, 6, 3, "", "empty","")
@@ -91,7 +109,93 @@ block content
                   | Cancelar
                         
                                         
-                                          
+  append javascript
+    script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
+    script.
+      var valor = $('#dependencia').val();
+      //- alert(valor);
+
+      if (valor==""){
+        $("#unidad").empty();
+        $("#unidad").append("<option value=''>Seleccione unidad ...</option>");
+        $('#unidadForm').hide();
+      }else{
+        revisaUnidades(valor);
+        revisaUnidadesUp(valor);
+        $('#unidadForm').show();
+      }
+      $( "#dependencia" ).change(function(){
+        var valor = $('#dependencia :selected').val();
+         if (valor==""){
+            $("#unidad").empty();
+            add_append_select("unidad","","Seleccione unidad ...");
+            $('#unidadForm').hide();
+         }else{
+            revisaUnidades(valor);
+            $('#unidadForm').show();
+         }
+
+      });
+
+      function revisaUnidades(dependenciaVal){
+          //- console.log(dependenciaVal);
+          $.ajax({
+            url: "/unidades/consulta/dependencia",
+            data: {
+                    dependencia: dependenciaVal
+                  },                      
+            type: "POST",
+            dataType: "json",
+            success: function(source){
+              if (source.success === true){
+                $("#unidad").empty();
+                add_append_select("unidad","","Seleccione unidad ...");
+                $.each(source.escuelas, function(index, escuela) {
+                  if(escuela.nombre=="!{participante.unidad}"){
+                    $("#unidad").append("<option value='"+escuela.nombre+"' selected='selected'>"+escuela.nombre+"</option>");
+                  }else{
+                    $("#unidad").append("<option value='"+escuela.nombre+"'>"+escuela.nombre+"</option>");
+                  }
+                  
+                });
+              }},
+            error: function(dato){
+            }
+          }); //end ajax
+          return false;
+      }
+      
+      //Solo se ejecuta en modo update
+      function revisaUnidadesUp(dependenciaVal){
+        console.log(dependenciaVal);
+        $.ajax({
+        url: "/unidades/consulta/dependencia",
+        data: {
+        dependencia: dependenciaVal
+          },                      
+          type: "POST",
+          dataType: "json",
+          success: function(source){
+          if (source.success === true){
+            $("#unidad").empty();
+            add_append_select("unidad","","Seleccione unidad ...");
+            $.each(source.escuelas, function(index, escuela) {
+                if (escuela.nombre=="!{participante.unidad}"){
+                  $("#unidad").append("<option value='"+escuela.nombre+"' selected='selected'>"+escuela.nombre+"</option>");
+                }else{
+                  $("#unidad").append("<option value='"+escuela.nombre+"'>"+escuela.nombre+"</option>");
+                }
+              
+            });
+            }},
+            error: function(dato){
+            }
+            }); //end ajax
+            return false;
+      }
+      
+
+                                                
                                                           
                                                             
                                                             

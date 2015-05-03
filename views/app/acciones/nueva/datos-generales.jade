@@ -20,7 +20,7 @@ block content
                     select#dependencia.form-control(name='dependencia',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                       option(value="") Seleccione dependencia ...
                         each dependencia in dependencias
-                          option(value=dependencia.value)= dependencia.text
+                          option(value=dependencia.dependencia)= dependencia.dependencia
 
                 .form-group#unidadForm
                   span(class="control-label col-md-3")
@@ -315,7 +315,7 @@ block content
                 $("#unidad").empty();
                 add_append_select("unidad","","Seleccione unidad ...");
                 $.each(source.escuelas, function(index, escuela) {
-                  add_append_select("unidad",escuela._id,escuela.nombre);
+                  add_append_select("unidad",escuela.nombre,escuela.nombre);
                 });
               }},
             error: function(dato){

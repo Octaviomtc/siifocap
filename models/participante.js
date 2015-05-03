@@ -8,6 +8,7 @@ module.exports = mongoose.model('participante',{
   rfc:            String,
   genero:         String,
   entidad:        String,
+  dependencia:         String,
   unidad:         String,
   email_inst:     String,
   email_pers:     String,

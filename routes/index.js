@@ -355,7 +355,7 @@ module.exports = function(passport){
       res.render('app/participantes/index',{message: req.flash('message'), user: req.user, datos: param});
     });
 
-    router.get('/participantes/nuevo', isAuthenticated, accionesMid.allAccionFormacion, function(req, res){
+    router.get('/participantes/nuevo', isAuthenticated, accionesMid.allAccionFormacion, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, function(req, res){
       param={
         icon: "fa-plus-circle",
         seccion: "Nuevo Participante",
@@ -382,7 +382,7 @@ module.exports = function(passport){
       res.render('app/participantes/ver',{message: req.flash('message'), user: req.user, datos: param});
     });
 
-    router.get('/participantes/actualizar/:id', isAuthenticated, accionesMid.allAccionFormacion, participMid.findById, function(req, res){
+    router.get('/participantes/actualizar/:id', isAuthenticated, accionesMid.allAccionFormacion, participMid.findById,  escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, function(req, res){
       param={
         icon: "fa-plus-circle",
         seccion: "Actualizar Participante"
