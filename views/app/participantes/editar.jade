@@ -15,6 +15,7 @@ block content
             ////+h-input("text", "ETIQUETA", "NAME", "PLACEHOLDER", "VALUE", 6, 3, "autofocus", "empty","")
             +h-input("text", "Nombre(s)", "nombre", "Nombre(s)", participante.nombre, 6, 3, "autofocus", "empty","")
             +h-input("text", "Apellidos", "apellidos", "Apellidos", participante.apellidos, 6, 3, "", "empty","")
+            +h-input("text", "Número de empleado", participante.noempleado, "#", "", 6, 3, "", "empty","")
             +h-input("text", "CURP", "curp", "18 Dígitos", participante.curp, 6, 3, "", "empty","")
             +h-input("text", "RFC", "rfc", "10 Dígitos", participante.rfc, 6, 3, "", "empty","")
             .form-group
@@ -86,7 +87,7 @@ block content
             +h-input("text", "Número Telefónico Celular", "celular", "Celular (10 Dígitos)", participante.celular, 6, 3, "", "empty","")
             +h-input("text", "Usuario", "usuario", "Usuario", participante.usuario, 6, 3, "", "empty","")
             +h-input("password", "Contraseña", "password", "Contraseña", "", 6, 3, "", "empty","")
-            +h-input("text", "Grupo", "grupo", "Grupo", participante.grupo, 6, 3, "", "empty","")
+            //- +h-input("text", "Grupo", "grupo", "Grupo", participante.grupo, 6, 3, "", "empty","")
             .form-group
               span(class="control-label col-md-3")
                 | Accion de Formación
