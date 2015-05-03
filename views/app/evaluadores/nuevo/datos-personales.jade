@@ -63,7 +63,7 @@ block content
                       select#dependencia.form-control(name='tipo_ipn[dependencia]',data-validation="", data-toggle="tooltip", data-placement="top", title="")
                         option(value="") Seleccione dependencia ...
                         each dependencia in dependencias
-                          option(value=dependencia.value)= dependencia.text
+                          option(value=dependencia.dependencia)= dependencia.dependencia
                   
                           
                   .form-group#unidadForm
@@ -94,25 +94,31 @@ block content
                         option(value='Directiva') Directiva
                         option(value='Docente') Docente 
                         option(value='Apoyo y Asistencia a la Educación') Apoyo y Asistencia a la Educación
-                        
+                  hr    
                   .form-group
                     span(class="control-label col-md-3")
                       | Correo electrónico:
                     div(class="col-md-4")
                       +h-input("text", "", "tipo_ipn[correo_ipn]", "Correo institucional", "", 12, 0, "", "","")
-                    div(class="col-md-4")
-                      +h-input("text", "", "", "Confirmar orreo institucional", "", 12, 0, "", "","")
-                      
-                  
                   .form-group
                     span(class="control-label col-md-3")
-                      | 
+                      | &nbsp
                     div(class="col-md-4")
-                      +h-input("text", "", "tipo_ipn[correo_alternativo]", "Confirmar correo alternativo", "", 12, 0, "", "","")
+                      +h-input("text", "", "", "Confirmar correo institucional", "", 12, 0, "", "","")
+                      
+                  hr
+                  .form-group
+                    span(class="control-label col-md-3")
+                      | Correo alternativo
                     div(class="col-md-4")
-                      +h-input("text", "", "", "Confirmar orreo alternativo", "", 12, 0, "", "","")
+                      +h-input("text", "", "tipo_ipn[correo_alternativo]", "Correo alternativo", "", 12, 0, "", "","")
+                  .form-group
+                    span(class="control-label col-md-3")
+                      | &nbsp
+                    div(class="col-md-4")
+                      +h-input("text", "", "", "Confirmar correo alternativo", "", 12, 0, "", "","")
                   
-                  
+                  hr
                   .form-group
                     span(class="control-label col-md-3")
                       | Número Telefónico:
@@ -125,12 +131,12 @@ block content
                 
                 
                 //- ************************************************************************
-                .personal_externo(id="personal_externo")
-                  +hr()
-                  +h-input("text", "Institución donde labora actualmente:", "tipo_externo[institucion]", "Institución donde labora actualmente", "", 9, 3, "autofocus", "","")
-                  +h-input("text", "Correo electrónico:", "tipo_externo[correo]", "Correo@", "", 9, 3, "", "","")
-                  +h-input("text", "Teléfono:", "tipo_externo[telefono]", "Teléfono", "", 9, 3, "", "","")
-                  
+                //- .personal_externo(id="personal_externo")
+                //-   +hr()
+                //-   +h-input("text", "Institución donde labora actualmente:", "tipo_externo[institucion]", "Institución donde labora actualmente", "", 9, 3, "autofocus", "","")
+                //-   +h-input("text", "Correo electrónico:", "tipo_externo[correo]", "Correo@", "", 9, 3, "", "","")
+                //-   +h-input("text", "Teléfono:", "tipo_externo[telefono]", "Teléfono", "", 9, 3, "", "","")
+                //-   
                   
 
                 +h-input("hidden", "", "estatus_sec_1", "", "true", 9, 3, "", "","") 

@@ -2,6 +2,16 @@ var mongoose          = require('mongoose');
 var Schema            = mongoose.Schema;
 
 
+var dictaminacion_schema = new Schema({
+  puntaje:                  Number,
+  pregunta: [{
+    respuesta:              Number,
+    comentario:             String
+  }],
+});
+
+
+
 var planeacion_didactica_schema = new Schema(
   {
     aprendizajes_esperados:                 String,
@@ -48,8 +58,7 @@ var accionesSchema = new Schema({
       vigencia      : {type: String},
       cur           : {type: String}
     },
-  puntaje_dictaminado:                      Number,
-  id_dictaminacion:                         String,
+  dictaminacion:                            [dictaminacion_schema],
   registro_date:                            {type: Date, default: Date.now },
   estatus_accion:                           {type: String, default: "Pendiente"},
   dependencia:                              String,

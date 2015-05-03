@@ -91,6 +91,14 @@ module.exports = function(grunt) {
             drop : true  //optional
           },
           {
+            name : 'unidades_politecnicas',
+            type : 'json',
+            file : 'models/json/unidades_politecnicas.json',
+            jsonArray : true,  //optional
+            upsert : true,  //optional
+            drop : true  //optional
+          },
+          {
             name : 'rol_usuario',
             type : 'json',
             file : 'models/json/roles.json',

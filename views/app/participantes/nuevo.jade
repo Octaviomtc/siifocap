@@ -16,6 +16,7 @@ block content
             ////+h-input("text", "ETIQUETA", "NAME", "PLACEHOLDER", "VALUE", 6, 3, "autofocus", "empty","")
             +h-input("text", "Nombre(s)", "nombre", "Nombre(s)", "", 6, 3, "autofocus", "empty","")
             +h-input("text", "Apellidos", "apellidos", "Apellidos", "", 6, 3, "", "empty","")
+            +h-input("text", "Número de empleado", "noempleado", "#", "", 6, 3, "", "empty","")
             +h-input("text", "CURP", "curp", "18 Dígitos", "", 6, 3, "", "empty","")
             +h-input("text", "RFC", "rfc", "10 Dígitos", "", 6, 3, "", "empty","")
             .form-group
@@ -62,14 +63,35 @@ block content
                   option(value="VZ") Veracruz
                   option(value="YT") Yucatán
                   option(value="ZA") Zacatecas
-            +h-input("text", "Unidad Académica", "unidad", "Unidad Académica de Adscripción", "", 6, 3, "", "empty","")
+                  
+                  
+            .form-group
+              span(class="control-label col-md-3")
+                | Unidad Académica:
+              div(class="col-md-6")
+                select#dependencia.form-control(name='dependencia',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                  option(value="") Seleccione dependencia ...
+                    each dependencia in dependencias
+                      option(value=dependencia.dependencia)= dependencia.dependencia
+
+            .form-group#unidadForm
+              span(class="control-label col-md-3")
+                | 
+              div(class="col-md-6")
+                select#unidad.form-control(name='unidad',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                  option(value="") Seleccione unidad ...
+      
+                    
+            //- +h-input("text", "Unidad Académica", "unidad", "Unidad Académica de Adscripción", "", 6, 3, "", "empty","")
             +h-input("email", "Correo Electrónico Institucional", "email_inst", "@", "", 6, 3, "", "empty","")
             +h-input("email", "Correo Electrónico Personal", "email_pers", "@", "", 6, 3, "", "empty","")
             +h-input("text", "Número Telefónico Casa", "telefono", "Casa (10 Dígitos)", "", 6, 3, "", "empty","")
             +h-input("text", "Número Telefónico Celular", "celular", "Celular (10 Dígitos)", "", 6, 3, "", "empty","")
             +h-input("text", "Usuario", "usuario", "Usuario", "", 6, 3, "", "empty","")
             +h-input("password", "Contraseña", "password", "Contraseña", "", 6, 3, "", "empty","")
-            +h-input("text", "Grupo", "grupo", "Grupo", "", 6, 3, "", "empty","")
+            //- +h-input("text", "Grupo", "grupo", "Grupo", "", 6, 3, "", "empty","")
+            
+            
             .form-group
               span(class="control-label col-md-3")
                 | Accion de Formación
@@ -90,6 +112,48 @@ block content
                   
                 a.btn.btn-default(href="/participantes")
                   | Cancelar
+                  
+                  
+                  
+  append javascript
+    script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
+    script.
+      
+      $( "#dependencia" ).change(function(){
+        var valor = $('#dependencia :selected').val();
+         if (valor==""){
+            $("#unidad").empty();
+            add_append_select("unidad","","Seleccione unidad ...");
+            $('#unidadForm').hide();
+         }else{
+            revisaUnidades(valor);
+            $('#unidadForm').show();
+         }
+
+      });
+
+      function revisaUnidades(dependenciaVal){
+          console.log(dependenciaVal);
+          $.ajax({
+            url: "/unidades/consulta/dependencia",
+            data: {
+                    dependencia: dependenciaVal
+                  },                      
+            type: "POST",
+            dataType: "json",
+            success: function(source){
+              if (source.success === true){
+                $("#unidad").empty();
+                add_append_select("unidad","","Seleccione unidad ...");
+                $.each(source.escuelas, function(index, escuela) {
+                  add_append_select("unidad",escuela._id,escuela.nombre);
+                });
+              }},
+            error: function(dato){
+            }
+          }); //end ajax
+          return false;
+      }
                     
                                       
                                       
