@@ -1,7 +1,7 @@
 var mongoose              = require('mongoose');
 var request               = require('superagent');
 var logger                = require("../utils/winston");
-var escuela               = mongoose.model('escuela');
+var escuela               = mongoose.model('unidades_politecnicas');
 var dependencia           = mongoose.model('dependencia');
 var usuarios              = mongoose.model('User');
 

@@ -12,6 +12,7 @@ var entidades       = require('../models/entidades');
 var escuelas_privadas = require('../models/escuelas_privadas');
 var escuelas_publicas = require('../models/escuelas_publicas');
 var dictaminacion = require('../models/dictaminacion');
+var unidades_politecnicas = require('../models/unidades_politecnicas');
 //Controladores
 var usuariosMid     = require('../controllers/usuarios');
 var escuelaMid      = require('../controllers/escuelas');
@@ -23,6 +24,7 @@ var entidadesMid    = require('../controllers/entidades');
 var escuelas_privadasMid    = require('../controllers/escuelas_privadas');
 var escuelas_publicasMid    = require('../controllers/escuelas_publicas');
 var dictaminacionMid    = require('../controllers/dictaminacion');
+var unidades_politecnicasMid    = require('../controllers/unidades_politecnicas');
 
 
 var router          = express.Router();
@@ -492,7 +494,7 @@ module.exports = function(passport){
 
 
 
-    router.post('/dictaminacion/:id', isAuthenticated, dictaminacionMid.addDictamen, dictaminacionMid.addDictamenAccion, function(req, res){
+    router.post('/dictaminacion/:id', isAuthenticated, dictaminacionMid.addDictamen, function(req, res){
       res.redirect("/dictaminacion")
     });
 
