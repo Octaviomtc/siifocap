@@ -222,13 +222,11 @@ block content
 
 
   append javascript
-      
-      
+    script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
+    script.
       //- Variable temporal para invrementar id de participantes
       var participante = "!{accionFormacion.coparticipacion.length}";
       //- console.log(participante);
-      
-      
       //- $('#unidadForm').hide();
       $('#dirigido_a_tipo_Form').hide();
       $('#nombre_institucion_Form').hide();
@@ -244,8 +242,7 @@ block content
       
       //- Funcion para crear nueva unidad coparticipante
       function addUnidadCop(){
-        $('#dependenciasCoparticipantesDiv').append('<div id="divCopCont'+participante+'"><hr><div id="coparticipacion['+participante+'][nombre]_Form" class="form-group"><span class="control-label col-md-3">Nombre de la unidad o institución participante:</span><div class="col-md-9"><input type="text" id="coparticipacion['+participante+'][nombre]" name="coparticipacion['+participante+'][nombre]" placeholder="Nombre" autofocus="" value="" data-validation="" data-toggle="tooltip" data-placement="top" title="" class="form-control"></div></div><div id="dependenciaCoparticipanteAdd" class="form-group"><span class="control-label col-md-3"></span><div class="col-md-9">'+
-        '<a onclick=delUnidadCop("divCopCont'+participante+'") class="btn btn-danger fa-r"><i class="fa fa-trash fa-r"></i>Eliminar</a></div></div></div>');
+        $('#dependenciasCoparticipantesDiv').append('<div id="divCopCont'+participante+'"><hr><div id="coparticipacion['+participante+'][nombre]_Form" class="form-group"><span class="control-label col-md-3">Nombre de la unidad o institución participante:</span><div class="col-md-9"><input type="text" id="coparticipacion['+participante+'][nombre]" name="coparticipacion['+participante+'][nombre]" placeholder="Nombre" autofocus="" value="" data-validation="" data-toggle="tooltip" data-placement="top" title="" class="form-control"></div></div><div id="dependenciaCoparticipanteAdd" class="form-group"><span class="control-label col-md-3"></span><div class="col-md-9">'+'<a onclick=delUnidadCop("divCopCont'+participante+'") class="btn btn-danger fa-r"><i class="fa fa-trash fa-r"></i>Eliminar</a></div></div></div>');
         participante=participante+1;
       }
       
