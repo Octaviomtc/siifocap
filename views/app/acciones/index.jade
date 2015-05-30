@@ -4,7 +4,7 @@ block content
   
   .row.contenedorTb
     .col-md-12
-      a.btn.btn-primary.fa-r(href='/acciones-formacion/nueva/datos-generales')
+      a.btn.btn-primary.fa-r(href='/acciones-formacion/nueva/init-accion')
         i.fa.fa-r.fa-plus-circle
         | Nueva acción de formación
       a.btn.btn-primary(href='#')
@@ -39,7 +39,7 @@ block content
                 a.btn.btn-default(href="/unidades/ver/#{accion._id}")
                   i.fa.fa-print
               td
-                a.btn.btn-default(href="/unidades/actualizar/#{accion._id}")
+                a.btn.btn-default(href="/acciones-formacion/nueva/#{accion._id}/datos-generales")
                   i.fa.fa-edit
               td
                 a.btn.btn-default(href="/acciones-formacion/borrar/#{accion._id}")

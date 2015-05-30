@@ -213,7 +213,7 @@ module.exports = function(passport){
         res.render('app/acciones/index', { message: req.flash('message'), user: req.user, datos: param});
     });
 
-    // nueva accion de formacion paso 1
+    // nueva accion de formacion paso 1 initAccionFormacion
     router.get('/acciones-formacion/nueva/datos-generales', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, function(req, res){
        param={
             icon: "fa-plus-circle",
@@ -223,6 +223,17 @@ module.exports = function(passport){
         }
 
         res.render('app/acciones/nueva/datos-generales',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+    router.get('/acciones-formacion/nueva/init-accion', isAuthenticated, accionesMid.initAccionFormacion, function(req, res){
+       param={
+            icon: "fa-plus-circle",
+            seccion: "Nueva acción de formación",
+            estado: "acciones",
+            paso: "1"
+        }
+
+        res.redirect("/acciones-formacion/nueva/"+res.accionFormacion._id+"/datos-generales")
     });
 
 

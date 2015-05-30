@@ -115,6 +115,23 @@ function define_cur(req){
 
 
 
+//Inicializa una accion de formacion
+exports.initAccionFormacion = function(req, res, next){
+//define_cur(req);
+  var accion = new accionesFormacion({});
+  accion.save(function(err, accionFormacion) {
+    if(err) return res.send(500, err.message);
+    // console.log(unidad);
+    res.accionFormacion = accionFormacion;
+    console.log("Se crea accion de formacion ");
+    console.log(accionFormacion);
+    // return next(), req.flash('message','Accion de formacion agregada correctamente.');
+    return next();
+  });
+}
+
+
+
 
 // Agregar accione de formacion
 exports.addAccionFormacion = function(req, res, next) {
