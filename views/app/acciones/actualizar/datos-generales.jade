@@ -35,9 +35,9 @@ block content
                     +ayuda("Seleccione el público al que se dirige la acción de formación.")
                   div(class="col-md-9")
                     select#dirigido_a.form-control(name='dirigido_a',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
-                      option(value="") Seleccione ...
-                      option(value="comunidad-politecnica") Comunidad Politécnica
-                      option(value="comunidad-externa") Comunidad Externa
+                        option(value="") Seleccione ...
+                        option(value="comunidad-politecnica", selected= "comunidad-politecnica" == accionFormacion.dirigido_a) Comunidad Politécnica
+                        option(value="comunidad-externa", selected= "comunidad-externa" == accionFormacion.dirigido_a) Comunidad Externa
 
 
 
@@ -50,7 +50,7 @@ block content
              
 
 
-                +h-input("text", "", "nombre_institucion", "Escriba el nombre de la institución", "", 9, 3, "", "","")
+                +h-input("text", "", "nombre_institucion", "Escriba el nombre de la institución", accionFormacion.nombre_institucion, 9, 3, "", "","")
                 
 
 
@@ -225,7 +225,11 @@ block content
     script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
     script.
       //- Variable temporal para invrementar id de participantes
+      //alert("!{accionFormacion.dependencia}");
       var participante = "!{accionFormacion.coparticipacion.length}";
+      
+
+      
       //- console.log(participante);
       //- $('#unidadForm').hide();
       $('#dirigido_a_tipo_Form').hide();
@@ -238,6 +242,15 @@ block content
       $('#coparticipacion_institucion_validante_Form').hide();
       $('#dependenciaCoparticipanteAdd').hide();
       
+      
+      
+      
+      // En modo update se revisan los datos para generar los combos cargados
+      revisaUnidadesUp("!{accionFormacion.dependencia}");//Carga dependencia
+      defineComunidad("!{accionFormacion.dirigido_a}");//}Campos para comunidad
+      $("#dirigido_a_tipo").val("!{accionFormacion.dirigido_a_tipo}");
+      selectdependencia("!{accionFormacion.dirigido_a_tipo}");
+      $("#dirigido_a_dependencia").val("!{accionFormacion.dirigido_a_dependencia}");
       
       
       //- Funcion para crear nueva unidad coparticipante
@@ -385,61 +398,71 @@ block content
       //select "Dirigido a" cambia al select de direccion especifica
       $( "#dirigido_a" ).change(function(){
         var valor = $('#dirigido_a :selected').val();
-         if (valor==""){
-            $("#dirigido_a_tipo").empty();
-            $("#dirigido_a_tipo").append("<option value=''>Seleccione ...</option>");
-            $('#dirigido_a_tipo_Form').hide();
-            $('#nombre_institucion').empty();
-            $('#nombre_institucion_Form').hide();
-         }else{
-            if (valor=="comunidad-politecnica"){
-              $("#dirigido_a_tipo").empty();
-              $("#dirigido_a_tipo").append("<option value=''>Seleccione ...</option>"+
-                "<option value='docentes'>Docentes</option>"+
-                "<option value='funcionarios'>Directivos/Funcionarios</option>"+
-                "<option value='paae'>PAAE</option>"+
-                "<option value='alumnos'>Alumnos</option>"+
-                "<option value='egresados'>Egresados</option>");
-                $('#nombre_institucion').empty();
-                $('#nombre_institucion_Form').hide();
-            }else{
-              $("#dirigido_a_tipo").empty();
-              $("#dirigido_a_tipo").append("<option value=''>Seleccione ...</option>"+
-                "<option value='publica'>Institución pública</option>"+
-                "<option value='privada'>Institución privada</option>");
-              $('#nombre_institucion').empty();
-              $('#nombre_institucion_Form').show();
-            }
-            
-            $('#dirigido_a_tipo_Form').show();
-         }
+        defineComunidad(valor);
 
       });
+      
+      
+      //Funcion que establece campos dependiendo si esta dirigido a comunidad del ipn o externa
+      function defineComunidad(valor){
+        if (valor==""){
+           $("#dirigido_a_tipo").empty();
+           $("#dirigido_a_tipo").append("<option value=''>Seleccione ...</option>");
+           $('#dirigido_a_tipo_Form').hide();
+           $('#nombre_institucion').empty();
+           $('#nombre_institucion_Form').hide();
+        }else{
+           if (valor=="comunidad-politecnica"){
+             $("#dirigido_a_tipo").empty();
+             $("#dirigido_a_tipo").append("<option value=''>Seleccione ...</option>"+
+               "<option value='docentes'>Docentes</option>"+
+               "<option value='funcionarios'>Directivos/Funcionarios</option>"+
+               "<option value='paae'>PAAE</option>"+
+               "<option value='alumnos'>Alumnos</option>"+
+               "<option value='egresados'>Egresados</option>");
+               $('#nombre_institucion').empty();
+               $('#nombre_institucion_Form').hide();
+           }else{
+             $("#dirigido_a_tipo").empty();
+             $("#dirigido_a_tipo").append("<option value=''>Seleccione ...</option>"+
+               "<option value='publica'>Institución pública</option>"+
+               "<option value='privada'>Institución privada</option>");
+             $('#nombre_institucion').empty();
+             $('#nombre_institucion_Form').show();
+           }
+           
+           $('#dirigido_a_tipo_Form').show();
+        }
+      }
 
 
       //Dependecnia a la que se solicita el registro
       $( "#dirigido_a_tipo" ).change(function(){
         var valor = $('#dirigido_a_tipo :selected').val();
-         if (valor==""){
-            $("#dirigido_a_dependencia").empty();
-            $("#dirigido_a_dependencia").append("<option value=''>Seleccione ...</option>");
-         }else{
-            if (valor=="docentes"||valor=="funcionarios"||valor=="paae"){
-              $("#dirigido_a_dependencia").empty();
-              $("#dirigido_a_dependencia").append("<option value=''>Seleccione ...</option>"+
-                "<option value='cgfie'>CGFIE</option>");
-            }else{
-              if (valor=="publica"||valor=="privada"){
-                $("#dirigido_a_dependencia").empty();
-                $("#dirigido_a_dependencia").append("<option value=''>Seleccione ...</option>"+
-                  "<option value='des'>DES</option>");
-              }else{
-                $("#dirigido_a_dependencia").empty();
-                $("#dirigido_a_dependencia").append("<option value=''>Seleccione ...</option>"+
-                  "<option value='des'>DES</option>"+
-                  "<option value='dems'>DEMS</option>");
-              }
-            }
-         }
-
+        selectdependencia(valor);
       });
+      
+      //Select tipo de dependencia solicitante
+      function selectdependencia(valor){
+        if (valor==""){
+           $("#dirigido_a_dependencia").empty();
+           $("#dirigido_a_dependencia").append("<option value=''>Seleccione ...</option>");
+        }else{
+           if (valor=="docentes"||valor=="funcionarios"||valor=="paae"){
+             $("#dirigido_a_dependencia").empty();
+             $("#dirigido_a_dependencia").append("<option value=''>Seleccione ...</option>"+
+               "<option value='cgfie'>CGFIE</option>");
+           }else{
+             if (valor=="publica"||valor=="privada"){
+               $("#dirigido_a_dependencia").empty();
+               $("#dirigido_a_dependencia").append("<option value=''>Seleccione ...</option>"+
+                 "<option value='des'>DES</option>");
+             }else{
+               $("#dirigido_a_dependencia").empty();
+               $("#dirigido_a_dependencia").append("<option value=''>Seleccione ...</option>"+
+                 "<option value='des'>DES</option>"+
+                 "<option value='dems'>DEMS</option>");
+             }
+           }
+        }
+      }

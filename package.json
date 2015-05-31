@@ -23,7 +23,7 @@
     "helmet": "^0.5.4",
     "ip": "^0.3.2",
     "jade": "^1.7.0",
-    "moment": "^2.8.3",
+    "moment": "^2.10.3",
     "mongodb": "^1.4.26",
     "mongoose": "~3.8.12",
     "mongoose-crate": "^1.0.7",
