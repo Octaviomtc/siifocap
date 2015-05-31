@@ -1,4 +1,5 @@
 var mongoose          = require('mongoose');
+var moment            = require('moment');
 var Schema            = mongoose.Schema;
 
 
@@ -46,7 +47,7 @@ var resultado_apredizaje_propuesto_schema = new Schema(
 var accionesSchema = new Schema({
   //id: { type: String },//NECESARIO
   cur:{
-      titulo        : {type: String, default: "CGFIE"},
+      titulo        : {type: String, default: 'No asignada'},
       anio          : {type: Number},
       consecutivo   : {type: Number},
       terminacion   : {type: String},
