@@ -80,6 +80,7 @@ var accionesSchema = new Schema({
   perfil_facilitador:                       String,
   perfil_participante:                      String,
   active_coparticipacion:                   Boolean,
+  active_coparticipacion_val:               {type: String, default: "off"},
   coparticipacion_convenio:                 String,
   coparticipacion_institucion_validante:    String,
   coparticipacion:                          [coparticipacion_schema],
