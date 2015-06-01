@@ -34,6 +34,77 @@ html
                       i.fa.fa-r.fa-building-o.fa-l
                   div#menu.collapse.navbar-collapse
                     ul.nav.navbar-nav
+                      li(class=datos.paso=="1" ? "active":"")
+                        a(href='/acciones-formacion/nueva/#{accionFormacion._id}/datos-generales', class=accionFormacion.estatus_sec_1=="true" ? "alert alert-success active-bar":"") 
+                          i.fa.fa-check-circle.fa-r.fa-activo
+                          | Datos generales
+    
+            
+                      li(class=datos.paso=="2" ? "active":"")
+                        a(href='/acciones-formacion/nueva/#{accionFormacion._id}/justificacion', class=accionFormacion.estatus_sec_2=="true" ? "alert alert-success active-bar":"")
+                          if accionFormacion.estatus_sec_2=='true'
+                            i.fa.fa-check-circle.fa-r.fa-activo
+                          | Justificación
+                    
+                    
+                      li(class=datos.paso=="3" ? "active":"")
+                        a(href='/acciones-formacion/nueva/#{accionFormacion._id}/encuadre', class=accionFormacion.estatus_sec_3=="true" ? "alert alert-success active-bar":"")
+                          if accionFormacion.estatus_sec_3=='true'
+                            i.fa.fa-check-circle.fa-r.fa-activo
+                          | Encuadre de la acción de formación
+                  
+                  
+                      li(class=datos.paso=="4" ? "active":"")
+                        a(href='/acciones-formacion/nueva/#{accionFormacion._id}/planeacion', class=accionFormacion.estatus_sec_4=="true" ? "alert alert-success active-bar":"")
+                          if accionFormacion.estatus_sec_4=='true'
+                            i.fa.fa-check-circle.fa-r.fa-activo
+                          | Planeación didáctica
+                    
+                          
+              #form-mult
+                block content
+
+    include ../includes/modals
+    include ../../../includes/scripts
+    include ../../../includes/footer
+
+
+/*include ../../../includes/mixins
+// html
+  head
+    include ../../../includes/head
+    include ../../../includes/head_scripts
+
+  body
+    #encabezados
+      include ../../../includes/titulos
+      include ../../../includes/barraSup
+      include ../../../includes/navbar
+    #content
+      #app
+        .container
+          .col-md-3.col-lg-2.col-sm-3
+            include ../../../includes/menu
+          .col-md-9.col-lg-10.col-sm-9
+            nav.navbar.navbar-default(role='navigation')
+              .container-fluid
+                .navbar-header
+                  a.navbar-brand(href='#')
+                    i(class="fa fa-r #{datos.icon}")
+                    | #{datos.seccion}
+            .animated.fadeIn
+              nav.navbar.navbar-default(role='navigation')
+                div.container-fluid
+                  div.navbar-header
+                    button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#menu')
+                      span.sr-only Toggle navigation
+                      span.icon-bar
+                      span.icon-bar
+                      span.icon-bar
+                    a.navbar-brand()
+                      i.fa.fa-r.fa-building-o.fa-l
+                  div#menu.collapse.navbar-collapse
+                    ul.nav.navbar-nav
                       if accionFormacion.estatus_sec_1=='true'
                         li(class=datos.paso=="1" ? "active":"")
                           a(href='/acciones-formacion/nueva/#{accionFormacion._id}/datos-generales', class=accionFormacion.estatus_sec_1=="true" ? "alert alert-success active-bar":"") 

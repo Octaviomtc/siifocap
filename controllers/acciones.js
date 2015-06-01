@@ -179,6 +179,15 @@ exports.allAccionFormacion = function(req, res, next) {
 
 //update
 exports.updateAccion = function(req, res, next) {
+  var body = req.body;
+
+  if(req.body.active_coparticipacion){
+    body.active_coparticipacion == true;
+  }else{
+    body.active_coparticipacion == false
+  }
+
+  console.log("*****  "+body.active_coparticipacion);
   accionesFormacion.findOneAndUpdate({_id:req.params.id}, req.body, function (err, accion) {
     if(err) res.send(500, err.message);
     // console.log(accion);

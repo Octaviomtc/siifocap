@@ -75,10 +75,10 @@ block content
                   div(class="col-md-9")
                     select#tipo_accion_Formacion.form-control(name='tipo_accion_Formacion',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                       option(value="") Seleccione ...
-                      option(value="curso") Curso
-                      option(value="taller") Taller
-                      option(value="seminario") Seminario
-                      option(value="Diplomado") Diplomado
+                      option(value="curso", selected= "curso" == accionFormacion.tipo_accion_Formacion) Curso
+                      option(value="taller", selected= "taller" == accionFormacion.tipo_accion_Formacion) Taller
+                      option(value="seminario", selected= "seminario" == accionFormacion.tipo_accion_Formacion) Seminario
+                      option(value="Diplomado", selected= "Diplomado" == accionFormacion.tipo_accion_Formacion) Diplomado
                 
                 
                 
@@ -89,17 +89,17 @@ block content
                   div(class="col-md-9")
                     select#modalidad_accion_Formacion.form-control(name='modalidad_accion_Formacion',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                       option(value="") Seleccione ...
-                      option(value="escolarizada") Escolarizada
-                      option(value="no_escolarizada") No escolarizada
-                      option(value="mixta") Mixta
+                      option(value="escolarizada", selected= "escolarizada" == accionFormacion.modalidad_accion_Formacion) Escolarizada
+                      option(value="no_escolarizada", selected= "no_escolarizada" == accionFormacion.modalidad_accion_Formacion) No escolarizada
+                      option(value="mixta", selected= "mixta" == accionFormacion.modalidad_accion_Formacion) Mixta
                   
                       
                       
                       
                 
                 
-                +h-input("text", "Duración total en horas(presencial):", "horas_presencial", "Horas", "", 9, 3, "", "","")
-                +h-input("text", "Duración total en horas(en línea):", "horas_linea", "Horas", "", 9, 3, "", "","")
+                +h-input("text", "Duración total en horas(presencial):", "horas_presencial", "Horas", accionFormacion.horas_presencial, 9, 3, "", "","")
+                +h-input("text", "Duración total en horas(en línea):", "horas_linea", "Horas", accionFormacion.horas_linea, 9, 3, "", "","")
             
                       
                       
@@ -111,11 +111,11 @@ block content
                   span(class="control-label col-md-1")
                     | Inicio:
                   div(class="col-md-3")
-                    input.form-control#modalidad_fecha_inicio(type="date", name="modalidad_fecha_inicio",data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                    input.form-control#modalidad_fecha_inicio(type="date", value=accionFormacion.modalidad_fecha_inicio, name="modalidad_fecha_inicio",data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                   span(class="control-label col-md-1")
                     | Fin:   
                   div(class="col-md-3")
-                    input.form-control#modalidad_fecha_fin(type="date", name="modalidad_fecha_fin",data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                    input.form-control#modalidad_fecha_fin(type="date", value=accionFormacion.modalidad_fecha_fin, name="modalidad_fecha_fin",data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                       
                       
                       
@@ -129,11 +129,11 @@ block content
                   span(class="control-label col-md-1")
                     | Desde:
                   div(class="col-md-3")
-                    input.form-control#modalidad_hora_inicio(type="time", name="modalidad_hora_inicio")
+                    input.form-control#modalidad_hora_inicio(type="time", value=accionFormacion.modalidad_hora_inicio,  name="modalidad_hora_inicio")
                   span(class="control-label col-md-1")
                     | Hasta:   
                   div(class="col-md-3")
-                    input.form-control#modalidad_hora_fin(type="time", name="modalidad_hora_fin")
+                    input.form-control#modalidad_hora_fin(type="time", value=accionFormacion.modalidad_hora_fin,  name="modalidad_hora_fin")
                 
                 
                 
@@ -161,7 +161,8 @@ block content
                 .form-group
                   span(class="control-label col-md-3")
                   div(class="col-md-9")
-                    if accionFormacion.active_coparticipacion == "on"
+                    input(id="active_coparticipacion_val", name="active_coparticipacion_val", type='hidden', value=accionFormacion.active_coparticipacion_val)
+                    if accionFormacion.active_coparticipacion_val == "on"
                       input#active_coparticipacion(type="checkbox", name="active_coparticipacion", onclick="checkCoparticipacion(this)", checked)
                     else
                       input#active_coparticipacion(type="checkbox", name="active_coparticipacion", onclick="checkCoparticipacion(this)")
@@ -170,8 +171,8 @@ block content
                     +ayuda("Seleccionar solo en caso de que la acción de formación se lleve a cabo en colaboración con otra unidad responsable.")
                           
                           
-                +h-input("text", "Número de convenio:", "coparticipacion_convenio", "Convenio", "", 9, 3, "", "","")     
-                +h-input("text", "Institución que validó el convenio: ", "coparticipacion_institucion_validante", "Institución que validó el convenio", "", 9, 3, "", "","") 
+                +h-input("text", "Número de convenio:", "coparticipacion_convenio", "Convenio", accionFormacion.coparticipacion_convenio, 9, 3, "", "","")     
+                +h-input("text", "Institución que validó el convenio: ", "coparticipacion_institucion_validante", "Institución que validó el convenio", accionFormacion.coparticipacion_institucion_validante, 9, 3, "", "","") 
                 
                 +h-input("hidden", "", "estatus_sec_1", "", "true", 9, 3, "", "","") 
                 
@@ -251,6 +252,24 @@ block content
       $("#dirigido_a_tipo").val("!{accionFormacion.dirigido_a_tipo}");
       selectdependencia("!{accionFormacion.dirigido_a_tipo}");
       $("#dirigido_a_dependencia").val("!{accionFormacion.dirigido_a_dependencia}");
+      defineEscolaridad("!{accionFormacion.modalidad_accion_Formacion}");
+      $("#perfil_facilitador").html("!{accionFormacion.perfil_facilitador}");
+      $("#perfil_participante").html("!{accionFormacion.perfil_participante}");
+      var active_coparticipacion_val = "!{accionFormacion.active_coparticipacion_val}";
+        if (active_coparticipacion_val=="on")
+        {
+          $('#coparticipacion_convenio_Form').show();
+          $('#coparticipacion_institucion_validante_Form').show();
+          $('#dependenciaCoparticipanteAdd').show();
+        }else{
+          $('#coparticipacion_convenio').val('');
+          $('#coparticipacion_institucion_validante').val('');
+          $('#coparticipacion_convenio_Form').hide();
+          $('#coparticipacion_institucion_validante_Form').hide();
+          $('#dependenciaCoparticipanteAdd').hide();
+          
+          $('#dependenciasCoparticipantesDiv').empty(); 
+        }
       
       
       //- Funcion para crear nueva unidad coparticipante
@@ -259,9 +278,20 @@ block content
         participante=participante+1;
       }
       
+      function countChecked() {
+        if ($('#active_coparticipacion').is(":checked"))
+        {
+          $("#active_coparticipacion_val").val("on");
+        }else{
+        $("#active_coparticipacion_val").val("off");
+        }
+      }
+      $( "input[type=checkbox]" ).on( "click", countChecked );
+            
       function delUnidadCop(id){
         $("#"+id).empty();
       }
+      
       function add_append_select(id, value, text){
           $("#"+id).append("<option value='"+value+"'>"+text+"</option>");
       }
@@ -295,6 +325,13 @@ block content
         $('#modalidad_fecha').empty();
         $('#modalidad_hora').empty();
         
+        defineEscolaridad(valor);
+        
+      });
+      
+      //define horas para tipo de curso
+      function defineEscolaridad(valor){
+        
         switch(valor) {
           case "escolarizada":
             $('#horas_presencial_Form').show();
@@ -320,8 +357,9 @@ block content
             $('#modalidad_fecha_Form').hide();
             $('#modalidad_hora_Form').hide();
         }
-        
-      });
+      }
+      
+      
 
       $( "#dependencia" ).change(function(){
         var valor = $('#dependencia :selected').val();
