@@ -12,6 +12,7 @@ var entidades       = require('../models/entidades');
 var escuelas_privadas = require('../models/escuelas_privadas');
 var escuelas_publicas = require('../models/escuelas_publicas');
 var dictaminacion = require('../models/dictaminacion');
+var unidades_politecnicas = require('../models/unidades_politecnicas');
 //Controladores
 var usuariosMid     = require('../controllers/usuarios');
 var escuelaMid      = require('../controllers/escuelas');
@@ -23,6 +24,7 @@ var entidadesMid    = require('../controllers/entidades');
 var escuelas_privadasMid    = require('../controllers/escuelas_privadas');
 var escuelas_publicasMid    = require('../controllers/escuelas_publicas');
 var dictaminacionMid    = require('../controllers/dictaminacion');
+var unidades_politecnicasMid    = require('../controllers/unidades_politecnicas');
 
 
 var router          = express.Router();
@@ -211,7 +213,7 @@ module.exports = function(passport){
         res.render('app/acciones/index', { message: req.flash('message'), user: req.user, datos: param});
     });
 
-    // nueva accion de formacion paso 1
+    // nueva accion de formacion paso 1 initAccionFormacion
     router.get('/acciones-formacion/nueva/datos-generales', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, function(req, res){
        param={
             icon: "fa-plus-circle",
@@ -221,6 +223,17 @@ module.exports = function(passport){
         }
 
         res.render('app/acciones/nueva/datos-generales',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+    router.get('/acciones-formacion/nueva/init-accion', isAuthenticated, accionesMid.initAccionFormacion, function(req, res){
+       param={
+            icon: "fa-plus-circle",
+            seccion: "Nueva acción de formación",
+            estado: "acciones",
+            paso: "1"
+        }
+
+        res.redirect("/acciones-formacion/nueva/"+res.accionFormacion._id+"/datos-generales")
     });
 
 
@@ -353,7 +366,7 @@ module.exports = function(passport){
       res.render('app/participantes/index',{message: req.flash('message'), user: req.user, datos: param});
     });
 
-    router.get('/participantes/nuevo', isAuthenticated, accionesMid.allAccionFormacion, function(req, res){
+    router.get('/participantes/nuevo', isAuthenticated, accionesMid.allAccionFormacion, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, function(req, res){
       param={
         icon: "fa-plus-circle",
         seccion: "Nuevo Participante",
@@ -380,7 +393,7 @@ module.exports = function(passport){
       res.render('app/participantes/ver',{message: req.flash('message'), user: req.user, datos: param});
     });
 
-    router.get('/participantes/actualizar/:id', isAuthenticated, accionesMid.allAccionFormacion, participMid.findById, function(req, res){
+    router.get('/participantes/actualizar/:id', isAuthenticated, accionesMid.allAccionFormacion, participMid.findById,  escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, function(req, res){
       param={
         icon: "fa-plus-circle",
         seccion: "Actualizar Participante"
@@ -492,7 +505,7 @@ module.exports = function(passport){
 
 
 
-    router.post('/dictaminacion/:id', isAuthenticated, dictaminacionMid.addDictamen, dictaminacionMid.addDictamenAccion, function(req, res){
+    router.post('/dictaminacion/:id', isAuthenticated, dictaminacionMid.addDictamen, function(req, res){
       res.redirect("/dictaminacion")
     });
 

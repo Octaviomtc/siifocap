@@ -11,6 +11,7 @@ var flash                 = require('connect-flash');
 var initPassport          = require('./passport/init');
 var routes                = require('./routes/index')(passport);
 var logger                = require("./utils/winston");
+var helmet = require('helmet');
 
 
 // Se configura ambiente
@@ -21,6 +22,8 @@ GLOBAL.config = config = require('./config/config')[env];
 
 logger.debug('Inicializando el sistema...');
 var app = express();
+app.use(helmet.noCache());
+
 logger.debug('Configurando DB');
 // Connect to DB
 mongoose.connect(config.db);

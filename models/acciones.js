@@ -1,5 +1,16 @@
 var mongoose          = require('mongoose');
+var moment            = require('moment');
 var Schema            = mongoose.Schema;
+
+
+var dictaminacion_schema = new Schema({
+  puntaje:                  Number,
+  pregunta: [{
+    respuesta:              Number,
+    comentario:             String
+  }],
+});
+
 
 
 var planeacion_didactica_schema = new Schema(
@@ -36,7 +47,7 @@ var resultado_apredizaje_propuesto_schema = new Schema(
 var accionesSchema = new Schema({
   //id: { type: String },//NECESARIO
   cur:{
-      titulo        : {type: String, default: "CGFIE"},
+      titulo        : {type: String, default: 'No asignada'},
       anio          : {type: Number},
       consecutivo   : {type: Number},
       terminacion   : {type: String},
@@ -48,8 +59,7 @@ var accionesSchema = new Schema({
       vigencia      : {type: String},
       cur           : {type: String}
     },
-  puntaje_dictaminado:                      Number,
-  id_dictaminacion:                         String,
+  dictaminacion:                            [dictaminacion_schema],
   registro_date:                            {type: Date, default: Date.now },
   estatus_accion:                           {type: String, default: "Pendiente"},
   dependencia:                              String,
@@ -70,6 +80,7 @@ var accionesSchema = new Schema({
   perfil_facilitador:                       String,
   perfil_participante:                      String,
   active_coparticipacion:                   Boolean,
+  active_coparticipacion_val:               {type: String, default: "off"},
   coparticipacion_convenio:                 String,
   coparticipacion_institucion_validante:    String,
   coparticipacion:                          [coparticipacion_schema],

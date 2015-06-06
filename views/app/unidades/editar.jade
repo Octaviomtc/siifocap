@@ -22,7 +22,7 @@ block content
                 select#dependencia.form-control(name='dependencia',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                   option(value="") Seleccione ...
                     each dependencia in dependencias
-                      option(value=dependencia.value, selected= dependencia.value == escuela.dependencia)= dependencia.text
+                      option(value=dependencia.dependencia, selected= dependencia.dependencia == escuela.dependencia)= dependencia.dependencia
             +h-input("text", "Responsable", "responsable", "Responsable", escuela.responsable, 6, 3, "", "empty","")
             +h-input("text", "Extensión", "extension", "#", escuela.extension, 6, 3, "", "empty","")
             +h-input("email", "Email", "email", "@", escuela.email, 6, 3, "", "empty","")

@@ -1,52 +1,47 @@
 {
-  "value" : "Nivel Medio Superior",
-  "text" : "Nivel Medio Superior"
+  "dependencia":"UNIDADES  ACADÉMICAS DE NIVEL MEDIO SUPERIOR"
 },
+
 {
-  "value" : "Nivel Superior",
-  "text" : "Nivel Superior y Posgrado"
+  "dependencia": "UNIDADES  ACADÉMICAS DE NIVEL SUPERIOR"
 },
+
 {
-  "value" : "Centros de Investigacion",
-  "text" : "Centros de Investigación"
+  "dependencia": "UNIDADES ACADÉMICAS DE INVESTIGACIÓN CIENTÍFICA Y TECNOLÓGICA"
 },
+
 {
-  "value" : "Centros de Educacion Continua",
-  "text" : "Centros de Educación Continua"
+  "dependencia": "UNIDADES ACADÉMICAS DE EDUCACIÓN CONTINUA"
 },
+
 {
-  "value" : "Area Central",
-  "text" : "Áreas Centrales"
+  "dependencia": "UNIDADES ACADÉMICAS DE APOYO EDUCATIVO"
 },
+
 {
-  "value" : "Unidades Administrativas",
-  "text" : "Unidades Administrativas"
+  "dependencia": "UNIDADES DE APOYO A LA INNOVACIÓN EDUCATIVA"
 },
+
 {
-  "value" : "Unidades Academicas",
-  "text" : "Unidades Académicas"
+  "dependencia": "UNIDADES DE APOYO A LA  INVESTIGACIÓN, AL DESARROLLO Y FOMENTO  TECNOLÓGICO Y  EMPRESARIAL"
 },
+
 {
-  "value" : "Unidades de Apoyo a la Innovacion Educativa",
-  "text" : "Unidades de Apoyo a la Innovación Educativa"
+  "dependencia": "UNIDADES EDUCATIVAS VINCULADAS A CIENCIA, TECNOLOGÍA, INVESTIGACIÓN Y DESARROLLO EMPRESARIAL CLUSTERS POLITÉCNICOS"
 },
+
 {
-  "value" : "Unidades de Apoyo a la Investigacion, al Desarrollo y Fomento Tecnologico y Empresarial",
-  "text" : "Unidades de Apoyo a la Investigación, al Desarrollo y Fomento Tecnológico y Empresarial"
+  "dependencia": "ÁREA CENTRAL – UNIDADES ADMINISTRATIVAS"
 },
+
 {
-  "value" : "Unidades Educativas Vinculadas a Ciencia, Tecnologia, Investigacion y Desarrollo Empresarial CLUSTERS Politecnicos",
-  "text" : "Unidades Educativas Vinculadas a Ciencia, Tecnología, Investigación y Desarrollo Empresarial CLUSTERS Politécnicos"
+  "dependencia": "ÓRGANOS DE APOYO"
 },
+
 {
-  "value" : "Centros de Desarrollo Infantil",
-  "text" : "Centros de Desarrollo Infantil"
+  "dependencia": "ORGANISMOS AUXILIARES"
 },
+
 {
-  "value" : "UPGPG",
-  "text" : "Unidad politécnica de gestión con perspectiva de género (UPGPG)"
-},
-{
-  "value" : "Sustentabilidad",
-  "text" : "Coordinación Politécnica para la Sustentabilidad"
+  "dependencia": "CENTROS DE DESARROLLO INFANTIL"
 }

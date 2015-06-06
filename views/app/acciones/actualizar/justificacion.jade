@@ -41,11 +41,11 @@ block content
                   .col-md-9
                     select#finalidad.form-control(name='finalidad', data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                       option(value='') Seleccione ...
-                      option(value='Inducción') Inducción
-                      option(value='Fortalecimiento') Fortalecimiento
-                      option(value='Actualización') Actualización
-                      option(value='Desarrollo') Desarrollo   
-                      option(value='Certificacion') Certificación 
+                      option(value='Inducción', selected= "Inducción" == accionFormacion.finalidad) Inducción
+                      option(value='Fortalecimiento', selected= "Fortalecimiento" == accionFormacion.finalidad) Fortalecimiento
+                      option(value='Actualización', selected= "Actualización" == accionFormacion.finalidad) Actualización
+                      option(value='Desarrollo', selected= "Desarrollo" == accionFormacion.finalidad) Desarrollo   
+                      option(value='Certificacion', selected= "Certificacion" == accionFormacion.finalidad) Certificación 
                       
                       
                       
@@ -82,9 +82,9 @@ block content
                   .col-md-9
                     select#area_dirigido_accion.form-control(name='area_dirigido_accion')
                       option(value='') Seleccione ...
-                      option(value='Docentes') Docentes
-                      option(value='Directivos/Funcionarios') Directivos/Funcionarios
-                      option(value='PAAE') PAAE
+                      option(value='Docentes', selected= "Docentes" == accionFormacion.area_dirigido_accion) Docentes
+                      option(value='Directivos/Funcionarios', selected= "Directivos/Funcionarios" == accionFormacion.area_dirigido_accion) Directivos/Funcionarios
+                      option(value='PAAE', selected= "PAAE" == accionFormacion.area_dirigido_accion) PAAE
                       
                 .form-group
                   span.control-label.col-md-3
@@ -120,8 +120,20 @@ block content
   append javascript
     script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
     script.
+      
+      // Se Carga informacion existente
+      $("#justificacion").html("!{accionFormacion.justificacion}");
+      defineArea("!{accionFormacion.area_dirigido_accion}");
+      $("#subarea_dirigido_accion").val("!{accionFormacion.subarea_dirigido_accion}");
+      
+      
       $("#area_dirigido_accion").change(function() {
         var textDirigido = $('#area_dirigido_accion :selected').text();
+        defineArea(textDirigido);
+      });
+      
+      
+      function defineArea(textDirigido){
         if (textDirigido === "Docentes") {
           $("#subarea_dirigido_accion").empty();
           $("#subarea_dirigido_accion").append("<option value=''>Seleccione ...</option>" +
@@ -152,4 +164,4 @@ block content
               }
           }
         }
-      });
+      }

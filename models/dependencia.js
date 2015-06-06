@@ -5,10 +5,7 @@ var dependenciaSchema = new Schema({
   id:     {
             type: String
           },
-  value:  {
-            type: String
-          },
-  text:   {
+  dependencia:  {
             type: String
           }
 },

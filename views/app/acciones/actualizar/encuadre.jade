@@ -39,6 +39,26 @@ block content
                     | Agregar RAP
                     
                   hr
+                    
+                if accionFormacion.resultado_apredizaje_propuesto.length >0
+                  - var resultado_apredizaje_propuesto = accionFormacion.resultado_apredizaje_propuesto
+                  - var i = 0
+                  each cop in resultado_apredizaje_propuesto
+                    - var contenedor = "seccionRAPdiv"+i
+                    div(id=contenedor)
+                      hr
+                      .form-group(id="resultado_apredizaje_propuesto["+i+++"][logro]_Form")
+                          span(class="control-label col-md-3")
+                            | Resultado de Aprendizaje Propuesto :
+                          div(class="col-md-9")
+                            textarea.form-control(id='resultado_apredizaje_propuesto['+i+++'][logro]', name='resultado_apredizaje_propuesto['+i+++'][logro]', rows='5') #{cop.logro}
+                      div#dependenciaCoparticipanteAdd.form-group
+                        span.control-label.col-md-3
+                        div.col-md-9
+                          a.btn.btn-danger.fa-r(onclick='delRap("'+contenedor+'")')
+                            i.fa.fa-trash.fa-r
+                            | Eliminar
+                            
                 div#seccionRAPdiv
                 
                 
@@ -107,11 +127,21 @@ block content
     script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
     script.
       //- Variable temporal para incrementar id de RAP
-      var rap = 0;
+      // Se Carga informacion existente
+      $("#competencia").html("!{accionFormacion.competencia}");
+      $("#metodologia_didactica").html("!{accionFormacion.metodologia_didactica}");
+      $("#metodologia_resultado").html("!{accionFormacion.metodologia_resultado}");
+      $("#lineamientos_acreditacion").html("!{accionFormacion.lineamientos_acreditacion}");
+      
+      
+      var rap = "!{accionFormacion.resultado_apredizaje_propuesto.length}";
+
+
       
       //- Funcion para crear un nuevo resultado propuesto
       function addRAP(){
-        var rap1=rap+1;
+        var rap1=rap;
+        rap1 = rap1+1;
         $('#seccionRAPdiv').append('<div id="divCopCont'+rap+'"><hr><div id="resultado_apredizaje_propuesto['+rap+'][logro]_Form" class="form-group"><span class="control-label col-md-3">Resultado de Aprendizaje Propuesto '+rap1+':</span><div class="col-md-9"><textarea id="resultado_apredizaje_propuesto['+rap+'][logro]" name="resultado_apredizaje_propuesto['+rap+'][logro]" value="" data-validation="" data-toggle="tooltip" data-placement="top" title="" class="form-control" rows="5"></textarea></div><div id="dependenciaCoparticipanteAdd" class="form-group"><span class="control-label col-md-3"></span><div class="col-md-9">'+
         '<a onclick=delRap("divCopCont'+rap+'") class="btn btn-danger sepTop fa-r"><i class="fa fa-trash fa-r"></i>Eliminar</a></div></div></div>');
         rap=rap+1;

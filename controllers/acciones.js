@@ -115,6 +115,23 @@ function define_cur(req){
 
 
 
+//Inicializa una accion de formacion
+exports.initAccionFormacion = function(req, res, next){
+//define_cur(req);
+  var accion = new accionesFormacion({});
+  accion.save(function(err, accionFormacion) {
+    if(err) return res.send(500, err.message);
+    // console.log(unidad);
+    res.accionFormacion = accionFormacion;
+    console.log("Se crea accion de formacion ");
+    console.log(accionFormacion);
+    // return next(), req.flash('message','Accion de formacion agregada correctamente.');
+    return next();
+  });
+}
+
+
+
 
 // Agregar accione de formacion
 exports.addAccionFormacion = function(req, res, next) {
@@ -162,6 +179,15 @@ exports.allAccionFormacion = function(req, res, next) {
 
 //update
 exports.updateAccion = function(req, res, next) {
+  var body = req.body;
+
+  if(req.body.active_coparticipacion){
+    body.active_coparticipacion == true;
+  }else{
+    body.active_coparticipacion == false
+  }
+
+  console.log("*****  "+body.active_coparticipacion);
   accionesFormacion.findOneAndUpdate({_id:req.params.id}, req.body, function (err, accion) {
     if(err) res.send(500, err.message);
     // console.log(accion);
