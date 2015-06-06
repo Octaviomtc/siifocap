@@ -46,6 +46,7 @@ var resultado_apredizaje_propuesto_schema = new Schema(
 
 var accionesSchema = new Schema({
   //id: { type: String },//NECESARIO
+  status:                                 { type: Number, default: 0 },                            
   cur:{
       titulo        : {type: String, default: 'No asignada'},
       anio          : {type: Number},

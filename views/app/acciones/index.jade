@@ -23,7 +23,7 @@ block content
             th(data-align='left', data-sortable='true') Estatus
             th(data-align='right', data-sortable='true')
             th(data-align='right', data-sortable='true')
-            th(data-align='right', data-sortable='true')
+            // th(data-align='right', data-sortable='true')
         tbody
           each accion in acciones
             -var cur = accion.cur
@@ -38,10 +38,11 @@ block content
                 | #{accion.dirigido_a_dependencia}
                 
               td
-                | #{accion.estatus_accion}
-              td
-                a.btn.btn-default(href="/unidades/ver/#{accion._id}")
-                  i.fa.fa-print
+                | #{accion.estatus_accion} - 
+                | #{accion.status} %
+              //td
+              //  a.btn.btn-default(href="/unidades/ver/#{accion._id}")
+              //    i.fa.fa-print
               td
                 a.btn.btn-default(href="/acciones-formacion/nueva/#{accion._id}/datos-generales")
                   i.fa.fa-edit
