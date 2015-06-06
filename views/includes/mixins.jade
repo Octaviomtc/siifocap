@@ -53,8 +53,8 @@ mixin hr()
       hr
 
 
-mixin radio2(rubro, label_principal, name)
-  tr
+mixin radio2(rubro, label_principal, name, colorgrey)
+  tr(class=colorgrey)
     td #{rubro}
     td #{label_principal}
     td 
@@ -62,5 +62,5 @@ mixin radio2(rubro, label_principal, name)
     td 
       input(type='radio', name="#{name}[respuesta]", value="1")
     td
-      textarea(name="#{name}[comentario]") 
+      textarea.style-textarea(name="#{name}[comentario]") 
     

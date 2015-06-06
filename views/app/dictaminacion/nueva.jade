@@ -13,26 +13,66 @@ block content
           b #{accionFormacion.nombre_accion_Formacion}
         .contenido
           form.form-horizontal(method='post', action="#")
-            //- input(type="hidden" value="#{accionFormacion.id}" name="accion_id")
+            input(type="hidden" value="#{accionFormacion.id}" name="accion_id")
             
-            table(data-toggle="table", data-cache="false")
+            table.table.table-bordered
               thead
                 tr
                   th Rubro
                   th Indicador
-                  th Si(2)
-                  th No(1)
+                  th Si
+                  th No
                   th Compentario
               tbody
                 +radio2("Nombre de la acción de formación","El nombre de la acción de formación es claro y expone la temática general a abordar.", "pregunta[0]")
-                +radio2("","El nombre de la acción de formación es claro y expone la temática general a abordar.", "pregunta[1]")
-        
-            
-            
-            
-            
-            
-          
+                +radio2("","La temática general expuesta en el nombre de la acción de formación responde a la necesidad de formación referida en la justificación.", "pregunta[1]")
+                +radio2("Tipo de acción de formación(Curso, Taller, Diplomado, Seminario)","El tipo de acción de formación es coherente con la justificación planteada y responde al propósito enunciado.", "pregunta[2]", "table-dict")
+                +radio2("","El tipo de acción de formación favorece el logro de la competencia planteada.", "pregunta[3]", "table-dict")
+                +radio2("Modalidad de la acción de formación","La modalidad de la acción de formación toma en cuenta las características de la población objetivo.", "pregunta[4]")
+                +radio2("","La modalidad de la acción de formación permite el desarrollo y promoción de la competencia general establecida", "pregunta[5]")
+                +radio2("Perfil del facilitador","En el perfil del facilitador de la acción de formación se exponen claramente los requisitos (formación, experiencia en el manejo de grupos) y condiciones necesarias (competencias) para la impartición de la acción de formación.", "pregunta[6]", "table-dict")
+                +radio2("","En el perfil del facilitador se refiere la experiencia docente necesaria para la impartición de la acción de formación y/o la experiencia profesional relacionada con las temáticas a abordar en la acción de formación.", "pregunta[7]", "table-dict")
+                +radio2("Perfil del participante","El perfil del participante es consistente con el público objetivo al que va dirigida la acción de formación.", "pregunta[8]")
+                +radio2("","El perfil del participante expone claramente los saberes previos, habilidades y actitudes necesarias para el desarrollo de la acción de formación.", "pregunta[9]")
+                +radio2("Justificación","Argumenta de qué manera se identificó  (cuestionario, observación, encuesta, entre otros) que la acción de formación propuesta, es necesaria para el personal al que va dirigida.", "pregunta[10]", "table-dict")
+                +radio2("","Indica datos cuantitativos o cualitativos obtenidos de algún proceso de detección de necesidades.", "pregunta[11]", "table-dict")
+                +radio2("","Explica cuáles son los beneficios para la formación y el desarrollo profesional  de los participantes al cursar la acción de formación que propone.", "pregunta[12]", "table-dict")
+                +radio2("Propósito","El propósito responde a la preguntas ¿Qué se va a hacer? ¿Para qué? y ¿A partir de qué?", "pregunta[13]")
+                +radio2("Competencia","La competencia refiere una acción aplicable y verificable.", "pregunta[14]", "table-dict")
+                +radio2("","La competencia refiere un objeto de conocimiento (sobre qué ámbito/s  recae la acción planteada).", "pregunta[15]", "table-dict")
+                +radio2("","La competencia refiere la condición de calidad (a partir de qué se realizará la acción planteada).", "pregunta[16]", "table-dict")
+                +radio2("","La competencia es clara en la definición de la finalidad  (logro a realizar a partir de la acción planteada).", "pregunta[17]", "table-dict")
+                +radio2("Resultados de aprendizaje propuestos","Los resultados de aprendizaje propuestos refieren claramente la acción a lograr.", "pregunta[18]")
+                +radio2("","El objeto de conocimiento (sobre qué ámbito/s  recae la acción planteada) está referido en los resultados de aprendizaje.", "pregunta[19]")
+                +radio2("","Los resultados de aprendizaje propuestos mencionan la condición de calidad (a partir de qué se realizará la acción planteada).", "pregunta[20]")
+                +radio2("Metodología didáctica","La metodología didáctica considera los roles del facilitador y del participante,  es decir, la relación que establecen los mismos para el cumplimiento de los aprendizajes esperados.", "pregunta[21]", "table-dict")
+                +radio2("","La metodología didáctica refiere la manera en que las actividades de aprendizaje contribuyen para el logro de la competencia y aprendizajes esperados.", "pregunta[22]", "table-dict")
+                +radio2("","En la metodología didáctica se menciona de qué manera los elementos considerados para la  evaluación reflejan  el cumplimiento de los aprendizajes esperados.", "pregunta[23]", "table-dict")
+                +radio2("","En la metodología didáctica se fundamenta la relevancia de por qué se seleccionó la modalidad, que beneficios aporta para los participantes y para la Unidad Académica. ", "pregunta[24]", "table-dict")
+                +radio2("Duración","El tiempo establecido para el desarrollo de cada unidad temática, es adecuado.", "pregunta[25]")
+                +radio2("","El conjunto del tiempo asignado en cada actividad de aprendizaje, es consistente con la suma del tiempo establecido para unidad temática.", "pregunta[26]")
+                +radio2("Actividades de aprendizaje","Cada actividad de aprendizaje es presentada con un nombre.", "pregunta[27]", "table-dict")
+                +radio2("","El nombre de cada actividad de aprendizaje es congruente con las acciones y contenidos específicos a desarrollar.", "pregunta[28]", "table-dict")
+                +radio2("","En cada actividad de aprendizaje se expone la finalidad.", "pregunta[29]", "table-dict")
+                +radio2("","Las acciones a realizar en cada actividad de aprendizaje, permiten el cumplimiento de su finalidad.", "pregunta[30]", "table-dict")
+                +radio2("","Las acciones de cada actividad de aprendizaje, presentan una secuencia lógica para su desarrollo.", "pregunta[31]", "table-dict")
+                +radio2("","En las acciones a realizar en actividad de aprendizaje, se expone el responsable de cada acción.", "pregunta[32]", "table-dict")
+                +radio2("","En cada actividad de aprendizaje se señalan el/los producto/s a lograr.", "pregunta[33]", "table-dict")
+                +radio2("","El tiempo establecido para cada actividad de aprendizaje es adecuado, de acuerdo con su extensión y complejidad.", "pregunta[34]", "table-dict")
+                +radio2("","Las actividades promueven la interacción entre los participantes.", "pregunta[35]", "table-dict")
+                +radio2("","Las actividades permiten la relación teoría - práctica para la resolución de problemas contextualizados.", "pregunta[36]", "table-dict")
+                +radio2("","A partir de las actividades el papel del estudiante es activo.", "pregunta[37]", "table-dict")
+                +radio2("","Las actividades propuestas están diseñadas para que los participantes puedan realizarlas recuperando conocimientos y habilidades con las que cuenta.", "pregunta[38]", "table-dict")
+                +radio2("","Los contenidos establecidos en cada unidad temática corresponden a cada Resultado de Aprendizaje Propuesto.", "pregunta[39]", "table-dict")
+                +radio2("Recursos educativos","Los recursos educativos son consistentes con las acciones a realizar en cada actividad de aprendizaje.", "pregunta[40]")
+                +radio2("","Los recursos educativos son diversos (lecturas, presentaciones, videos, animaciones, entre otros).", "pregunta[41]")
+                +radio2("Producto o evidencia de aprendizaje","El producto/los productos establecidos en cada actividad de aprendizaje, es/son congruente/s respecto al desarrollo de la misma.", "pregunta[42]", "table-dict")
+                +radio2("","El producto de cada actividad de aprendizaje permite la evaluación respecto al cumplimiento de su finalidad.", "pregunta[43]", "table-dict")
+                +radio2("","Se solicita un trabajo final o producto integrador, en el que se recuperan los contenidos y evidencias de aprendizaje establecidas acordadas a lo largo de la acción de formación.", "pregunta[44]", "table-dict")
+                +radio2("Evaluación","Las condiciones de evaluación (tipo, mecanismo, valor e instrumento) en cada actividad de aprendizaje, son consistentes con el producto a evaluar.", "pregunta[45]")
+                +radio2("","En cada evidencia o producto de aprendizaje, se definen las condiciones sobre las cuales se lleva a cabo la evaluación.", "pregunta[46]")
+            br
+            br
             .row
               .col-md-9.col-md-offset-3
                 button.btn.btn-success.fa-r(type='submit')
