@@ -29,7 +29,7 @@ block content
             -var cur = accion.cur
             tr
               td
-                | #{cur.titulo}
+                | #{accion.cur_gen}
               td
                 | #{accion.nombre_accion_Formacion}
               td
@@ -39,7 +39,7 @@ block content
                 
               td
                 | #{accion.estatus_accion} - 
-                | #{accion.status} %
+                | #{accion.status}%
               //td
               //  a.btn.btn-default(href="/unidades/ver/#{accion._id}")
               //    i.fa.fa-print

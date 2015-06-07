@@ -73,8 +73,8 @@ block content
                       i.fa.fa-save.fa-r
                       | Guardar 
                     
-                    if accionFormacion.estatus_sec_4=='true'
-                      a.btn.btn-success.fa-r(href="/acciones-formacion")
+                    if accionFormacion.status>=90
+                      a.btn.btn-success.fa-r(href="/acciones-formacion/nueva/#{accionFormacion._id}/finalizar")
                         i.fa.fa-check-circle.fa-r
                         | Fianlizar registro
                         

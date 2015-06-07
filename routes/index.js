@@ -349,6 +349,13 @@ module.exports = function(passport){
     });
 
 
+    router.get('/acciones-formacion/nueva/:id/finalizar', isAuthenticated, accionesMid.updateAccion, function(req, res){
+      // console.log(res.accionFormacion);
+      res.set('Content-Type', 'application/javascript');
+      res.redirect('/acciones-formacion');
+    });
+
+
 
 
 
