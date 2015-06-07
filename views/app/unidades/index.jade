@@ -19,6 +19,7 @@ block content
             th(data-field='nombre', data-align='left', data-sortable='true') Nombre
             th(data-align='left', data-sortable='true') Dependecia
             th(data-align='left', data-sortable='true') Extensión
+            th(data-align='left', data-sortable='true') Código
             th(data-align='right', data-sortable='true')
         tbody
           each escuela in escuelas
@@ -35,6 +36,8 @@ block content
               //- td= usuario._id
               td
                 | #{escuela.extension}
+              td
+                | #{escuela.codigo}
               td
                 a.btn.btn-default.fa-r(href="/unidades/actualizar/#{escuela._id}")
                   i.fa.fa-r.fa-edit
