@@ -144,7 +144,7 @@ block content
                 .form-group
                   span(class="control-label col-md-3") Perfil del facilitador:
                   div(class="col-md-9")
-                    textarea.form-control(id="perfil_facilitador" name="perfil_facilitador" onkeypress="return IsLetterVal(event);")  
+                    textarea.form-control(id="perfil_facilitador" name="perfil_facilitador" onkeypress="return IsLetterVal(event);") #{accionFormacion.perfil_facilitador} 
 
 
                 .form-group
@@ -152,7 +152,7 @@ block content
                     | Perfil del participante:
                     +ayuda("Integre en la descripción del perfil, lo siguiente: habilidades y conocimientos que el participante requiere para desarrollar las competencias de la acción de formación.")
                   div(class="col-md-9")
-                    textarea.form-control(id="perfil_participante" name="perfil_participante" onkeypress="return IsLetterVal(event);")  
+                    textarea.form-control(id="perfil_participante" name="perfil_participante" onkeypress="return IsLetterVal(event);") #{accionFormacion.perfil_participante}
                         
                         
 
@@ -253,8 +253,6 @@ block content
       selectdependencia("!{accionFormacion.dirigido_a_tipo}");
       $("#dirigido_a_dependencia").val("!{accionFormacion.dirigido_a_dependencia}");
       defineEscolaridad("!{accionFormacion.modalidad_accion_Formacion}");
-      $("#perfil_facilitador").html("!{accionFormacion.perfil_facilitador}");
-      $("#perfil_participante").html("!{accionFormacion.perfil_participante}");
       var active_coparticipacion_val = "!{accionFormacion.active_coparticipacion_val}";
         if (active_coparticipacion_val=="on")
         {

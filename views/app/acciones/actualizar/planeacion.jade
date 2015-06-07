@@ -38,7 +38,7 @@ block content
                       tr
                         //- th(data-field='number_actividad_aprendizaje', data-align='left', data-sortable='true') #
                         th(data-align='left', data-sortable='true') Actividad de aprendizaje
-                        th(data-align='right', data-sortable='true')
+                        //-th(data-align='right', data-sortable='true')
                     tbody
                       - var i = 1
                       -var actividades = accionFormacion.planeacion_didactica
@@ -50,16 +50,16 @@ block content
                           //-   
                           td
                             | #{actividad.nombre_actividad}
-                          td
+                          //-td
                             //- a.btn.btn-default(href="/unidades/ver/#{actividad._id}")
                             //-   i.fa.fa-r.fa-print
                             //-   | PDF
-                            a.btn.btn-default(href="#")
-                              i.fa.fa-r.fa-edit
-                              | Editar
-                            a.btn.btn-default(href="#")
-                              i.fa.fa-r.fa-trash
-                              | Borrar
+                            //- a.btn.btn-default(href="#")
+                            //-  i.fa.fa-r.fa-edit
+                            //-  | Editar
+                            //-a.btn.btn-default(href="#")
+                            //-  i.fa.fa-r.fa-trash
+                            //-  | Borrar
 
 
                               

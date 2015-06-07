@@ -32,7 +32,7 @@ block content
                 .form-group
                   span(class="control-label col-md-3") Justicación:
                   div(class="col-md-9")
-                    textarea.form-control(id="justificacion", name="justificacion", data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                    textarea.form-control(id="justificacion", name="justificacion", data-validation="empty", data-toggle="tooltip", data-placement="top", title="") #{accionFormacion.justificacion}
                 
                 .form-group
                   span.control-label.col-md-3
@@ -122,7 +122,6 @@ block content
     script.
       
       // Se Carga informacion existente
-      $("#justificacion").html("!{accionFormacion.justificacion}");
       defineArea("!{accionFormacion.area_dirigido_accion}");
       $("#subarea_dirigido_accion").val("!{accionFormacion.subarea_dirigido_accion}");
       
