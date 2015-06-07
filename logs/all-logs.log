@@ -2374,3 +2374,259 @@
 {"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-06T00:31:58.728Z"}
 {"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-06T00:32:01.024Z"}
 {"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-06T00:32:09.071Z"}
+{"date":"Sat Jun 06 2015 14:54:23 GMT-0500 (CDT)","process":{"pid":2843,"uid":1000,"gid":1000,"cwd":"/media/octaviomtc/Developer/siifocap","execPath":"/usr/bin/nodejs","version":"v0.10.25","argv":["node","/media/octaviomtc/Developer/siifocap/bin/www"],"memoryUsage":{"rss":70557696,"heapTotal":55128064,"heapUsed":22331288}},"os":{"loadavg":[0.42822265625,0.37841796875,0.212890625],"uptime":650.792565599},"trace":[{"column":74,"file":"/media/octaviomtc/Developer/siifocap/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/server.js","function":"","line":555,"method":null,"native":false},{"column":17,"file":"events.js","function":"EventEmitter.emit","line":106,"method":"emit","native":false},{"column":15,"file":"/media/octaviomtc/Developer/siifocap/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/connection_pool.js","function":"","line":156,"method":null,"native":false},{"column":17,"file":"events.js","function":"EventEmitter.emit","line":98,"method":"emit","native":false},{"column":10,"file":"/media/octaviomtc/Developer/siifocap/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/connection.js","function":"","line":534,"method":null,"native":false},{"column":17,"file":"events.js","function":"Socket.EventEmitter.emit","line":95,"method":"EventEmitter.emit","native":false},{"column":14,"file":"net.js","function":null,"line":441,"method":null,"native":false},{"column":13,"file":"node.js","function":"process._tickCallback","line":415,"method":"_tickCallback","native":false}],"stack":["Error: failed to connect to [localhost:27017]","    at null.<anonymous> (/media/octaviomtc/Developer/siifocap/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/server.js:555:74)","    at EventEmitter.emit (events.js:106:17)","    at null.<anonymous> (/media/octaviomtc/Developer/siifocap/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/connection_pool.js:156:15)","    at EventEmitter.emit (events.js:98:17)","    at Socket.<anonymous> (/media/octaviomtc/Developer/siifocap/node_modules/mongoose/node_modules/mongodb/lib/mongodb/connection/connection.js:534:10)","    at Socket.EventEmitter.emit (events.js:95:17)","    at net.js:441:14","    at process._tickCallback (node.js:415:13)"],"level":"error","message":"uncaughtException: failed to connect to [localhost:27017]","timestamp":"2015-06-06T19:54:23.302Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-06T21:45:24.482Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-06T22:16:43.736Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-06T22:16:57.878Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-06T22:17:17.144Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-06T22:17:21.824Z"}
+{"date":"Sat Jun 06 2015 17:28:46 GMT-0500 (CDT)","process":{"pid":3960,"uid":1000,"gid":1000,"cwd":"/media/octaviomtc/Developer/siifocap","execPath":"/usr/bin/nodejs","version":"v0.10.25","argv":["node","/media/octaviomtc/Developer/siifocap/bin/www"],"memoryUsage":{"rss":44957696,"heapTotal":33215232,"heapUsed":14850784}},"os":{"loadavg":[0.0498046875,0.0703125,0.12744140625],"uptime":9913.970929442},"trace":[{"column":25,"file":"module.js","function":"Module._compile","line":439,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":474,"method":"Module._extensions..js","native":false},{"column":32,"file":"module.js","function":"Module.load","line":356,"method":"load","native":false},{"column":12,"file":"module.js","function":"Function.Module._load","line":312,"method":"Module._load","native":false},{"column":17,"file":"module.js","function":"Module.require","line":364,"method":"require","native":false},{"column":17,"file":"module.js","function":"require","line":380,"method":null,"native":false},{"column":23,"file":"/media/octaviomtc/Developer/siifocap/routes/index.js","function":"","line":5,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":474,"method":"Module._extensions..js","native":false},{"column":32,"file":"module.js","function":"Module.load","line":356,"method":"load","native":false}],"stack":["SyntaxError: Unexpected identifier","    at Module._compile (module.js:439:25)","    at Object.Module._extensions..js (module.js:474:10)","    at Module.load (module.js:356:32)","    at Function.Module._load (module.js:312:12)","    at Module.require (module.js:364:17)","    at require (module.js:380:17)","    at Object.<anonymous> (/media/octaviomtc/Developer/siifocap/routes/index.js:5:23)","    at Module._compile (module.js:456:26)","    at Object.Module._extensions..js (module.js:474:10)","    at Module.load (module.js:356:32)"],"level":"error","message":"uncaughtException: Unexpected identifier","timestamp":"2015-06-06T22:28:46.481Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-06T22:30:13.125Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-06T22:30:19.993Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-06T22:31:27.070Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T00:20:19.285Z"}
+{"date":"Sat Jun 06 2015 19:32:01 GMT-0500 (CDT)","process":{"pid":4545,"uid":1000,"gid":1000,"cwd":"/media/octaviomtc/Developer/siifocap","execPath":"/usr/bin/nodejs","version":"v0.10.25","argv":["node","/media/octaviomtc/Developer/siifocap/bin/www"],"memoryUsage":{"rss":46067712,"heapTotal":34235136,"heapUsed":21232024}},"os":{"loadavg":[0.18798828125,0.10888671875,0.1591796875],"uptime":17308.717850805},"trace":[{"column":15,"file":"/media/octaviomtc/Developer/siifocap/node_modules/express/lib/router/route.js","function":null,"line":171,"method":null,"native":false},{"column":null,"file":null,"function":"Array.forEach","line":null,"method":"forEach","native":true},{"column":15,"file":"/media/octaviomtc/Developer/siifocap/node_modules/express/lib/router/route.js","function":"Route.(anonymous function) [as post]","line":167,"method":"(anonymous function) [as post]","native":false},{"column":19,"file":"/media/octaviomtc/Developer/siifocap/node_modules/express/lib/router/index.js","function":"Function.proto.(anonymous function) [as post]","line":398,"method":"proto.(anonymous function) [as post]","native":false},{"column":12,"file":"/media/octaviomtc/Developer/siifocap/routes/index.js","function":"module.exports","line":261,"method":"exports","native":false},{"column":54,"file":"/media/octaviomtc/Developer/siifocap/app.js","function":"","line":12,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":474,"method":"Module._extensions..js","native":false},{"column":32,"file":"module.js","function":"Module.load","line":356,"method":"load","native":false},{"column":12,"file":"module.js","function":"Function.Module._load","line":312,"method":"Module._load","native":false}],"stack":["Error: Route.post() requires callback functions but got a [object Undefined]","    at /media/octaviomtc/Developer/siifocap/node_modules/express/lib/router/route.js:171:15","    at Array.forEach (native)","    at Route.(anonymous function) [as post] (/media/octaviomtc/Developer/siifocap/node_modules/express/lib/router/route.js:167:15)","    at Function.proto.(anonymous function) [as post] (/media/octaviomtc/Developer/siifocap/node_modules/express/lib/router/index.js:398:19)","    at module.exports (/media/octaviomtc/Developer/siifocap/routes/index.js:261:12)","    at Object.<anonymous> (/media/octaviomtc/Developer/siifocap/app.js:12:54)","    at Module._compile (module.js:456:26)","    at Object.Module._extensions..js (module.js:474:10)","    at Module.load (module.js:356:32)","    at Function.Module._load (module.js:312:12)"],"level":"error","message":"uncaughtException: Route.post() requires callback functions but got a [object Undefined]","timestamp":"2015-06-07T00:32:01.227Z"}
+{"date":"Sat Jun 06 2015 19:32:25 GMT-0500 (CDT)","process":{"pid":4559,"uid":1000,"gid":1000,"cwd":"/media/octaviomtc/Developer/siifocap","execPath":"/usr/bin/nodejs","version":"v0.10.25","argv":["node","/media/octaviomtc/Developer/siifocap/bin/www"],"memoryUsage":{"rss":46268416,"heapTotal":34235136,"heapUsed":21232248}},"os":{"loadavg":[0.1240234375,0.099609375,0.154296875],"uptime":17333.036894093},"trace":[{"column":15,"file":"/media/octaviomtc/Developer/siifocap/node_modules/express/lib/router/route.js","function":null,"line":171,"method":null,"native":false},{"column":null,"file":null,"function":"Array.forEach","line":null,"method":"forEach","native":true},{"column":15,"file":"/media/octaviomtc/Developer/siifocap/node_modules/express/lib/router/route.js","function":"Route.(anonymous function) [as post]","line":167,"method":"(anonymous function) [as post]","native":false},{"column":19,"file":"/media/octaviomtc/Developer/siifocap/node_modules/express/lib/router/index.js","function":"Function.proto.(anonymous function) [as post]","line":398,"method":"proto.(anonymous function) [as post]","native":false},{"column":12,"file":"/media/octaviomtc/Developer/siifocap/routes/index.js","function":"module.exports","line":261,"method":"exports","native":false},{"column":54,"file":"/media/octaviomtc/Developer/siifocap/app.js","function":"","line":12,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":474,"method":"Module._extensions..js","native":false},{"column":32,"file":"module.js","function":"Module.load","line":356,"method":"load","native":false},{"column":12,"file":"module.js","function":"Function.Module._load","line":312,"method":"Module._load","native":false}],"stack":["Error: Route.post() requires callback functions but got a [object Undefined]","    at /media/octaviomtc/Developer/siifocap/node_modules/express/lib/router/route.js:171:15","    at Array.forEach (native)","    at Route.(anonymous function) [as post] (/media/octaviomtc/Developer/siifocap/node_modules/express/lib/router/route.js:167:15)","    at Function.proto.(anonymous function) [as post] (/media/octaviomtc/Developer/siifocap/node_modules/express/lib/router/index.js:398:19)","    at module.exports (/media/octaviomtc/Developer/siifocap/routes/index.js:261:12)","    at Object.<anonymous> (/media/octaviomtc/Developer/siifocap/app.js:12:54)","    at Module._compile (module.js:456:26)","    at Object.Module._extensions..js (module.js:474:10)","    at Module.load (module.js:356:32)","    at Function.Module._load (module.js:312:12)"],"level":"error","message":"uncaughtException: Route.post() requires callback functions but got a [object Undefined]","timestamp":"2015-06-07T00:32:25.546Z"}
+{"date":"Sat Jun 06 2015 19:32:53 GMT-0500 (CDT)","process":{"pid":4567,"uid":1000,"gid":1000,"cwd":"/media/octaviomtc/Developer/siifocap","execPath":"/usr/bin/nodejs","version":"v0.10.25","argv":["node","/media/octaviomtc/Developer/siifocap/bin/www"],"memoryUsage":{"rss":46137344,"heapTotal":34235136,"heapUsed":21121024}},"os":{"loadavg":[0.21630859375,0.123046875,0.1591796875],"uptime":17361.233608078},"trace":[{"column":15,"file":"/media/octaviomtc/Developer/siifocap/node_modules/express/lib/router/route.js","function":null,"line":171,"method":null,"native":false},{"column":null,"file":null,"function":"Array.forEach","line":null,"method":"forEach","native":true},{"column":15,"file":"/media/octaviomtc/Developer/siifocap/node_modules/express/lib/router/route.js","function":"Route.(anonymous function) [as post]","line":167,"method":"(anonymous function) [as post]","native":false},{"column":19,"file":"/media/octaviomtc/Developer/siifocap/node_modules/express/lib/router/index.js","function":"Function.proto.(anonymous function) [as post]","line":398,"method":"proto.(anonymous function) [as post]","native":false},{"column":12,"file":"/media/octaviomtc/Developer/siifocap/routes/index.js","function":"module.exports","line":261,"method":"exports","native":false},{"column":54,"file":"/media/octaviomtc/Developer/siifocap/app.js","function":"","line":12,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":474,"method":"Module._extensions..js","native":false},{"column":32,"file":"module.js","function":"Module.load","line":356,"method":"load","native":false},{"column":12,"file":"module.js","function":"Function.Module._load","line":312,"method":"Module._load","native":false}],"stack":["Error: Route.post() requires callback functions but got a [object Undefined]","    at /media/octaviomtc/Developer/siifocap/node_modules/express/lib/router/route.js:171:15","    at Array.forEach (native)","    at Route.(anonymous function) [as post] (/media/octaviomtc/Developer/siifocap/node_modules/express/lib/router/route.js:167:15)","    at Function.proto.(anonymous function) [as post] (/media/octaviomtc/Developer/siifocap/node_modules/express/lib/router/index.js:398:19)","    at module.exports (/media/octaviomtc/Developer/siifocap/routes/index.js:261:12)","    at Object.<anonymous> (/media/octaviomtc/Developer/siifocap/app.js:12:54)","    at Module._compile (module.js:456:26)","    at Object.Module._extensions..js (module.js:474:10)","    at Module.load (module.js:356:32)","    at Function.Module._load (module.js:312:12)"],"level":"error","message":"uncaughtException: Route.post() requires callback functions but got a [object Undefined]","timestamp":"2015-06-07T00:32:53.743Z"}
+{"date":"Sat Jun 06 2015 19:33:03 GMT-0500 (CDT)","process":{"pid":4581,"uid":1000,"gid":1000,"cwd":"/media/octaviomtc/Developer/siifocap","execPath":"/usr/bin/nodejs","version":"v0.10.25","argv":["node","/media/octaviomtc/Developer/siifocap/bin/www"],"memoryUsage":{"rss":46092288,"heapTotal":34235136,"heapUsed":21229032}},"os":{"loadavg":[0.26318359375,0.1357421875,0.16259765625],"uptime":17370.973908685},"trace":[{"column":15,"file":"/media/octaviomtc/Developer/siifocap/node_modules/express/lib/router/route.js","function":null,"line":171,"method":null,"native":false},{"column":null,"file":null,"function":"Array.forEach","line":null,"method":"forEach","native":true},{"column":15,"file":"/media/octaviomtc/Developer/siifocap/node_modules/express/lib/router/route.js","function":"Route.(anonymous function) [as post]","line":167,"method":"(anonymous function) [as post]","native":false},{"column":19,"file":"/media/octaviomtc/Developer/siifocap/node_modules/express/lib/router/index.js","function":"Function.proto.(anonymous function) [as post]","line":398,"method":"proto.(anonymous function) [as post]","native":false},{"column":12,"file":"/media/octaviomtc/Developer/siifocap/routes/index.js","function":"module.exports","line":261,"method":"exports","native":false},{"column":54,"file":"/media/octaviomtc/Developer/siifocap/app.js","function":"","line":12,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":474,"method":"Module._extensions..js","native":false},{"column":32,"file":"module.js","function":"Module.load","line":356,"method":"load","native":false},{"column":12,"file":"module.js","function":"Function.Module._load","line":312,"method":"Module._load","native":false}],"stack":["Error: Route.post() requires callback functions but got a [object Undefined]","    at /media/octaviomtc/Developer/siifocap/node_modules/express/lib/router/route.js:171:15","    at Array.forEach (native)","    at Route.(anonymous function) [as post] (/media/octaviomtc/Developer/siifocap/node_modules/express/lib/router/route.js:167:15)","    at Function.proto.(anonymous function) [as post] (/media/octaviomtc/Developer/siifocap/node_modules/express/lib/router/index.js:398:19)","    at module.exports (/media/octaviomtc/Developer/siifocap/routes/index.js:261:12)","    at Object.<anonymous> (/media/octaviomtc/Developer/siifocap/app.js:12:54)","    at Module._compile (module.js:456:26)","    at Object.Module._extensions..js (module.js:474:10)","    at Module.load (module.js:356:32)","    at Function.Module._load (module.js:312:12)"],"level":"error","message":"uncaughtException: Route.post() requires callback functions but got a [object Undefined]","timestamp":"2015-06-07T00:33:03.483Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T00:34:46.675Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T00:34:55.794Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T00:37:27.832Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T00:37:31.602Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T00:48:41.340Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T00:48:44.116Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T00:49:26.431Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T00:51:01.426Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T00:51:13.356Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T00:52:37.944Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T00:52:41.031Z"}
+{"date":"Sat Jun 06 2015 19:53:27 GMT-0500 (CDT)","process":{"pid":4906,"uid":1000,"gid":1000,"cwd":"/media/octaviomtc/Developer/siifocap","execPath":"/usr/bin/nodejs","version":"v0.10.25","argv":["node","/media/octaviomtc/Developer/siifocap/bin/www"],"memoryUsage":{"rss":45809664,"heapTotal":34235136,"heapUsed":17500512}},"os":{"loadavg":[0.240234375,0.1962890625,0.21533203125],"uptime":18594.539382195},"trace":[{"column":25,"file":"module.js","function":"Module._compile","line":439,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":474,"method":"Module._extensions..js","native":false},{"column":32,"file":"module.js","function":"Module.load","line":356,"method":"load","native":false},{"column":12,"file":"module.js","function":"Function.Module._load","line":312,"method":"Module._load","native":false},{"column":17,"file":"module.js","function":"Module.require","line":364,"method":"require","native":false},{"column":17,"file":"module.js","function":"require","line":380,"method":null,"native":false},{"column":23,"file":"/media/octaviomtc/Developer/siifocap/routes/index.js","function":"","line":19,"method":null,"native":false},{"column":26,"file":"module.js","function":"Module._compile","line":456,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":474,"method":"Module._extensions..js","native":false},{"column":32,"file":"module.js","function":"Module.load","line":356,"method":"load","native":false}],"stack":["SyntaxError: Unexpected number","    at Module._compile (module.js:439:25)","    at Object.Module._extensions..js (module.js:474:10)","    at Module.load (module.js:356:32)","    at Function.Module._load (module.js:312:12)","    at Module.require (module.js:364:17)","    at require (module.js:380:17)","    at Object.<anonymous> (/media/octaviomtc/Developer/siifocap/routes/index.js:19:23)","    at Module._compile (module.js:456:26)","    at Object.Module._extensions..js (module.js:474:10)","    at Module.load (module.js:356:32)"],"level":"error","message":"uncaughtException: Unexpected number","timestamp":"2015-06-07T00:53:27.049Z"}
+{"level":"info","message":"Validando login |ADMIN|ADMIN","timestamp":"2015-06-07T00:54:17.272Z"}
+{"level":"warn","message":"El usuario [ADMIN ] no existe ","timestamp":"2015-06-07T00:54:17.286Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T00:54:24.076Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T00:54:26.942Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T00:59:28.495Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T00:59:37.610Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T01:00:09.253Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:01:01.938Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T01:37:17.651Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:37:23.390Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:37:26.151Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:37:38.728Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:37:39.526Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:40:54.310Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:41:04.587Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:41:06.450Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:41:12.987Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T01:41:34.908Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:41:40.004Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:43:38.544Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T01:44:08.668Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:44:15.432Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:44:30.640Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:44:57.101Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:44:59.410Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:45:01.183Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:45:04.777Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:45:06.669Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:45:08.330Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:45:12.576Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:45:13.933Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:45:17.882Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:45:28.101Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:45:29.856Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:45:32.912Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:45:36.274Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:45:37.944Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:45:40.077Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:45:43.543Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:46:16.391Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T01:46:19.730Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T02:01:46.359Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T02:01:52.136Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T02:02:03.622Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T02:02:05.188Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T02:02:07.836Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T02:02:10.650Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T02:02:13.211Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T02:02:16.697Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T02:02:17.982Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T02:02:20.501Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T02:02:22.169Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T02:02:24.760Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T02:04:22.898Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T02:04:27.084Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T02:04:46.369Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T02:04:48.120Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T02:47:43.979Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T02:47:51.315Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T02:47:52.836Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T02:53:06.103Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T02:53:11.277Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T02:53:13.144Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T02:53:17.091Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:00:27.505Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:00:29.161Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:00:39.006Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:00:40.829Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:00:43.011Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T03:07:23.416Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T03:10:23.209Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:10:27.054Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:10:29.168Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:10:32.553Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:10:33.924Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:10:35.075Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:10:38.127Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:10:39.584Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:10:41.862Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:10:47.122Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:10:48.799Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T03:13:08.940Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:13:12.313Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:13:14.083Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:13:16.025Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:13:17.899Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:13:19.110Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:13:20.394Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:13:21.488Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:13:24.572Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:13:26.157Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:13:26.657Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:13:28.419Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T03:28:30.785Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:28:58.323Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:29:00.071Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:29:14.766Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:29:16.914Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T03:30:11.644Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:30:19.742Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:30:22.305Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T03:46:12.694Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:46:29.207Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:46:34.747Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:46:41.163Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:46:44.253Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T03:47:45.824Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:47:50.038Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:47:52.157Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:47:58.297Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:49:12.489Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:49:17.591Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:49:36.570Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:49:39.831Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:50:08.640Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:51:52.755Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:52:05.995Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:53:16.828Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:53:20.242Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:53:53.573Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:54:06.830Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:54:23.382Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:54:37.048Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:54:49.578Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:55:01.666Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:55:12.834Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:55:20.539Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:55:22.715Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:55:32.617Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:55:58.880Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:56:06.921Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:56:38.016Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:56:59.443Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:57:21.346Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:57:47.713Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:57:49.865Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:58:13.131Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:58:47.801Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T03:59:35.274Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:00:41.600Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:01:02.393Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:01:20.438Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:01:28.824Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:01:38.949Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:01:48.975Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:06:36.672Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:06:39.112Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:06:47.855Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:09:37.890Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:18:37.210Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:19:00.999Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:19:25.829Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:20:56.591Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:22:59.935Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:27:33.064Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:28:13.558Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:28:26.712Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:35:44.869Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:41:11.704Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:43:25.045Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:43:45.234Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:44:08.185Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:46:23.525Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:46:40.889Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:46:49.860Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:47:23.043Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:48:25.301Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:48:34.548Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:49:05.102Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:49:29.910Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:50:05.751Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:50:40.613Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T04:55:19.910Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:55:32.240Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:55:41.544Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:56:40.985Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:56:46.893Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:56:53.770Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:57:00.384Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:57:08.348Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:57:15.832Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:57:25.676Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:57:26.855Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:57:30.988Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T04:59:43.277Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:00:37.479Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:00:45.854Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:02:35.442Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:03:40.792Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:04:05.875Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:04:45.108Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:05:04.075Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:05:28.988Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:13:18.346Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:13:28.533Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:13:36.693Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:13:42.989Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:13:55.147Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:15:18.454Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:15:24.843Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:15:44.236Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:16:43.303Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:21:02.267Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:21:54.868Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:22:04.851Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:22:10.452Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:22:13.358Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:22:19.284Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:30:29.618Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T05:33:14.066Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:33:19.692Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:33:22.408Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:38:27.858Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:38:43.670Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:40:20.967Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T05:42:55.903Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:43:00.237Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:43:03.224Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:45:54.093Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T05:48:58.977Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:49:04.203Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:49:10.430Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T05:49:11.912Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T05:54:07.755Z"}
+{"level":"info","message":"Validando login |admin|admin","timestamp":"2015-06-07T08:29:11.385Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T08:31:24.688Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T08:32:30.359Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T08:33:03.035Z"}
+{"level":"info","message":"[DEPENDENCIAS] Registros obtenidos ::12","timestamp":"2015-06-07T08:33:40.977Z"}

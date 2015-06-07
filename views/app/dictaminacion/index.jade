@@ -15,14 +15,16 @@ block content
             th(data-align='right', data-sortable='true')
         tbody
           each accion in acciones
-            tr
-              td
-                | #{accion.nombre_accion_Formacion}
-              td
-                | #{accion.puntaje_dictaminado}
-        
-              td
-                a.btn.btn-default(href="dictaminacion/#{accion._id}")
-                  i.fa.fa-gavel.fa-r
-                  | Hacer dictamen
+            // Solo aplica para acciones de formacion finalizadas
+            if accion.status==100
+              tr
+                td
+                  | #{accion.nombre_accion_Formacion}
+                td
+                  | #{accion.puntaje_dictaminado}
+          
+                td
+                  a.btn.btn-default(href="dictaminacion/#{accion._id}")
+                    i.fa.fa-gavel.fa-r
+                    | Hacer dictamen
     

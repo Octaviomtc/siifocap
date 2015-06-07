@@ -177,23 +177,104 @@ exports.allAccionFormacion = function(req, res, next) {
 
 };
 
+
+
 //update
 exports.updateAccion = function(req, res, next) {
+
   var body = req.body;
 
-  if(req.body.active_coparticipacion){
-    body.active_coparticipacion == true;
-  }else{
-    body.active_coparticipacion == false
-  }
+  // Obtiene el segmento de la url para establecer que'porcentaje de la accion se va a considerar aumentar
+  var url = req.url;
+  url = url.split("/");
+  url = url[4];
+  var porcentaje = 0;
+  // console.log(url);
 
-  console.log("*****  "+body.active_coparticipacion);
-  accionesFormacion.findOneAndUpdate({_id:req.params.id}, req.body, function (err, accion) {
-    if(err) res.send(500, err.message);
-    // console.log(accion);
-    res.accionFormacion = accion;
-    return next();
+  //obtiene informacion del registro que se trata de actualizar
+  accionesFormacion.findById(req.params.id, function(err, accionFormacion) {
+    if(err) return res.send(500, err.message);
+
+    // Si es datos generales
+    if(url=="datos-generales"){
+      // verifica si la accion ya se guardo en esta seccion
+      if(accionFormacion.estatus_sec_1=="false"){
+        porcentaje = 40;//Se define por cantidad de campos
+      }
+    }
+
+    if(url=="justificacion"){
+      // verifica si la accion ya se guardo en esta seccion
+      if(accionFormacion.estatus_sec_2=="false"){
+        porcentaje = 15;//Se define por cantidad de campos
+      }
+    }
+
+    if(url=="encuadre"){
+      // verifica si la accion ya se guardo en esta seccion
+      if(accionFormacion.estatus_sec_3=="false"){
+        porcentaje = 15;//Se define por cantidad de campos
+      }
+    }
+
+    if(url=="planeacion"){
+      // verifica si la accion ya se guardo en esta seccion
+      if(accionFormacion.estatus_sec_4=="false"){
+        porcentaje = 20;//Se define por cantidad de campos
+      }
+    }
+
+    if(url=="finalizar"){
+        if(accionFormacion.status < 100){
+          porcentaje = 10;//Se define por cantidad de campos
+          // IMPORTANTE **************************************************************************
+          // SE CREA OBJETO CON PARAMETROS PARA GENERAR CUR
+          var cur = {
+              titulo        : "CGFIE",
+              anio          : year('yy'),
+              terminacion   : "DO",//Puede ser DI pero aun no se define
+              consecutivo   : 0,
+              personal      : "personal_tipo",
+              tipo          : "accion_tipo",
+              costo         : "",//El costo aun no se define
+              modalidad     : "accion_modalidad",
+              unidad_res    : "160", //Solicitar el catalogo de unidades
+              vigencia      : "fecha_vigencia",
+              cur           : ""
+          };
+
+
+          console.log("CUR GENeRADA :  ");
+          console.log(cur);
+
+          // IMPORTANTE **************************************************************************
+        }
+    }
+
+
+
+
+    body.status = accionFormacion.status + porcentaje; //Se agrega el porcentaje definido 
+
+
+    // Define si la coparticipacion esta activa para mandar un dato al front y activar la casilla
+    if(req.body.active_coparticipacion){
+      body.active_coparticipacion == true;
+    }else{
+      body.active_coparticipacion == false
+    }
+
+    accionesFormacion.findOneAndUpdate({_id:req.params.id}, body, function (err, accion) {
+      if(err) res.send(500, err.message);
+      // console.log(accion);
+      accion.metodologia_didactica = accion.metodologia_didactica.replace("M", "X");
+      res.accionFormacion = accion;
+      console.log(accion);
+      return next();
+    });
+
   });
+
 };
 
 
@@ -217,19 +298,9 @@ exports.deleteAccion = function(req, res, next) {
 
 //Agrega planeacion didactica
 exports.addPlaneacionDidactica = function(req, res, next){
-    //
-    // function acciones_formacion(cur){
-    //   accionesFormacion.findById(req.params.id, function(err, accionFormacion) {
-    //     if(err) return res.send(500, err.message);
-    //     cur = accionFormacion.cur;
-    //     return cur;
-    //   });
-    // }
-    //
-    // var cur = "";
-    // acciones_formacion(cur);
-    // console.log(cur);
-    //
+
+  console.log("entro");
+  console.log(req.params.id);
 
     accionesFormacion.findOneAndUpdate(
       {

@@ -10,7 +10,8 @@ var unidadesSchema = new Schema({
     responsable: { type: String },
     extension: { type: String },
     cargo: { type: String },
-    direccion: { type: String}
+    direccion: { type: String},
+    codigo: { type: String, default: "000"}
 },
 {
   collection : 'unidades_politecnicas'

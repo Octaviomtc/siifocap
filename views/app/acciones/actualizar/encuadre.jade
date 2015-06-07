@@ -22,7 +22,7 @@ block content
                     +ayuda-bottom('<p>Una competencia debe contener:</p><p>&nbsp</p><UL type = disk ><LI>La acción que debe ejecutarse y verificarse.<LI>El objeto, que es el conocimiento o habilidad en términos de la acción<LI>La condición, que es el contexto de aplicación a partir del cual se realizará la acción planteada y justificará el para qué de la misma</UL><p>&nbsp</p><p>Ejemplo: “Elabora (acción) una propuesta de gestión educativa (objeto) fundamentada en el conocimiento de las problemáticas de la administración institucional (condición o contexto).”</p>')
                   
                 div(class="col-md-11 col-md-offset-1")
-                  textarea.form-control(id="competencia", name="competencia", data-validation="empty", data-toggle="tooltip", data-placement="top", title="",  rows="8")
+                  textarea.form-control(id="competencia", name="competencia", data-validation="empty", data-toggle="tooltip", data-placement="top", title="",  rows="8") #{accionFormacion.competencia}  
                   hr
                 span(class="col-md-11 col-md-offset-1 alert alert-info")
                   | Defina y redacte los resultados de aprendizaje propuestos que se requieren para lograr la competencia establecida:
@@ -74,8 +74,7 @@ block content
                 span(class="col-md-11 col-md-offset-1")
                   | Describa la metodología didáctica de la acción de formación.
                 div(class="col-md-11 col-md-offset-1")
-                    textarea.form-control(id="metodologia_didactica", name="metodologia_didactica", data-validation="empty", data-toggle="tooltip", data-placement="top", title="", rows="10")
-                              
+                    textarea.form-control(id="metodologia_didactica", name="metodologia_didactica", data-validation="empty", data-toggle="tooltip", data-placement="top", title="", rows="10") #{accionFormacion.metodologia_didactica}        
                               
                 
                 
@@ -84,9 +83,7 @@ block content
                 span(class="col-md-11 col-md-offset-1 sepTop")
                   | A partir de la información anterior, señale de qué manera la metodología planteada contribuirá al logro de la competencia de la acción de formación.
                 div(class="col-md-11 col-md-offset-1")
-                  textarea.form-control(id="metodologia_resultado", name="metodologia_resultado", data-validation="empty", data-toggle="tooltip", data-placement="top", title="", rows="10")
-                            
-                
+                  textarea.form-control(id="metodologia_resultado", name="metodologia_resultado", data-validation="empty", data-toggle="tooltip", data-placement="top", title="", rows="10") #{accionFormacion.metodologia_resultado}  
                 
                 
                 
@@ -97,7 +94,7 @@ block content
                   +ayuda('<p></p><UL type = disk ><LI><b>Curso y Taller.</b> 8.0 o 80%  como calificación mínima de aprobación (con excepción de los Servidores Públicos de Carrera, para quienes de acuerdo con la Ley de SPC la calificación mínima es de 70 puntos).  80% de asistencia para escolarizada y mixta. 80% de las actividades entregadas para modalidad no escolarizada.<LI><b>Diplomado.</b> Promediar un mínimo 8.0 o 80% en cada módulo y como calificación final.  Contar con examen final o trabajo recepcional. Tener 80% de asistencia.<LI><b>Seminario.</b> Contar con un trabajo recepcional. 80% mínimo de asistencia.</UL>')
                 
                 div(class="col-md-11 col-md-offset-1")
-                  textarea.form-control(id="lineamientos_acreditacion", name="lineamientos_acreditacion", data-validation="empty", data-toggle="tooltip", data-placement="top", title="", rows="10")
+                  textarea.form-control(id="lineamientos_acreditacion", name="lineamientos_acreditacion", data-validation="empty", data-toggle="tooltip", data-placement="top", title="", rows="10") #{accionFormacion.lineamientos_acreditacion}  
           
                               
                               
@@ -126,16 +123,7 @@ block content
   append javascript
     script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
     script.
-      //- Variable temporal para incrementar id de RAP
-      // Se Carga informacion existente
-      $("#competencia").html("!{accionFormacion.competencia}");
-      $("#metodologia_didactica").html("!{accionFormacion.metodologia_didactica}");
-      $("#metodologia_resultado").html("!{accionFormacion.metodologia_resultado}");
-      $("#lineamientos_acreditacion").html("!{accionFormacion.lineamientos_acreditacion}");
-      
-      
       var rap = "!{accionFormacion.resultado_apredizaje_propuesto.length}";
-
 
       
       //- Funcion para crear un nuevo resultado propuesto

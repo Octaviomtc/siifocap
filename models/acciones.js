@@ -4,7 +4,7 @@ var Schema            = mongoose.Schema;
 
 
 var dictaminacion_schema = new Schema({
-  puntaje:                  Number,
+  puntaje:                  { type: Number, default: 0 },
   pregunta: [{
     respuesta:              Number,
     comentario:             String
@@ -46,8 +46,9 @@ var resultado_apredizaje_propuesto_schema = new Schema(
 
 var accionesSchema = new Schema({
   //id: { type: String },//NECESARIO
+  status:                                 { type: Number, default: 0 },                            
   cur:{
-      titulo        : {type: String, default: 'No asignada'},
+      titulo        : {type: String, default: 'CEGFIE'},
       anio          : {type: Number},
       consecutivo   : {type: Number},
       terminacion   : {type: String},
@@ -59,7 +60,9 @@ var accionesSchema = new Schema({
       vigencia      : {type: String},
       cur           : {type: String}
     },
+  cur_gen:                                  {type: String, default: 'No asignada'}, 
   dictaminacion:                            [dictaminacion_schema],
+  puntaje_dictaminado:                      { type: Number, default: 0 },  
   registro_date:                            {type: Date, default: Date.now },
   estatus_accion:                           {type: String, default: "Pendiente"},
   dependencia:                              String,
@@ -84,20 +87,20 @@ var accionesSchema = new Schema({
   coparticipacion_convenio:                 String,
   coparticipacion_institucion_validante:    String,
   coparticipacion:                          [coparticipacion_schema],
-  estatus_sec_1:                            String,//Primer apartado de acciones de formacion
+  estatus_sec_1:                            {type: String, default: "false"},//Primer apartado de acciones de formacion
   justificacion:                            String,
   finalidad:                                String,
   area_dirigido_accion:                     String,
   subarea_dirigido_accion:                  String,
-  estatus_sec_2:                            String,//Segundo apartado de acciones de formacion
+  estatus_sec_2:                            {type: String, default: "false"},//Segundo apartado de acciones de formacion
   competencia:                              String,
   resultado_apredizaje_propuesto:           [resultado_apredizaje_propuesto_schema],
   metodologia_didactica:                    String,
   metodologia_resultado:                    String,
   lineamientos_acreditacion:                String,
-  estatus_sec_3 :                           String,//Tercer apartado de acciones de formacion
+  estatus_sec_3 :                           {type: String, default: "false"},//Tercer apartado de acciones de formacion
   planeacion_didactica:                     [planeacion_didactica_schema],
-  estatus_sec_4 :                           String //Cuarto apartado de acciones de formacion
+  estatus_sec_4 :                           {type: String, default: "false"} //Cuarto apartado de acciones de formacion
 
 },
 {
