@@ -48,8 +48,9 @@ var accionesSchema = new Schema({
   //id: { type: String },//NECESARIO
   status:                                 { type: Number, default: 0 },                            
   cur:{
-      titulo        : {type: String, default: 'CEGFIE'},
+      titulo        : {type: String, default: 'CGFIE'},
       anio          : {type: Number},
+      estado        : {type: Number},
       consecutivo   : {type: Number},
       terminacion   : {type: String},
       personal      : {type: String},

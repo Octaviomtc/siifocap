@@ -225,12 +225,13 @@ exports.updateAccion = function(req, res, next) {
     }
 
     if(url=="finalizar"){
-        if(accionFormacion.status < 100){
+        if(accionFormacion.status > 90){
           porcentaje = 10;//Se define por cantidad de campos
           // IMPORTANTE **************************************************************************
           // SE CREA OBJETO CON PARAMETROS PARA GENERAR CUR
           var cur = {
               titulo        : "CGFIE",
+              estado        : "P", // Por ahora todos quedan en provisional 
               anio          : year('yy'),
               terminacion   : "DO",//Puede ser DI pero aun no se define
               consecutivo   : 0,
@@ -242,10 +243,16 @@ exports.updateAccion = function(req, res, next) {
               vigencia      : "fecha_vigencia",
               cur           : ""
           };
-
+          var cur_gen  = "";
+          if(cur.costo == "&"){
+            cur_gen = cur.titulo+"/"+cur.anio+"/"+cur.estado+"/"+cur.consecutivo+cur.terminacion+"/"+cur.personal+"/"+cur.tipo+"/"+cur.costo+"/"+cur.modalidad+"/"+cur.unidad_res+"/"+cur.vigencia;
+          }else{
+            cur_gen = cur.titulo+"/"+cur.anio+"/"+cur.estado+"/"+cur.consecutivo+cur.terminacion+"/"+cur.personal+"/"+cur.tipo+"/"+cur.modalidad+"/"+cur.unidad_res+"/"+cur.vigencia;
+          }
 
           console.log("CUR GENeRADA :  ");
           console.log(cur);
+          console.log(cur_gen);
 
           // IMPORTANTE **************************************************************************
         }
