@@ -1,9 +1,17 @@
-var mongoose = require('mongoose');
+var mongoose              = require('mongoose'),
+    Schema                = mongoose.Schema;
 
-module.exports = mongoose.model('Cur',{
-	id: String,
+var curSchema = new Schema({
 	def: String,
-	do: Number,
-	di: Number,
-	tr: Number
+	curso: Number,
+	taller: Number,
+	seminario: Number,
+	diplomado: Number
+},
+{
+  collection : 'cur'
 });
+
+
+
+module.exports = mongoose.model('curSchema', curSchema);

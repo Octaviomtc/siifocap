@@ -1,6 +1,7 @@
 {
 "def": "consecutivos",
-"do": 0,
-"di": 0,
-"tr": 0
+"curso": 0,
+"taller": 0,
+"seminario": 0,
+"diplomado":0
 }

@@ -1,9 +1,30 @@
 var mongoose              = require('mongoose');
+var Schema                = mongoose.Schema;
+
+
+var curSchema = new Schema({
+  def: String,
+  curso: Number,
+  taller: Number,
+  seminario: Number,
+  diplomado: Number
+},
+{
+  collection : 'cur'
+});
+
+
+
 var accionesFormacion     = mongoose.model('acciones');
+var claveReg              = mongoose.model('cur', curSchema);
 var logger                = require("../utils/winston");
 var fs                    = require('fs-extra');
 var _                     = require('underscore');
 var year                  = require('year');
+var deasync               = require('deasync'); // Tareas consecutivas
+var sync                  = require('synchronize');
+var moment                = require('moment');
+var unidades_politecnicas = mongoose.model('unidades_politecnicas');
 
 
 
@@ -179,6 +200,35 @@ exports.allAccionFormacion = function(req, res, next) {
 
 
 
+//Funcion que obtine consecutivo cur
+function consecutivo(tipo){
+  claveReg.findOne({
+    def : "consecutivos"
+  }, function(err, datoscur) {
+    if(err) return "0000";
+
+    var consecutivonext = "0000";
+    var consecutivoAct = 0;
+
+    if(tipo=="taller"){consecutivoAct=datoscur.taller};
+    if(tipo=="curso"){consecutivoAct=datoscur.curso};
+    if(tipo=="seminario"){consecutivoAct=datoscur.seminario};
+    if(tipo=="diplomado"){consecutivoAct=datoscur.diplomado};
+
+    //Se suna una unidad al consecutivo
+    consecutivoAct = consecutivoAct+1;
+
+    if(consecutivoAct.length == 1){consecutivonext="000"+consecutivoAct};
+    if(consecutivoAct.length == 2){consecutivonext="00"+consecutivoAct};
+    if(consecutivoAct.length == 3){consecutivonext="0"+consecutivoAct};
+    if(consecutivoAct.length == 4){consecutivonext=consecutivoAct};
+
+
+    return consecutivonext;
+  });
+}
+
+
 //update
 exports.updateAccion = function(req, res, next) {
 
@@ -223,63 +273,196 @@ exports.updateAccion = function(req, res, next) {
         porcentaje = 20;//Se define por cantidad de campos
       }
     }
+    var consecutivonext = "0000";
+    var consecutivoAct = 0;
+    var tipo_accion_Formacion = accionFormacion.tipo_accion_Formacion;
 
-    if(url=="finalizar"){
-        if(accionFormacion.status > 90){
-          porcentaje = 10;//Se define por cantidad de campos
-          // IMPORTANTE **************************************************************************
-          // SE CREA OBJETO CON PARAMETROS PARA GENERAR CUR
+
+
+    // SE CREA OBJETO CON PARAMETROS PARA GENERAR CUR
           var cur = {
               titulo        : "CGFIE",
               estado        : "P", // Por ahora todos quedan en provisional 
               anio          : year('yy'),
-              terminacion   : "DO",//Puede ser DI pero aun no se define
+              terminacion   : "TR",//Puede ser DI pero aun no se define
               consecutivo   : 0,
-              personal      : "personal_tipo",
-              tipo          : "accion_tipo",
+              personal      : "0",
+              tipo          : "O",
               costo         : "",//El costo aun no se define
-              modalidad     : "accion_modalidad",
-              unidad_res    : "160", //Solicitar el catalogo de unidades
-              vigencia      : "fecha_vigencia",
+              modalidad     : "O",
+              unidad_res    : "0", //Solicitar el catalogo de unidades
+              vigencia      : "00-00",
               cur           : ""
           };
-          var cur_gen  = "";
-          if(cur.costo == "&"){
-            cur_gen = cur.titulo+"/"+cur.anio+"/"+cur.estado+"/"+cur.consecutivo+cur.terminacion+"/"+cur.personal+"/"+cur.tipo+"/"+cur.costo+"/"+cur.modalidad+"/"+cur.unidad_res+"/"+cur.vigencia;
-          }else{
-            cur_gen = cur.titulo+"/"+cur.anio+"/"+cur.estado+"/"+cur.consecutivo+cur.terminacion+"/"+cur.personal+"/"+cur.tipo+"/"+cur.modalidad+"/"+cur.unidad_res+"/"+cur.vigencia;
-          }
 
-          console.log("CUR GENeRADA :  ");
-          console.log(cur);
-          console.log(cur_gen);
+    if(url=="finalizar"){
+        if(accionFormacion.status >= 90 && accionFormacion.status < 100){
+           //Se establece terminacion del consecutivo
+          if(accionFormacion.dirigido_a_dependencia.toUpperCase()=="CGFIE"){cur.terminacion="DI"}; // Solicitado por directivos
+          if(accionFormacion.dirigido_a_dependencia.toUpperCase()=="DES" || accionFormacion.dirigido_a_dependencia.toUpperCase()=="DEMS"){cur.terminacion="DO"}; //Solicitado por docentes
+          porcentaje = 10;//Se define por cantidad de campos
+
+          //Se define tipo personal a quien va dirigido dirigido_a_tipo
+          if(accionFormacion.dirigido_a_tipo=='funcionarios'){cur.personal="1"}
+          if(accionFormacion.dirigido_a_tipo=='docentes'){cur.personal="2"}
+          if(accionFormacion.dirigido_a_tipo=='paae'){cur.personal="3"}
+          if(accionFormacion.dirigido_a_tipo=='otros'){cur.personal="4"}
+          if(accionFormacion.dirigido_a_tipo=='publica' || accionFormacion.dirigido_a_tipo=='privada'){cur.personal="5"}
+          if(accionFormacion.dirigido_a_tipo=='alumnos' || accionFormacion.dirigido_a_tipo=='egresados'){cur.personal="6"}
+
+          //modalidad_accion_Formacion
+          if(accionFormacion.modalidad_accion_Formacion=='escolarizada'){cur.modalidad="E"}
+          if(accionFormacion.modalidad_accion_Formacion=='no_escolarizada'){cur.modalidad="NE"}
+          if(accionFormacion.modalidad_accion_Formacion=='mixta'){cur.modalidad="M"}
+
+
+          // vigencia
+          var modalidad_fecha_inicio = moment(accionFormacion.modalidad_fecha_inicio).format("DDMMYY");
+          var modalidad_fecha_fin = moment(accionFormacion.modalidad_fecha_fin).format("DDMMYY");
+          cur.vigencia = modalidad_fecha_inicio+"-"+modalidad_fecha_fin;
 
           // IMPORTANTE **************************************************************************
+
+          //Se ejecuta funcion para obtener consecutivo
+          claveReg.findOne({
+            def : "consecutivos"
+          }, function(err, datoscur) {
+            if(err) res.send(500, err.message);
+
+            var consecutivonext = "0000";
+            var consecutivoAct = 0;
+
+            // Se actualiza consecutivo
+            var claveObj = {};
+
+            if("taller"==tipo_accion_Formacion){consecutivoAct=datoscur.taller; cur.tipo="T"; claveObj.taller= datoscur.taller+1;};
+            if("curso"==tipo_accion_Formacion){consecutivoAct=datoscur.curso; cur.tipo="C"; claveObj.curso= datoscur.curso+1;};
+            if("seminario"==tipo_accion_Formacion){consecutivoAct=datoscur.seminario; cur.tipo="S"; claveObj.seminario= datoscur.seminario+1;};
+            if("diplomado"==tipo_accion_Formacion){consecutivoAct=datoscur.diplomado; cur.tipo="D"; claveObj.diplomado= datoscur.diplomado+1;};
+
+            //Se suma una unidad al consecutivo
+            consecutivoAct = consecutivoAct+1;
+
+            if(consecutivoAct <= 9){consecutivonext= "000"+consecutivoAct.toString()};
+            if(consecutivoAct > 9 && consecutivoAct <= 99){consecutivonext= "00"+consecutivoAct.toString()};
+            if(consecutivoAct > 99 && consecutivoAct <= 999){consecutivonext= "0"+consecutivoAct.toString()};
+            if(consecutivoAct > 999 && consecutivoAct <= 9999){consecutivonext= consecutivoAct.toString()};
+
+            cur.consecutivo = consecutivoAct;
+
+
+
+
+            //Se ejecuta funcion para obtener consecutivo
+            unidades_politecnicas.findOne({
+              nombre : accionFormacion.unidad
+            }, function(err, unidad){
+
+
+
+                cur.unidad_res = unidad.codigo;
+
+                var cur_gen  = "";
+                if(cur.costo == "&"){
+                  cur_gen = cur.titulo+"/"+cur.anio+"/"+cur.estado+"/"+consecutivonext+cur.terminacion+"/"+cur.personal+"/"+cur.tipo+"/"+cur.costo+"/"+cur.modalidad+"/"+cur.unidad_res+"/"+cur.vigencia;
+                  }else{
+                  cur_gen = cur.titulo+"/"+cur.anio+"/"+cur.estado+"/"+consecutivonext+cur.terminacion+"/"+cur.personal+"/"+cur.tipo+"/"+cur.modalidad+"/"+cur.unidad_res+"/"+cur.vigencia;
+                }
+
+
+                cur.cur=cur_gen;
+
+
+                // body.cur = {
+                //    titulo        : cur.titulo,
+                //    estado        : cur.estado,
+                //    anio          : cur.anio,
+                //    terminacion   : cur.terminacion,
+                //    consecutivo   : cur.consecutivo,
+                //    personal      : cur.personal,
+                //    tipo          : cur.tipo,
+                //    costo         : cur.costo,
+                //    modalidad     : cur.modalidad,
+                //    unidad_res    : cur.unidad_res,
+                //    vigencia      : cur.vigencia,
+                //    cur           : cur.cur
+                // };
+
+                if(cur_gen.length == 41 || cur_gen.length == 42 ||  cur_gen.length == 43 ||  cur_gen.length == 44){
+                  body.cur_gen = cur_gen;
+                }else{
+                  body.cur_gen = "Información incompleta";
+                  porcentaje = 5;
+                }
+
+
+                body.status = accionFormacion.status + porcentaje; //Se agrega el porcentaje definido 
+
+
+                if(req.body.active_coparticipacion){
+                  body.active_coparticipacion == true;
+                }else{
+                  body.active_coparticipacion == false
+                }
+
+
+                accionesFormacion.findOneAndUpdate({_id:req.params.id}, body, function (err, accion) {
+                  if(err) res.send(500, err.message);
+                  res.accionFormacion = accion;
+
+
+                  claveReg.findOneAndUpdate({def : "consecutivos"}, claveObj, function (err, accion) {
+                    if(err) res.send(500, err.message);
+
+                    return next();
+                  });
+                });
+
+            });
+
+          });
+          // IMPORTANTE **************************************************************************
+        }else{
+          porcentaje = 0;
+          body.status = accionFormacion.status + porcentaje; //Se agrega el porcentaje definido 
+
+
+          // Define si la coparticipacion esta activa para mandar un dato al front y activar la casilla
+          if(req.body.active_coparticipacion){
+            body.active_coparticipacion == true;
+          }else{
+            body.active_coparticipacion == false
+          }
+
+          accionesFormacion.findOneAndUpdate({_id:req.params.id}, body, function (err, accion) {
+            if(err) res.send(500, err.message);
+            res.accionFormacion = accion;
+            return next();
+          });
+
         }
-    }
-
-
-
-
-    body.status = accionFormacion.status + porcentaje; //Se agrega el porcentaje definido 
-
-
-    // Define si la coparticipacion esta activa para mandar un dato al front y activar la casilla
-    if(req.body.active_coparticipacion){
-      body.active_coparticipacion == true;
     }else{
-      body.active_coparticipacion == false
+
+
+
+
+          body.status = accionFormacion.status + porcentaje; //Se agrega el porcentaje definido 
+
+
+          // Define si la coparticipacion esta activa para mandar un dato al front y activar la casilla
+          if(req.body.active_coparticipacion){
+            body.active_coparticipacion == true;
+          }else{
+            body.active_coparticipacion == false
+          }
+
+          accionesFormacion.findOneAndUpdate({_id:req.params.id}, body, function (err, accion) {
+            if(err) res.send(500, err.message);
+            res.accionFormacion = accion;
+            return next();
+          });
+
     }
-
-    accionesFormacion.findOneAndUpdate({_id:req.params.id}, body, function (err, accion) {
-      if(err) res.send(500, err.message);
-      // console.log(accion);
-      accion.metodologia_didactica = accion.metodologia_didactica.replace("M", "X");
-      res.accionFormacion = accion;
-      console.log(accion);
-      return next();
-    });
-
   });
 
 };
