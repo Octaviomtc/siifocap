@@ -105,6 +105,14 @@ module.exports = function(grunt) {
             jsonArray : true,  //optional
             upsert : true,  //optional
             drop : true  //optional
+          },
+          {
+            name : 'cur',
+            type : 'json',
+            file : 'models/json/cur.json',
+            jsonArray : true,  //optional
+            upsert : true,  //optional
+            drop : true  //optional
           }
 
         ]
