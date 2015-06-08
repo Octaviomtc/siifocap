@@ -35,15 +35,15 @@ html
                   div#menu.collapse.navbar-collapse
                     ul.nav.navbar-nav
                       li.active
-                        a(href='/evaluadores/crear/datos-personales') Datos personales
+                        a(href='/evaluadores/#{evaluador.id}/datos-personales') Datos personales
                       li
-                        a.disabled() Formación académica
+                        a(href='/evaluadores/#{evaluador._id}/formacion-academica')  Formación académica
                       li
-                        a.disabled() Experiencia laboral
+                        a(href='#') Experiencia laboral
                       li
-                        a.disabled() Experiencia como evaluador
-                      li
-                        a.disabled() Competencias del evaluador
+                        a(href='#') Experiencia como evaluador
+                      //- li
+                      //-   a.disabled() Competencias del evaluador
               #form-mult
                 block content
     include ../../../includes/scripts
