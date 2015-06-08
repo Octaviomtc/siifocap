@@ -34,29 +34,28 @@ html
                       i.fa.fa-r.fa-building-o.fa-l
                   div#menu.collapse.navbar-collapse
                     ul.nav.navbar-nav
-                      //- if evaluador.estatus_sec_1=='true'
                       li(class=datos.paso=="1" ? "active":"")
                         a(href='/evaluadores/#{evaluador._id}/datos-personales', class=evaluador.estatus_sec_1=="true" ? "alert alert-success active-bar":"") 
                           i.fa.fa-check-circle.fa-r.fa-activo
                           | Datos personales
-                      //- else
-                      //-   li(class=datos.paso=="1" ? "active":"")
-                      //-     a.disabled(href='') 
-                      //-       | Datos personales
-                            
-                      //- if evaluador.estatus_sec_1=='true'      
-                        li
-                          a(href="/evaluadores/#{evaluador._id}/formacion-academica") Formación académica
-                      //- else
-                      li
-                        a(href='/evaluadores/#{evaluador._id}/formacion-academica') Formación académica
-                        
-                      li
-                        a(href='') Experiencia laboral
-                      li
-                        a(href='') Experiencia como evaluador
-                      //- li
-                      //-   a.disabled() Competencias del evaluador
+
+                      li(class=datos.paso=="2" ? "active":"")
+                        a(href="/evaluadores/#{evaluador._id}/formacion-academica", class=evaluador.estatus_sec_2=="true" ? "alert alert-success active-bar":"") 
+                          if evaluador.estatus_sec_2=='true'
+                            i.fa.fa-check-circle.fa-r.fa-activo
+                          | Formación académica
+                      
+                      li(class=datos.paso=="3" ? "active":"")
+                        a(href='/evaluadores/#{evaluador._id}/experiencia-laboral', class=evaluador.estatus_sec_3=="true" ? "alert alert-success active-bar":"") 
+                          if evaluador.estatus_sec_3=='true'
+                            i.fa.fa-check-circle.fa-r.fa-activo
+                          | Experiencia laboral
+
+                      li(class=datos.paso=="4" ? "active":"")
+                        a(href='#', class=evaluador.estatus_sec_4=="true" ? "alert alert-success active-bar":"") 
+                          if evaluador.estatus_sec_4=='true'
+                            i.fa.fa-check-circle.fa-r.fa-activo
+                          | Experiencia como evaluador
               #form-mult
                 block content
     include ../../../includes/scripts

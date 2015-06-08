@@ -20,12 +20,11 @@ exports.addEvaluadores = function(req, res, next) {
 
 //update
 exports.updateEvaluador = function(req, res, next) {
-  // console.log(req);
+  console.log("2we9oi");
+  console.log(req.body);
   var body = req.body;
 
-
-
-  evaluadores.findOneAndUpdate({_id:req.params.id}, body, function (err, evaluador) {
+  evaluadores.findOneAndUpdate({_id:req.params.id}, req.body, function (err, evaluador) {
     if(err) res.send(500, err.message);
     console.log(evaluador);
     res.evaluadores = evaluador;

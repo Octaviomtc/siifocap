@@ -482,7 +482,7 @@ module.exports = function(passport){
         icon: "fa-plus-circle",
         seccion: "Nuevo evaluador",
         estado: "evaluadores",
-        paso: "1"
+        paso: "2"
       }
 
       res.render('app/evaluadores/actualizar/formacion-academica',{message: req.flash('message'), user: req.user, datos: param});
@@ -496,6 +496,30 @@ module.exports = function(passport){
 
     router.post('/evaluadores/:id/formacion-academica', isAuthenticated, evaluadoresMid.updateEvaluador, function(req, res){
       res.redirect("/evaluadores/"+res.evaluadores._id+"/formacion-academica");
+    });
+
+
+
+    // nuevo evaluador paso 3 actualizar
+    router.get('/evaluadores/:id/experiencia-laboral', isAuthenticated, evaluadoresMid.findById, formacionMid.findAllFormacion, entidadesMid.findAllEntidades, escuelas_privadasMid.findAllEscuelas, escuelas_publicasMid.findAllEscuelas, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Nuevo evaluador",
+        estado: "evaluadores",
+        paso: "3"
+      }
+
+      res.render('app/evaluadores/actualizar/experiencia-laboral',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+
+    // se configura para recibir archivos temporales
+    router.post('/evaluadores/:id/experiencia-laboral', isAuthenticated, multer({
+      dest: __dirname+ "/.."+"/temp/uploads/evaluadores/files"
+    }));
+
+    router.post('/evaluadores/:id/experiencia-laboral', isAuthenticated, evaluadoresMid.updateEvaluador, function(req, res){
+      res.redirect("/evaluadores/"+res.evaluadores._id+"/experiencia-laboral");
     });
 
 
