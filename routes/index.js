@@ -427,21 +427,33 @@ module.exports = function(passport){
 
 
     // nuevo evaluador paso 1
-    router.get('/evaluadores/crear/datos-personales', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, entidadesMid.findAllEntidades, function(req, res){
-      param={
-        icon: "fa-plus-circle",
-        seccion: "Nuevo evaluador",
-        estado: "evaluadores",
-        paso: "1"
-      }
+    // router.get('/evaluadores/crear/datos-personales', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, entidadesMid.findAllEntidades, function(req, res){
+    //   param={
+    //     icon: "fa-plus-circle",
+    //     seccion: "Nuevo evaluador",
+    //     estado: "evaluadores",
+    //     paso: "1"
+    //   }
 
-      res.render('app/evaluadores/nuevo/datos-personales',{message: req.flash('message'), user: req.user, datos: param});
-    });
+    //   res.render('app/evaluadores/nuevo/datos-personales',{message: req.flash('message'), user: req.user, datos: param});
+    // });
 
 
-    router.post('/evaluadores/crear/datos-personales', isAuthenticated, evaluadoresMid.addEvaluadores, function(req, res){
-      res.set('Content-Type', 'application/javascript');
-      res.redirect("/evaluadores/"+res.evaluadores._id+"/datos-personales");
+    // router.post('/evaluadores/crear/datos-personales', isAuthenticated, evaluadoresMid.addEvaluadores, function(req, res){
+    //   res.set('Content-Type', 'application/javascript');
+    //   res.redirect("/evaluadores/"+res.evaluadores._id+"/datos-personales");
+    // });
+
+
+     router.get('/evaluadores/crear/init-evaluador', isAuthenticated, evaluadoresMid.initEvaluadores, function(req, res){
+       param={
+            icon: "fa-plus-circle",
+            seccion: "Nuevo evaluador",
+            estado: "evaluadores",
+            paso: "1"
+        }
+
+        res.redirect("/evaluadores/"+res.evaluadores._id+"/datos-personales")
     });
 
 
@@ -482,7 +494,7 @@ module.exports = function(passport){
       dest: __dirname+ "/.."+"/temp/uploads/evaluadores/files"
     }));
 
-    router.post('/evaluadores/:id/formacion-academica', isAuthenticated, evaluadoresMid.updateEvaluadorFiles, function(req, res){
+    router.post('/evaluadores/:id/formacion-academica', isAuthenticated, evaluadoresMid.updateEvaluador, function(req, res){
       res.redirect("/evaluadores/"+res.evaluadores._id+"/formacion-academica");
     });
 
