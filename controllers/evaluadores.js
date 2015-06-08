@@ -20,8 +20,8 @@ exports.addEvaluadores = function(req, res, next) {
 
 //update
 exports.updateEvaluador = function(req, res, next) {
-  console.log("2we9oi");
-  console.log(req.body);
+  // console.log("2we9oi");
+  // console.log(req.body);
   var body = req.body;
 
   evaluadores.findOneAndUpdate({_id:req.params.id}, req.body, function (err, evaluador) {

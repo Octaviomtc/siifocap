@@ -12,7 +12,7 @@ block content
         .contenido
           .row
             .col-md-11
-              form.form-horizontal(method='post', action="/evaluadores/#{evaluador._id}/experiencia-laboral", enctype='multipart/form-data')
+              form.form-horizontal(method='post', action="/evaluadores/#{evaluador._id}/formacion-academica", enctype='multipart/form-data')
                 
                 
                 label(class="col-md-11 col-md-offset-1 alert alert-info") Estudios Profesionales
@@ -22,12 +22,11 @@ block content
                 
                 +h-input("hidden", "", "estatus_sec_2", "", "true", 9, 3, "", "","") 
                 
-                
                 .form-group
                   span(class="control-label col-md-3")
                     |* Campo de formación académica:
                   div(class="col-md-9")
-                    select#formacion_academica.form-control(name='formacion_academica',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                    select#formacion_academica.form-control(name='formacion_academica',data-validation="empty", data-toggle="tooltip", data-placement="top", title="", autofocus)
                       option(value="") Seleccione ...
                       each formaciones in formacion
                         if formaciones.nombre_campo_amplio == evaluador.formacion_academica
@@ -113,9 +112,6 @@ block content
                         option(value=escuela.nombre, selected=escuela.nombre==evaluador.escuela_privada)= escuela.nombre
                 
                 
-                
-                
-                
                 +hr()
                 label(class="col-md-11 col-md-offset-1 alert alert-info") Estudios complementarios
                 span(class="control-label col-md-1")
@@ -123,24 +119,25 @@ block content
                   a.btn.btn-success.fa-r(onclick="addEstudios()")
                     i.fa.fa-plus-circle.fa-r
                     | Agregar estudios complementarios
-
-                if evaluador.complemtario.length >0
-                  - var complemtario = evaluador.complemtario
+                
+                +hr()
+                if evaluador.complementario.length >0
+                  - var complementario = evaluador.complementario
                   - var i = 0
-                  each com in complemtario
+                  each com in complementario
                     - var contenedor = "divCompleCont"+i
                     div(id=contenedor)
                       hr
-                      +h-input("text", "Disciplina", "complementario["+i+++"][disciplina]", "Disciplina", com.disciplina, 9, 3, "", "","")
-                      +h-input("text", "Institución formadora", "complementario["+i+++"][institucion_formadora]", "Institución formadora", com.institucion_formadora, 9, 3, "", "","")
+                      +h-input("text", "Disciplina", "complementario["+i+"][disciplina]", "Disciplina", com.disciplina, 9, 3, "", "","")
+                      +h-input("text", "Institución formadora", "complementario["+i+"][institucion_formadora]", "Institución formadora", com.institucion_formadora, 9, 3, "", "","")
                       div#dependenciaCoparticipanteAdd.form-group
                         span.control-label.col-md-3
                         div.col-md-9
                           a.btn.btn-danger.fa-r(onclick='delCompEvaludor("'+contenedor+'")')
                             i.fa.fa-trash.fa-r
                             | Eliminar
+                    - i=i+1
                 div#estudiosComplementariosDiv
-
 
 
                 +hr()
@@ -148,11 +145,7 @@ block content
                 +h-input("file", "Cédula profesional", "cedula_profesional", "", evaluador.cedula_profesional, 9, 3, "", "","Adjunte en PDF copia de su cédula profesional, de acuerdo al nivel de estudios profesionales registrado.") 
                 +h-input("file", "Documentación probatoria", "documentacion_probatoria", "", evaluador.documentacion_probatoria, 9, 3, "", "","Adjunte en formato PDF un documento con las  constancias, diplomas, certificaciones, entre otros, que comprueben la validez de los estudios complementarios  y eventos académicos registrados en este espacio.") 
                 
-                
-                
-                    
-                          
-            
+
                   
                 +hr()
                 .col-md-9.col-md-offset-3
@@ -168,8 +161,6 @@ block content
                       a.btn.btn-success.disabled.fa-r(href="")
                         i.fa.fa-check-circle.fa-r
                         | Continuar
-
-                  
 
                     a.btn.btn-danger(href="#")
                       | Cancelar
@@ -353,28 +344,15 @@ block content
          }
       });
 
-      var evaluadores = "!{evaluador.complemtario.length}";
+      var evaluadores = "!{evaluador.complementario.length}";
 
       //- Funcion para crear nuevo Estudio Complementario
       function addEstudios(){
-        evaluadores=evaluadores+1;
-        $('#estudiosComplementariosDiv').append('<div id="divCompleCont'+evaluadores+'"><div class="form-group"><span class="control-label col-md-3">Disciplina</span><div class="col-md-9"><input type="text" id="complementario['+evaluadores+'][disciplina]" name="complementario['+evaluadores+'][disciplina]" placeholder="Disciplina" autofocus="" value="" data-validation="" data-toggle="tooltip" data-placement="top" title="" class="form-control"></div></div><div class="form-group"><span class="control-label col-md-3">Institución formadora</span><div class="col-md-9"><input type="text" id="complementario['+evaluadores+'][institucion_formadora]" name="complementario['+evaluadores+'][institucion_formadora]" placeholder="Institución formadora" autofocus="" value="" data-validation="" data-toggle="tooltip" data-placement="top" title="" class="form-control"></div></div></div>');
-
+        $('#estudiosComplementariosDiv').append('<hr><div id="divCompleCont'+evaluadores+'"><div class="form-group"><span class="control-label col-md-3">Disciplina</span><div class="col-md-9"><input type="text" id="complementario['+evaluadores+'][disciplina]" name="complementario['+evaluadores+'][disciplina]" placeholder="Disciplina"  value="" data-validation="" data-toggle="tooltip" data-placement="top" title="" class="form-control"></div></div><div class="form-group"><span class="control-label col-md-3">Institución formadora</span><div class="col-md-9"><input type="text" id="complementario['+evaluadores+'][institucion_formadora]" name="complementario['+evaluadores+'][institucion_formadora]" placeholder="Institución formadora" value="" data-validation="" data-toggle="tooltip" data-placement="top" title="" class="form-control"></div></div><div id="dependenciaCoparticipanteAdd" class="form-group"><span class="control-label col-md-3"></span><div class="col-md-9"><a onclick=delCompEvaludor("divCompleCont'+evaluadores+'") class="btn btn-danger fa-r"><i class="fa fa-trash fa-r"></i>Eliminar</a></div></div></div>');
+        evaluadores=parseInt(evaluadores)+1;
       }
       
       function delCompEvaludor(id){
         $("#"+id).empty();
       }
-
-
-//- <div id="divCompleCont'+evaluadores+'"><div class="form-group"><span class="control-label col-md-3">Disciplina</span><div class="col-md-9"><input type="text" id="complementario['+i+++'][disciplina]" name="complementario['+evaluadores+'][disciplina]" placeholder="Disciplina" autofocus="" value="" data-validation="" data-toggle="tooltip" data-placement="top" title="" class="form-control"></div></div><div class="form-group"><span class="control-label col-md-3">Institución formadora</span><div class="col-md-9"><input type="text" id="complementario['+i+++'][institucion_formadora]" name="complementario['+evaluadores+'][institucion_formadora]" placeholder="Institución formadora" autofocus="" value="" data-validation="" data-toggle="tooltip" data-placement="top" title="" class="form-control"></div></div></div>
-
-
-
-
-
-
-
-
-
 
