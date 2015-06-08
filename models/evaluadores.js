@@ -1,6 +1,10 @@
 var mongoose          = require('mongoose');
 var Schema            = mongoose.Schema;
 
+var complementario_schema = new Schema(
+  {disciplina: String, institucion_formadora: String }
+);
+
 var evaluadoresSchema = new Schema({
   registro_date                           :{type: Date, default: Date.now },
   nombre                                  :String,
@@ -45,7 +49,7 @@ var evaluadoresSchema = new Schema({
   tipo_institucion                        :String,
   escuela_publica                         :String,
   escuela_privada                         :String,
-  complemtario                            :[{disciplina: String, institucion_formadora: String }],
+  complementario                          :[{disciplina: String, institucion_formadora: String }],
   cedula_profesional                      :String,
   documentacion_probatoria                :String,
   estatus_sec_2                           :String,
@@ -54,8 +58,7 @@ var evaluadoresSchema = new Schema({
 
 
   estatus_sec_3                           :String,
-  estatus_sec_4                           :String,
-  estatus_sec_5                           :String
+  estatus_sec_4                           :String
 },
 {
   collection : 'evaluadores'
