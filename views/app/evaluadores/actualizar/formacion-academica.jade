@@ -30,7 +30,10 @@ block content
                     select#formacion_academica.form-control(name='formacion_academica',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                       option(value="") Seleccione ...
                       each formaciones in formacion
-                        option(value=formaciones.nombre_campo_amplio)= formaciones.nombre_campo_amplio
+                        if formaciones.nombre_campo_amplio == evaluador.formacion_academica
+                          option(value=formaciones.nombre_campo_amplio, selected)= formaciones.nombre_campo_amplio
+                        else
+                          option(value=formaciones.nombre_campo_amplio)= formaciones.nombre_campo_amplio
                 
                 .form-group
                   span(class="control-label col-md-3")
@@ -58,8 +61,8 @@ block content
                   div(class="col-md-9")
                     select#institucion_realizacion_estudios.form-control(name='institucion_realizacion_estudios',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                       option(value="") Seleccione ...
-                      option(value="nacional") Institución educativa nacional
-                      option(value="internacional") Institución educativa en el extranjero
+                      option(value="nacional", selected="nacional" == evaluador.institucion_realizacion_estudios) Institución educativa nacional
+                      option(value="internacional", selected="internacional" == evaluador.institucion_realizacion_estudios) Institución educativa en el extranjero
                       
                       
                       
@@ -71,21 +74,21 @@ block content
                     select#entidad_federativa.form-control(name='entidad_federativa')
                       option(value="") Seleccione ...
                       each entidad in entidades
-                        option(value=entidad.abr)= entidad.nombre
+                        if entidad.abr==evaluador.entidad_federativa
+                          option(value=entidad.abr, selected)= entidad.nombre
+                        else
+                          option(value=entidad.abr)= entidad.nombre
                 
                 
                 +hr()
                         
-                .col-md-4.col-md-offset-3
-                  input(type="radio", id="tipo", name="tipo_institucion", value="institucion_publica")
-                  label.fa-l
-                    | Institución educativa pública
-                .col-md-4
-                  input.fa-r(type="radio", id="tipo", name="tipo_institucion", value="institucion_privada")
-                  label.fa-l
-                    | Institución educativa privada
-                
-                
+                label(class="col-md-11 col-md-offset-1 alert alert-info") * Tipo de institución
+                .form-group
+                  .col-md-9.col-md-offset-3
+                    select#tipo_institucion.form-control(name='tipo_institucion',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                      option(value="") Seleccione ...
+                      option(value="publica", selected="publica" == evaluador.tipo_institucion) Escuela Pública
+                      option(value="privada", selected="privada" == evaluador.tipo_institucion) Escuela Privada
                 
                 //- ************************************************************************
                 .escuelas(id='escuelas_publicas')
@@ -95,19 +98,19 @@ block content
                   div(class="col-md-9")
                     select#escuela_publica.form-control(name='escuela_publica')
                       option(value='') Seleccione ...
-                      each escuela in escuelas_privadas
-                        option(value=escuela.nombre)= escuela.nombre
+                      each escuela in escuelas_publicas
+                        option(value=escuela.nombre, selected=escuela.nombre==evaluador.escuela_publica)= escuela.nombre
                 
                 //- ************************************************************************
-                .escuelas(id='escuelas_publicas')
+                .escuelas(id='escuelas_privadas')
                   +hr()
                   span(class="control-label col-md-3")
-                    | Escuelas públicas
+                    | Escuelas privadas
                   div(class="col-md-9")
                     select#escuela_privada.form-control(name='escuela_privada')
                       option(value='') Seleccione ...
-                      each escuela in escuelas_publicas
-                        option(value=escuela.nombre)= escuela.nombre
+                      each escuela in escuelas_privadas
+                        option(value=escuela.nombre, selected=escuela.nombre==evaluador.escuela_privada)= escuela.nombre
                 
                 
                 
@@ -120,14 +123,28 @@ block content
                   a.btn.btn-success.fa-r(onclick="addEstudios()")
                     i.fa.fa-plus-circle.fa-r
                     | Agregar estudios complementarios
-                +hr()
-                +h-input("text", "Disciplina", "", "Disciplina", "", 9, 3, "", "","") 
-                +h-input("text", "Institución formadora", "", "Institución formadora", "", 9, 3, "", "","") 
-                
-                    
+
+                if evaluador.complemtario.length >0
+                  - var complemtario = evaluador.complemtario
+                  - var i = 0
+                  each com in complemtario
+                    - var contenedor = "divCompleCont"+i
+                    div(id=contenedor)
+                      hr
+                      +h-input("text", "Disciplina", "complementario["+i+++"][disciplina]", "Disciplina", com.disciplina, 9, 3, "", "","")
+                      +h-input("text", "Institución formadora", "complementario["+i+++"][institucion_formadora]", "Institución formadora", com.institucion_formadora, 9, 3, "", "","")
+                      div#dependenciaCoparticipanteAdd.form-group
+                        span.control-label.col-md-3
+                        div.col-md-9
+                          a.btn.btn-danger.fa-r(onclick='delCompEvaludor("'+contenedor+'")')
+                            i.fa.fa-trash.fa-r
+                            | Eliminar
+                div#estudiosComplementariosDiv
+
+
+
                 +hr()
                 label(class="col-md-11 col-md-offset-1 alert alert-info") Documentación
-                
                 +h-input("file", "Cédula profesional", "cedula_profesional", "", evaluador.cedula_profesional, 9, 3, "", "","Adjunte en PDF copia de su cédula profesional, de acuerdo al nivel de estudios profesionales registrado.") 
                 +h-input("file", "Documentación probatoria", "documentacion_probatoria", "", evaluador.documentacion_probatoria, 9, 3, "", "","Adjunte en formato PDF un documento con las  constancias, diplomas, certificaciones, entre otros, que comprueben la validez de los estudios complementarios  y eventos académicos registrados en este espacio.") 
                 
@@ -161,28 +178,40 @@ block content
   append javascript
     script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
     script.
-      $( "#formacion_academica" ).change(function(){
-        var valor = $('#formacion_academica :selected').val();
+      // PInta combos de carreras y areas
+      function defineCarreras(valor){
         if (valor==""){
           $("#formacion_academica_especifico").empty();
           $("#formacion_academica_carrera").empty();
-          add_append_select("formacion_academica_especifico","","Seleccione ...");
-          add_append_select("formacion_academica_carrera","","Seleccione ...");
+          $("#formacion_academica_especifico").append("<option value=''>Seleccione ...</option>");
+          $("#formacion_academica_carrera").append("<option value=''>Seleccione ...</option>");
     
           }else{
             $("#formacion_academica_especifico").empty();
             $("#formacion_academica_carrera").empty();
             //- alert(valor);
-            add_append_select("formacion_academica_carrera","","Seleccione ...");
+            $("#formacion_academica_carrera").append("<option value=''>Seleccione ...</option>");
             revisaSegunNivel(valor);
           }
-          
+      }
+
+
+      $( "#formacion_academica" ).change(function(){
+        var valor = $('#formacion_academica :selected').val();
+        defineCarreras(valor);          
       });
+
+
+
+      // Esto se ejcuta al inicio
+      var formacion_academica = "!{evaluador.formacion_academica}";
+      defineCarreras(formacion_academica); 
+      // ************************
       
       function revisaSegunNivel(valor){
         //- console.log(valor);
         $("#formacion_academica_especifico").empty();
-        add_append_select("formacion_academica_especifico","","Seleccione ...");
+        $("#formacion_academica_especifico").append("<option value=''>Seleccione ...</option>");
         $.ajax({
           url: "/formacion/consulta/campo_especifico",
           data: {
@@ -195,10 +224,14 @@ block content
               var contenido = source.content;
               $.each(contenido, function(index, contenidoEsp) {
                 $.each(contenidoEsp.campo_especifico, function(index, segundonivel){
-                  //- console.log(segundonivel.nombre);
-                  
-                  add_append_select("formacion_academica_especifico",segundonivel.nombre,segundonivel.nombre);
-                });
+                    //- console.log(segundonivel.nombre);
+                    var formacion_academica_especifico_inter = "!{evaluador.formacion_academica_especifico}";
+                    if(formacion_academica_especifico_inter==segundonivel.nombre){
+                      $("#formacion_academica_especifico").append("<option value='"+segundonivel.nombre+"' selected>"+segundonivel.nombre+"</option>");
+                    }else{
+                      $("#formacion_academica_especifico").append("<option value='"+segundonivel.nombre+"'>"+segundonivel.nombre+"</option>");
+                    }                
+               });
               });
             }},
           error: function(dato){
@@ -208,25 +241,28 @@ block content
       return false;
       }
       
-      
-      
+
+      function defineNivel2 (valor){
+        if (valor==""){
+            $("#formacion_academica_carrera").empty();
+            $("#formacion_academica_carrera").append("<option value=''>Seleccione ...</option>");
+            
+          }else{
+            $("#formacion_academica_carrera").empty();
+            //- alert(valor);
+            $("#formacion_academica_carrera").append("<option value=''>Seleccione ...</option>");
+            revisaTercerNivel(valor);
+          }
+      }
+
+
       $( "#formacion_academica_especifico").change(function(){
-      var valor = $('#formacion_academica_especifico :selected').val();
-      if (valor==""){
-        $("#formacion_academica_carrera").empty();
-        add_append_select("formacion_academica_carrera","","Seleccione ...");
-        
-        }else{
-        $("#formacion_academica_carrera").empty();
-        //- alert(valor);
-        add_append_select("formacion_academica_carrera","","Seleccione ...");
-        revisaTercerNivel(valor);
-        }
-        
-        });
-        
-        
-        
+        var valor = $('#formacion_academica_especifico :selected').val();
+        defineNivel2(valor);
+      });
+
+      var formacion_academica_especifico_in = "!{evaluador.formacion_academica_especifico}";
+      defineNivel2(formacion_academica_especifico_in);
         
         function revisaTercerNivel(valor){
           //- console.log(valor);
@@ -246,11 +282,15 @@ block content
             if (source.success === "true"){
               var contenido = source.content;
               //- console.log(source);
-              add_append_select("formacion_academica_carrera","","Seleccione ...");
+                
               $.each(contenido, function(index, contenidoEsp) {
-              //- console.log(segundonivel.nombre);
-              add_append_select("formacion_academica_carrera",contenidoEsp.nombre,contenidoEsp.nombre);
-              
+                //- console.log(segundonivel.nombre);
+                var formacion_academica_carrera_int = "!{evaluador.formacion_academica_carrera}"
+                if(formacion_academica_carrera_int==contenidoEsp.nombre){
+                  $("#formacion_academica_carrera").append("<option value='"+contenidoEsp.nombre+"' selected>"+contenidoEsp.nombre+"</option>"); 
+                }else{
+                  $("#formacion_academica_carrera").append("<option value='"+contenidoEsp.nombre+"'>"+contenidoEsp.nombre+"</option>"); 
+                }
               });
               }},
               error: function(dato){
@@ -259,7 +299,82 @@ block content
               }); //end ajax
               return false;
           }
-          
-          
+
+          //select "Institución" cambia al select de TIPO DE INSTITUCION
+      function EscuelasActivas(){
+          $('#escuelas_publicas').hide();
+          $('#escuelas_privadas').hide();
+      }
+      EscuelasActivas();
+      
+      function EscuelasPublicas(){
+        $('#escuelas_publicas').show();
+        $('#escuelas_privadas').hide();
+      }
+
+      function EscuelasPrivadas(){
+        $('#escuelas_publicas').hide();
+        $('#escuelas_privadas').show();
+      }
+
+      var tipo = "!{evaluador.tipo_institucion}";
+      if(tipo=="privada"){
+        EscuelasPrivadas();
+      }
+
+      if(tipo=="publica"){
+        EscuelasPublicas();
+      }
+
+      //limpa valores de un div
+      function clearValues(id_div){
+        $(':input', '#'+id_div)
+           .not(':button, :submit, :reset, :hidden')
+           .val('')
+           .removeAttr('checked')
+           .removeAttr('selected');
+      }
+
         
-        
+      $( "#tipo_institucion" ).on('change', function(){
+        var valor = $('#tipo_institucion :selected').val();
+         if (valor==""){
+          clearValues("escuelas_privados");
+          clearValues("escuelas_publicas");
+          EscuelasActivas();
+         }else{
+            if (valor=="publica"){
+              clearValues("escuelas_privados");
+              EscuelasPublicas();              
+            }else{
+              clearValues("escuelas_publicas");
+              EscuelasPrivadas();
+            }
+         }
+      });
+
+      var evaluadores = "!{evaluador.complemtario.length}";
+
+      //- Funcion para crear nuevo Estudio Complementario
+      function addEstudios(){
+        evaluadores=evaluadores+1;
+        $('#estudiosComplementariosDiv').append('<div id="divCompleCont'+evaluadores+'"><div class="form-group"><span class="control-label col-md-3">Disciplina</span><div class="col-md-9"><input type="text" id="complementario['+evaluadores+'][disciplina]" name="complementario['+evaluadores+'][disciplina]" placeholder="Disciplina" autofocus="" value="" data-validation="" data-toggle="tooltip" data-placement="top" title="" class="form-control"></div></div><div class="form-group"><span class="control-label col-md-3">Institución formadora</span><div class="col-md-9"><input type="text" id="complementario['+evaluadores+'][institucion_formadora]" name="complementario['+evaluadores+'][institucion_formadora]" placeholder="Institución formadora" autofocus="" value="" data-validation="" data-toggle="tooltip" data-placement="top" title="" class="form-control"></div></div></div>');
+
+      }
+      
+      function delCompEvaludor(id){
+        $("#"+id).empty();
+      }
+
+
+//- <div id="divCompleCont'+evaluadores+'"><div class="form-group"><span class="control-label col-md-3">Disciplina</span><div class="col-md-9"><input type="text" id="complementario['+i+++'][disciplina]" name="complementario['+evaluadores+'][disciplina]" placeholder="Disciplina" autofocus="" value="" data-validation="" data-toggle="tooltip" data-placement="top" title="" class="form-control"></div></div><div class="form-group"><span class="control-label col-md-3">Institución formadora</span><div class="col-md-9"><input type="text" id="complementario['+i+++'][institucion_formadora]" name="complementario['+evaluadores+'][institucion_formadora]" placeholder="Institución formadora" autofocus="" value="" data-validation="" data-toggle="tooltip" data-placement="top" title="" class="form-control"></div></div></div>
+
+
+
+
+
+
+
+
+
+

@@ -21,9 +21,13 @@ exports.addEvaluadores = function(req, res, next) {
 //update
 exports.updateEvaluador = function(req, res, next) {
   // console.log(req);
-  evaluadores.findOneAndUpdate({_id:req.params.id}, req.body, function (err, evaluador) {
+  var body = req.body;
+
+
+
+  evaluadores.findOneAndUpdate({_id:req.params.id}, body, function (err, evaluador) {
     if(err) res.send(500, err.message);
-    // console.log(accion);
+    console.log(evaluador);
     res.evaluadores = evaluador;
     return next();
   });
@@ -96,3 +100,18 @@ exports.findById = function(req, res, next) {
     return next();
   });
 };
+
+
+
+//Inicializa Evaluadores
+exports.initEvaluadores = function(req, res, next){
+//define_cur(req);
+  var evaluadoresInit = new evaluadores({});
+  evaluadoresInit.save(function(err, arregloEvaluadores) {
+    if(err) return res.send(500, err.message);
+    // console.log(unidad);
+    res.evaluadores = arregloEvaluadores;
+    console.log("Se crea evaluadores ");
+    return next();
+  });
+}

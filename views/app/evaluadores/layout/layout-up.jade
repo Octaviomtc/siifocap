@@ -34,29 +34,29 @@ html
                       i.fa.fa-r.fa-building-o.fa-l
                   div#menu.collapse.navbar-collapse
                     ul.nav.navbar-nav
-                      if evaluador.estatus_sec_1=='true'
-                        li(class=datos.paso=="1" ? "active":"")
-                          a(href='/evaluadores/#{evaluador._id}/datos-personales', class=evaluador.estatus_sec_1=="true" ? "alert alert-success active-bar":"") 
-                            i.fa.fa-check-circle.fa-r.fa-activo
-                            | Datos personales
-                      else
-                        li(class=datos.paso=="1" ? "active":"")
-                          a.disabled(href='') 
-                            | Datos personales
+                      //- if evaluador.estatus_sec_1=='true'
+                      li(class=datos.paso=="1" ? "active":"")
+                        a(href='/evaluadores/#{evaluador._id}/datos-personales', class=evaluador.estatus_sec_1=="true" ? "alert alert-success active-bar":"") 
+                          i.fa.fa-check-circle.fa-r.fa-activo
+                          | Datos personales
+                      //- else
+                      //-   li(class=datos.paso=="1" ? "active":"")
+                      //-     a.disabled(href='') 
+                      //-       | Datos personales
                             
-                      if evaluador.estatus_sec_1=='true'      
+                      //- if evaluador.estatus_sec_1=='true'      
                         li
                           a(href="/evaluadores/#{evaluador._id}/formacion-academica") Formación académica
-                      else
-                        li
-                          a.disabled(href='') Formación académica
+                      //- else
+                      li
+                        a(href='/evaluadores/#{evaluador._id}/formacion-academica') Formación académica
                         
                       li
-                        a.disabled() Experiencia laboral
+                        a(href='') Experiencia laboral
                       li
-                        a.disabled() Experiencia como evaluador
-                      li
-                        a.disabled() Competencias del evaluador
+                        a(href='') Experiencia como evaluador
+                      //- li
+                      //-   a.disabled() Competencias del evaluador
               #form-mult
                 block content
     include ../../../includes/scripts

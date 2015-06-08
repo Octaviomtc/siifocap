@@ -28,33 +28,31 @@ block content
                 +hr()
                 label(class="col-md-11 col-md-offset-1 alert alert-info") * Lugar de residencia
                 +h-input("text", "", "calle", "Calle y número", "", 9, 3, "", "empty","")
-                +h-input("text", "", "interior", "Interior", "", 6, 3, "", "empty","")
-                +h-input("text", "", "colonia", "Colonia", "", 6, 3, "", "empty","")
-                +h-input("text", "", "delegacion", "Delegación/Municipio", "", 6, 3, "", "empty","")
-                +h-input("text", "", "cp", "C.P.", "", 6, 3, "", "empty","")
+                +h-input("text", "", "interior", "Interior", "", 9, 3, "", "empty","")
+                +h-input("text", "", "colonia", "Colonia", "", 9, 3, "", "empty","")
+                +h-input("text", "", "delegacion", "Delegación/Municipio", "", 9, 3, "", "empty","")
+                +h-input("text", "", "cp", "C.P.", "", 9, 3, "", "empty","")
                 .form-group
-                  .col-md-6.col-md-offset-3
+                  .col-md-9.col-md-offset-3
                     select#entidad.form-control(name='entidad',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                       option(value="") Seleccione ...
                       each entidad in entidades
                         option(value=entidad.abr)= entidad.nombre
                         
                 +hr()
-                
-                .col-md-4.col-md-offset-3
-                  input(type="radio", id="tipo", name="tipo", value="personal_ipn")
-                  label.fa-l
-                    | Personal del IPN
-                .col-md-4
-                  input.fa-r(type="radio", id="tipo", name="tipo", value="personal_externo")
-                  label.fa-l
-                    | Evaluador Externo
+                label(class="col-md-11 col-md-offset-1 alert alert-info") * Personal
+                .form-group
+                  .col-md-9.col-md-offset-3
+                    select#personal.form-control(name='personal',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                      option(value="") Seleccione ...
+                      option(value="IPN") Personal del IPN
+                      option(value="Externo") Evaluador Externo
                     
                 //- ************************************************************************
                 .personal_ipn(id='personal_ipn')
                   +hr()
-                  +h-input("date", "Fecha de ingreso al IPN:", "tipo_ipn[fecha_ingreso_ipn]", "Calle y número", "", 6, 3, "", "","")
-                  +h-input("text", "No. de Empleado:", "tipo_ipn[empleado_ipn]", "#", "", 6, 3, "", "","")
+                  +h-input("date", "Fecha de ingreso al IPN:", "tipo_ipn[fecha_ingreso_ipn]", "Calle y número", "", 9, 3, "", "","")
+                  +h-input("text", "No. de Empleado:", "tipo_ipn[empleado_ipn]", "#", "", 9, 3, "", "","")
                   
                   .form-group
                     span(class="control-label col-md-3")
@@ -98,24 +96,24 @@ block content
                   .form-group
                     span(class="control-label col-md-3")
                       | Correo electrónico:
-                    div(class="col-md-4")
+                    div(class="col-md-9")
                       +h-input("text", "", "tipo_ipn[correo_ipn]", "Correo institucional", "", 12, 0, "", "","")
                   .form-group
                     span(class="control-label col-md-3")
                       | &nbsp
-                    div(class="col-md-4")
+                    div(class="col-md-9")
                       +h-input("text", "", "", "Confirmar correo institucional", "", 12, 0, "", "","")
                       
                   hr
                   .form-group
                     span(class="control-label col-md-3")
                       | Correo alternativo
-                    div(class="col-md-4")
+                    div(class="col-md-9")
                       +h-input("text", "", "tipo_ipn[correo_alternativo]", "Correo alternativo", "", 12, 0, "", "","")
                   .form-group
                     span(class="control-label col-md-3")
                       | &nbsp
-                    div(class="col-md-4")
+                    div(class="col-md-9")
                       +h-input("text", "", "", "Confirmar correo alternativo", "", 12, 0, "", "","")
                   
                   hr
@@ -126,17 +124,17 @@ block content
                       +h-input("text", "", "tipo_ipn[tel_particular]", "Ingresa número particular (10 digítos)", "", 12, 0, "", "","")
                     div(class="col-md-3")
                       +h-input("text", "", "tipo_ipn[tel_trabajo]", "Ingresa número de trabajo (10 digítos)", "", 12, 0, "", "","")
-                    div(class="col-md-2")
+                    div(class="col-md-3")
                       +h-input("text", "", "tipo_ipn[tel_extension]", "Extensión", "", 12, 0, "", "","")
                 
                 
                 //- ************************************************************************
-                //- .personal_externo(id="personal_externo")
-                //-   +hr()
-                //-   +h-input("text", "Institución donde labora actualmente:", "tipo_externo[institucion]", "Institución donde labora actualmente", "", 9, 3, "autofocus", "","")
-                //-   +h-input("text", "Correo electrónico:", "tipo_externo[correo]", "Correo@", "", 9, 3, "", "","")
-                //-   +h-input("text", "Teléfono:", "tipo_externo[telefono]", "Teléfono", "", 9, 3, "", "","")
-                //-   
+                .personal_externo(id="personal_externo")
+                  +hr()
+                  +h-input("text", "Institución donde labora actualmente:", "tipo_externo[institucion]", "Institución donde labora actualmente", "", 9, 3, "autofocus", "","")
+                  +h-input("text", "Correo electrónico:", "tipo_externo[correo]", "Correo@", "", 9, 3, "", "","")
+                  +h-input("text", "Teléfono:", "tipo_externo[telefono]", "Teléfono", "", 9, 3, "", "","")
+                  
                   
 
                 +h-input("hidden", "", "estatus_sec_1", "", "true", 9, 3, "", "","") 
@@ -194,3 +192,27 @@ block content
         }); //end ajax
         return false;
       }
+
+
+       //select "Personal" cambia al select de PERSONAL
+      function PersonalActivo(){
+            $('#personal_ipn').hide();
+            $('#personal_externo').hide();
+      }
+      PersonalActivo()
+        
+      $( "#personal" ).change(function(){
+        var valor = $('#personal :selected').val();
+         if (valor==""){
+          PersonalActivo();
+         }else{
+            if (valor=="IPN"){
+              $('#personal_ipn').show();
+              $('#personal_externo').hide();
+            }else{
+              $('#personal_ipn').hide();
+            $('#personal_externo').show();
+            }
+         }
+
+      });
