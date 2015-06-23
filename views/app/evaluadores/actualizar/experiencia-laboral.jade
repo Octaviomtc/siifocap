@@ -12,113 +12,76 @@ block content
         .contenido
           .row
             .col-md-11
-              form.form-horizontal(method='post', action="/evaluadores/#{evaluador._id}/formacion-academica", enctype='multipart/form-data')
-                
-                
-                label(class="col-md-11 col-md-offset-1 alert alert-info") Estudios Profesionales
+              form.form-horizontal(method='post', action="/evaluadores/#{evaluador.id}/datos-personales", enctype='application/json')
+                label(class="col-md-11 col-md-offset-1 alert alert-info") Experiencia Laboral
                 span(class="col-md-11 col-md-offset-1 alert alert-info")
-                  | Integre la información correspondiente a su formación profesional de licenciatura.
+                  | Ingrese la información solicitada en relación con su experiencia en los cargos o puestos laborales con  duración mayor a un año.
                   
-                
-                +h-input("hidden", "", "estatus_sec_2", "", "true", 9, 3, "", "","") 
-                
-                .form-group
-                  span(class="control-label col-md-3")
-                    |* Campo de formación académica:
-                  div(class="col-md-9")
-                    select#formacion_academica.form-control(name='formacion_academica',data-validation="empty", data-toggle="tooltip", data-placement="top", title="", autofocus)
-                      option(value="") Seleccione ...
-                      each formaciones in formacion
-                        if formaciones.nombre_campo_amplio == evaluador.formacion_academica
-                          option(value=formaciones.nombre_campo_amplio, selected)= formaciones.nombre_campo_amplio
-                        else
-                          option(value=formaciones.nombre_campo_amplio)= formaciones.nombre_campo_amplio
-                
-                .form-group
-                  span(class="control-label col-md-3")
-                    |* Campo de formación específico:
-                  div(class="col-md-9")
-                    select#formacion_academica_especifico.form-control(name='formacion_academica_especifico',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
-                      option(value="") Seleccione ...
-                      
-                
-                
-                
-                .form-group
-                  span(class="control-label col-md-3")
-                    |* Nombre de la carrera
-                  div(class="col-md-9")
-                    select#formacion_academica_carrera.form-control(name='formacion_academica_carrera',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
-                      option(value="") Seleccione ...
-                
-                
-                
-                
-                .form-group
-                  span(class="control-label col-md-3")
-                    |* Institución donde realizó sus estudios
-                  div(class="col-md-9")
-                    select#institucion_realizacion_estudios.form-control(name='institucion_realizacion_estudios',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
-                      option(value="") Seleccione ...
-                      option(value="nacional", selected="nacional" == evaluador.institucion_realizacion_estudios) Institución educativa nacional
-                      option(value="internacional", selected="internacional" == evaluador.institucion_realizacion_estudios) Institución educativa en el extranjero
-                      
-                      
-                      
-                      
-                .form-group
-                  span(class="control-label col-md-3")
-                    | Entidad federativa
-                  div(class="col-md-9")
-                    select#entidad_federativa.form-control(name='entidad_federativa')
-                      option(value="") Seleccione ...
-                      each entidad in entidades
-                        if entidad.abr==evaluador.entidad_federativa
-                          option(value=entidad.abr, selected)= entidad.nombre
-                        else
-                          option(value=entidad.abr)= entidad.nombre
-                
-                
                 +hr()
-                        
-                label(class="col-md-11 col-md-offset-1 alert alert-info") * Tipo de institución
+                +h-input("text", "Institución pública", "institucion_publica", "Institución pública", evaluador.nombre, 9, 3, "autofocus", "empty","")
+                +h-input("text", "Empresa privada", "empresa_privada", "Empresa privada", evaluador.apellidos, 9, 3, "", "empty","")
+                
                 .form-group
-                  .col-md-9.col-md-offset-3
-                    select#tipo_institucion.form-control(name='tipo_institucion',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                  span(class="control-label col-md-3")
+                    | Practica docente
+                  div(class="col-md-9")
+                    select#practicas_docentes.form-control(name='practicas_docentes',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                       option(value="") Seleccione ...
-                      option(value="publica", selected="publica" == evaluador.tipo_institucion) Escuela Pública
-                      option(value="privada", selected="privada" == evaluador.tipo_institucion) Escuela Privada
+                      option(value="Si") Si
+                      option(value="No") No
                 
                 //- ************************************************************************
-                .escuelas(id='escuelas_publicas')
-                  +hr()
-                  span(class="control-label col-md-3")
-                    | Escuelas públicas
-                  div(class="col-md-9")
-                    select#escuela_publica.form-control(name='escuela_publica')
-                      option(value='') Seleccione ...
-                      each escuela in escuelas_publicas
-                        option(value=escuela.nombre, selected=escuela.nombre==evaluador.escuela_publica)= escuela.nombre
+                .row
+                  .container
+                    .Si_docente(id='Si_docente')
+                      +hr()
+                      .form-group
+                        span(class="control-label col-md-3")
+                          | En el IPN
+                        div(class="col-md-9")
+                          select#escuela_publica.form-control(name='escuela_publica')
+                            option(value='') Seleccione ...
+                            each escuela in escuelas_publicas
+                              option(value=escuela.nombre, selected=escuela.nombre==evaluador.escuela_publica)= escuela.nombre
+                      br
+                      +h-input("text", "Institución pública", "institucion_publica", "Institución pública", evaluador.nombre, 9, 3, "autofocus", "empty","")
+
+                      .row
+                        .form-group
+                        span(class="control-label col-md-3")
+                          | Modalidad:
+                        div(class="col-md-9")
+                          select#modalidad_evaluadores.form-control(name='modalidad_evaluadores',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                            option(value="") Seleccione ...
+                            option(value="escolarizada") Escolarizada
+                            option(value="no_escolarizada") No escolarizada
+                            option(value="mixta") Mixta
                 
                 //- ************************************************************************
-                .escuelas(id='escuelas_privadas')
-                  +hr()
-                  span(class="control-label col-md-3")
-                    | Escuelas privadas
-                  div(class="col-md-9")
-                    select#escuela_privada.form-control(name='escuela_privada')
-                      option(value='') Seleccione ...
-                      each escuela in escuelas_privadas
-                        option(value=escuela.nombre, selected=escuela.nombre==evaluador.escuela_privada)= escuela.nombre
-                
+                .row
+                  .container
+                    .No_docente(id='No_docente')
+                      +hr()
+                      +h-input("text", "Nivel Educativo", "institucion_publica", "Nivel Educativo", evaluador.nombre, 9, 3, "autofocus", "empty","")
+                      +h-input("text", "Asignatura", "institucion_publica", "Asignatura", evaluador.nombre, 9, 3, "autofocus", "empty","")
+                      .row
+                        .form-group
+                        span(class="control-label col-md-3")
+                          | Modalidad:
+                        div(class="col-md-9")
+                          select#modalidad_evaluadores.form-control(name='modalidad_evaluadores',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                            option(value="") Seleccione ...
+                            option(value="escolarizada") Escolarizada
+                            option(value="no_escolarizada") No escolarizada
+                            option(value="mixta") Mixta
                 
                 +hr()
-                label(class="col-md-11 col-md-offset-1 alert alert-info") Estudios complementarios
+                label(class="col-md-11 col-md-offset-1 alert alert-info") Unidad Academica
                 span(class="control-label col-md-1")
                 div(class="col-md-9")
                   a.btn.btn-success.fa-r(onclick="addEstudios()")
                     i.fa.fa-plus-circle.fa-r
-                    | Agregar estudios complementarios
+                    | Agregar Unidad Academica
                 
                 +hr()
                 if evaluador.complementario.length >0
@@ -138,14 +101,6 @@ block content
                             | Eliminar
                     - i=i+1
                 div#estudiosComplementariosDiv
-
-
-                +hr()
-                label(class="col-md-11 col-md-offset-1 alert alert-info") Documentación
-                +h-input("file", "Cédula profesional", "cedula_profesional", "", evaluador.cedula_profesional, 9, 3, "", "","Adjunte en PDF copia de su cédula profesional, de acuerdo al nivel de estudios profesionales registrado.") 
-                +h-input("file", "Documentación probatoria", "documentacion_probatoria", "", evaluador.documentacion_probatoria, 9, 3, "", "","Adjunte en formato PDF un documento con las  constancias, diplomas, certificaciones, entre otros, que comprueben la validez de los estudios complementarios  y eventos académicos registrados en este espacio.") 
-                
-
                   
                 +hr()
                 .col-md-9.col-md-offset-3
@@ -292,29 +247,29 @@ block content
           }
 
           //select "Institución" cambia al select de TIPO DE INSTITUCION
-      function EscuelasActivas(){
-          $('#escuelas_publicas').hide();
-          $('#escuelas_privadas').hide();
+      function Activas(){
+          $('#Si_docente').hide();
+          $('#No_docente').hide();
       }
-      EscuelasActivas();
+      Activas();
       
-      function EscuelasPublicas(){
-        $('#escuelas_publicas').show();
-        $('#escuelas_privadas').hide();
+      function Si_docente(){
+        $('#Si_docente').show();
+        $('#No_docente').hide();
       }
 
-      function EscuelasPrivadas(){
-        $('#escuelas_publicas').hide();
-        $('#escuelas_privadas').show();
+      function No_docente(){
+        $('#Si_docente').hide();
+        $('#No_docente').show();
       }
 
       var tipo = "!{evaluador.tipo_institucion}";
-      if(tipo=="privada"){
-        EscuelasPrivadas();
+      if(tipo=="No"){
+        No_docente();
       }
 
-      if(tipo=="publica"){
-        EscuelasPublicas();
+      if(tipo=="Si"){
+        Si_docente();
       }
 
       //limpa valores de un div
@@ -327,19 +282,19 @@ block content
       }
 
         
-      $( "#tipo_institucion" ).on('change', function(){
-        var valor = $('#tipo_institucion :selected').val();
+      $( "#practicas_docentes" ).on('change', function(){
+        var valor = $('#practicas_docentes :selected').val();
          if (valor==""){
-          clearValues("escuelas_privados");
-          clearValues("escuelas_publicas");
-          EscuelasActivas();
+          clearValues("No_docente");
+          clearValues("Si_docente");
+          Activas();
          }else{
-            if (valor=="publica"){
-              clearValues("escuelas_privados");
-              EscuelasPublicas();              
+            if (valor=="Si"){
+              clearValues("No_docente");
+              Si_docente();              
             }else{
-              clearValues("escuelas_publicas");
-              EscuelasPrivadas();
+              clearValues("Si_docente");
+              No_docente();
             }
          }
       });
