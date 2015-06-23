@@ -18,7 +18,10 @@ exports.addDictamen = function(req, res, next) {
 
   console.log("*******************");
 
-  accionesFormacion.findOneAndUpdate({_id:req.params.id}, obj, function (err, accion) {
+  var body = {};
+  body.dictaminacion = req.body.pregunta;
+
+  accionesFormacion.findOneAndUpdate({_id:req.params.id}, body, function (err, accion) {
     if(err) res.send(500, err.message);
     // console.log(accion);
     res.accionFormacion = accion;
