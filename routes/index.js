@@ -501,7 +501,7 @@ module.exports = function(passport){
 
 
     // nuevo evaluador paso 3 actualizar
-    router.get('/evaluadores/:id/experiencia-laboral', isAuthenticated, evaluadoresMid.findById, formacionMid.findAllFormacion, entidadesMid.findAllEntidades, escuelas_privadasMid.findAllEscuelas, escuelas_publicasMid.findAllEscuelas, function(req, res){
+    router.get('/evaluadores/:id/experiencia-laboral', isAuthenticated, evaluadoresMid.findById, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, formacionMid.findAllFormacion, entidadesMid.findAllEntidades, escuelas_privadasMid.findAllEscuelas, escuelas_publicasMid.findAllEscuelas, function(req, res){
       param={
         icon: "fa-plus-circle",
         seccion: "Nuevo evaluador",

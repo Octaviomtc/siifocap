@@ -37,12 +37,19 @@ block content
                       +hr()
                       .form-group
                         span(class="control-label col-md-3")
-                          | En el IPN
+                          | Dependencia Politécnica Solicitante:
                         div(class="col-md-9")
-                          select#escuela_publica.form-control(name='escuela_publica')
-                            option(value='') Seleccione ...
-                            each escuela in escuelas_publicas
-                              option(value=escuela.nombre, selected=escuela.nombre==evaluador.escuela_publica)= escuela.nombre
+                          select#dependencia.form-control(name='dependencia',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                            option(value="") Seleccione dependencia ...
+                              each dependencia in dependencias
+                                option(value=dependencia.dependencia, selected= dependencia.dependencia == evaluador.dependencia)= dependencia.dependencia
+
+                      .form-group#unidadForm
+                        span(class="control-label col-md-3")
+                          | 
+                        div(class="col-md-9")
+                          select#unidad.form-control(name='unidad',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                            option(value="") Seleccione unidad ...
                       br
                       +h-input("text", "Institución pública", "institucion_publica", "Institución pública", evaluador.nombre, 9, 3, "autofocus", "empty","")
 
@@ -311,3 +318,5 @@ block content
         $("#"+id).empty();
       }
 
+      //***********************
+            
