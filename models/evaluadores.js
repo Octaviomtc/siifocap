@@ -56,8 +56,20 @@ var evaluadoresSchema = new Schema({
 
 
 
-
+  institucion_publica                     :String,
+  empresa_privada                         :String,
+  practicas_docentes                      :String,
+  dependencia_experiencia                 :String,
+  unidad_experiencia                      :String,
+  institucion_publica_exp                 :String,
+  modalidad_evaluadores_exp               :String,
+  nivel_educativo_exp                     :String,
+  asignatura_exp                          :String,
+  modalidad_evaluadores_no                :String,
   estatus_sec_3                           :String,
+  
+
+
   estatus_sec_4                           :String
 },
 {
