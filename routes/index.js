@@ -7,6 +7,7 @@ var dependencia     = require('../models/dependencia');
 var rol             = require('../models/rol');
 var participante    = require('../models/participante');
 var evaluadores     = require('../models/evaluadores');
+var facilitadores   = require('../models/facilitadores');
 var formacion       = require('../models/formacion');
 var entidades       = require('../models/entidades');
 var escuelas_privadas = require('../models/escuelas_privadas');
@@ -18,6 +19,7 @@ var usuariosMid     = require('../controllers/usuarios');
 var escuelaMid      = require('../controllers/escuelas');
 var accionesMid     = require('../controllers/acciones');
 var participMid     = require('../controllers/participantes');
+var facilitadoresMid= require('../controllers/facilitadores');
 var evaluadoresMid  = require('../controllers/evaluadores');
 var formacionMid    = require('../controllers/formacion');
 var entidadesMid    = require('../controllers/entidades');
@@ -413,6 +415,102 @@ module.exports = function(passport){
       res.set('Content-Type', 'application/javascript');
       res.redirect('/participantes');
     });
+
+    
+
+    /*****************************************************************/
+    // SECCIÓN FACILITADORES
+    router.get('/facilitadores', isAuthenticated, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Facilitadores",
+        estado: "facilitadores"
+      }
+      res.render('app/facilitadores/index',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+
+     router.get('/facilitadores/crear/init-facilitador', isAuthenticated, facilitadoresMid.initFacilitadores, function(req, res){
+       param={
+            icon: "fa-plus-circle",
+            seccion: "Nuevo facilitador",
+            estado: "facilitadores",
+            paso: "1"
+        }
+
+        res.redirect("/facilitadores/"+res.facilitadores._id+"/datos-personales")
+    });
+
+
+    // nuevo facilitador paso 1 actualizar
+    router.get('/facilitadores/:id/datos-personales', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, facilitadoresMid.findById, entidadesMid.findAllEntidades, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Nuevo facilitador",
+        estado: "facilitadores",
+        paso: "1"
+      }
+
+      res.render('app/facilitadores/actualizar/datos-personales',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+
+    router.post('/facilitadores/:id/datos-personales', isAuthenticated, facilitadoresMid.updateFacilitador, function(req, res){
+      res.set('Content-Type', 'application/javascript');
+      res.redirect("/facilitadores/"+res.facilitadores._id+"/datos-personales");
+    });
+
+
+    // nuevo facilitador paso 2 actualizar
+    router.get('/facilitadores/:id/formacion-academica', isAuthenticated, evaluadoresMid.findById, formacionMid.findAllFormacion, entidadesMid.findAllEntidades, escuelas_privadasMid.findAllEscuelas, escuelas_publicasMid.findAllEscuelas, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Nuevo facilitador",
+        estado: "facilitadores",
+        paso: "2"
+      }
+
+      res.render('app/facilitadores/actualizar/formacion-academica',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+
+    // se configura para recibir archivos temporales
+    router.post('/facilitadores/:id/formacion-academica', isAuthenticated, multer({
+      dest: __dirname+ "/.."+"/temp/uploads/facilitadores/files"
+    }));
+
+    router.post('/facilitadores/:id/formacion-academica', isAuthenticated, facilitadoresMid.updateFacilitador, function(req, res){
+      res.redirect("/facilitadores/"+res.facilitadores._id+"/formacion-academica");
+    });
+
+
+
+    // nuevo facilitador paso 3 actualizar
+    router.get('/facilitadores/:id/experiencia-laboral', isAuthenticated, facilitadoresMid.findById, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, formacionMid.findAllFormacion, entidadesMid.findAllEntidades, escuelas_privadasMid.findAllEscuelas, escuelas_publicasMid.findAllEscuelas, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Nuevo facilitador",
+        estado: "facilitadores",
+        paso: "3"
+      }
+
+      res.render('app/facilitadores/actualizar/experiencia-laboral',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+
+    // se configura para recibir archivos temporales
+    router.post('/facilitadores/:id/experiencia-laboral', isAuthenticated, multer({
+      dest: __dirname+ "/.."+"/temp/uploads/facilitadores/files"
+    }));
+
+    router.post('/facilitadores/:id/experiencia-laboral', isAuthenticated, facilitadoresMid.updateFacilitador, function(req, res){
+      res.redirect("/facilitadores/"+res.facilitadores._id+"/experiencia-laboral");
+    });
+
+
+
+
+
 
     /*****************************************************************/
     // SECCIÓN EVALUADORES
