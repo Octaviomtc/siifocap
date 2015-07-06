@@ -430,7 +430,7 @@ module.exports = function(passport){
     });
 
 
-     router.get('/facilitadores/crear/init-facilitador', isAuthenticated, facilitadoresMid.initFacilitadores, function(req, res){
+     router.get('/facilitadores/crear/init-facilitadores', isAuthenticated, facilitadoresMid.initFacilitadores, function(req, res){
        param={
             icon: "fa-plus-circle",
             seccion: "Nuevo facilitador",
@@ -462,7 +462,7 @@ module.exports = function(passport){
 
 
     // nuevo facilitador paso 2 actualizar
-    router.get('/facilitadores/:id/formacion-academica', isAuthenticated, evaluadoresMid.findById, formacionMid.findAllFormacion, entidadesMid.findAllEntidades, escuelas_privadasMid.findAllEscuelas, escuelas_publicasMid.findAllEscuelas, function(req, res){
+    router.get('/facilitadores/:id/formacion-academica', isAuthenticated, facilitadoresMid.findById, formacionMid.findAllFormacion, entidadesMid.findAllEntidades, escuelas_privadasMid.findAllEscuelas, escuelas_publicasMid.findAllEscuelas, function(req, res){
       param={
         icon: "fa-plus-circle",
         seccion: "Nuevo facilitador",

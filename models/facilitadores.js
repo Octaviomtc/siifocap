@@ -10,6 +10,7 @@ var facilitadoresSchema = new Schema({
   nombre                                  :String,
   apellidos                               :String,
   curp                                    :String,
+  rfc                                     :String,
   calle                                   :String,
   interior                                :String,
   colonia                                 :String,
@@ -41,14 +42,9 @@ var facilitadoresSchema = new Schema({
 
 
 
-  formacion_academica                     :String,
-  formacion_academica_especifico          :String,
-  formacion_academica_carrera             :String,
-  institucion_realizacion_estudios        :String,
-  entidad_federativa                      :String,
-  tipo_institucion                        :String,
-  escuela_publica                         :String,
-  escuela_privada                         :String,
+  ultimo_grado                            :String,
+  disciplina_facilitador                  :String,
+  institucion_formadora_facilitador       :String,
   complementario                          :[{disciplina: String, institucion_formadora: String }],
   cedula_profesional                      :String,
   documentacion_probatoria                :String,

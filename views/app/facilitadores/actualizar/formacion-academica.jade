@@ -1,0 +1,92 @@
+extends ../layout/layout-up
+
+block content
+  #message
+    if message
+      .error-message
+          a.text-center #{message}
+  .row
+    .col-md-12
+      .formulario.animated.fadeIn
+        
+        .contenido
+          .row
+            .col-md-11
+              form.form-horizontal(method='post', action="/facilitadores/#{facilitador._id}/formacion-academica", enctype='multipart/form-data')
+                
+                
+                label(class="col-md-11 col-md-offset-1 alert alert-info") Estudios Profesionales
+                span(class="col-md-11 col-md-offset-1 alert alert-info")
+                  | Último grado de estudios (con cédula profesional)
+                .form-group
+                  .col-md-9.col-md-offset-3
+                    select#tipo_contratacion.form-control(name='ultimo_grado',data-validation="", data-toggle="tooltip", data-placement="top", title="")
+                        option(value="") Seleccione ...
+                        option(value='Licenciatura', selected= "Licenciatura" == facilitador.ultimo_grado) Licenciatura
+                        option(value='Especialidad', selected= "Especialidad" == facilitador.ultimo_grado) Especialidad 
+                        option(value='Maestría', selected= "Maestría" == facilitador.ultimo_grado) Maestría
+                        option(value='Doctorado', selected= "Doctorado" == facilitador.ultimo_grado) Doctorado
+                +hr()
+                +h-input("text", "Disciplina", "disciplina_facilitador", "Disciplina", facilitador.disciplina_facilitador, 9, 3, "", "empty","")
+                +h-input("text", "Institución Formadora", "institucion_formadora_facilitador", "Institución Formadora", facilitador.institucion_formadora_facilitador, 9, 3, "", "empty","")
+
+                +hr()
+                label(class="col-md-11 col-md-offset-1 alert alert-info") Estudios complementarios
+                span(class="control-label col-md-1")
+                div(class="col-md-9")
+                  a.btn.btn-success.fa-r(onclick="addEstudios()")
+                    i.fa.fa-plus-circle.fa-r
+                    | Agregar estudios complementarios
+                
+                +hr()
+                if facilitador.complementario.length >0
+                  - var complementario = facilitador.complementario
+                  - var i = 0
+                  each com in complementario
+                    - var contenedor = "divCompleCont"+i
+                    div(id=contenedor)
+                      hr
+                      +h-input("text", "Disciplina", "complementario["+i+"][disciplina]", "Disciplina", com.disciplina, 9, 3, "", "","")
+                      +h-input("text", "Institución formadora", "complementario["+i+"][institucion_formadora]", "Institución formadora", com.institucion_formadora, 9, 3, "", "","")
+                      div#dependenciaCoparticipanteAdd.form-group
+                        span.control-label.col-md-3
+                        div.col-md-9
+                          a.btn.btn-danger.fa-r(onclick='delCompEvaludor("'+contenedor+'")')
+                            i.fa.fa-trash.fa-r
+                            | Eliminar
+                    - i=i+1
+                div#estudiosComplementariosDiv
+                
+                +hr()
+                .col-md-9.col-md-offset-3
+                    button.btn.btn-success.fa-r(type='submit')
+                      i.fa.fa-save.fa-r
+                      | Guardar
+                      
+                    if facilitador.estatus_sec_2=='true'
+                      a.btn.btn-success.fa-r(href="/facilitadores/#{facilitador._id}/pendiente")
+                        i.fa.fa-check-circle.fa-r
+                        | Continuar
+                    else
+                      a.btn.btn-success.disabled.fa-r(href="")
+                        i.fa.fa-check-circle.fa-r
+                        | Continuar
+
+                    a.btn.btn-danger(href="#")
+                      | Cancelar
+  append javascript
+    script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
+    script.
+      var facilitadores = "!{facilitador.complementario.length}";
+
+      //- Funcion para crear nuevo Estudio Complementario
+      function addEstudios(){
+        $('#estudiosComplementariosDiv').append('<hr><div id="divCompleCont'+facilitadores+'"><div class="form-group"><span class="control-label col-md-3">Disciplina</span><div class="col-md-9"><input type="text" id="complementario['+facilitadores+'][disciplina]" name="complementario['+facilitadores+'][disciplina]" placeholder="Disciplina"  value="" data-validation="" data-toggle="tooltip" data-placement="top" title="" class="form-control"></div></div><div class="form-group"><span class="control-label col-md-3">Institución formadora</span><div class="col-md-9"><input type="text" id="complementario['+facilitadores+'][institucion_formadora]" name="complementario['+facilitadores+'][institucion_formadora]" placeholder="Institución formadora" value="" data-validation="" data-toggle="tooltip" data-placement="top" title="" class="form-control"></div></div><div id="dependenciaCoparticipanteAdd" class="form-group"><span class="control-label col-md-3"></span><div class="col-md-9"><a onclick=delCompEvaludor("divCompleCont'+facilitadores+'") class="btn btn-danger fa-r"><i class="fa fa-trash fa-r"></i>Eliminar</a></div></div></div>');
+        facilitadores=parseInt(facilitadores)+1;
+      }
+      
+      function delCompEvaludor(id){
+        $("#"+id).empty();
+      }
+
+
