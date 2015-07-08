@@ -18,8 +18,8 @@ block content
                   | Ingrese la información solicitada en relación con su experiencia en los cargos o puestos laborales con  duración mayor a un año.
                   
                 +hr()
-                +h-input("text", "Institución pública", "institucion_publica", "Institución pública", evaluador.nombre, 9, 3, "autofocus", "empty","")
-                +h-input("text", "Empresa privada", "empresa_privada", "Empresa privada", evaluador.apellidos, 9, 3, "", "empty","")
+                +h-input("text", "Institución pública", "institucion_publica", "Institución pública", evaluador.institucion_publica, 9, 3, "autofocus", "empty","")
+                +h-input("text", "Empresa privada", "empresa_privada", "Empresa privada", evaluador.empresa_privada, 9, 3, "", "empty","")
                 
                 .form-group
                   span(class="control-label col-md-3")
@@ -27,8 +27,8 @@ block content
                   div(class="col-md-9")
                     select#practicas_docentes.form-control(name='practicas_docentes',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                       option(value="") Seleccione ...
-                      option(value="Si") Si
-                      option(value="No") No
+                      option(value="Si", selected="Si" == evaluador.practicas_docentes) Si
+                      option(value="No", selected="No" == evaluador.practicas_docentes) No
                 
                 //- ************************************************************************
                 .row
@@ -39,48 +39,48 @@ block content
                         span(class="control-label col-md-3")
                           | Dependencia Politécnica Solicitante:
                         div(class="col-md-9")
-                          select#dependencia.form-control(name='dependencia',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                          select#dependencia.form-control(name='dependencia_experiencia',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                             option(value="") Seleccione dependencia ...
                               each dependencia in dependencias
-                                option(value=dependencia.dependencia, selected= dependencia.dependencia == evaluador.dependencia)= dependencia.dependencia
+                                option(value=dependencia.dependencia, selected= dependencia.dependencia == evaluador.dependencia_experiencia)= dependencia.dependencia
 
                       .form-group#unidadForm
                         span(class="control-label col-md-3")
                           | 
                         div(class="col-md-9")
-                          select#unidad.form-control(name='unidad',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                          select#unidad.form-control(name='unidad_experiencia',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                             option(value="") Seleccione unidad ...
                       br
-                      +h-input("text", "Institución pública", "institucion_publica", "Institución pública", evaluador.nombre, 9, 3, "autofocus", "empty","")
+                      +h-input("text", "Institución pública", "institucion_publica_exp", "Institución pública", evaluador.institucion_publica_exp, 9, 3, "autofocus", "empty","")
 
                       .row
                         .form-group
                         span(class="control-label col-md-3")
                           | Modalidad:
                         div(class="col-md-9")
-                          select#modalidad_evaluadores.form-control(name='modalidad_evaluadores',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                          select#modalidad_evaluadores.form-control(name='modalidad_evaluadores_exp',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                             option(value="") Seleccione ...
-                            option(value="escolarizada") Escolarizada
-                            option(value="no_escolarizada") No escolarizada
-                            option(value="mixta") Mixta
+                            option(value="escolarizada", selected="escolarizada" == evaluador.modalidad_evaluadores_exp) Escolarizada
+                            option(value="no_escolarizada", selected="no_escolarizada" == evaluador.modalidad_evaluadores_exp) No escolarizada
+                            option(value="mixta", selected="mixta" == evaluador.modalidad_evaluadores_exp) Mixta
                 
                 //- ************************************************************************
                 .row
                   .container
                     .No_docente(id='No_docente')
                       +hr()
-                      +h-input("text", "Nivel Educativo", "institucion_publica", "Nivel Educativo", evaluador.nombre, 9, 3, "autofocus", "empty","")
-                      +h-input("text", "Asignatura", "institucion_publica", "Asignatura", evaluador.nombre, 9, 3, "autofocus", "empty","")
+                      +h-input("text", "Nivel Educativo", "nivel_educativo_exp", "Nivel Educativo", evaluador.nivel_educativo_exp, 9, 3, "autofocus", "empty","")
+                      +h-input("text", "Asignatura", "asignatura_exp", "Asignatura", evaluador.asignatura_exp, 9, 3, "autofocus", "empty","")
                       .row
                         .form-group
                         span(class="control-label col-md-3")
                           | Modalidad:
                         div(class="col-md-9")
-                          select#modalidad_evaluadores.form-control(name='modalidad_evaluadores',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                          select#modalidad_evaluadores.form-control(name='modalidad_evaluadores_no',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                             option(value="") Seleccione ...
-                            option(value="escolarizada") Escolarizada
-                            option(value="no_escolarizada") No escolarizada
-                            option(value="mixta") Mixta
+                            option(value="escolarizada", selected="escolarizada" == evaluador.modalidad_evaluadores_no) Escolarizada
+                            option(value="no_escolarizada", selected="no_escolarizada" == evaluador.modalidad_evaluadores_no) No escolarizada
+                            option(value="mixta", selected="mixta" == evaluador.modalidad_evaluadores_no) Mixta
                 
                 +hr()
                 label(class="col-md-11 col-md-offset-1 alert alert-info") Unidad Academica

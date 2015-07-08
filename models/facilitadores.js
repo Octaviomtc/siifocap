@@ -5,11 +5,12 @@ var complementario_schema = new Schema(
   {disciplina: String, institucion_formadora: String }
 );
 
-var evaluadoresSchema = new Schema({
+var facilitadoresSchema = new Schema({
   registro_date                           :{type: Date, default: Date.now },
   nombre                                  :String,
   apellidos                               :String,
   curp                                    :String,
+  rfc                                     :String,
   calle                                   :String,
   interior                                :String,
   colonia                                 :String,
@@ -41,14 +42,9 @@ var evaluadoresSchema = new Schema({
 
 
 
-  formacion_academica                     :String,
-  formacion_academica_especifico          :String,
-  formacion_academica_carrera             :String,
-  institucion_realizacion_estudios        :String,
-  entidad_federativa                      :String,
-  tipo_institucion                        :String,
-  escuela_publica                         :String,
-  escuela_privada                         :String,
+  ultimo_grado                            :String,
+  disciplina_facilitador                  :String,
+  institucion_formadora_facilitador       :String,
   complementario                          :[{disciplina: String, institucion_formadora: String }],
   cedula_profesional                      :String,
   documentacion_probatoria                :String,
@@ -62,10 +58,10 @@ var evaluadoresSchema = new Schema({
   dependencia_experiencia                 :String,
   unidad_experiencia                      :String,
   institucion_publica_exp                 :String,
-  modalidad_evaluadores_exp               :String,
+  modalidad_facilitadores_exp             :String,
   nivel_educativo_exp                     :String,
   asignatura_exp                          :String,
-  modalidad_evaluadores_no                :String,
+  modalidad_facilitadores_no              :String,
   estatus_sec_3                           :String,
   
 
@@ -73,9 +69,9 @@ var evaluadoresSchema = new Schema({
   estatus_sec_4                           :String
 },
 {
-  collection : 'evaluadores'
+  collection : 'facilitadores'
 }
 );
 
 
-module.exports = mongoose.model('evaluadores', evaluadoresSchema);
+module.exports = mongoose.model('facilitadores', facilitadoresSchema);

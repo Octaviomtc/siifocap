@@ -1,0 +1,258 @@
+extends ../layout/layout-up
+
+block content
+  #message
+    if message
+      .error-message
+          a.text-center #{message}
+  .row
+    .col-md-12
+      .formulario.animated.fadeIn
+        
+        .contenido
+          .row
+            .col-md-11
+              form.form-horizontal(method='post', action="/facilitadores/#{facilitador.id}/datos-personales", enctype='application/json')
+                span(class="col-md-11 col-md-offset-1 alert alert-info")
+                  | Los datos personales recabados serán protegidos y serán incorporados y tratados en el Sistema de Registro de Acciones de Formación, con fundamento en la Ley Federal de Transparencia y Acceso a la Información Pública Gubernamental (Art. 14, Fracc. I; Art. 18, Fracc. II; Art. 19; y Art. 20, Fracc. I) y cuya finalidad es la obtención de datos para identificación y control interno. La Unidad Administrativa responsable del Sistema de Registro de Acciones de Formación es la Coordinación General de Formación e Innovación Educativa y la dirección donde el interesado podrá ejercer los derechos de acceso y corrección ante la misma es Edificio “Adolfo Ruiz Cortines” Av. Wilfrido Massieu s/n esq. Luis Enrique Erro, Unidad Profesional "Adolfo López Mateos", Zacatenco, Ciudad de México, D. F., C.P. 07738. Lo anterior se informa en cumplimiento del Decimoséptimo de los Lineamientos de Protección de Datos Personales, publicados en el Diario Oficial de la Federación el 30 de septiembre de 2005.
+                
+                label(class="col-md-11 col-md-offset-1 alert alert-info") Registre la información que se solicita del facilitador. Todos los datos con asterisco son obligatorios.
+                label(class="col-md-11 col-md-offset-1 alert alert-info") Escriba su(s) nombre(s) y apellido(s) de acuerdo al registro oficial establecido (acta de nacimiento o pasaporte)
+                +hr()
+                +h-input("text", "* Nombre(s)", "nombre", "Nombre(s)", facilitador.nombre, 9, 3, "autofocus", "empty","En mayúsculas y minúsculas, con acentos.")
+                
+                +h-input("text", "* Apellidos", "apellidos", "Apellidos", facilitador.apellidos, 9, 3, "", "empty","En mayúsculas y minúsculas, con acentos.")
+                
+                +h-input("text", "* Clave Única de Registro de Población (CURP):", "curp", "18 dígitos", facilitador.curp, 9, 3, "", "empty","")
+
+                +h-input("text", "* RFC:", "rfc", "RFC", facilitador.rfc, 9, 3, "", "empty","")
+
+                
+                +hr()
+                label(class="col-md-11 col-md-offset-1 alert alert-info") * Lugar de residencia
+                +h-input("text", "", "calle", "Calle y número", facilitador.calle, 9, 3, "", "empty","")
+                +h-input("text", "", "interior", "Interior", facilitador.interior, 9, 3, "", "empty","")
+                +h-input("text", "", "colonia", "Colonia", facilitador.colonia, 9, 3, "", "empty","")
+                +h-input("text", "", "delegacion", "Delegación/Municipio", facilitador.delegacion, 9, 3, "", "empty","")
+                +h-input("text", "", "cp", "C.P.", facilitador.cp, 9, 3, "", "empty","")
+                .form-group
+                  .col-md-9.col-md-offset-3
+                    select#entidad.form-control(name='entidad',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                      option(value="") Seleccione ...
+                      each entidad in entidades
+                        if entidad.abr==facilitador.entidad
+                          option(value=entidad.abr, selected)= entidad.nombre
+                        else
+                          option(value=entidad.abr)= entidad.nombre
+                        
+                +hr()
+                label(class="col-md-11 col-md-offset-1 alert alert-info") * Personal
+                .form-group
+                  .col-md-9.col-md-offset-3
+                    select#tipo.form-control(name='tipo',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                      option(value="") Seleccione ...
+                      option(value="IPN", selected= "IPN" == facilitador.tipo) Personal del IPN
+                      option(value="honorarios", selected= "honorarios" == facilitador.tipo) Contratación por Honorarios
+                    
+                //- ************************************************************************
+                .personal_ipn(id='personal_ipn')
+                  +hr()
+                  +h-input("date", "Fecha de ingreso al IPN:", "tipo_ipn[fecha_ingreso_ipn]", "Calle y número", facilitador.tipo_ipn.fecha_ingreso_ipn, 9, 3, "", "","")
+                  +h-input("text", "No. de Empleado:", "tipo_ipn[empleado_ipn]", "#", facilitador.tipo_ipn.empleado_ipn, 9, 3, "", "","")
+                  
+                  .form-group
+                    span(class="control-label col-md-3")
+                      | Unidad de adscripción:
+                    div(class="col-md-9")
+                      select#depen.form-control(name='tipo_ipn[dependencia]',data-validation="", data-toggle="tooltip", data-placement="top", title="")
+                        option(value="") Seleccione dependencia ...
+                        each dependencia in dependencias
+                          if dependencia.dependencia==facilitador.tipo_ipn.dependencia
+                            option(value=dependencia.dependencia, selected)= dependencia.dependencia
+                          else
+                            option(value=dependencia.dependencia)= dependencia.dependencia
+                          
+                  .form-group#unidadForm
+                    span(class="control-label col-md-3")
+                      | 
+                    div(class="col-md-9")
+                      select#unidad.form-control(name='tipo_ipn[unidad]',data-validation="", data-toggle="tooltip", data-placement="top", title="")
+                          option(value="") Seleccione unidad ...
+                  
+                  .form-group
+                    span(class="control-label col-md-3")
+                      | Tipo de contratación:
+                    div(class="col-md-9")
+                      select#tipo_contratacion.form-control(name='tipo_ipn[tipo_contratacion]',data-validation="", data-toggle="tooltip", data-placement="top", title="")
+                        option(value="") Seleccione ...
+                        option(value='Base', selected= "Base" == facilitador.tipo_ipn.tipo_contratacion) Base
+                        option(value='Interinato', selected= "Interinato" == facilitador.tipo_ipn.tipo_contratacion) Interinato 
+                        option(value='Plaza puesto', selected= "Plaza puesto" == facilitador.tipo_ipn.tipo_contratacion) Plaza puesto
+                        option(value='Confianza', selected= "Confianza" == facilitador.tipo_ipn.tipo_contratacion) Confianza
+                  
+                  
+                  .form-group
+                    span(class="control-label col-md-3")
+                      | Función:
+                    div(class="col-md-9")
+                      select#funcion.form-control(name='tipo_ipn[funcion]',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                        option(value="") Seleccione ...
+                        option(value='Directiva', selected= "Directiva" == facilitador.tipo_ipn.funcion) Directiva
+                        option(value='Docente', selected= "Docente" == facilitador.tipo_ipn.funcion) Docente 
+                        option(value='Apoyo y Asistencia a la Educación', selected= "Apoyo y Asistencia a la Educación" == facilitador.tipo_ipn.funcion) Apoyo y Asistencia a la Educación
+                  hr    
+                  .form-group
+                    span(class="control-label col-md-3")
+                      | Correo electrónico:
+                    div(class="col-md-9")
+                      +h-input("text", "", "tipo_ipn[correo_ipn]", "Correo institucional", facilitador.tipo_ipn.correo_ipn, 12, 0, "", "","")
+                  .form-group
+                    span(class="control-label col-md-3")
+                      | &nbsp
+                    div(class="col-md-9")
+                      +h-input("text", "", "", "Confirmar correo institucional", "", 12, 0, "", "","")
+                      
+                  hr
+                  .form-group
+                    span(class="control-label col-md-3")
+                      | Correo alternativo
+                    div(class="col-md-9")
+                      +h-input("text", "", "tipo_ipn[correo_alternativo]", "Correo alternativo", facilitador.tipo_ipn.correo_alternativo, 12, 0, "", "","")
+                  .form-group
+                    span(class="control-label col-md-3")
+                      | &nbsp
+                    div(class="col-md-9")
+                      +h-input("text", "", "", "Confirmar correo alternativo", "", 12, 0, "", "","")
+                  
+                  hr
+                  .form-group
+                    span(class="control-label col-md-3")
+                      | Número Telefónico:
+                    div(class="col-md-3")
+                      +h-input("text", "", "tipo_ipn[tel_particular]", "Ingresa número particular (10 digítos)", facilitador.tipo_ipn.tel_particular, 12, 0, "", "","")
+                    div(class="col-md-3")
+                      +h-input("text", "", "tipo_ipn[tel_trabajo]", "Ingresa número de trabajo (10 digítos)", facilitador.tipo_ipn.tel_trabajo, 12, 0, "", "","")
+                    div(class="col-md-3")
+                      +h-input("text", "", "tipo_ipn[tel_extension]", "Extensión", facilitador.tipo_ipn.tel_extension, 12, 0, "", "","")
+                
+                
+                //- ************************************************************************
+                .personal_externo(id="personal_externo")
+                  +hr()
+                  +h-input("text", "Institución donde labora actualmente:", "tipo_externo[institucion]", "Institución donde labora actualmente", facilitador.tipo_externo.institucion, 9, 3, "autofocus", "","")
+                  +h-input("text", "Correo electrónico:", "tipo_externo[correo]", "Correo@", facilitador.tipo_externo.correo, 9, 3, "", "","")
+                  +h-input("text", "Teléfono:", "tipo_externo[telefono]", "Teléfono", facilitador.tipo_externo.telefono, 9, 3, "", "","")
+                  
+                  
+
+                +h-input("hidden", "", "estatus_sec_1", "", "true", 9, 3, "", "","") 
+                  
+                +hr()
+                .col-md-9.col-md-offset-3
+                    button.btn.btn-success.fa-r(type='submit')
+                      i.fa.fa-save.fa-r
+                      | Guardar
+
+                    a.btn.btn-success.fa-r(href="/facilitadores/#{facilitador._id}/formacion-academica")
+                      i.fa.fa-check-circle.fa-r
+                      | Continuar
+
+                    a.btn.btn-danger(href="/")
+                      | Cancelar
+
+
+  append javascript
+    script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
+    script.
+      
+      $( "#depen" ).change(function(){
+        var valor = $('#depen :selected').val();
+        if (valor==""){
+          $("#unidad").empty();
+          add_append_select("unidad","","Seleccione unidad ...");
+        }else{
+          revisaUnidades(valor);
+        }
+        
+      });
+      
+      function revisaUnidades(dependenciaVal){
+        //- console.log(dependenciaVal);
+        $.ajax({
+          url: "/unidades/consulta/dependencia",
+          data: {
+            depen: dependenciaVal
+          },                      
+          type: "POST",
+          dataType: "json",
+          success: function(source){
+            if (source.success === true){
+                $("#unidad").empty();
+                add_append_select("unidad","","Seleccione unidad ...");
+                $.each(source.escuelas, function(index, escuela) {
+                  add_append_select("unidad",escuela._id,escuela.nombre);
+                });
+            }
+          },
+          error: function(dato){
+          
+          }
+        }); //end ajax
+        return false;
+      }
+
+
+      //select "Personal" cambia al select de PERSONAL
+      function PersonalActivo(){
+          $('#personal_ipn').hide();
+          $('#personal_externo').hide();
+      }
+      PersonalActivo();
+
+      function personalExterno(){
+        $('#personal_ipn').hide();
+        $('#personal_externo').show();
+      }
+
+      function personalIPN(){
+        $('#personal_ipn').show();
+        $('#personal_externo').hide();
+      }
+
+      var tipo = "!{facilitador.tipo}";
+      if(tipo=="Externo"){
+        personalExterno();
+      }
+
+      if(tipo=="IPN"){
+        personalIPN();
+      }
+
+
+      //limpa valores de un div
+      function clearValues(id_div){
+        $(':input', '#'+id_div)
+           .not(':button, :submit, :reset, :hidden')
+           .val('')
+           .removeAttr('checked')
+           .removeAttr('selected');
+      }
+
+        
+      $( "#tipo" ).on('change', function(){
+        var valor = $('#tipo :selected').val();
+         if (valor==""){
+          clearValues("personal_externo");
+          clearValues("personal_ipn");
+          PersonalActivo();
+         }else{
+            if (valor=="IPN"){
+              clearValues("personal_externo");
+              personalIPN();              
+            }else{
+              clearValues("personal_ipn");
+              personalExterno();
+            }
+         }
+      });
+
