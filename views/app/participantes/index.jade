@@ -15,7 +15,8 @@ block content
             tr
               th(data-field='clave', data-align='left', data-sortable='true') Participante
               th(data-align='left', data-sortable='true') Usuario
-              th(data-align='left', data-sortable='true') Grupo
+              th(data-align='left', data-sortable='true') Acción de Formación
+              th(data-align='left', data-sortable='true') Dependencia de adscripción
               th(data-align='right', data-sortable='true')
                 tbody
                   each participante in participantes
@@ -25,7 +26,9 @@ block content
                       td
                         | #{participante.usuario}
                       td
-                        | #{participante.grupo}
+                        | #{participante.accion}
+                      td
+                        | #{participante.unidad}
                       td
                         a.btn.btn-default.fa-r(href="/participantes/actualizar/#{participante._id}")
                           i.fa.fa-r.fa-edit

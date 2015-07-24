@@ -514,7 +514,7 @@ module.exports = function(passport){
 
     /*****************************************************************/
     // SECCIÓN EVALUADORES
-    router.get('/evaluadores', isAuthenticated, function(req, res){
+    router.get('/evaluadores', isAuthenticated, evaluadoresMid.allEvaluadores, function(req, res){
       param={
         icon: "fa-plus-circle",
         seccion: "Evaluadores",
@@ -522,6 +522,12 @@ module.exports = function(passport){
       }
       res.render('app/evaluadores/index',{message: req.flash('message'), user: req.user, datos: param});
     });
+
+    //Borrar
+    router.get('/evaluadores/borrar/:id', isAuthenticated, evaluadoresMid.deleteEvaluador, function(req, res){
+      res.redirect('/evaluadores');
+    });
+
 
 
     // nuevo evaluador paso 1
