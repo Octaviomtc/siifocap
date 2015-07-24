@@ -15,7 +15,7 @@ block content
             ////+h-input("text", "ETIQUETA", "NAME", "PLACEHOLDER", "VALUE", 6, 3, "autofocus", "empty","")
             +h-input("text", "Nombre(s)", "nombre", "Nombre(s)", participante.nombre, 6, 3, "autofocus", "empty","")
             +h-input("text", "Apellidos", "apellidos", "Apellidos", participante.apellidos, 6, 3, "", "empty","")
-            +h-input("text", "Número de empleado", participante.noempleado, "#", "", 6, 3, "", "empty","")
+            +h-input("text", "Número de empleado", "noempleado", "#", participante.noempleado, 6, 3, "", "empty","")
             +h-input("text", "CURP", "curp", "18 Dígitos", participante.curp, 6, 3, "", "empty","")
             +h-input("text", "RFC", "rfc", "10 Dígitos", participante.rfc, 6, 3, "", "empty","")
             .form-group
@@ -95,7 +95,11 @@ block content
                 select#dependencia.form-control(name='accion',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                   option(value="") Seleccione ...
                     each accion in acciones
-                      option(value='#{accion._id}')= accion.nombre_accion_Formacion
+                      if participante.accion == accion.nombre_accion_Formacion
+                        option(value='#{accion.nombre_accion_Formacion}' selected)= accion.nombre_accion_Formacion
+                      else
+                        option(value='#{accion.nombre_accion_Formacion}')= accion.nombre_accion_Formacion
+
             .row
               .col-md-9.col-md-offset-3
                 button.btn.btn-success.fa-r(type='submit')
@@ -115,6 +119,19 @@ block content
     script.
       var valor = $('#dependencia').val();
       //- alert(valor);
+      $('#noempleado').keypress(function(e){
+          var chr = String.fromCharCode(e.which);
+          return "0123456789".indexOf(chr)>=0;
+        });
+      $('#nombre').keypress(function(e){
+          var chr = String.fromCharCode(e.which);
+          return "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZáéíóúÁÉÍÓÚ".indexOf(chr)>=0;
+        });
+
+      $('#apellidos').keypress(function(e){
+          var chr = String.fromCharCode(e.which);
+          return "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZáéíóúÁÉÍÓÚ".indexOf(chr)>=0;
+        });
 
       if (valor==""){
         $("#unidad").empty();

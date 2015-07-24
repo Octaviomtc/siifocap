@@ -114,3 +114,36 @@ exports.initEvaluadores = function(req, res, next){
     return next();
   });
 }
+
+
+// Obtener todOS los evaluadores
+exports.allEvaluadores = function(req, res, next) {
+  logger.debug('Buscando Evaluadores..');
+  evaluadores.find(function(err, evaluador) {
+    if(err) res.send(500, err.message);
+
+    console.log('GET Evaluadores');
+    res.locals.evaluadores = evaluador;
+
+    // console.log(acciones);
+    return next();
+  });
+
+};
+
+
+exports.deleteEvaluador = function(req, res, next) {
+  evaluadores.findById(req.params.id, function(err, evaluador) {
+    evaluador.remove(function(err) {
+      if(err){
+        return res.send(500, err.message);
+      }
+      console.log('evaluador borrado / ');
+      return next(), req.flash('message','Evaluador borrado correctamente.');
+    });
+  });
+
+};
+
+
+

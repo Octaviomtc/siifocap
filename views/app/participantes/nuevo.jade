@@ -99,7 +99,7 @@ block content
                 select#dependencia.form-control(name='accion',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                   option(value="") Seleccione ...
                     each accion in acciones
-                      option(value='#{accion._id}')= accion.nombre_accion_Formacion
+                      option(value='#{accion.nombre_accion_Formacion}')= accion.nombre_accion_Formacion
             .row
               .col-md-9.col-md-offset-3
                 button.btn.btn-success.fa-r(type='submit')
@@ -118,7 +118,23 @@ block content
   append javascript
     script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
     script.
-      
+
+      $('#noempleado').keypress(function(e){
+          var chr = String.fromCharCode(e.which);
+          return "0123456789".indexOf(chr)>=0;
+        });
+
+      $('#nombre').keypress(function(e){
+          var chr = String.fromCharCode(e.which);
+          return "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZáéíóúÁÉÍÓÚ".indexOf(chr)>=0;
+        });
+
+      $('#apellidos').keypress(function(e){
+          var chr = String.fromCharCode(e.which);
+          return "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZáéíóúÁÉÍÓÚ".indexOf(chr)>=0;
+        });
+
+
       $( "#dependencia" ).change(function(){
         var valor = $('#dependencia :selected').val();
          if (valor==""){
