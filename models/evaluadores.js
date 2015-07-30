@@ -35,7 +35,9 @@ var evaluadoresSchema = new Schema({
   tipo_externo:{
     institucion                             :String,
     correo                                  :String,
-    telefono                                :String
+    correoConfirma                          :String,
+    telefono                                :String,
+    celular                                 :String
   },
   estatus_sec_1                           :String,
 
