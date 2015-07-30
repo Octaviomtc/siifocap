@@ -32,7 +32,7 @@ script.
         $(function () {
           $('[data-toggle="tooltip-ayuda"]').tooltip()
         })
-        //- $.validate();
+        $.validate();
         var window_height = $(window).height();
         var page_height = $('#encabezados').height() + $('#content').height();
         var footer_height = $('.footerIPN').height();
@@ -76,6 +76,49 @@ script.
           });
 
 
+            //Validacion del curp
+            var curp = /^[A-Za-z]{4}\d{6}(H|M|h|m){1}[A-Za-z]{5}[A-Za-z0-9]{2}$/;
+
+          $.formUtils.addValidator({
+            name: 'curp',
+            validatorFunction: function(value, $el, config, language, $form) {
+                console.log(value);
+                console.log(curp.test(value));
+                if (curp.test(value)) {
+                    destroyTool($el.context.id);
+                    return true;
+                } else {
+                    msgError($el.context.id, "El formato de la CURP no es correcto");
+                    return false;
+                }
+            },
+            errorMessage: errorMs,
+            errorMessageKey: 'Error'
+          });
+
+
+
+          var rfc = /^[A-Za-z]{4}\d{6}[A-Za-z0-9]{3}$/;
+
+          $.formUtils.addValidator({
+            name: 'rfc',
+            validatorFunction: function(value, $el, config, language, $form) {
+                console.log(value);
+                console.log(rfc.test(value));
+                if (rfc.test(value)) {
+                    destroyTool($el.context.id);
+                    return true;
+                } else {
+                    msgError($el.context.id, "El formato del RFC no es correcto");
+                    return false;
+                }
+            },
+            errorMessage: errorMs,
+            errorMessageKey: 'Error'
+          });
+
+
+
          
 
           function valida(e){
@@ -107,6 +150,7 @@ script.
                     tecla_final = String.fromCharCode(tecla);
                     return patron.test(tecla_final);
                 }
+
 
 
 
