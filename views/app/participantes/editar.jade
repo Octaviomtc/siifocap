@@ -16,7 +16,7 @@ block content
             +h-input("text", "Nombre(s)", "nombre", "Nombre(s)", participante.nombre, 6, 3, "autofocus", "empty","")
             +h-input("text", "Apellidos", "apellidos", "Apellidos", participante.apellidos, 6, 3, "", "empty","")
             +h-input("text", "Número de empleado", "noempleado", "#", participante.noempleado, 6, 3, "", "empty","")
-            +h-input("text", "CURP", "curp", "18 Dígitos", participante.curp, 6, 3, "", "empty","")
+            +h-input("text", "CURP", "curp", "18 Dígitos", participante.curp, 6, 3, "", "curp","")
             +h-input("text", "RFC", "rfc", "10 Dígitos", participante.rfc, 6, 3, "", "empty","")
             .form-group
               span(class="control-label col-md-3")
@@ -83,8 +83,8 @@ block content
             //- +h-input("text", "Unidad Académica", "unidad", "Unidad Académica de Adscripción",participante.unidad, 6, 3, "", "empty","")
             +h-input("email", "Correo Electrónico Institucional", "email_inst", "@", participante.email_inst, 6, 3, "", "empty","")
             +h-input("email", "Correo Electrónico Personal", "email_pers", "@", participante.email_pers, 6, 3, "", "empty","")
-            +h-input("text", "Número Telefónico Casa", "telefono", "Casa (10 Dígitos)", participante.telefono, 6, 3, "", "empty","")
-            +h-input("text", "Número Telefónico Celular", "celular", "Celular (10 Dígitos)", participante.celular, 6, 3, "", "empty","")
+            +h-input("text", "Número Telefónico Casa", "telefono", "Casa (10 Dígitos)", participante.telefono, 6, 3, "", "empty","","16")
+            +h-input("text", "Número Telefónico Celular", "celular", "Celular (10 Dígitos)", participante.celular, 6, 3, "", "empty","","16")
             +h-input("text", "Usuario", "usuario", "Usuario", participante.usuario, 6, 3, "", "empty","")
             +h-input("password", "Contraseña", "password", "Contraseña", "", 6, 3, "", "empty","")
             //- +h-input("text", "Grupo", "grupo", "Grupo", participante.grupo, 6, 3, "", "empty","")
@@ -117,6 +117,61 @@ block content
   append javascript
     script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
     script.
+      function phoneFormat(id){
+            $('#'+id)
+                .keydown(function (e) {
+                  var key = e.charCode || e.keyCode || 0;
+                  $phone = $(this);
+
+                  // Auto-format- do not expose the mask as the user begins to type
+                  if (key !== 8 && key !== 9) {
+                    if ($phone.val().length === 3) {
+                      $phone.val($phone.val() + ')');
+                    }
+                    if ($phone.val().length === 4) {
+                      $phone.val($phone.val() + ' ');
+                    }     
+                    if ($phone.val().length === 7) {
+                      $phone.val($phone.val() + '-');
+                    }
+                    if ($phone.val().length === 10) {
+                      $phone.val($phone.val() + '-');
+                    }
+                    if ($phone.val().length === 13) {
+                      $phone.val($phone.val() + '-');
+                    }
+                  }
+
+                  // Allow numeric (and tab, backspace, delete) keys only
+                  return (key == 8 || 
+                      key == 9 ||
+                      key == 46 ||
+                      (key >= 48 && key <= 57) ||
+                      (key >= 96 && key <= 105)); 
+                })
+                
+                .bind('focus click', function () {
+                  $phone = $(this);
+                  
+                  if ($phone.val().length === 0) {
+                    $phone.val('(');
+                  }
+                  else {
+                    var val = $phone.val();
+                    $phone.val('').val(val); // Ensure cursor remains at the end
+                  }
+                })
+                
+                .blur(function () {
+                  $phone = $(this);
+                  
+                  if ($phone.val() === '(') {
+                    $phone.val('');
+                  }
+                });
+        }
+      phoneFormat("telefono");
+      phoneFormat("celular");
       var valor = $('#dependencia').val();
       //- alert(valor);
       $('#noempleado').keypress(function(e){
