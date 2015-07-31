@@ -51,7 +51,16 @@ block content
                   span(class="control-label col-md-3") Temáticas Abordadas:
                   div(class="col-md-9")
                     textarea.form-control(id="tematicas_abordadas" placeholder="Temáticas Abordadas" name="tematicas_abordadas" value=facilitador.tematicas_abordadas)
-
+                
+                span(class="col-md-11 col-md-offset-1 alert alert-info")
+                  | Modalidad de aprendizaje en impartición.
+                .form-group
+                  .col-md-9.col-md-offset-3
+                    select#tipo_contratacion.form-control(name='area_conocimiento',data-validation="", data-toggle="tooltip", data-placement="top", title="")
+                        option(value="") Seleccione ...
+                        option(value='Escolarizado', selected= "Escolarizado" == facilitador.modalidad_facilitadores_no) Escolarizado
+                        option(value='No Escolarizado', selected= "No Escolarizado" == facilitador.modalidad_facilitadores_no) No escolarizado 
+                        option(value='Mixta', selected= "Mixta" == facilitador.modalidad_facilitadores_no) Mixta
                 
   //-               +hr()
   //-               label(class="col-md-11 col-md-offset-1 alert alert-info") * Lugar de residencia
