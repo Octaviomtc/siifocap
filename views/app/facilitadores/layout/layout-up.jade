@@ -46,10 +46,10 @@ html
                           | Formación académica
                       
                       li(class=datos.paso=="3" ? "active":"")
-                        a(href='/facilitadores/#{facilitador._id}/experiencia-laboral', class=facilitador.estatus_sec_3=="true" ? "alert alert-success active-bar":"") 
+                        a(href='/facilitadores/#{facilitador._id}/experiencia-profesional', class=facilitador.estatus_sec_3=="true" ? "alert alert-success active-bar":"") 
                           if facilitador.estatus_sec_3=='true'
                             i.fa.fa-check-circle.fa-r.fa-activo
-                          | Experiencia laboral
+                          | Experiencia profesional del facilitador
 
                       //- li(class=datos.paso=="4" ? "active":"")
                       //-   a(href='#', class=evaluador.estatus_sec_4=="true" ? "alert alert-success active-bar":"") 
