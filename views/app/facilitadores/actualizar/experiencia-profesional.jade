@@ -15,7 +15,7 @@ block content
               form.form-horizontal(method='post', action="/facilitadores/#{facilitador.id}/datos-personales", enctype='application/json')                
                 label(class="col-md-11 col-md-offset-1 alert alert-info") Actividades Profesionales.
                 +hr()
-                +h-input("text", "* Institución", "institucion", "Institución", facilitador.institucion_facilitador, 9, 3, "autofocus", "empty","")
+                +h-input("text", "* Institución", "institucion_facilitador", "Institución", facilitador.institucion_facilitador, 9, 3, "autofocus", "empty","")
                 
                 +h-input("text", "* Área o departamento", "area_departamento", "Área o departamento", facilitador.area_departamento, 9, 3, "", "empty","")
                 
@@ -23,7 +23,7 @@ block content
 
                 label(class="col-md-11 col-md-offset-1 alert alert-info") Experiencia Docente.
                 +hr()
-                span(class="col-md-11 col-md-offset-1 alert alert-info")
+                span(class="col-md-11 col-md-offset-1 alert")
                   | Nivel de estudios con experiencia docente.
                 .form-group
                   .col-md-9.col-md-offset-3
@@ -34,7 +34,7 @@ block content
                         option(value='Posgrado', selected= "Posgrado" == facilitador.nivel_estudio) Posgrado
                         option(value='educacion_continua', selected= "educacion_continua" == facilitador.nivel_estudio) Educación Continua
                 +hr()
-                span(class="col-md-11 col-md-offset-1 alert alert-info")
+                span(class="col-md-11 col-md-offset-1 alert")
                   | Áreas de conocimiento.
                 .form-group
                   .col-md-9.col-md-offset-3
@@ -47,152 +47,43 @@ block content
                         option(value='educacion_y_humanidades', selected= "educacion_y_humanidades" == facilitador.area_conocimiento) Educación y humanidades
                         option(value='ingenieria_y_tecnologias', selected= "ingenieria_y_tecnologias" == facilitador.area_conocimiento) Ingeniería y tecnologías
                 
-                .form-group
-                  span(class="control-label col-md-3") Temáticas Abordadas:
-                  div(class="col-md-9")
-                    textarea.form-control(id="tematicas_abordadas" placeholder="Temáticas Abordadas" name="tematicas_abordadas" value=facilitador.tematicas_abordadas)
-                
-                span(class="col-md-11 col-md-offset-1 alert alert-info")
+                 +hr()
+                span(class="col-md-11 col-md-offset-1 alert")
                   | Modalidad de aprendizaje en impartición.
                 .form-group
                   .col-md-9.col-md-offset-3
-                    select#tipo_contratacion.form-control(name='area_conocimiento',data-validation="", data-toggle="tooltip", data-placement="top", title="")
+                    select#tipo_contratacion.form-control(name='modalidad_facilitadores_no',data-validation="", data-toggle="tooltip", data-placement="top", title="")
                         option(value="") Seleccione ...
                         option(value='Escolarizado', selected= "Escolarizado" == facilitador.modalidad_facilitadores_no) Escolarizado
-                        option(value='No Escolarizado', selected= "No Escolarizado" == facilitador.modalidad_facilitadores_no) No escolarizado 
-                        option(value='Mixta', selected= "Mixta" == facilitador.modalidad_facilitadores_no) Mixta
-                
-  //-               +hr()
-  //-               label(class="col-md-11 col-md-offset-1 alert alert-info") * Lugar de residencia
-  //-               +h-input("text", "", "calle", "Calle y número", facilitador.calle, 9, 3, "", "empty","")
-  //-               +h-input("text", "", "interior", "Interior", facilitador.interior, 9, 3, "", "empty","")
-  //-               +h-input("text", "", "colonia", "Colonia", facilitador.colonia, 9, 3, "", "empty","")
-  //-               +h-input("text", "", "delegacion", "Delegación/Municipio", facilitador.delegacion, 9, 3, "", "empty","")
-  //-               +h-input("text", "", "cp", "C.P.", facilitador.cp, 9, 3, "", "empty","")
-  //-               .form-group
-  //-                 .col-md-9.col-md-offset-3
-  //-                   select#entidad.form-control(name='entidad',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
-  //-                     option(value="") Seleccione ...
-  //-                     each entidad in entidades
-  //-                       if entidad.abr==facilitador.entidad
-  //-                         option(value=entidad.abr, selected)= entidad.nombre
-  //-                       else
-  //-                         option(value=entidad.abr)= entidad.nombre
-                        
-  //-               +hr()
-  //-               label(class="col-md-11 col-md-offset-1 alert alert-info") * Personal
-  //-               .form-group
-  //-                 .col-md-9.col-md-offset-3
-  //-                   select#tipo.form-control(name='tipo',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
-  //-                     option(value="") Seleccione ...
-  //-                     option(value="IPN", selected= "IPN" == facilitador.tipo) Personal del IPN
-  //-                     option(value="honorarios", selected= "honorarios" == facilitador.tipo) Contratación por Honorarios
+                        option(value='No Escolarizado', selected= "No Escolarizado" == facilitador.modalidad_facilitadores_no) No Escolarizado
+                        option(value='Mixta', selected= "Mixta" == facilitador.modalidad_facilitadores_no) Mixta                  
+
+                +h-input("hidden", "", "estatus_sec_4", "", "true", 9, 3, "", "","") 
+                .row
+                  .col-md-12
+                    hr
+                  .col-md-9.col-md-offset-3
+                    button.btn.btn-success.fa-r(type='submit')
+                      i.fa.fa-save.fa-r
+                      | Guardar 
                     
-  //-               //- ************************************************************************
-  //-               .personal_ipn(id='personal_ipn')
-  //-                 +hr()
-  //-                 +h-input("date", "Fecha de ingreso al IPN:", "tipo_ipn[fecha_ingreso_ipn]", "Calle y número", facilitador.tipo_ipn.fecha_ingreso_ipn, 9, 3, "", "","")
-  //-                 +h-input("text", "No. de Empleado:", "tipo_ipn[empleado_ipn]", "#", facilitador.tipo_ipn.empleado_ipn, 9, 3, "", "","")
-                  
-  //-                 .form-group
-  //-                   span(class="control-label col-md-3")
-  //-                     | Unidad de adscripción:
-  //-                   div(class="col-md-9")
-  //-                     select#depen.form-control(name='tipo_ipn[dependencia]',data-validation="", data-toggle="tooltip", data-placement="top", title="")
-  //-                       option(value="") Seleccione dependencia ...
-  //-                       each dependencia in dependencias
-  //-                         if dependencia.dependencia==facilitador.tipo_ipn.dependencia
-  //-                           option(value=dependencia.dependencia, selected)= dependencia.dependencia
-  //-                         else
-  //-                           option(value=dependencia.dependencia)= dependencia.dependencia
-                          
-  //-                 .form-group#unidadForm
-  //-                   span(class="control-label col-md-3")
-  //-                     | 
-  //-                   div(class="col-md-9")
-  //-                     select#unidad.form-control(name='tipo_ipn[unidad]',data-validation="", data-toggle="tooltip", data-placement="top", title="")
-  //-                         option(value="") Seleccione unidad ...
-                  
-  //-                 .form-group
-  //-                   span(class="control-label col-md-3")
-  //-                     | Tipo de contratación:
-  //-                   div(class="col-md-9")
-  //-                     select#tipo_contratacion.form-control(name='tipo_ipn[tipo_contratacion]',data-validation="", data-toggle="tooltip", data-placement="top", title="")
-  //-                       option(value="") Seleccione ...
-  //-                       option(value='Base', selected= "Base" == facilitador.tipo_ipn.tipo_contratacion) Base
-  //-                       option(value='Interinato', selected= "Interinato" == facilitador.tipo_ipn.tipo_contratacion) Interinato 
-  //-                       option(value='Plaza puesto', selected= "Plaza puesto" == facilitador.tipo_ipn.tipo_contratacion) Plaza puesto
-  //-                       option(value='Confianza', selected= "Confianza" == facilitador.tipo_ipn.tipo_contratacion) Confianza
-                  
-                  
-  //-                 .form-group
-  //-                   span(class="control-label col-md-3")
-  //-                     | Función:
-  //-                   div(class="col-md-9")
-  //-                     select#funcion.form-control(name='tipo_ipn[funcion]',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
-  //-                       option(value="") Seleccione ...
-  //-                       option(value='Directiva', selected= "Directiva" == facilitador.tipo_ipn.funcion) Directiva
-  //-                       option(value='Docente', selected= "Docente" == facilitador.tipo_ipn.funcion) Docente 
-  //-                       option(value='Apoyo y Asistencia a la Educación', selected= "Apoyo y Asistencia a la Educación" == facilitador.tipo_ipn.funcion) Apoyo y Asistencia a la Educación
-  //-                 hr    
-  //-                 .form-group
-  //-                   span(class="control-label col-md-3")
-  //-                     | Correo electrónico:
-  //-                   div(class="col-md-9")
-  //-                     +h-input("text", "", "tipo_ipn[correo_ipn]", "Correo institucional", facilitador.tipo_ipn.correo_ipn, 12, 0, "", "","")
-  //-                 .form-group
-  //-                   span(class="control-label col-md-3")
-  //-                     | &nbsp
-  //-                   div(class="col-md-9")
-  //-                     +h-input("text", "", "", "Confirmar correo institucional", "", 12, 0, "", "","")
-                      
-  //-                 hr
-  //-                 .form-group
-  //-                   span(class="control-label col-md-3")
-  //-                     | Correo alternativo
-  //-                   div(class="col-md-9")
-  //-                     +h-input("text", "", "tipo_ipn[correo_alternativo]", "Correo alternativo", facilitador.tipo_ipn.correo_alternativo, 12, 0, "", "","")
-  //-                 .form-group
-  //-                   span(class="control-label col-md-3")
-  //-                     | &nbsp
-  //-                   div(class="col-md-9")
-  //-                     +h-input("text", "", "", "Confirmar correo alternativo", "", 12, 0, "", "","")
-                  
-  //-                 hr
-  //-                 .form-group
-  //-                   span(class="control-label col-md-3")
-  //-                     | Número Telefónico:
-  //-                   div(class="col-md-3")
-  //-                     +h-input("text", "", "tipo_ipn[tel_particular]", "Ingresa número particular (10 digítos)", facilitador.tipo_ipn.tel_particular, 12, 0, "", "","")
-  //-                   div(class="col-md-3")
-  //-                     +h-input("text", "", "tipo_ipn[tel_trabajo]", "Ingresa número de trabajo (10 digítos)", facilitador.tipo_ipn.tel_trabajo, 12, 0, "", "","")
-  //-                   div(class="col-md-3")
-  //-                     +h-input("text", "", "tipo_ipn[tel_extension]", "Extensión", facilitador.tipo_ipn.tel_extension, 12, 0, "", "","")
-                
-                
-  //-               //- ************************************************************************
-  //-               .personal_externo(id="personal_externo")
-  //-                 +hr()
-  //-                 +h-input("text", "Institución donde labora actualmente:", "tipo_externo[institucion]", "Institución donde labora actualmente", facilitador.tipo_externo.institucion, 9, 3, "autofocus", "","")
-  //-                 +h-input("text", "Correo electrónico:", "tipo_externo[correo]", "Correo@", facilitador.tipo_externo.correo, 9, 3, "", "","")
-  //-                 +h-input("text", "Teléfono:", "tipo_externo[telefono]", "Teléfono", facilitador.tipo_externo.telefono, 9, 3, "", "","")
-                  
-                  
+                    if facilitador.status>=90
+                      a.btn.btn-success.fa-r(href="/facilitadores/#{facilitador._id}/finalizar")
+                        i.fa.fa-check-circle.fa-r
+                        | Fianlizar registro
+                        
+                        
+                      //- a.btn.btn-default.fa-r()
+                      //-   i.fa.fa-print.fa-r
+                      //-   | Descargar planeación como PDF
+                    else
+                      a.btn.btn-success.disabled.fa-r(href="")
+                        i.fa.fa-check-circle.fa-r
+                        | Fianlizar registro
+                    
+                    a.btn.btn-danger(href="")
+                      | Cancelar
 
-  //-               +h-input("hidden", "", "estatus_sec_1", "", "true", 9, 3, "", "","") 
-                  
-  //-               +hr()
-  //-               .col-md-9.col-md-offset-3
-  //-                   button.btn.btn-success.fa-r(type='submit')
-  //-                     i.fa.fa-save.fa-r
-  //-                     | Guardar
-
-  //-                   a.btn.btn-success.fa-r(href="/facilitadores/#{facilitador._id}/formacion-academica")
-  //-                     i.fa.fa-check-circle.fa-r
-  //-                     | Continuar
-
-  //-                   a.btn.btn-danger(href="/")
-  //-                     | Cancelar
 
 
   //- append javascript
