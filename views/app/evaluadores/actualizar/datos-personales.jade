@@ -107,7 +107,7 @@ block content
                     span(class="control-label col-md-3")
                       | &nbsp
                     div(class="col-md-9")
-                      +h-input("text", "", "", "Confirmar correo institucional", "", 12, 0, "", "","")
+                      +h-input("text", "", "tipo_ipn[correo_ipn_confirma]", "Confirma correo institucional", evaluador.tipo_ipn.correo_ipn_confirma, 12, 0, "", "","")
                       
                   hr
                   .form-group
@@ -119,7 +119,7 @@ block content
                     span(class="control-label col-md-3")
                       | &nbsp
                     div(class="col-md-9")
-                      +h-input("text", "", "", "Confirmar correo alternativo", "", 12, 0, "", "","")
+                      +h-input("text", "", "tipo_ipn[correo_alternativo_confirma]", "Confirma correo alternativo", evaluador.tipo_ipn.correo_alternativo_confirma, 12, 0, "", "","")
                   
                   hr
                   .form-group
