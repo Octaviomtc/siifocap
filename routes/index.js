@@ -420,7 +420,7 @@ module.exports = function(passport){
 
     /*****************************************************************/
     // SECCIÓN FACILITADORES
-    router.get('/facilitadores', isAuthenticated, function(req, res){
+    router.get('/facilitadores', isAuthenticated, facilitadoresMid.allFacilitadores, function(req, res){
       param={
         icon: "fa-plus-circle",
         seccion: "Facilitadores",
@@ -429,8 +429,14 @@ module.exports = function(passport){
       res.render('app/facilitadores/index',{message: req.flash('message'), user: req.user, datos: param});
     });
 
+    
+    //Borrar
+    router.get('/facilitadores/borrar/:id', isAuthenticated, facilitadoresMid.deleteFacilitador, function(req, res){
+      res.redirect('/facilitadores');
+    });
 
-     router.get('/facilitadores/crear/init-facilitadores', isAuthenticated, facilitadoresMid.initFacilitadores, function(req, res){
+
+     router.get('/facilitadores/crear/init-facilitador', isAuthenticated, facilitadoresMid.initFacilitadores, function(req, res){
        param={
             icon: "fa-plus-circle",
             seccion: "Nuevo facilitador",
@@ -624,6 +630,13 @@ module.exports = function(passport){
 
     router.post('/evaluadores/:id/experiencia-laboral', isAuthenticated, evaluadoresMid.updateEvaluador, function(req, res){
       res.redirect("/evaluadores/"+res.evaluadores._id+"/experiencia-laboral");
+    });
+
+    // FINALIZA EVALUADOR
+    router.get('/evaluadores/:id/finalizar', isAuthenticated, evaluadoresMid.updateEvaluador, function(req, res){
+      // console.log(res.accionFormacion);
+      res.set('Content-Type', 'application/javascript');
+      res.redirect('/evaluadores');
     });
 
 

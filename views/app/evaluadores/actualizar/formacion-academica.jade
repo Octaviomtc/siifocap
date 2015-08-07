@@ -19,9 +19,7 @@ block content
                 span(class="col-md-11 col-md-offset-1 alert alert-info")
                   | Integre la información correspondiente a su formación profesional de licenciatura.
                   
-                
-                +h-input("hidden", "", "estatus_sec_2", "", "true", 9, 3, "", "","") 
-                
+                  
                 .form-group
                   span(class="control-label col-md-3")
                     |* Campo de formación académica:
@@ -146,7 +144,7 @@ block content
                 +h-input("file", "Documentación probatoria", "documentacion_probatoria", "", evaluador.documentacion_probatoria, 9, 3, "", "","Adjunte en formato PDF un documento con las  constancias, diplomas, certificaciones, entre otros, que comprueben la validez de los estudios complementarios  y eventos académicos registrados en este espacio.") 
                 
 
-                  
+                +h-input("hidden", "", "estatus_sec_2", "", "true", 9, 3, "", "","")   
                 +hr()
                 .col-md-9.col-md-offset-3
                     button.btn.btn-success.fa-r(type='submit')
@@ -154,7 +152,7 @@ block content
                       | Guardar
                       
                     if evaluador.estatus_sec_2=='true'
-                      a.btn.btn-success.fa-r(href="/evaluadores/#{evaluador._id}/pendiente")
+                      a.btn.btn-success.fa-r(href="/evaluadores/#{evaluador._id}/experiencia-laboral")
                         i.fa.fa-check-circle.fa-r
                         | Continuar
                     else
