@@ -4,7 +4,7 @@ block content
   
   .row.contenedorTb
     .col-md-12
-      a.btn.btn-primary.fa-r(href='/facilitadores/crear/init-facilitadores')
+      a.btn.btn-primary.fa-r(href='/facilitadores/crear/init-facilitador')
         i.fa.fa-r.fa-plus-circle
         | Nuevo Facilitador
     
@@ -14,33 +14,23 @@ block content
       table(data-toggle="table", data-cache="true", data-page-size="25", data-page-list="[25, 50, 100, 200]", data-height="600",data-sort-order="asc",data-sort-name='nombre_accion_Formacion', id="table-pagination", data-pagination="true", data-search="true")
         thead
           tr
-            th(data-field='nombre_accion_Formacion', data-align='left', data-sortable='true') Nombre
-            th(data-align='left', data-sortable='true') Dependencia Politécnica Solicitante
-            th(data-field='dirigido_a_dependencia', data-align='left', data-sortable='true') Dependencia a la que se solicita el registro
-            th(data-align='left', data-sortable='true') Estatus
+            th(data-field='nombre', data-align='left', data-sortable='true') Nombre
+            th(data-align='left', data-sortable='true') Tipo de personal
             th(data-align='right', data-sortable='true')
         tbody
-          //- each accion in acciones
-          //-   tr
-          //-     td
-          //-       | #{accion.nombre_accion_Formacion}
-          //-     td
-          //-       | #{accion.unidad}
-          //-     td
-          //-       | #{accion.dirigido_a_dependencia}
-                
-          //-     td
-          //-       | #{accion.estatus_accion}
-          //-     td
-          //-       a.btn.btn-default(href="/unidades/ver/#{accion._id}")
-          //-         i.fa.fa-r.fa-print
-          //-         | PDF
-          //-       a.btn.btn-default(href="/unidades/actualizar/#{accion._id}")
-          //-         i.fa.fa-r.fa-edit
-          //-         | Editar
-          //-       a.btn.btn-default(href="/acciones-formacion/borrar/#{accion._id}")
-          //-         i.fa.fa-r.fa-trash
-          //-         | Borrar
-                
-                                  
-                                      
+          each facilitador in facilitadores
+            tr
+              td
+                | #{facilitador.nombre} #{facilitador.apellidos} 
+              td
+                | #{facilitador.tipo}
+              td
+                //- a.btn.btn-default(href="/unidades/ver/#{evaluador._id}")
+                //-   i.fa.fa-r.fa-print
+                //-   | PDF
+                a.btn.btn-default(href="/facilitadores/#{facilitador._id}/datos-personales")
+                  i.fa.fa-r.fa-edit
+                  | Editar
+                a.btn.btn-default(href="/facilitadores/borrar/#{facilitador._id}")
+                  i.fa.fa-r.fa-trash
+                  | Borrar

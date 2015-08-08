@@ -1,0 +1,183 @@
+extends ../layout/layout-up
+
+block content
+  #message
+    if message
+      .error-message
+          a.text-center #{message}
+  .row
+    .col-md-12
+      .formulario.animated.fadeIn
+        
+        .contenido
+          .row
+            .col-md-11
+              form.form-horizontal(method='post', action="/facilitadores/#{facilitador.id}/datos-personales", enctype='application/json')                
+                label(class="col-md-11 col-md-offset-1 alert alert-info") Actividades Profesionales.
+                +hr()
+                +h-input("text", "* Institución", "institucion_facilitador", "Institución", facilitador.institucion_facilitador, 9, 3, "autofocus", "empty","")
+                
+                +h-input("text", "* Área o departamento", "area_departamento", "Área o departamento", facilitador.area_departamento, 9, 3, "", "empty","")
+                
+                +h-input("text", "* Cargo", "cargo", "Cargo", facilitador.cargo_facilitador, 9, 3, "", "cargo","")
+
+                label(class="col-md-11 col-md-offset-1 alert alert-info") Experiencia Docente.
+                +hr()
+                span(class="col-md-11 col-md-offset-1 alert")
+                  | Nivel de estudios con experiencia docente.
+                .form-group
+                  .col-md-9.col-md-offset-3
+                    select#tipo_contratacion.form-control(name='nivel_estudio',data-validation="", data-toggle="tooltip", data-placement="top", title="")
+                        option(value="") Seleccione ...
+                        option(value='medio_superior', selected= "medio_superior" == facilitador.nivel_estudio) Medio Superior
+                        option(value='Superior', selected= "Superior" == facilitador.nivel_estudio) Superior 
+                        option(value='Posgrado', selected= "Posgrado" == facilitador.nivel_estudio) Posgrado
+                        option(value='educacion_continua', selected= "educacion_continua" == facilitador.nivel_estudio) Educación Continua
+                +hr()
+                span(class="col-md-11 col-md-offset-1 alert")
+                  | Áreas de conocimiento.
+                .form-group
+                  .col-md-9.col-md-offset-3
+                    select#tipo_contratacion.form-control(name='area_conocimiento',data-validation="", data-toggle="tooltip", data-placement="top", title="")
+                        option(value="") Seleccione ...
+                        option(value='agropecuario', selected= "agropecuario" == facilitador.area_conocimiento) Agropecuario
+                        option(value='salud', selected= "salud" == facilitador.area_conocimiento) Salud 
+                        option(value='ciencias_naturales_y_exactas', selected= "ciencias_naturales_y_exactas" == facilitador.area_conocimiento) Ciencias naturales y exactas
+                        option(value='ciencias_sociales_y_administrativas', selected= "ciencias_sociales_y_administrativas" == facilitador.area_conocimiento) Ciencias sociales y administrativas
+                        option(value='educacion_y_humanidades', selected= "educacion_y_humanidades" == facilitador.area_conocimiento) Educación y humanidades
+                        option(value='ingenieria_y_tecnologias', selected= "ingenieria_y_tecnologias" == facilitador.area_conocimiento) Ingeniería y tecnologías
+                
+                 +hr()
+                span(class="col-md-11 col-md-offset-1 alert")
+                  | Modalidad de aprendizaje en impartición.
+                .form-group
+                  .col-md-9.col-md-offset-3
+                    select#tipo_contratacion.form-control(name='modalidad_facilitadores_no',data-validation="", data-toggle="tooltip", data-placement="top", title="")
+                        option(value="") Seleccione ...
+                        option(value='Escolarizado', selected= "Escolarizado" == facilitador.modalidad_facilitadores_no) Escolarizado
+                        option(value='No Escolarizado', selected= "No Escolarizado" == facilitador.modalidad_facilitadores_no) No Escolarizado
+                        option(value='Mixta', selected= "Mixta" == facilitador.modalidad_facilitadores_no) Mixta                  
+
+                +h-input("hidden", "", "estatus_sec_4", "", "true", 9, 3, "", "","") 
+                .row
+                  .col-md-12
+                    hr
+                  .col-md-9.col-md-offset-3
+                    button.btn.btn-success.fa-r(type='submit')
+                      i.fa.fa-save.fa-r
+                      | Guardar 
+                    
+                    if facilitador.status>=90
+                      a.btn.btn-success.fa-r(href="/facilitadores/#{facilitador._id}/finalizar")
+                        i.fa.fa-check-circle.fa-r
+                        | Fianlizar registro
+                        
+                        
+                      //- a.btn.btn-default.fa-r()
+                      //-   i.fa.fa-print.fa-r
+                      //-   | Descargar planeación como PDF
+                    else
+                      a.btn.btn-success.disabled.fa-r(href="")
+                        i.fa.fa-check-circle.fa-r
+                        | Fianlizar registro
+                    
+                    a.btn.btn-danger(href="")
+                      | Cancelar
+
+
+
+  //- append javascript
+  //-   script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
+  //-   script.
+      
+  //-     $( "#depen" ).change(function(){
+  //-       var valor = $('#depen :selected').val();
+  //-       if (valor==""){
+  //-         $("#unidad").empty();
+  //-         add_append_select("unidad","","Seleccione unidad ...");
+  //-       }else{
+  //-         revisaUnidades(valor);
+  //-       }
+        
+  //-     });
+      
+  //-     function revisaUnidades(dependenciaVal){
+  //-       //- console.log(dependenciaVal);
+  //-       $.ajax({
+  //-         url: "/unidades/consulta/dependencia",
+  //-         data: {
+  //-           depen: dependenciaVal
+  //-         },                      
+  //-         type: "POST",
+  //-         dataType: "json",
+  //-         success: function(source){
+  //-           if (source.success === true){
+  //-               $("#unidad").empty();
+  //-               add_append_select("unidad","","Seleccione unidad ...");
+  //-               $.each(source.escuelas, function(index, escuela) {
+  //-                 add_append_select("unidad",escuela._id,escuela.nombre);
+  //-               });
+  //-           }
+  //-         },
+  //-         error: function(dato){
+          
+  //-         }
+  //-       }); //end ajax
+  //-       return false;
+  //-     }
+
+
+  //-     //select "Personal" cambia al select de PERSONAL
+  //-     function PersonalActivo(){
+  //-         $('#personal_ipn').hide();
+  //-         $('#personal_externo').hide();
+  //-     }
+  //-     PersonalActivo();
+
+  //-     function personalExterno(){
+  //-       $('#personal_ipn').hide();
+  //-       $('#personal_externo').show();
+  //-     }
+
+  //-     function personalIPN(){
+  //-       $('#personal_ipn').show();
+  //-       $('#personal_externo').hide();
+  //-     }
+
+  //-     var tipo = "!{facilitador.tipo}";
+  //-     if(tipo=="Externo"){
+  //-       personalExterno();
+  //-     }
+
+  //-     if(tipo=="IPN"){
+  //-       personalIPN();
+  //-     }
+
+
+  //-     //limpa valores de un div
+  //-     function clearValues(id_div){
+  //-       $(':input', '#'+id_div)
+  //-          .not(':button, :submit, :reset, :hidden')
+  //-          .val('')
+  //-          .removeAttr('checked')
+  //-          .removeAttr('selected');
+  //-     }
+
+        
+  //-     $( "#tipo" ).on('change', function(){
+  //-       var valor = $('#tipo :selected').val();
+  //-        if (valor==""){
+  //-         clearValues("personal_externo");
+  //-         clearValues("personal_ipn");
+  //-         PersonalActivo();
+  //-        }else{
+  //-           if (valor=="IPN"){
+  //-             clearValues("personal_externo");
+  //-             personalIPN();              
+  //-           }else{
+  //-             clearValues("personal_ipn");
+  //-             personalExterno();
+  //-           }
+  //-        }
+  //-     });
+

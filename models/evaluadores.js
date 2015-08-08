@@ -26,7 +26,9 @@ var evaluadoresSchema = new Schema({
     tipo_contratacion                       :String,
     funcion                                 :String,
     correo_ipn                              :String,
+    correo_ipn_confirma                     :String,
     correo_alternativo                      :String,
+    correo_alternativo_confirma             :String,
     tel_particular                          :String,
     tel_trabajo                             :String,
     tel_extension                           :String

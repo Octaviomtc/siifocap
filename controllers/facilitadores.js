@@ -114,3 +114,34 @@ exports.initFacilitadores = function(req, res, next){
     return next();
   });
 }
+
+
+
+exports.deleteFacilitador = function(req, res, next) {
+  facilitadores.findById(req.params.id, function(err, facilitador) {
+    facilitador.remove(function(err) {
+      if(err){
+        return res.send(500, err.message);
+      }
+      console.log('facilitador borrado / ');
+      return next(), req.flash('message','facilitador borrado correctamente.');
+    });
+  });
+
+};
+
+
+// Obtener todos los facilitadores
+exports.allFacilitadores = function(req, res, next) {
+  logger.debug('Buscando Facilitadores..');
+  facilitadores.find(function(err, facilitador) {
+    if(err) res.send(500, err.message);
+
+    console.log('GET Facilitadores');
+    res.locals.facilitadores = facilitador;
+
+    // console.log(acciones);
+    return next();
+  });
+
+};
