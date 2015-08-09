@@ -53,14 +53,25 @@ mixin hr()
       hr
 
 
-mixin radio2(rubro, label_principal, name, colorgrey)
+mixin radio2(val, rubro, label_principal, name, colorgrey)
+  - var comentario = ""
+  - var puntaje = 1
+  each arr in val 
+    - comentario = arr.comentario
+    - puntaje  = arr.respuesta
   tr(class=colorgrey)
     td #{rubro}
     td #{label_principal}
     td 
-      input(type='radio', name="#{name}[respuesta]", value="2")
-    td 
-      input(type='radio', name="#{name}[respuesta]", value="1")
+      if puntaje == 2
+        input(type='radio', name="#{name}[respuesta]", value="2", checked="checked")
+      else
+        input(type='radio', name="#{name}[respuesta]", value="2")
     td
-      textarea.style-textarea(name="#{name}[comentario]") 
+      if puntaje == 1
+        input(type='radio', name="#{name}[respuesta]", value="1", checked="checked")
+      else
+        input(type='radio', name="#{name}[respuesta]", value="1")
+    td
+      textarea.style-textarea(name="#{name}[comentario]")  #{comentario}
     

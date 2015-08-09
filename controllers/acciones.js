@@ -176,8 +176,20 @@ exports.findById = function(req, res, next) {
   accionesFormacion.findById(req.params.id, function(err, accionFormacion) {
     if(err) return res.send(500, err.message);
 
-    console.log(accionFormacion.coparticipacion);
+    //console.log(accionFormacion);
     res.locals.accionFormacion = accionFormacion;
+    return next();
+  });
+};
+
+
+//Informacion de una sola accion de formacion
+exports.findByIdDictaminacion = function(req, res, next) {
+  accionesFormacion.findById(req.params.id, function(err, accionFormacion) {
+    if(err) return res.send(500, err.message);
+
+    //console.log(accionFormacion.dictaminacion);
+    res.locals.dictaminacion = accionFormacion.dictaminacion;
     return next();
   });
 };
