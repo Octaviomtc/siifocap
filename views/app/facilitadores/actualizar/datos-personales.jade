@@ -175,13 +175,15 @@ block content
         }
         
       });
+
+      revisaUnidadesUp("!{facilitador.tipo_ipn.dependencia}");//Carga dependencia en update
       
       function revisaUnidades(dependenciaVal){
-        //- console.log(dependenciaVal);
+
         $.ajax({
           url: "/unidades/consulta/dependencia",
           data: {
-            depen: dependenciaVal
+            dependencia: dependenciaVal
           },                      
           type: "POST",
           dataType: "json",
@@ -190,7 +192,7 @@ block content
                 $("#unidad").empty();
                 add_append_select("unidad","","Seleccione unidad ...");
                 $.each(source.escuelas, function(index, escuela) {
-                  add_append_select("unidad",escuela._id,escuela.nombre);
+                  add_append_select("unidad",escuela.nombre,escuela.nombre);
                 });
             }
           },
@@ -199,6 +201,35 @@ block content
           }
         }); //end ajax
         return false;
+      }
+
+      //Solo se ejecuta en modo update
+      function revisaUnidadesUp(dependenciaVal){
+        console.log(dependenciaVal);
+        $.ajax({
+        url: "/unidades/consulta/dependencia",
+        data: {
+        dependencia: dependenciaVal
+          },                      
+          type: "POST",
+          dataType: "json",
+          success: function(source){
+          if (source.success === true){
+            $("#unidad").empty();
+            add_append_select("unidad","","Seleccione unidad ...");
+            $.each(source.escuelas, function(index, escuela) {
+                if (escuela.nombre=="!{facilitador.tipo_ipn.unidad}"){
+                  $("#unidad").append("<option value='"+escuela.nombre+"' selected='selected'>"+escuela.nombre+"</option>");
+                }else{
+                  $("#unidad").append("<option value='"+escuela.nombre+"'>"+escuela.nombre+"</option>");
+                }
+              
+            });
+            }},
+            error: function(dato){
+            }
+            }); //end ajax
+            return false;
       }
 
 

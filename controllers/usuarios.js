@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var usuarios  = mongoose.model('User');
 var roles  = mongoose.model('rol');
-
+var bCrypt = require('bcrypt-nodejs');
 
 
 // Roles
@@ -44,3 +44,37 @@ exports.deleteUser = function(req, res, next) {
 	    });
 	}
 };
+
+
+
+exports.getUser = function(req, res, next) {
+
+	    usuarios.findById(req.params.id, function(err, user) {
+	         if(err) res.send(500, err.message);
+
+	         res.locals.usuario = user;
+		     console.log(user);
+		    return next();
+	    });
+	
+};
+
+
+
+exports.editUser = function(req, res, next) {
+
+	req.body.password = createHash(req.body.password);
+
+	    usuarios.findOneAndUpdate({_id:req.params.id}, req.body, function(err, user) {
+	        if(err) res.send(500, err.message);
+		    return next(), req.flash('message','Usuario actualizado correctamente');
+	    });
+	
+};
+
+// Generates hash using bCrypt
+    var createHash = function(password){
+        return bCrypt.hashSync(password, bCrypt.genSaltSync(10), null);
+    	}
+
+

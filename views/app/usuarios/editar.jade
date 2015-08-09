@@ -10,15 +10,15 @@ block content
       .formulario.animated.fadeIn
         .titulo
           i.fa.fa-r.fa-plus-circle
-          | Nuevo usuario
+          | Editar usuario
         .contenido
-          form.form-horizontal(method='post', action="/administracion/usuarios/nuevo")
-            +h-input("text", "Usuario", "username", "Usuario", "", 6, 3, "autofocus", "empty","")
+          form.form-horizontal(method='post', action="/administracion/usuarios/editar/#{usuario._id}")
+            +h-input("text", "Usuario", "username", "Usuario", usuario.username, 6, 3, "autofocus", "empty","")
             +h-input("password", "Contraseña", "password", "Contraseña", "", 6, 3, "", "empty","")
-            +h-input("email", "Email", "email", "@", "", 6, 3, "", "empty","")
-            +h-input("text", "Nombre(s)", "firstName", "Nombres", "", 6, 3, "", "empty","")
-            +h-input("text", "Apellido Paterno", "lastNameP", "Apellido Paterno", "", 6, 3, "", "empty","")
-            +h-input("text", "Apellidos Materno", "lastNameM", "Apellidos Materno", "", 6, 3, "", "empty","")
+            +h-input("email", "Email", "email", "@", usuario.email, 6, 3, "", "empty","")
+            +h-input("text", "Nombre(s)", "firstName", "Nombres", usuario.email, 6, 3, "", "empty","")
+            +h-input("text", "Apellido Paterno", "lastNameP", "Apellido Paterno", usuario.lastNameP, 6, 3, "", "empty","")
+            +h-input("text", "Apellidos Materno", "lastNameM", "Apellidos Materno", usuario.lastNameM, 6, 3, "", "empty","")
             .form-group
               span(class="control-label col-md-3")
                 | Rol
@@ -26,16 +26,12 @@ block content
                 select#rol.form-control(name='rol',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                   option(value="") Seleccione ...
                     each rol in roles
-                      option(value=rol.value)= rol.text
+                      option(value=rol.value, selected= rol.value == usuario.rol)= rol.text
             .row
               .col-md-9.col-md-offset-3
                 button.btn.btn-success.fa-r(type='submit')
-                  i.fa.fa-check-circle.fa-r
-                  | Agregar
+                  | Editar
       
-                button.btn.btn-default.fa-r(type='reset')
-                  i.fa.fa-eraser.fa-r
-                  | Limpiar campos
 
                 a.btn.btn-default(href="/administracion")
                   | Cancelar

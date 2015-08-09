@@ -21,8 +21,8 @@
                 .form-group
                   label Tiempo para su desarrollo
                 
-                +v-input(4, "number", "Horas", "tiempo_hrs", "", "", "empty", "")
-                +v-input(4, "number", "Minutos", "tiempo_min", "", "", "empty", "")
+                +v-input(4, "text", "Horas", "tiempo_hrs", "", "", "empty", "")
+                +v-input(4, "text", "Minutos", "tiempo_min", "", "", "empty", "")
               
               
                 .row
@@ -72,7 +72,7 @@
                 .form-group
                   label Tiempo de realización
                       
-                +v-input(4, "number", "Horas", "tiempo_realizacion", "", "", "empty", "")
+                +v-input(4, "text", "Horas", "tiempo_realizacion", "", "", "empty", "")
                 
                 
                 .col-md-12.sepTop
@@ -166,3 +166,32 @@
           button.btn.btn-primary.fa-r(type='submit') Agregar planeación didáctica
           button.btn.btn-primary.fa-r(type='button', data-dismiss='modal', aria-hidden='true') Finalizar 
           button.btn.btn-default.fa-r(type='button', data-dismiss='modal', aria-hidden='true') Cancelar
+
+
+    script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
+    script.
+      $('#tiempo_hrs').keypress(function(e){
+            var chr = String.fromCharCode(e.which);
+            return "0123456789".indexOf(chr)>=0;
+          });
+      $('#tiempo_min').keypress(function(e){
+            var chr = String.fromCharCode(e.which);
+            return "0123456789".indexOf(chr)>=0;
+          });
+      $('#tiempo_realizacion').keypress(function(e){
+            var chr = String.fromCharCode(e.which);
+            return "0123456789".indexOf(chr)>=0;
+          });
+
+      $("#instrumento_otro_evaluacion").hide();
+
+      $("input[name='instrumento_evaluacion']").click(function(){
+        if($(this).val()=="Otro"){
+          $("#instrumento_otro_evaluacion").show();
+        }else{
+          $("#instrumento_otro_evaluacion").val("");
+          $("#instrumento_otro_evaluacion").hide();
+        }
+       }   
+      );
+        

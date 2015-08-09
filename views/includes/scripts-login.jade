@@ -1,15 +1,3 @@
-#mySess.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
-      .modal-dialog
-        .modal-content
-          .modal-body
-            button.close(type='button', data-dismiss='modal', aria-label='Close')
-              span(aria-hidden='true') ×
-            h4#myModalLabel.modal-title
-            center
-              | Su sesión se ha cerrado por inactivdad.
-              hr
-              a#resSessFin.btn.btn-default(href="/signout") Finalizar
-
 script(src='/vendor/jquery/dist/jquery.js')
 script(src='/vendor/bootstrap/dist/js/bootstrap.js')
 script(src='/vendor/bootstrap-table/src/bootstrap-table.js')
@@ -19,42 +7,7 @@ script(src='/vendor/bootstrap-switch/dist/js/bootstrap-switch.min.js')
 script(src='/vendor/bootstrap-filestyle/src/bootstrap-filestyle.js')
 
 script.
-    console.log("config.maxAge");
-    var maxAge = "!{config.maxAge}";
-    console.log(maxAge);
-    var segundosMaxAge = (maxAge/1000);
-    
-    var segundos = 0;
-    setInterval(setTime, 1000);
 
-
-    function setTime(){
-        ++segundos;
-        //- console.log(segundos);
-        //- if(segundos == segundosMaxAge){
-        //- if(segundos == 15){
-        if(segundos == segundosMaxAge){
-            $.ajax({
-                url: "/signout",
-                data: {
-                      },                      
-                type: "POST",
-                dataType: "json",
-                success: function(source){
-                  if (source.success === true){
-                    console.log(segundosMaxAge);
-                    
-                  }
-                },
-                error: function(dato){
-                }
-              });
-
-            $("#mySess").modal('show');
-
-        }
-
-    }
     // Estilos para input files
     $(":file").filestyle({
       buttonText:     "Seleccionar archivo",

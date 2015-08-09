@@ -8,6 +8,7 @@ var config = {};
 
 // AMBIENTE DE DESAROLLO
 config.development = {
+  maxAge: 1 * 60 * 1000,
   root:           root,
   name_db:        "test_siffocap",
   host_db:        "localhost",
@@ -21,6 +22,7 @@ config.development = {
 
 // AMBIENTE DE PRODUCCION
 config.production = {
+  maxAge: 1 * 60 * 1000,
   root:           root,
   name_db:        "test_siffocap",
   host_db:        "localhost",

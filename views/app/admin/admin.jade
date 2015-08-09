@@ -4,9 +4,10 @@ block content
   
   .row.contenedorTb
     .col-md-12
-      a.btn.btn-primary(href='/administracion/usuarios/nuevo')
+      a.btn.btn-primary.fa-r(href='/administracion/usuarios/nuevo')
         i.fa.fa-r.fa-plus-circle
         | Nuevo usuario
+
       if message
         .error-message
           a.text-center #{message}
@@ -37,9 +38,9 @@ block content
               //- td= usuario._id
               td= usuario.rol
               td
-                //- a.btn.btn-default.fa-r(href="#")
-                //-   i.fa.fa-r.fa-edit
-                //-   | Editar
+                a.btn.btn-default.fa-r(href="/administracion/usuarios/editar/#{usuario._id}")
+                  i.fa.fa-r.fa-edit
+                  | Editar
                 a.btn.btn-default.fa-r(href="/administracion/usuarios/borrar/#{usuario._id}")
                   i.fa.fa-r.fa-trash
                   | Borrar
