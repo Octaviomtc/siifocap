@@ -15,14 +15,16 @@ exports.addDictamen = function(req, res, next) {
 
   var dictaminacion = [];
 
+  var puntaje = 0;
   for (var i=0; i<pregunta.length; i++ ){
-    console.log(pregunta[i]);
     var asw = [];
     asw[0] = pregunta[i];
-    dictaminacion.push({"puntaje": 0,"pregunta":asw});
+    puntaje = Number(puntaje)+Number(pregunta[i].respuesta);
+    dictaminacion.push({"pregunta":asw});
   }
 
   var obj ={};
+  obj.puntaje_dictaminado = puntaje;
   obj.dictaminacion = dictaminacion;
 
 
