@@ -2,7 +2,7 @@ var mongoose          = require('mongoose');
 var Schema            = mongoose.Schema;
 
 var complementario_schema = new Schema(
-  {disciplina: String, institucion_formadora: String }
+  {disciplina: String, institucion_formadora: String , tipo: String }
 );
 
 var facilitadoresSchema = new Schema({
@@ -45,7 +45,7 @@ var facilitadoresSchema = new Schema({
   ultimo_grado                            :String,
   disciplina_facilitador                  :String,
   institucion_formadora_facilitador       :String,
-  complementario                          :[{disciplina: String, institucion_formadora: String }],
+  complementario                          :[{disciplina: String, institucion_formadora: String, tipo: String}],
   estatus_sec_2                           :String,
 
 
@@ -59,6 +59,7 @@ var facilitadoresSchema = new Schema({
   area_conocimiento                       :String,
   tematicas_abordadas                     :String,
   modalidad_facilitadores_no              :String,
+  idioma                                  :String,
   estatus_sec_3                           :String,
   
 

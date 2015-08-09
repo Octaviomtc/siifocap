@@ -14,6 +14,7 @@ var escuelas_privadas = require('../models/escuelas_privadas');
 var escuelas_publicas = require('../models/escuelas_publicas');
 var dictaminacion = require('../models/dictaminacion');
 var unidades_politecnicas = require('../models/unidades_politecnicas');
+var disciplinas = require('../models/disciplinas');
 //Controladores
 var usuariosMid     = require('../controllers/usuarios');
 var escuelaMid      = require('../controllers/escuelas');
@@ -27,6 +28,7 @@ var escuelas_privadasMid    = require('../controllers/escuelas_privadas');
 var escuelas_publicasMid    = require('../controllers/escuelas_publicas');
 var dictaminacionMid    = require('../controllers/dictaminacion');
 var unidades_politecnicasMid    = require('../controllers/unidades_politecnicas');
+var disciplinasMid = require('../controllers/disciplinas');
 
 
 var router          = express.Router();
@@ -88,6 +90,10 @@ module.exports = function(passport){
         res.redirect('/');
     });
 
+    router.post('/signout', function(req, res) {
+        req.logout();
+    });
+
     /*****************************************************************/
     // Rutas para panel de administracion
     router.get('/administracion', isAuthenticatedAdmin, usuariosMid.allUsers, function(req, res){
@@ -118,6 +124,19 @@ module.exports = function(passport){
     }));
 
     router.get('/administracion/usuarios/borrar/:id', isAuthenticatedAdmin, usuariosMid.deleteUser, function(req, res){
+        res.redirect('/administracion');
+    });
+
+    router.get('/administracion/usuarios/editar/:id', isAuthenticatedAdmin, usuariosMid.getUser, usuariosMid.allRoles, function(req, res){
+        param={
+            icon: "fa-cogs",
+            seccion: "Administración",
+            estado: "administracion"
+        }
+        res.render('app/usuarios/editar',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+    router.post('/administracion/usuarios/editar/:id', isAuthenticatedAdmin, usuariosMid.editUser, function(req, res){
         res.redirect('/administracion');
     });
 
@@ -468,7 +487,7 @@ module.exports = function(passport){
 
 
     // nuevo facilitador paso 2 actualizar
-    router.get('/facilitadores/:id/formacion-academica', isAuthenticated, facilitadoresMid.findById, formacionMid.findAllFormacion, entidadesMid.findAllEntidades, escuelas_privadasMid.findAllEscuelas, escuelas_publicasMid.findAllEscuelas, function(req, res){
+    router.get('/facilitadores/:id/formacion-academica', isAuthenticated, facilitadoresMid.findById, disciplinasMid.findAllDisciplinas, formacionMid.findAllFormacion, entidadesMid.findAllEntidades, escuelas_privadasMid.findAllEscuelas, escuelas_publicasMid.findAllEscuelas, function(req, res){
       param={
         icon: "fa-plus-circle",
         seccion: "Nuevo facilitador",
@@ -690,6 +709,15 @@ module.exports = function(passport){
       res.download(config.root+"/uploads/referencias_apa.pdf")
     });
 
+    //************************************************ RECUPERAR CONTRASEÑA
+    router.get('/recuperar-contrasena', function(req, res){
+      if (req.user){
+            res.redirect("/home");
+        }
+        res.render('app/login/recuperar-contrasena', {
+            message: req.flash('message')
+        });
+    });
 
     return router;
 }

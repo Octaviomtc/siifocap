@@ -113,8 +113,15 @@ module.exports = function(grunt) {
             jsonArray : true,  //optional
             upsert : true,  //optional
             drop : true  //optional
+          },
+          {
+            name : 'disciplinas',
+            type : 'json',
+            file : 'models/json/disciplinas.json',
+            jsonArray : true,  //optional
+            upsert : true,  //optional
+            drop : true  //optional
           }
-
         ]
       }
     },

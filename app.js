@@ -39,7 +39,35 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(config.root, 'public')));
 // Configuring Passport
-app.use(expressSession({secret: 'mySecretKey'}));
+
+
+var MongoStore = require('connect-mongo')(expressSession);
+
+app.use(expressSession({
+    secret: "@iPn@psscg3f1",
+    saveUninitialized: true,
+    resave: true,
+    cookie: {
+      expires: new Date(Date.now() + config.maxAge),
+      maxAge: config.maxAge
+    },
+    rolling: true,
+    store: new MongoStore({
+      // Basic usage
+      host: config.host_db, // Default, optional
+      port: 27017, // Default, optional
+      db: config.name_db, // Required
+      // Basic authentication (optional)
+      username: '',
+      password: '',
+      // Advanced options (optional)
+      autoReconnect: true, // Default
+      w: 1, // Default,
+      ssl: false // Default
+    })
+}));
+
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());

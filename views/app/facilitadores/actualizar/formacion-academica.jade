@@ -28,8 +28,22 @@ block content
                         option(value='Doctorado', selected= "Doctorado" == facilitador.ultimo_grado) Doctorado
                 +hr()
                 +h-input("text", "Disciplina", "disciplina_facilitador", "Disciplina", facilitador.disciplina_facilitador, 9, 3, "", "empty","")
-                +h-input("text", "Institución Formadora", "institucion_formadora_facilitador", "Institución Formadora", facilitador.institucion_formadora_facilitador, 9, 3, "", "empty","")
+                //- .form-group
+                  span.control-label.col-md-3
+                    | Disciplina
+                  .col-md-9
+                    select#disciplina_facilitador.form-control(name='disciplina_facilitador',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                        option(value="") Seleccione ...
+                        each disciplina in disciplinas
+                          option(value=disciplina.disciplina, selected= disciplina.disciplina == facilitador.disciplina_facilitador) #{disciplina.disciplina}
 
+                +h-input("text", "Institución Formadora", "institucion_formadora_facilitador", "Institución Formadora", facilitador.institucion_formadora_facilitador, 9, 3, "", "empty","")
+                
+                +hr()
+                label(class="col-md-11 col-md-offset-1 alert alert-info") Idiomas
+                +h-input("text", "Idiomas separe por comas si habla varios idiomas", "idioma", "Indioma", facilitador.idioma, 9, 3, "", "","")
+
+                
                 +hr()
                 label(class="col-md-11 col-md-offset-1 alert alert-info") Estudios complementarios
                 span(class="control-label col-md-1")
@@ -46,6 +60,19 @@ block content
                     - var contenedor = "divCompleCont"+i
                     div(id=contenedor)
                       hr
+                      .form-group
+                        span.col-md-3 Tipo de estudio
+                        .col-md-9
+                          select.form-control(id="complementario["+i+"][tipo]", name="complementario["+i+"][tipo]", data-validation='', data-toggle='tooltip', data-placement='top', title='')
+                            option(value='') Seleccione ...
+                            option(value='Licenciatura', selected= "Licenciatura" == com.tipo) Licenciatura
+                            option(value='Especialidad', selected= "Licenciatura" == com.tipo) Especialidad 
+                            option(value='Maestría', selected= "Maestría" == com.tipo) Maestría
+                            option(value='Doctorado', selected= "Doctorado" == com.tipo) Doctorado
+                            option(value='Curso', selected= "Curso" == com.tipo) Curso
+                            option(value='Taller', selected= "Taller" == com.tipo) Taller
+                            option(value='Diplomado', selected= "Diplomado" == com.tipo) Diplomado
+
                       +h-input("text", "Disciplina", "complementario["+i+"][disciplina]", "Disciplina", com.disciplina, 9, 3, "", "","")
                       +h-input("text", "Institución formadora", "complementario["+i+"][institucion_formadora]", "Institución formadora", com.institucion_formadora, 9, 3, "", "","")
                       div#dependenciaCoparticipanteAdd.form-group
@@ -81,7 +108,7 @@ block content
 
       //- Funcion para crear nuevo Estudio Complementario
       function addEstudios(){
-        $('#estudiosComplementariosDiv').append('<hr><div id="divCompleCont'+facilitadores+'"><div class="form-group"><span class="control-label col-md-3">Disciplina</span><div class="col-md-9"><input type="text" id="complementario['+facilitadores+'][disciplina]" name="complementario['+facilitadores+'][disciplina]" placeholder="Disciplina"  value="" data-validation="" data-toggle="tooltip" data-placement="top" title="" class="form-control"></div></div><div class="form-group"><span class="control-label col-md-3">Institución formadora</span><div class="col-md-9"><input type="text" id="complementario['+facilitadores+'][institucion_formadora]" name="complementario['+facilitadores+'][institucion_formadora]" placeholder="Institución formadora" value="" data-validation="" data-toggle="tooltip" data-placement="top" title="" class="form-control"></div></div><div id="dependenciaCoparticipanteAdd" class="form-group"><span class="control-label col-md-3"></span><div class="col-md-9"><a onclick=delCompEvaludor("divCompleCont'+facilitadores+'") class="btn btn-danger fa-r"><i class="fa fa-trash fa-r"></i>Eliminar</a></div></div></div>');
+        $('#estudiosComplementariosDiv').append('<hr><div id="divCompleCont'+facilitadores+'"><div class="form-group"><div class="col-md-3">Tipo de estudio</div><div class="col-md-9"><select id="complementario['+facilitadores+'][tipo]" name="complementario['+facilitadores+'][tipo]" data-validation="" data-toggle="tooltip" data-placement="top" title="" class="form-control"><option value="">Seleccione ...</option><option value="Licenciatura">Licenciatura</option><option value="Especialidad">Especialidad </option><option value="Maestría">Maestría</option><option value="Doctorado">Doctorado</option><option value="Curso">Curso</option><option value="Taller">Taller</option><option value="Diplomado">Diplomado</option></select></div></div><div class="form-group"><span class="control-label col-md-3">Disciplina</span><div class="col-md-9"><input type="text" id="complementario['+facilitadores+'][disciplina]" name="complementario['+facilitadores+'][disciplina]" placeholder="Disciplina"  value="" data-validation="" data-toggle="tooltip" data-placement="top" title="" class="form-control"></div></div><div class="form-group"><span class="control-label col-md-3">Institución formadora</span><div class="col-md-9"><input type="text" id="complementario['+facilitadores+'][institucion_formadora]" name="complementario['+facilitadores+'][institucion_formadora]" placeholder="Institución formadora" value="" data-validation="" data-toggle="tooltip" data-placement="top" title="" class="form-control"></div></div><div id="dependenciaCoparticipanteAdd" class="form-group"><span class="control-label col-md-3"></span><div class="col-md-9"><a onclick=delCompEvaludor("divCompleCont'+facilitadores+'") class="btn btn-danger fa-r"><i class="fa fa-trash fa-r"></i>Eliminar</a></div></div></div>');
         facilitadores=parseInt(facilitadores)+1;
       }
       
@@ -90,3 +117,4 @@ block content
       }
 
 
+//- <div class="form-group"><div class="col-md-3">Tipo de estudio complementario</div><div class="col-md-9"><select id="complementario['+facilitadores+'][tipo]" name="ultimo_grado" data-validation="" data-toggle="tooltip" data-placement="top" title="" class="form-control"><option value="">Seleccione ...</option><option value="Licenciatura">Licenciatura</option><option value="Especialidad">Especialidad </option><option value="Maestría">Maestría</option><option value="Doctorado">Doctorado</option><option value="Cursos">Cursos</option><option value="Talleres">Talleres</option><option value="Diplomados">Diplomados</option></select></div></div>
