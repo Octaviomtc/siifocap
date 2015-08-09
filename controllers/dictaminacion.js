@@ -11,19 +11,24 @@ var _                     = require('underscore');
 
 exports.addDictamen = function(req, res, next) {
 
-  var obj = [];
-  obj.dictaminacion = req.body;
+  var pregunta = req.body.pregunta;
 
-  console.log(req.body.pregunta);
+  var dictaminacion = [];
 
-  console.log("*******************");
+  for (var i=0; i<pregunta.length; i++ ){
+    console.log(pregunta[i]);
+    var asw = [];
+    asw[0] = pregunta[i];
+    dictaminacion.push({"puntaje": 0,"pregunta":asw});
+  }
 
-  var body = {};
-  body.dictaminacion = req.body.pregunta;
+  var obj ={};
+  obj.dictaminacion = dictaminacion;
 
-  accionesFormacion.findOneAndUpdate({_id:req.params.id}, body, function (err, accion) {
+
+  accionesFormacion.findOneAndUpdate({_id:req.params.id}, obj, function (err, accion) {
     if(err) res.send(500, err.message);
-    // console.log(accion);
+    //console.log(accion);
     res.accionFormacion = accion;
     return next();
   });

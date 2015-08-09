@@ -672,7 +672,7 @@ module.exports = function(passport){
     });
 
 
-    router.get('/dictaminacion/:id', isAuthenticated, accionesMid.findById, function(req, res){
+    router.get('/dictaminacion/:id', isAuthenticated, accionesMid.findById, accionesMid.findByIdDictaminacion, function(req, res){
       param={
         icon: "fa-gavel",
         seccion: "Dictaminación",
