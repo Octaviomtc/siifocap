@@ -13,11 +13,21 @@ block content
           .row
             .col-md-11
               form.form-horizontal(method='post', action="/evaluadores/#{evaluador.id}/datos-personales", enctype='application/json')
-                label(class="col-md-11 col-md-offset-1 alert alert-info") Experiencia Laboral
+                label(class="col-md-11 col-md-offset-1 alert alert-info") Experiencia Como  Evaluador
                 span(class="col-md-11 col-md-offset-1 alert alert-info")
-                  | Ingrese la información solicitada en relación con su experiencia en los cargos o puestos laborales con  duración mayor a un año.
+                  | Ingrese la información solicitada en relación con su experiencia en los cargos o puestos como evaluador con  duración mayor a un año.
                   
                 +hr()
+                .form-group
+                  span(class="control-label col-md-3")
+                    | Practica docente
+                    +ayuda("Ingrese la información relativa a sus últimos 5 años de experiencia docente frente a grupo")
+                  div(class="col-md-9")
+                    select#practicas_docentes.form-control(name='practicas_docentes',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                      option(value="") Seleccione ...
+                      option(value="Si", selected="Si" == evaluador.practicas_docentes) Si
+                      option(value="No", selected="No" == evaluador.practicas_docentes) No
+                      
                 +h-input("text", "Institución pública", "institucion_publica", "Institución pública", evaluador.institucion_publica, 9, 3, "autofocus", "empty","")
                 +h-input("text", "Empresa privada", "empresa_privada", "Empresa privada", evaluador.empresa_privada, 9, 3, "", "empty","")
                 
@@ -117,18 +127,23 @@ block content
                   .col-md-9.col-md-offset-3
                     button.btn.btn-success.fa-r(type='submit')
                       i.fa.fa-save.fa-r
-                      | Guardar
-                      
-                    if evaluador.estatus_sec_2=='true'
-                      a.btn.btn-success.fa-r(href="/evaluadores/#{evaluador._id}/experiencia-evaluador")
+                      | Guardar 
+                    
+                    if evaluador.estatus_sec_3=='true'
+                      a.btn.btn-success.fa-r(href="/evaluadores/#{evaluador._id}/finalizar")
                         i.fa.fa-check-circle.fa-r
-                        | Continuar
+                        | Fianlizar registro
+                        
+                        
+                      //- a.btn.btn-default.fa-r()
+                      //-   i.fa.fa-print.fa-r
+                      //-   | Descargar planeación como PDF
                     else
                       a.btn.btn-success.disabled.fa-r(href="")
                         i.fa.fa-check-circle.fa-r
-                        | Continuar
-
-                    a.btn.btn-danger(href="#")
+                        | Fianlizar registro
+                    
+                    a.btn.btn-danger(href="")
                       | Cancelar
 
 
