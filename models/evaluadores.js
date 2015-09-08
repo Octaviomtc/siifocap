@@ -73,7 +73,10 @@ var evaluadoresSchema = new Schema({
   estatus_sec_3                           :String,
   
 
-
+  accion_evaluda                          :String,
+  tipo_evaluacion                         :String,
+  fecha_evaluada                          :String,
+  dictamen_emitido                        :String,
   estatus_sec_4                           :String
 },
 {

@@ -18,109 +18,29 @@ block content
                   | Ingrese la información solicitada en relación con su experiencia en los cargos o puestos como evaluador con  duración mayor a un año.
                   
                 +hr()
-                .form-group
-                  span(class="control-label col-md-3")
-                    | Practica docente
-                    +ayuda("Ingrese la información relativa a sus últimos 5 años de experiencia docente frente a grupo")
-                  div(class="col-md-9")
-                    select#practicas_docentes.form-control(name='practicas_docentes',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
-                      option(value="") Seleccione ...
-                      option(value="Si", selected="Si" == evaluador.practicas_docentes) Si
-                      option(value="No", selected="No" == evaluador.practicas_docentes) No
-                      
-                +h-input("text", "Institución pública", "institucion_publica", "Institución pública", evaluador.institucion_publica, 9, 3, "autofocus", "empty","")
-                +h-input("text", "Empresa privada", "empresa_privada", "Empresa privada", evaluador.empresa_privada, 9, 3, "", "empty","")
+                +h-input("text", "Acción de formación evaluada", "accion_evaluda", "Acción de formación evaluada", evaluador.accion_evaluda, 9, 3, "autofocus", "empty","")
                 
                 .form-group
                   span(class="control-label col-md-3")
-                    | Practica docente
-                    +ayuda("Ingrese la información relativa a sus últimos 5 años de experiencia docente frente a grupo")
+                    | Tipo de evaluación
                   div(class="col-md-9")
-                    select#practicas_docentes.form-control(name='practicas_docentes',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                    select#practicas_docentes.form-control(name='tipo_evaluacion',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                       option(value="") Seleccione ...
-                      option(value="Si", selected="Si" == evaluador.practicas_docentes) Si
-                      option(value="No", selected="No" == evaluador.practicas_docentes) No
+                      option(value="Técnica pedagógica", selected="Técnica pedagógica" == evaluador.tipo_evaluacion) Técnica pedagógica
+                      option(value="Academica", selected="Academica" == evaluador.tipo_evaluacion) Academica
                 
-                //- ************************************************************************
-                .row
-                  .container
-                    .Si_docente(id='Si_docente')
-                      +hr()
-                      .form-group
-                        span(class="control-label col-md-3")
-                          | Dependencia Politécnica Solicitante:
-                        div(class="col-md-9")
-                          select#dependencia.form-control(name='dependencia_experiencia',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
-                            option(value="") Seleccione dependencia ...
-                              each dependencia in dependencias
-                                option(value=dependencia.dependencia, selected= dependencia.dependencia == evaluador.dependencia_experiencia)= dependencia.dependencia
-
-                      .form-group#unidadForm
-                        span(class="control-label col-md-3")
-                          | 
-                        div(class="col-md-9")
-                          select#unidad.form-control(name='unidad_experiencia',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
-                            option(value="") Seleccione unidad ...
-                      br
-                      +h-input("text", "Institución pública", "institucion_publica_exp", "Institución pública", evaluador.institucion_publica_exp, 9, 3, "autofocus", "empty","")
-
-                      .row
-                        .form-group
-                        span(class="control-label col-md-3")
-                          | Modalidad:
-                        div(class="col-md-9")
-                          select#modalidad_evaluadores.form-control(name='modalidad_evaluadores_exp',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
-                            option(value="") Seleccione ...
-                            option(value="escolarizada", selected="escolarizada" == evaluador.modalidad_evaluadores_exp) Escolarizada
-                            option(value="no_escolarizada", selected="no_escolarizada" == evaluador.modalidad_evaluadores_exp) No escolarizada
-                            option(value="mixta", selected="mixta" == evaluador.modalidad_evaluadores_exp) Mixta
+                +h-input("date", "Periodo:", "fecha_evaluada", "", evaluador.fecha_evaluada, 9, 3, "", "","")
                 
-                //- ************************************************************************
-                .row
-                  .container
-                    .No_docente(id='No_docente')
-                      +hr()
-                      +h-input("text", "Nivel Educativo", "nivel_educativo_exp", "Nivel Educativo", evaluador.nivel_educativo_exp, 9, 3, "autofocus", "empty","")
-                      +h-input("text", "Asignatura", "asignatura_exp", "Asignatura", evaluador.asignatura_exp, 9, 3, "autofocus", "empty","")
-                      .row
-                        .form-group
-                        span(class="control-label col-md-3")
-                          | Modalidad:
-                        div(class="col-md-9")
-                          select#modalidad_evaluadores.form-control(name='modalidad_evaluadores_no',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
-                            option(value="") Seleccione ...
-                            option(value="escolarizada", selected="escolarizada" == evaluador.modalidad_evaluadores_no) Escolarizada
-                            option(value="no_escolarizada", selected="no_escolarizada" == evaluador.modalidad_evaluadores_no) No escolarizada
-                            option(value="mixta", selected="mixta" == evaluador.modalidad_evaluadores_no) Mixta
-                
-                +hr()
-                label(class="col-md-11 col-md-offset-1 alert alert-info") Unidad Academica
-                span(class="control-label col-md-1")
-                div(class="col-md-9")
-                  a.btn.btn-success.fa-r(onclick="addEstudios()")
-                    i.fa.fa-plus-circle.fa-r
-                    | Agregar Unidad Academica
-                
-                +hr()
-                if evaluador.complementario.length >0
-                  - var complementario = evaluador.complementario
-                  - var i = 0
-                  each com in complementario
-                    - var contenedor = "divCompleCont"+i
-                    div(id=contenedor)
-                      hr
-                      +h-input("text", "Disciplina", "complementario["+i+"][disciplina]", "Disciplina", com.disciplina, 9, 3, "", "","")
-                      +h-input("text", "Institución formadora", "complementario["+i+"][institucion_formadora]", "Institución formadora", com.institucion_formadora, 9, 3, "", "","")
-                      div#dependenciaCoparticipanteAdd.form-group
-                        span.control-label.col-md-3
-                        div.col-md-9
-                          a.btn.btn-danger.fa-r(onclick='delCompEvaludor("'+contenedor+'")')
-                            i.fa.fa-trash.fa-r
-                            | Eliminar
-                    - i=i+1
-                div#estudiosComplementariosDiv
+                .form-group
+                  span(class="control-label col-md-3")
+                    | Dictamen emitido
+                  div(class="col-md-9")
+                    select#practicas_docentes.form-control(name='dictamen_emitido',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                      option(value="") Seleccione ...
+                      option(value="Favorable", selected="Favorable" == evaluador.dictamen_emitido) Favorable
+                      option(value="No Favorable", selected="No Favorable" == evaluador.dictamen_emitido) No Favorable
                   
-                +h-input("hidden", "", "estatus_sec_3", "", "true", 9, 3, "", "","") 
+                +h-input("hidden", "", "estatus_sec_4", "", "true", 9, 3, "", "","") 
                 .row
                   .col-md-12
                     hr
@@ -134,10 +54,6 @@ block content
                         i.fa.fa-check-circle.fa-r
                         | Fianlizar registro
                         
-                        
-                      //- a.btn.btn-default.fa-r()
-                      //-   i.fa.fa-print.fa-r
-                      //-   | Descargar planeación como PDF
                     else
                       a.btn.btn-success.disabled.fa-r(href="")
                         i.fa.fa-check-circle.fa-r
