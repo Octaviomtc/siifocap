@@ -701,7 +701,7 @@ module.exports = function(passport){
         seccion: "Dictaminación",
         estado: "dictaminacion"
       }
-      res.render('app/dictaminacion/nueva',{message: req.flash('message'), user: req.user, datos: param});
+      res.render('app/dictaminacion/nueva/nueva',{message: req.flash('message'), user: req.user, datos: param});
     });
 
 

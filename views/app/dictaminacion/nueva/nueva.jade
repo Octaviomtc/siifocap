@@ -1,0 +1,101 @@
+extends  ../layout/layout
+
+block content
+  #message
+    if message
+      .error-message
+          a.text-center #{message}
+  .row
+    .col-lg-12
+      .formulario.animated.fadeIn
+
+
+        //- .titulo
+        //-   | Nueva dictaminación para la accion de formacion: 
+        //-   b #{accionFormacion.nombre_accion_Formacion}
+        //- .contenido
+        //-   form.form-horizontal(method='post', action="#")
+        //-     input(type="hidden" value="#{accionFormacion.id}" name="accion_id")
+
+        .contenido
+          .row
+            .col-md-11
+              form#formAccion.form-horizontal(method='post', action="/acciones-formacion/nueva/#{accionFormacion._id}/encuadre", enctype='application/json')
+                
+                span(class="col-md-12 col-md-offset-1 alert alert-info")
+                  center
+                    strong ORIENTACIONES GENERALES PARA LLEVAR A CABO EL DICTAMEN TÉCNICO-PEDAGÓGICO, DE ACCIONES DE FORMACIÓN A EVALUAR
+                  br
+                  | El dictamen técnico-pedagógico de cursos y talleres es un instrumento para determinar si las acciones formativas para el personal directivo, docente y de apoyo y asistencia a la educación, reúnen los criterios didácticos mínimos para llevarse a cabo.
+                  br
+                  | El dictamen técnico-pedagógico se compone de tres secciones: 
+                  ul
+                    li La primera está referida a los 
+                      strong Datos generales 
+                      | de la acción formativa.
+                    li La segunda se refiere al 
+                      strong Encuadre de la Acción de Formación 
+                    li La tercera a la 
+                      strong Planeación Didáctica.
+                  br
+                  strong Indicaciones:
+                  ul
+                    li Lea cuidadosamente la solicitud de registro para cursos o talleres que le fue asignada.
+                    li Concluida la lectura, inicie la evaluación de la misma con base en las siguientes recomendaciones:
+                  br
+                  strong a) 
+                  | Revise detenidamente el indicador a considerar en cada elemento a evaluar, ya que éste le proporcionará los criterios que debe contemplar en cada elemento, para valorar si cumple o no con los requisitos para aprobarse. Ejemplo:
+                  
+
+
+                table.table.table-bordered
+                  thead
+                    tr
+                      th No.
+                      th Elemento a valorar
+                      th Puntaje Máximo
+                      th Indicador
+                      th Puntaje Asignado
+                      th Comentarios y observaciones a considerar para corrección
+                  tbody
+                    tr
+                      th 1
+                      th Dependencia Politécnica solicitante
+                      th 1
+                      th Contiene el nombre completo, sin siglas, de la Dependencia Politécnica solicitante.
+                      th
+                        +h-input("text", "", "nombre_accion_Formacion", " ", "", 9, 3, "", "empty", "")
+                      th
+                        +h-input("text", "", "nombre_accion_Formacion", "Acción de formación", "", 9, 3, "", "empty", "")
+
+
+
+
+              form.form-horizontal(method='post', action="/acciones-formacion/nueva/datos-generales", enctype='application/json')
+                .form-group
+                  span(class="control-label col-md-3")
+                    | Dependencia Politécnica Solicitante:
+                  div(class="col-md-9")
+                    select#dependencia.form-control(name='dependencia',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                      option(value="") Seleccione dependencia ...
+                        
+                .form-group#unidadForm
+                  span(class="control-label col-md-3")
+                    | 
+                  div(class="col-md-9")
+                    select#unidad.form-control(name='unidad',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                      option(value="") Seleccione unidad ...
+
+                .form-group
+                  span(class="control-label col-md-3")
+                    | Dirigido a:
+                    +ayuda("Seleccione el público al que se dirige la acción de formación.")
+                  div(class="col-md-9")
+                    select#dirigido_a.form-control(name='dirigido_a',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                      option(value="") Seleccione ...
+                      option(value="comunidad-politecnica") Comunidad Politécnica
+                      option(value="comunidad-externa") Comunidad Externa
+
+
+
+
