@@ -83,8 +83,14 @@ block content
       
                     
             //- +h-input("text", "Unidad Académica", "unidad", "Unidad Académica de Adscripción", "", 6, 3, "", "empty","")
-            +h-input("email", "Correo Electrónico Institucional", "email_inst", "@", "", 6, 3, "", "empty","")
-            +h-input("email", "Correo Electrónico Personal", "email_pers", "@", "", 6, 3, "", "empty","")
+            .form-group(id="email_inst_Form")
+                span(class="control-label col-md-3")
+                  | Correo Electrónico Institucional
+                .col-md-6
+                  .input-group
+                    input#email_inst.form-control(name="email_inst", type='text', placeholder='Correo', data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                    .input-group-addon @ipn.mx
+            +h-input("email", "Correo Electrónico Personal", "email_pers", "@", "", 6, 3, "", "correo","")
             +h-input("text", "Número Telefónico Casa", "telefono", "Casa (10 Dígitos)", "", 6, 3, "", "empty","","16")
             +h-input("text", "Número Telefónico Celular", "celular", "Celular (10 Dígitos)", "", 6, 3, "", "empty","","16")
             +h-input("text", "Usuario", "usuario", "Usuario", "", 6, 3, "", "empty","")
@@ -92,14 +98,14 @@ block content
             //- +h-input("text", "Grupo", "grupo", "Grupo", "", 6, 3, "", "empty","")
             
             
-            .form-group
-              span(class="control-label col-md-3")
-                | Accion de Formación
-              div(class="col-md-6")
-                select#dependencia.form-control(name='accion',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
-                  option(value="") Seleccione ...
-                    each accion in acciones
-                      option(value='#{accion.nombre_accion_Formacion}')= accion.nombre_accion_Formacion
+            //- .form-group
+            //-  span(class="control-label col-md-3")
+            //-    | Accion de Formación
+            //-  div(class="col-md-6")
+            //-    select#dependencia.form-control(name='accion',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+            //-      option(value="") Seleccione ...
+            //-        each accion in acciones
+            //-          option(value='#{accion.nombre_accion_Formacion}')= accion.nombre_accion_Formacion
             .row
               .col-md-9.col-md-offset-3
                 button.btn.btn-success.fa-r(type='submit')
@@ -182,14 +188,18 @@ block content
           return "0123456789".indexOf(chr)>=0;
         });
 
+      $('#email_inst').keypress(function(e){
+          var chr = String.fromCharCode(e.which);
+          return "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-0123456789.".indexOf(chr)>=0;
+        });
       $('#nombre').keypress(function(e){
           var chr = String.fromCharCode(e.which);
-          return "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZáéíóúÁÉÍÓÚ".indexOf(chr)>=0;
+          return "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚ ".indexOf(chr)>=0;
         });
 
       $('#apellidos').keypress(function(e){
           var chr = String.fromCharCode(e.which);
-          return "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZáéíóúÁÉÍÓÚ".indexOf(chr)>=0;
+          return "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚ ".indexOf(chr)>=0;
         });
 
 
