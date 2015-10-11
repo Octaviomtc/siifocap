@@ -122,6 +122,26 @@ script.
             errorMessage: errorMs,
             errorMessageKey: 'Error'
           });
+          
+          $.formUtils.addValidator({
+              name : 'correo',
+              validatorFunction : function(value, $el, config, language, $form) {
+
+                  var emailParts = value.toLowerCase().split('@');
+                  if( emailParts.length == 2 ) {
+                    
+                    destroyTool($el.context.id);
+                      return $.formUtils.validators.validate_domain.validatorFunction(emailParts[1]) &&
+                              !(/[^\w\+\.\-]/.test(emailParts[0]));
+                              
+                  }else{
+                    msgError($el.context.id, "Correo no valido");
+                    return false;
+                  }  
+              },
+              errorMessage: errorMs,
+              errorMessageKey: 'Error'
+          });
 
 
             //Validacion del curp
