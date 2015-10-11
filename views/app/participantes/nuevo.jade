@@ -91,8 +91,25 @@ block content
                     input#email_inst.form-control(name="email_inst", type='text', placeholder='Correo', data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                     .input-group-addon @ipn.mx
             +h-input("email", "Correo Electrónico Personal", "email_pers", "@", "", 6, 3, "", "correo","")
-            +h-input("text", "Número Telefónico Casa", "telefono", "Casa (10 Dígitos)", "", 6, 3, "", "empty","","16")
-            +h-input("text", "Número Telefónico Celular", "celular", "Celular (10 Dígitos)", "", 6, 3, "", "empty","","16")
+            .form-group(id="telefono_Form")
+                span(class="control-label col-md-3")
+                  | Número Telefónico Casa
+                div(class="col-md-1")
+                  input(class="form-control", type="text", id="lada_telefono", name="lada_telefono", placeholder="lada", value="", required="required", data-validation="longitud", data-validation-length="2-3", data-toggle="tooltip", data-placement="top", title="", maxlength=3)
+                div(class="col-md-5")
+                  input(class="form-control", type="text", id="telefono", name="telefono", placeholder="#", value="", required="required", data-validation="longitud", data-validation-length="8-8", data-toggle="tooltip", data-placement="top", title="", maxlength=8)
+            
+            .form-group(id="celular_Form")
+                span(class="control-label col-md-3")
+                  | Número Telefónico Celular
+                div(class="col-md-1")
+                  input(class="form-control", type="text", id="lada_celular", name="lada_celular", placeholder="lada", value="", required="required", data-validation="longitud", data-validation-length="2-3", data-toggle="tooltip", data-placement="top", title="", maxlength=3)
+                div(class="col-md-5")
+                  input(class="form-control", type="text", id="celular", name="celular", placeholder="#", value="", required="required", data-validation="longitud", data-validation-length="8-8", data-toggle="tooltip", data-placement="top", title="", maxlength=8)
+                        
+                    
+        
+            //+h-input("text", "Número Telefónico Celular", "celular", "Celular (10 Dígitos)", "", 6, 3, "", "empty","","16")
             +h-input("text", "Usuario", "usuario", "Usuario", "", 6, 3, "", "empty","")
             +h-input("password", "Contraseña", "password", "Contraseña", "", 6, 3, "", "empty","")
             //- +h-input("text", "Grupo", "grupo", "Grupo", "", 6, 3, "", "empty","")
@@ -177,10 +194,27 @@ block content
                   }
                 });
         }
-      phoneFormat("telefono");
-      phoneFormat("celular");
+      //phoneFormat("celular");
 
-
+      $('#lada_telefono').keypress(function(e){
+          var chr = String.fromCharCode(e.which);
+          return "0123456789".indexOf(chr)>=0;
+        });
+        
+        $('#lada_celular').keypress(function(e){
+            var chr = String.fromCharCode(e.which);
+            return "0123456789".indexOf(chr)>=0;
+          });
+        
+          $('#telefono').keypress(function(e){
+              var chr = String.fromCharCode(e.which);
+              return "0123456789".indexOf(chr)>=0;
+            });
+            
+            $('#celular').keypress(function(e){
+                var chr = String.fromCharCode(e.which);
+                return "0123456789".indexOf(chr)>=0;
+              });
 
 
       $('#noempleado').keypress(function(e){

@@ -124,6 +124,52 @@ script.
           });
           
           $.formUtils.addValidator({
+              name : 'longitud',
+              validatorFunction : function(val, $el, conf, lang, $form) {
+                  var lengthAllowed = $el.valAttr('length'),
+                      type = $el.attr('type');
+
+
+                  // check if length is above min, below max or within range.
+                  var len = type == 'file' && $el.get(0).files !== undefined ? $el.get(0).files.length : val.length,
+                      lengthCheckResults = $.formUtils.numericRangeCheck(len, lengthAllowed),
+                      checkResult, message_error;
+
+                  switch(lengthCheckResults[0])
+                  {   // outside of allowed range
+                      case "out":
+                          message_error = "La longitud del campo debe ser:" + lengthCheckResults[1]+" - "+lengthCheckResults[2];
+                          checkResult = true;
+                          break;
+                      // too short
+                      case "min":
+                          message_error = "La longitud del campo debe ser:" + lengthCheckResults[1]+" - "+lengthCheckResults[2];
+                          checkResult = true;
+                          break;
+                      // too long
+                      case "max":
+                          message_error = "La longitud del campo debe ser:" + lengthCheckResults[1]+" - "+lengthCheckResults[2];
+                          checkResult = true;
+                          break;
+                      // ok
+                      default:
+                          checkResult = false;
+                  }
+                  
+                  if(checkResult==false){
+                    //msgError($el.context.id, checkResult);
+                    destroyTool($el.context.id);
+                    return true;
+                  }else{
+                    msgError($el.context.id, message_error);
+                    return false;
+                  }
+              },
+              errorMessage : '',
+              errorMessageKey: ''
+          });
+          
+          $.formUtils.addValidator({
               name : 'correo',
               validatorFunction : function(value, $el, config, language, $form) {
 
