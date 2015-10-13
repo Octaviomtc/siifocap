@@ -32,38 +32,10 @@ block content
                 | Entidad Federativa
               div(class="col-md-6")
                 select#entidad.form-control(name='entidad',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
-                  option(value="AG") Aguascalientes
-                  option(value="BC") Baja California
-                  option(value="BS") Baja California Sur
-                  option(value="CA") Campeche
-                  option(value="CP") Chiapas
-                  option(value="CH") Chihuahua
-                  option(value="CU") Coahuila
-                  option(value="CO") Colima
-                  option(value="DF") Distrito Federal
-                  option(value="DU") Durango
-                  option(value="GJ") Guanajuato
-                  option(value="GR") Guerrero
-                  option(value="HD") Hidalgo
-                  option(value="JA") Jalisco
-                  option(value="MX") México
-                  option(value="MC") Michoacán
-                  option(value="MO") Morelos
-                  option(value="NA") Nayarit
-                  option(value="NL") Nuevo León
-                  option(value="OX") Oaxaca
-                  option(value="PU") Puebla
-                  option(value="QE") Querétaro
-                  option(value="QR") Quintana Roo
-                  option(value="SL") San Luis Potosí
-                  option(value="SI") Sinaloa
-                  option(value="SO") Sonora
-                  option(value="TB") Tabasco
-                  option(value="TA") Tamaulipas
-                  option(value="TL") Tlaxcala
-                  option(value="VZ") Veracruz
-                  option(value="YT") Yucatán
-                  option(value="ZA") Zacatecas
+                  option(value="") Seleccione ...
+                  each entidad in entidades
+                    option(value=entidad.abr) #{entidad.nombre}
+                  
                   
                   
             .form-group
