@@ -15,7 +15,8 @@ block content
             ///form.form-horizontal(method='post', action="#") ?????? 
             ////+h-input("text", "ETIQUETA", "NAME", "PLACEHOLDER", "VALUE", 6, 3, "autofocus", "empty","")
             +h-input("text", "Nombre(s)", "nombre", "Nombre(s)", "", 6, 3, "autofocus", "empty","")
-            +h-input("text", "Apellidos", "apellidos", "Apellidos", "", 6, 3, "", "empty","")
+            +h-input("text", "Apellido paterno", "apellidop", "Apellido", "", 6, 3, "", "empty","")
+            +h-input("text", "Apellido materno", "apellidom", "Apellido", "", 6, 3, "", "","")
             +h-input("text", "Número de empleado", "noempleado", "#", "", 6, 3, "", "empty","")
             +h-input("text", "CURP", "curp", "18 Dígitos", "", 6, 3, "", "curp","")
             +h-input("text", "RFC", "rfc", "10 Dígitos", "", 6, 3, "", "empty","")
@@ -240,7 +241,7 @@ block content
                 $("#unidad").empty();
                 add_append_select("unidad","","Seleccione unidad ...");
                 $.each(source.escuelas, function(index, escuela) {
-                  add_append_select("unidad",escuela._id,escuela.nombre);
+                  add_append_select("unidad",escuela.nombre,escuela.nombre);
                 });
               }},
             error: function(dato){

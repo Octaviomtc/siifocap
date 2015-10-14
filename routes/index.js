@@ -416,7 +416,7 @@ module.exports = function(passport){
     });
 
 
-    router.get('/participantes/ver/:id', isAuthenticated, participMid.findById, function(req, res){
+    router.get('/participantes/ver/:id', isAuthenticated, participMid.findById, entidadesMid.findAllEntidades, function(req, res){
       param={
         icon: "fa-building-o",
         seccion: res.locals.participante.apellidos +  ", "+  res.locals.participante.nombre
