@@ -231,7 +231,9 @@ module.exports = function(passport){
             seccion: "Acciones de formación",
             estado: "acciones"
         }
-        res.render('app/acciones/index', { message: req.flash('message'), user: req.user, datos: param});
+        var alerta = req.flash('alert');
+        console.log(alerta);
+        res.render('app/acciones/index', { message: alerta, user: req.user, datos: param});
     });
 
     // nueva accion de formacion paso 1 initAccionFormacion
@@ -391,7 +393,8 @@ module.exports = function(passport){
         seccion: "Participantes",
         estado: "participantes"
       }
-      res.render('app/participantes/index',{message: req.flash('message'), user: req.user, datos: param});
+      var alerta = req.flash('message');
+      res.render('app/participantes/index',{message: alerta, user: req.user, datos: param});
     });
 
     router.get('/participantes/nuevo', isAuthenticated, accionesMid.allAccionFormacion, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, entidadesMid.findAllEntidades, function(req, res){
@@ -403,7 +406,7 @@ module.exports = function(passport){
       res.render('app/participantes/nuevo',{message: req.flash('message'), user: req.user, datos: param});
     });
 
-    router.post('/participantes/nuevo', isAuthenticated, participMid.addParticipante, function (req, res){
+    router.post('/participantes/nuevo', isAuthenticated, participMid.findCurp, participMid.addParticipante, function (req, res){
       res.set('Content-Type', 'application/javascript');
       res.redirect('/participantes');
     });

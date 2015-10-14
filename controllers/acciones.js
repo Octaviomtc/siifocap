@@ -490,7 +490,9 @@ exports.deleteAccion = function(req, res, next) {
         return res.send(500, err.message);
       }
       console.log('Accion borrada / ');
-      return next(), req.flash('message','Accion borrada correctamente.');
+      console.log("Accion borrada correctamente.");
+      req.flash('alert','Accion borrada correctamente.');
+      return next();
     });
   });
 
