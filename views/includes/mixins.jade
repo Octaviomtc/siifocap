@@ -75,3 +75,14 @@ mixin radio2(val, rubro, label_principal, name, colorgrey)
     td
       textarea.style-textarea(name="#{name}[comentario]")  #{comentario}
     
+
+mixin v-input2(box, type, label, name, placeholder, maxlength, value, error, ayuda)
+  .form-group
+    div(class="col-md-#{box}")
+      label #{label}
+      if ayuda != ""
+        span.fa-stack.fa-l.fa-ayuda(data-toggle="tooltip-ayuda", data-html="true", data-placement="top", title="#{ayuda}")
+          i.fa.fa-circle.fa-stack-2x
+          i.fa.fa-question.fa-stack-1x.fa-inverse
+      input(class="form-control", class=type=="file" ? "filestyle":"", id=name, type=type, placeholder=placeholder, maxlength=maxlength, name=name, autofocus=autofocus, value=value, required=required, data-validation="#{error}", data-toggle="tooltip", data-placement="top", title="")
+

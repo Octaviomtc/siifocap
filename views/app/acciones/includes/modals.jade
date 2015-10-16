@@ -21,8 +21,8 @@
                 .form-group
                   label Tiempo para su desarrollo
                 
-                +v-input(4, "text", "Horas", "tiempo_hrs", "", "", "empty", "")
-                +v-input(4, "text", "Minutos", "tiempo_min", "", "", "empty", "")
+                +v-input2(4, "text", "Horas", "tiempo_hrs", "", "3", "", "empty", "")
+                +v-input2(4, "text", "Minutos", "tiempo_min", "", "3", "", "empty", "")
               
               
                 .row
@@ -72,7 +72,7 @@
                 .form-group
                   label Tiempo de realización
                       
-                +v-input(4, "text", "Horas", "tiempo_realizacion", "", "", "empty", "")
+                +v-input2(4, "text", "Horas", "tiempo_realizacion", "", "3", "", "empty", "")
                 
                 
                 .col-md-12.sepTop
@@ -148,7 +148,7 @@
                         input(type="radio", name="instrumento_evaluacion", value="Guia") 
                         span.fa-l Guía de observación
                       li
-                        input(type="radio", name="instrumento_evaluacion", value="Otro") 
+                        input(type="radio", name="instrumento_evaluacion", value="Otro", ) 
                         span.fa-l Otro
                   
                   mixin v-input("12", "text", "", "instrumento_otro_evaluacion", "", "", "empty", "")
