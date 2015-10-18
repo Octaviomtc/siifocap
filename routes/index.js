@@ -29,6 +29,7 @@ var escuelas_publicasMid    = require('../controllers/escuelas_publicas');
 var dictaminacionMid    = require('../controllers/dictaminacion');
 var unidades_politecnicasMid    = require('../controllers/unidades_politecnicas');
 var disciplinasMid = require('../controllers/disciplinas');
+var google = require('../controllers/google');
 
 
 var router          = express.Router();
@@ -438,7 +439,7 @@ module.exports = function(passport){
       res.redirect('/participantes');
     });
 
-    
+
 
     /*****************************************************************/
     // SECCIÓN FACILITADORES
@@ -451,7 +452,7 @@ module.exports = function(passport){
       res.render('app/facilitadores/index',{message: req.flash('message'), user: req.user, datos: param});
     });
 
-    
+
     //Borrar
     router.get('/facilitadores/borrar/:id', isAuthenticated, facilitadoresMid.deleteFacilitador, function(req, res){
       res.redirect('/facilitadores');
@@ -744,6 +745,12 @@ module.exports = function(passport){
             message: req.flash('message')
         });
     });
+
+    //************************************************ CODIGO POSTAL
+    router.get('/zipcode/:code', google.zipcode, function(req, res){
+    });
+
+
 
     return router;
 }
