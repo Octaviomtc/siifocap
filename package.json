@@ -38,6 +38,8 @@
     "session": "^0.1.0",
     "static-favicon": "~1.0.0",
     "superagent": "^0.21.0",
+    "superagent-no-cache": "^0.1.0",
+    "superagent-prefix": "0.0.2",
     "synchronize": "^0.9.11",
     "underscore": "^1.7.0",
     "view-helpers": "^0.1.5",

@@ -14,7 +14,8 @@ block content
           form.form-horizontal(method='post', action="/participantes/actualizar/"+participante._id)
             ////+h-input("text", "ETIQUETA", "NAME", "PLACEHOLDER", "VALUE", 6, 3, "autofocus", "empty","")
             +h-input("text", "Nombre(s)", "nombre", "Nombre(s)", participante.nombre, 6, 3, "autofocus", "empty","")
-            +h-input("text", "Apellidos", "apellidos", "Apellidos", participante.apellidos, 6, 3, "", "empty","")
+            +h-input("text", "Apellido paterno", "apellidop", "Apellido", participante.apellidop, 6, 3, "", "empty","")
+            +h-input("text", "Apellido materno", "apellidom", "Apellido", participante.apellidom, 6, 3, "", "","")
             +h-input("text", "Número de empleado", "noempleado", "#", participante.noempleado, 6, 3, "", "empty","")
             +h-input("text", "CURP", "curp", "18 Dígitos", participante.curp, 6, 3, "", "curp","")
             +h-input("text", "RFC", "rfc", "10 Dígitos", participante.rfc, 6, 3, "", "empty","")
@@ -23,45 +24,17 @@ block content
                 | Género
               div(class="col-md-6")
                 select#genero.form-control(name='genero',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
-                  option(value="M") Mujer
-                  option(value='H') Hombre
+                  option(value="") Seleccione ...
+                  option(value="M" selected= "M" == participante.genero) Mujer
+                  option(value='H' selected= "H" == participante.genero) Hombre
             .form-group
               span(class="control-label col-md-3")
                 | Entidad Federativa
               div(class="col-md-6")
                 select#entidad.form-control(name='entidad',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
-                  option(value="AG") Aguascalientes
-                  option(value="BC") Baja California
-                  option(value="BS") Baja California Sur
-                  option(value="CA") Campeche
-                  option(value="CP") Chiapas
-                  option(value="CH") Chihuahua
-                  option(value="CU") Coahuila
-                  option(value="CO") Colima
-                  option(value="DF") Distrito Federal
-                  option(value="DU") Durango
-                  option(value="GJ") Guanajuato
-                  option(value="GR") Guerrero
-                  option(value="HD") Hidalgo
-                  option(value="JA") Jalisco
-                  option(value="MX") México
-                  option(value="MC") Michoacán
-                  option(value="MO") Morelos
-                  option(value="NA") Nayarit
-                  option(value="NL") Nuevo León
-                  option(value="OX") Oaxaca
-                  option(value="PU") Puebla
-                  option(value="QE") Querétaro
-                  option(value="QR") Quintana Roo
-                  option(value="SL") San Luis Potosí
-                  option(value="SI") Sinaloa
-                  option(value="SO") Sonora
-                  option(value="TB") Tabasco
-                  option(value="TA") Tamaulipas
-                  option(value="TL") Tlaxcala
-                  option(value="VZ") Veracruz
-                  option(value="YT") Yucatán
-                  option(value="ZA") Zacatecas
+                  option(value="") Seleccione ...
+                  each entidad in entidades
+                    option(value=entidad.abr selected= "#{entidad.abr}" == participante.entidad) #{entidad.nombre}
                   
             .form-group
               span(class="control-label col-md-3")
@@ -89,8 +62,28 @@ block content
                     input#email_inst.form-control(value='#{participante.email_inst}' name="email_inst", type='text', placeholder='Correo', data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                     .input-group-addon @ipn.mx
             +h-input("email", "Correo Electrónico Personal", "email_pers", "@", participante.email_pers, 6, 3, "", "empty","")
-            +h-input("text", "Número Telefónico Casa", "telefono", "Casa (10 Dígitos)", participante.telefono, 6, 3, "", "empty","","16")
-            +h-input("text", "Número Telefónico Celular", "celular", "Celular (10 Dígitos)", participante.celular, 6, 3, "", "empty","","16")
+            .form-group(id="telefono_Form")
+                span(class="control-label col-md-3")
+                  | Número Telefónico Casa
+                div(class="col-md-1")
+                  input(class="form-control", type="text", id="lada_telefono", name="lada_telefono", placeholder="lada", value=participante.lada_telefono, required="required", data-validation="longitud", data-validation-length="2-3", data-toggle="tooltip", data-placement="top", title="", maxlength=3)
+                div(class="col-md-5")
+                  input(class="form-control", type="text", id="telefono", name="telefono", placeholder="#", value=participante.telefono, required="required", data-validation="longitud", data-validation-length="8-8", data-toggle="tooltip", data-placement="top", title="", maxlength=8)
+            
+            .form-group(id="celular_Form")
+                span(class="control-label col-md-3")
+                  | Número Telefónico Celular
+                div(class="col-md-1")
+                  input(class="form-control", type="text", id="lada_celular", name="lada_celular", placeholder="lada", value=participante.lada_celular, required="required", data-validation="longitud", data-validation-length="2-3", data-toggle="tooltip", data-placement="top", title="", maxlength=3)
+                div(class="col-md-5")
+                  input(class="form-control", type="text", id="celular", name="celular", placeholder="#", value=participante.celular, required="required", data-validation="longitud", data-validation-length="8-8", data-toggle="tooltip", data-placement="top", title="", maxlength=8)
+                        
+                    
+            //+h-input("text", "Número Telefónico Casa", "telefono", "Casa (10 Dígitos)", participante.telefono, 6, 3, "", "empty","","16")
+            //+h-input("text", "Número Telefónico Celular", "celular", "Celular (10 Dígitos)", participante.celular, 6, 3, "", "empty","","16")
+            .row
+              .col-md-6.col-md-offset-3
+                label.alert Por el momento la asinación de usuario y contraseña es de manera informativa
             +h-input("text", "Usuario", "usuario", "Usuario", participante.usuario, 6, 3, "", "empty","")
             +h-input("password", "Contraseña", "password", "Contraseña", "", 6, 3, "", "empty","")
             //- +h-input("text", "Grupo", "grupo", "Grupo", participante.grupo, 6, 3, "", "empty","")
@@ -176,8 +169,29 @@ block content
                   }
                 });
         }
-      phoneFormat("telefono");
-      phoneFormat("celular");
+      //phoneFormat("telefono");
+      //phoneFormat("celular");
+      
+      $('#lada_telefono').keypress(function(e){
+          var chr = String.fromCharCode(e.which);
+          return "0123456789".indexOf(chr)>=0;
+        });
+        
+        $('#lada_celular').keypress(function(e){
+            var chr = String.fromCharCode(e.which);
+            return "0123456789".indexOf(chr)>=0;
+          });
+        
+          $('#telefono').keypress(function(e){
+              var chr = String.fromCharCode(e.which);
+              return "0123456789".indexOf(chr)>=0;
+            });
+            
+            $('#celular').keypress(function(e){
+                var chr = String.fromCharCode(e.which);
+                return "0123456789".indexOf(chr)>=0;
+              });
+
       var valor = $('#dependencia').val();
       //- alert(valor);
       $('#noempleado').keypress(function(e){

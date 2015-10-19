@@ -29,6 +29,7 @@ var escuelas_publicasMid    = require('../controllers/escuelas_publicas');
 var dictaminacionMid    = require('../controllers/dictaminacion');
 var unidades_politecnicasMid    = require('../controllers/unidades_politecnicas');
 var disciplinasMid = require('../controllers/disciplinas');
+var google = require('../controllers/google');
 
 
 var router          = express.Router();
@@ -231,7 +232,9 @@ module.exports = function(passport){
             seccion: "Acciones de formación",
             estado: "acciones"
         }
-        res.render('app/acciones/index', { message: req.flash('message'), user: req.user, datos: param});
+        var alerta = req.flash('alert');
+        console.log(alerta);
+        res.render('app/acciones/index', { message: alerta, user: req.user, datos: param});
     });
 
     // nueva accion de formacion paso 1 initAccionFormacion
@@ -391,10 +394,11 @@ module.exports = function(passport){
         seccion: "Participantes",
         estado: "participantes"
       }
-      res.render('app/participantes/index',{message: req.flash('message'), user: req.user, datos: param});
+      var alerta = req.flash('message');
+      res.render('app/participantes/index',{message: alerta, user: req.user, datos: param});
     });
 
-    router.get('/participantes/nuevo', isAuthenticated, accionesMid.allAccionFormacion, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, function(req, res){
+    router.get('/participantes/nuevo', isAuthenticated, accionesMid.allAccionFormacion, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, entidadesMid.findAllEntidades, function(req, res){
       param={
         icon: "fa-plus-circle",
         seccion: "Nuevo Participante",
@@ -403,7 +407,7 @@ module.exports = function(passport){
       res.render('app/participantes/nuevo',{message: req.flash('message'), user: req.user, datos: param});
     });
 
-    router.post('/participantes/nuevo', isAuthenticated, participMid.addParticipante, function (req, res){
+    router.post('/participantes/nuevo', isAuthenticated, participMid.findCurp, participMid.addParticipante, function (req, res){
       res.set('Content-Type', 'application/javascript');
       res.redirect('/participantes');
     });
@@ -413,7 +417,7 @@ module.exports = function(passport){
     });
 
 
-    router.get('/participantes/ver/:id', isAuthenticated, participMid.findById, function(req, res){
+    router.get('/participantes/ver/:id', isAuthenticated, participMid.findById, entidadesMid.findAllEntidades, function(req, res){
       param={
         icon: "fa-building-o",
         seccion: res.locals.participante.apellidos +  ", "+  res.locals.participante.nombre
@@ -421,7 +425,7 @@ module.exports = function(passport){
       res.render('app/participantes/ver',{message: req.flash('message'), user: req.user, datos: param});
     });
 
-    router.get('/participantes/actualizar/:id', isAuthenticated, accionesMid.allAccionFormacion, participMid.findById,  escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, function(req, res){
+    router.get('/participantes/actualizar/:id', isAuthenticated, accionesMid.allAccionFormacion, participMid.findById,  escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias,  entidadesMid.findAllEntidades, function(req, res){
       param={
         icon: "fa-plus-circle",
         seccion: "Actualizar Participante"
@@ -435,11 +439,11 @@ module.exports = function(passport){
       res.redirect('/participantes');
     });
 
-    
+
 
     /*****************************************************************/
     // SECCIÓN FACILITADORES
-    router.get('/facilitadores', isAuthenticated, facilitadoresMid.allFacilitadores, function(req, res){
+    router.get('/facilitadores', isAuthenticated, facilitadoresMid.allFacilitadores, accionesMid.allAccionFormacion, escuelaMid.findAllEscuelas, entidadesMid.findAllEntidades, function(req, res){
       param={
         icon: "fa-plus-circle",
         seccion: "Facilitadores",
@@ -448,7 +452,7 @@ module.exports = function(passport){
       res.render('app/facilitadores/index',{message: req.flash('message'), user: req.user, datos: param});
     });
 
-    
+
     //Borrar
     router.get('/facilitadores/borrar/:id', isAuthenticated, facilitadoresMid.deleteFacilitador, function(req, res){
       res.redirect('/facilitadores');
@@ -741,6 +745,12 @@ module.exports = function(passport){
             message: req.flash('message')
         });
     });
+
+    //************************************************ CODIGO POSTAL
+    router.get('/zipcode/:code', google.zipcode, function(req, res){
+    });
+
+
 
     return router;
 }
