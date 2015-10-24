@@ -380,6 +380,24 @@ module.exports = function(passport){
     });
 
 
+    /*****************************************************************/
+    //  PRROGRAMACION
+    //  Index de acciones de formacion se obtiene tabla con datos
+    router.get('/programacion', isAuthenticated, accionesMid.allAccionFormacion, function(req, res){
+        param={
+            icon: "fa-calendar",
+            seccion: "Programación de Acciones de formación",
+            estado: "programacion"
+        }
+        var alerta = req.flash('alert');
+        console.log(alerta);
+        res.render('app/programacion/index', { message: alerta, user: req.user, datos: param});
+    });
+
+
+
+
+
 
 
 
