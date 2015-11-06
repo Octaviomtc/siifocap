@@ -1,0 +1,81 @@
+extends layout
+
+block content
+  #message
+    if message
+      .error-message
+          a.text-center #{message}
+  .row
+    .col-md-12
+      .formulario.animated.fadeIn
+        
+        .contenido
+
+          .alert.alert-info
+            label En la siguiente tabla dé clic en el nombre de la acción de formación a programar. En caso de que necesite ver más detalles, haga clic en la opción Mostrar detalles.
+
+          table(data-toggle="table", data-cache="true", data-page-size="25", data-page-list="[25, 50, 100, 200]", data-height="600",data-sort-order="asc",data-sort-name='nombre_accion_Formacion', id="table-pagination", data-pagination="true", data-search="true")
+            thead
+              tr
+                th(data-field='CUR', data-align='left', data-sortable='true') CUR
+                th(data-field='nombre_accion_Formacion', data-align='left', data-sortable='true') Nombre de la acción de formación 
+                th(data-field='tipo', data-align='left', data-sortable='true') Tipo
+                th(data-field='modalidad', data-align='left', data-sortable='true') Modalidad
+                th(data-field='dirigido_a_dependencia', data-align='left', data-sortable='true') Dirigida a
+                th(data-align='right', data-sortable='true')
+                // th(data-align='right', data-sortable='true')
+            tbody
+              // Se muestran todas las acciones con estaus 100 para poder programarlas
+              each accion in acciones
+                -var cur = accion.cur
+                -var programacion = accion.programacion
+                if accion.status==100
+                  tr
+                    td
+                      | #{accion.cur_gen}
+                    td
+                      a(onclick="programa('#{accion.id}', ' #{accion.nombre_accion_Formacion} ')") #{accion.nombre_accion_Formacion}
+                    td
+                      | #{accion.tipo_accion_Formacion}
+                    td
+                      | #{accion.modalidad_accion_Formacion}
+                    td
+                      if(typeof(accion.dirigido_a_dependencia) !== "undefined")
+                        | #{accion.dirigido_a_dependencia.toUpperCase()}
+                      else
+                        | 
+                    td
+                      a.btn.btn-default(href="/acciones-formacion/nueva/#{accion._id}/datos-generales")
+                        | Mostrar Detalles
+          .row
+            .col-md-6
+              .alert.alert-success
+                label Nombre de lacción de formación a programar:
+                br
+                label#idNombreAccion 
+              a.btn.btn-success.fa-r(id="continuar", href="#")
+                i.fa.fa-check-circle.fa-r
+                | Continuar
+
+              a.btn.btn-danger(href="/programacion")
+                | Cancelar
+
+
+  append javascript
+    script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
+    script.
+      $('#continuar').click(function(){
+        var val = $("#continuar").attr('href');
+        if(val=='#'){
+          alert("Debe seleccionar una acción de formación, de click en el nombre dentro de los registros de la tabla y verificar que su selección se muestre en el recuadro verde"); 
+        }
+      });
+
+      // Funcion que genera el id para empezar la progrmacion 
+      function programa(id, nombre){
+        $("#idNombreAccion").text(nombre);
+        $("#continuar").attr("href", "/programacion/"+id+"/crear-programacion")
+      }
+               
+                                
+                                    

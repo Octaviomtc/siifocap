@@ -29,6 +29,7 @@ var escuelas_publicasMid    = require('../controllers/escuelas_publicas');
 var dictaminacionMid    = require('../controllers/dictaminacion');
 var unidades_politecnicasMid    = require('../controllers/unidades_politecnicas');
 var disciplinasMid = require('../controllers/disciplinas');
+var programacionMid = require('../controllers/programacion');
 var google = require('../controllers/google');
 
 
@@ -396,6 +397,21 @@ module.exports = function(passport){
 
 
 
+    //Nueva programación
+    router.get('/programacion/crear', isAuthenticated, accionesMid.allAccionFormacion, function(req, res){
+        param={
+            icon: "fa-calendar",
+            seccion: "Programación de Acciones de formación - Nueva programación",
+            estado: "programacion"
+        }
+        var alerta = req.flash('alert');
+        res.render('app/programacion/crear', { message: alerta, user: req.user, datos: param});
+    });
+
+
+    router.get('/programacion/:id/crear-programacion', isAuthenticated, programacionMid.crear, function(req, res){
+      
+    });
 
 
 

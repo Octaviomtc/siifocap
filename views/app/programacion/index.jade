@@ -4,7 +4,7 @@ block content
   
   .row.contenedorTb
     .col-md-12
-      a.btn.btn-primary.fa-r(href='/acciones-formacion/nueva/init-accion')
+      a.btn.btn-primary.fa-r(href='/programacion/crear')
         i.fa.fa-r.fa-plus-circle
         | Nueva programación acción de formación
     
@@ -16,40 +16,47 @@ block content
         thead
           tr
             th(data-field='CUR', data-align='left', data-sortable='true') CUR
-            th(data-field='nombre_accion_Formacion', data-align='left', data-sortable='true') Nombre
-            th(data-align='left', data-sortable='true') Dependencia Politécnica Solicitante
-            th(data-field='dirigido_a_dependencia', data-align='left', data-sortable='true') Dependencia a la que se solicita el registro
-            th(data-align='left', data-sortable='true') Estatus
-            th(data-align='right', data-sortable='true')
+            th(data-field='nombre_accion_Formacion', data-align='left', data-sortable='true') Nombre de la acción de formación 
+            th(data-field='tipo', data-align='left', data-sortable='true') Tipo
+            th(data-field='modalidad', data-align='left', data-sortable='true') Modalidad
+            th(data-field='dirigido_a_dependencia', data-align='left', data-sortable='true') Dirigida a
+            th(data-field='sede', data-align='left', data-sortable='true') Sede
+            th(data-align='right', data-sortable='true') Periodo de impartición
+            th(data-align='right', data-sortable='true') Estatus Actual
             th(data-align='right', data-sortable='true')
             // th(data-align='right', data-sortable='true')
         tbody
+          // La programación de cada accion de formacion se reliza por medio del documento de acciones en mongo, por lo que es un subdocumento, si este tiene programación se muestra en esta tabla, se recorre cada accion y se determinan las programaciones que tienen
           each accion in acciones
             -var cur = accion.cur
-            tr
-              td
-                | #{accion.cur_gen}
-              td
-                | #{accion.nombre_accion_Formacion}
-              td
-                | #{accion.unidad}
-              td
-                if(typeof(accion.dirigido_a_dependencia) !== "undefined")
-                  | #{accion.dirigido_a_dependencia.toUpperCase()}
-                else
-                  | 
-                
-              td
-                | #{accion.estatus_accion}-#{accion.status}%
-              //td
-              //  a.btn.btn-default(href="/unidades/ver/#{accion._id}")
-              //    i.fa.fa-print
-              td
-                a.btn.btn-default(href="/acciones-formacion/nueva/#{accion._id}/datos-generales")
-                  i.fa.fa-edit
-              td
-                a.btn.btn-default(href="/acciones-formacion/borrar/#{accion._id}")
-                  i.fa.fa-trash
-                
+            -var programacion = accion.programacion
+            // Si hay programación se muestra
+            if programacion > 0 
+              tr
+                td
+                  | #{programacion.length} --
+                  | #{accion.cur_gen}
+                td
+                  | #{accion.nombre_accion_Formacion}
+                td
+                  | #{accion.tipo_accion_Formacion}
+                td
+                  | #{accion.modalidad_accion_Formacion}
+                td
+                  if(typeof(accion.dirigido_a_dependencia) !== "undefined")
+                    | #{accion.dirigido_a_dependencia.toUpperCase()}
+                  else
+                    | 
+                td
+                  | Sede
+                td
+                  | Periodo programación  
+                td
+                  | Estatus programación
+                td
+                  a.btn.btn-default(href="/acciones-formacion/nueva/#{accion._id}/datos-generales")
+                    | Actualizar
+                    i.fa.fa-edit
+                  
                                   
                                       
