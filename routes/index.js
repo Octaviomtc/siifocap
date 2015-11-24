@@ -282,6 +282,19 @@ module.exports = function(passport){
     });
 
 
+    // nueva accion de formacion paso 1 despues del primer insert pasa a modo update
+    router.get('/acciones-formacion/ver/:id/datos-generales', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, accionesMid.findById, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Nueva acción de formación",
+        estado: "acciones",
+        paso: "1"
+      }
+
+      res.render('app/acciones/actualizar/editar-datos-generales',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+
     //update paso 1
     router.post('/acciones-formacion/nueva/:id/datos-generales', isAuthenticated, accionesMid.updateAccion, function(req, res){
       // console.log(res.accionFormacion);
