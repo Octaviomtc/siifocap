@@ -1,4 +1,4 @@
-extends ../layout/layout_up
+extends ../layout/layout_view
 
 block content
   #message
@@ -12,7 +12,7 @@ block content
         .contenido
           .row
             .col-md-11
-              form.form-horizontal(method='post', action="/acciones-formacion/nueva/#{accionFormacion._id}/datos-generales", enctype='application/json')
+              form.form-horizontal(method='post', action="", enctype='application/json')
                 .form-group
                   span(class="control-label col-md-3")
                     | Dependencia Politécnica Solicitante:
@@ -45,12 +45,12 @@ block content
                   span(class="control-label col-md-3")
                     | 
                   div(class="col-md-9")
-                    select#dirigido_a_tipo.form-control(name='dirigido_a_tipo',data-validation="empty", data-toggle="tooltip", data-placement="top", title="", disabled)
+                    select#dirigido_a_tipo.form-control(disabled, name='dirigido_a_tipo',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                       option(value="") Seleccione ...
              
 
 
-                +h-input("text", "", "nombre_institucion", "Escriba el nombre de la institución", accionFormacion.nombre_institucion, 9, 3, "", "","")
+                +h-input-dis("text", "", "nombre_institucion", "Escriba el nombre de la institución", accionFormacion.nombre_institucion, 9, 3, "", "","")
                 
 
 
@@ -58,13 +58,13 @@ block content
                   span(class="control-label col-md-3")
                     | Dependencia politécnica a la que se solicita el registro:
                   div(class="col-md-9")
-                    select#dirigido_a_dependencia.form-control(name='dirigido_a_dependencia',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                    select#dirigido_a_dependencia.form-control(disabled, name='dirigido_a_dependencia',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                       option(value="") Seleccione ...
              
 
 
 
-                +h-input("text", "Nombre de la Acción de Formación:", "nombre_accion_Formacion", "Acción de formación", accionFormacion.nombre_accion_Formacion , 9, 3, "", "empty", "Solo debe colocar el nombre de la acción de formación, evitando el uso de tipos de contenidos como taller, curso, seminario. El nombre de la acción de formación será registrado automáticamente tal y como lo escriba. Le recomendamos el uso de mayúsculas, minúsculas, acentos y revisar ortografía.")
+                +h-input-dis("text", "Nombre de la Acción de Formación:", "nombre_accion_Formacion", "Acción de formación", accionFormacion.nombre_accion_Formacion , 9, 3, "", "empty", "Solo debe colocar el nombre de la acción de formación, evitando el uso de tipos de contenidos como taller, curso, seminario. El nombre de la acción de formación será registrado automáticamente tal y como lo escriba. Le recomendamos el uso de mayúsculas, minúsculas, acentos y revisar ortografía.")
 
 
 
@@ -73,7 +73,7 @@ block content
                   span(class="control-label col-md-3")
                     | Tipo de acción de formación:
                   div(class="col-md-9")
-                    select#tipo_accion_Formacion.form-control(name='tipo_accion_Formacion',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                    select#tipo_accion_Formacion.form-control(disabled, name='tipo_accion_Formacion',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                       option(value="") Seleccione ...
                       option(value="curso", selected= "curso" == accionFormacion.tipo_accion_Formacion) Curso
                       option(value="taller", selected= "taller" == accionFormacion.tipo_accion_Formacion) Taller
@@ -87,7 +87,7 @@ block content
                   span(class="control-label col-md-3")
                     | Modalidad de acción de formación:
                   div(class="col-md-9")
-                    select#modalidad_accion_Formacion.form-control(name='modalidad_accion_Formacion',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                    select#modalidad_accion_Formacion.form-control(disabled, name='modalidad_accion_Formacion',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
                       option(value="") Seleccione ...
                       option(value="escolarizada", selected= "escolarizada" == accionFormacion.modalidad_accion_Formacion) Escolarizada
                       option(value="no_escolarizada", selected= "no_escolarizada" == accionFormacion.modalidad_accion_Formacion) No escolarizada
@@ -98,8 +98,8 @@ block content
                       
                 
                 
-                +h-input("text", "Duración total en horas(presencial):", "horas_presencial", "Horas", accionFormacion.horas_presencial, 9, 3, "", "","")
-                +h-input("text", "Duración total en horas(en línea):", "horas_linea", "Horas", accionFormacion.horas_linea, 9, 3, "", "","")
+                +h-input-dis("text", "Duración total en horas(presencial):", "horas_presencial", "Horas", accionFormacion.horas_presencial, 9, 3, "", "","")
+                +h-input-dis("text", "Duración total en horas(en línea):", "horas_linea", "Horas", accionFormacion.horas_linea, 9, 3, "", "","")
             
                       
                       
@@ -171,10 +171,10 @@ block content
                     +ayuda("Seleccionar solo en caso de que la acción de formación se lleve a cabo en colaboración con otra unidad responsable.")
                           
                           
-                +h-input("text", "Número de convenio:", "coparticipacion_convenio", "Convenio", accionFormacion.coparticipacion_convenio, 9, 3, "", "","")     
-                +h-input("text", "Institución que validó el convenio: ", "coparticipacion_institucion_validante", "Institución que validó el convenio", accionFormacion.coparticipacion_institucion_validante, 9, 3, "", "","") 
+                +h-input-dis("text", "Número de convenio:", "coparticipacion_convenio", "Convenio", accionFormacion.coparticipacion_convenio, 9, 3, "", "","")     
+                +h-input-dis("text", "Institución que validó el convenio: ", "coparticipacion_institucion_validante", "Institución que validó el convenio", accionFormacion.coparticipacion_institucion_validante, 9, 3, "", "","") 
                 
-                +h-input("hidden", "", "estatus_sec_1", "", "true", 9, 3, "", "","") 
+                +h-input-dis("hidden", "", "estatus_sec_1", "", "true", 9, 3, "", "","") 
                 
                 .form-group#dependenciaCoparticipanteAdd
                   span(class="control-label col-md-3")
@@ -192,7 +192,7 @@ block content
                     div(id=contenedor)
                       hr
                       
-                      +h-input("text", "Nombre de la unidad o institución participante:", "coparticipacion["+i+++"][nombre]", "Nombre", cop.nombre, 9, 3, "", "","")
+                      +h-input-dis("text", "Nombre de la unidad o institución participante:", "coparticipacion["+i+++"][nombre]", "Nombre", cop.nombre, 9, 3, "", "","")
                       div#dependenciaCoparticipanteAdd.form-group
                         span.control-label.col-md-3
                         div.col-md-9
@@ -206,25 +206,28 @@ block content
                 div#dependenciasCoparticipantesDiv
                   
 
-                .row
-                  .col-md-12
-                    hr
-                  .col-md-9.col-md-offset-3
-                    button.btn.btn-success.fa-r(type='submit')
-                      i.fa.fa-save.fa-r
-                      | Guardar 
+                //- .row
+                //-   .col-md-12
+                //-     hr
+                //-   .col-md-9.col-md-offset-3
+                //-     button.btn.btn-success.fa-r(type='submit')
+                //-       i.fa.fa-save.fa-r
+                //-       | Guardar 
 
-                    a.btn.btn-success.fa-r(href="/acciones-formacion/nueva/#{accionFormacion._id}/justificacion")
-                      i.fa.fa-check-circle.fa-r
-                      | Continuar
+                //-     a.btn.btn-success.fa-r(href="/acciones-formacion/nueva/#{accionFormacion._id}/justificacion")
+                //-       i.fa.fa-check-circle.fa-r
+                //-       | Continuar
 
-                    a.btn.btn-danger(href="")
-                      | Cancelar
+                //-     a.btn.btn-danger(href="")
+                //-       | Cancelar
 
 
   append javascript
     script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
     script.
+      $("input").prop('disabled', true);
+      $("textarea").prop('disabled', true);
+      $("select").prop('disabled', true);
       //- Variable temporal para invrementar id de participantes
       //alert("!{accionFormacion.dependencia}");
       var participante = "!{accionFormacion.coparticipacion.length}";

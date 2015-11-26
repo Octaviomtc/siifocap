@@ -291,7 +291,7 @@ module.exports = function(passport){
         paso: "1"
       }
 
-      res.render('app/acciones/actualizar/editar-datos-generales',{message: req.flash('message'), user: req.user, datos: param});
+      res.render('app/acciones/actualizar/ver-datos-generales',{message: req.flash('message'), user: req.user, datos: param});
     });
 
 
@@ -315,6 +315,16 @@ module.exports = function(passport){
       res.render('app/acciones/actualizar/justificacion',{message: req.flash('message'), user: req.user, datos: param});
     });
 
+    router.get('/acciones-formacion/ver/:id/justificacion', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, accionesMid.findById, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Nueva acción de formación",
+        estado: "acciones",
+        paso: "2"
+      }
+      res.render('app/acciones/actualizar/ver-justificacion',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
     //update paso 2
     router.post('/acciones-formacion/nueva/:id/justificacion', isAuthenticated, accionesMid.updateAccion, function(req, res){
       // console.log(res.accionFormacion);
@@ -335,6 +345,17 @@ module.exports = function(passport){
       res.render('app/acciones/actualizar/encuadre',{message: req.flash('message'), user: req.user, datos: param});
     });
 
+
+    router.get('/acciones-formacion/ver/:id/encuadre', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, accionesMid.findById, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Nueva acción de formación",
+        estado: "acciones",
+        paso: "3"
+      }
+      res.render('app/acciones/actualizar/ver-encuadre',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
     //update paso 3
     router.post('/acciones-formacion/nueva/:id/encuadre', isAuthenticated, accionesMid.updateAccion, function(req, res){
       // console.log(res.accionFormacion);
@@ -353,6 +374,16 @@ module.exports = function(passport){
         paso: "4"
       }
       res.render('app/acciones/actualizar/planeacion',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+    router.get('/acciones-formacion/ver/:id/planeacion', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, accionesMid.findById, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Nueva acción de formación",
+        estado: "acciones",
+        paso: "4"
+      }
+      res.render('app/acciones/actualizar/ver-planeacion',{message: req.flash('message'), user: req.user, datos: param});
     });
 
     //update paso 4

@@ -1,0 +1,102 @@
+extends ../layout/layout_view
+
+block content
+  #message
+    if message
+      .error-message
+          a.text-center #{message}
+        
+  .row
+    .col-md-12
+      .formulario.animated.fadeIn
+        
+        .contenido
+          .row
+            .col-md-11
+              form.form-horizontal(method='post', action="/acciones-formacion/nueva/#{accionFormacion._id}/planeacion", enctype='application/json')
+                
+                
+                span(class="col-md-11 col-md-offset-1 alert alert-info")
+                  | A partir de la competencia y los resultados de aprendizajes propuestos, elabore la planeación didáctica de la acción de formación de acuerdo con la metodología didáctica establecida. Defina cada uno de los elementos solicitados.
+                span(class="col-md-11 col-md-offset-1")
+                    | Planeación didáctica:
+                    +ayuda-bottom('<p>“Constituye la previsión organizada de las tareas que conforman una acción de formación referidas a su elaboración, aplicación y evaluación, de acuerdo con los objetivos a alcanzar, las actividades del facilitador y de los participantes, los recursos didácticos, el tiempo y la evaluación de los resultados”.</p>')
+
+
+                
+                div.col-md-11.col-md-offset-1
+                  hr
+                  a.btn.btn-success.fa-r(href="#", data-toggle="modal",  data-strict-close="true", disabled)
+                    i.fa.fa-plus-circle.fa-r
+                    | Agregar planeación didáctica
+                  br
+                  b Por cada Resultado de Aprendizaje Propuesto se recomindoa agreagar al menos tres actividades en la planeación didáctica.
+                    
+                  hr
+                
+                div.col-md-11.col-md-offset-1.contenedorTb
+                  table(data-toggle="table", data-cache="true", data-page-size="25", data-page-list="[25, 50, 100, 200]", data-height="600",data-sort-order="asc",data-sort-name='number_actividad_aprendizaje', id="table-pagination", data-pagination="true", data-search="true")
+                    thead
+                      tr
+                        //- th(data-field='number_actividad_aprendizaje', data-align='left', data-sortable='true') #
+                        th(data-align='left', data-sortable='true') Actividad de aprendizaje
+                        //-th(data-align='right', data-sortable='true')
+                    tbody
+                      - var i = 1
+                      -var actividades = accionFormacion.planeacion_didactica
+                      each actividad in actividades
+                        
+                        tr
+                          //- td
+                          //-   | #{i++}
+                          //-   
+                          td
+                            | #{actividad.nombre_actividad}
+                          //-td
+                            //- a.btn.btn-default(href="/unidades/ver/#{actividad._id}")
+                            //-   i.fa.fa-r.fa-print
+                            //-   | PDF
+                            //- a.btn.btn-default(href="#")
+                            //-  i.fa.fa-r.fa-edit
+                            //-  | Editar
+                            //-a.btn.btn-default(href="#")
+                            //-  i.fa.fa-r.fa-trash
+                            //-  | Borrar
+
+
+                              
+                              
+                +h-input("hidden", "", "estatus_sec_4", "", "true", 9, 3, "", "","") 
+                .row
+                  .col-md-12
+                    hr
+                  .col-md-9.col-md-offset-3
+                    button.btn.btn-success.fa-r(type='submit')
+                      i.fa.fa-save.fa-r
+                      | Guardar 
+                    
+                    if accionFormacion.status>=90
+                      a.btn.btn-success.fa-r(href="/acciones-formacion/nueva/#{accionFormacion._id}/finalizar")
+                        i.fa.fa-check-circle.fa-r
+                        | Fianlizar registro
+                        
+                        
+                      //- a.btn.btn-default.fa-r()
+                      //-   i.fa.fa-print.fa-r
+                      //-   | Descargar planeación como PDF
+                    else
+                      a.btn.btn-success.disabled.fa-r(href="")
+                        i.fa.fa-check-circle.fa-r
+                        | Fianlizar registro
+                    
+                    a.btn.btn-danger(href="")
+                      | Cancelar
+
+  append javascript
+    script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
+    script.
+      $("input").prop('disabled', true);
+      $("textarea").prop('disabled', true);
+      $("select").prop('disabled', true);
+
+  
