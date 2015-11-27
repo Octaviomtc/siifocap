@@ -1,0 +1,507 @@
+extends ../layout/layout_view
+
+block content
+  #message
+    if message
+      .error-message
+          a.text-center #{message}
+  .row
+    .col-md-12
+      .formulario.animated.fadeIn
+        
+        .contenido
+          .row
+            .col-md-11
+              form.form-horizontal(method='post', action="", enctype='application/json')
+                .form-group
+                  span(class="control-label col-md-3")
+                    | Dependencia Politécnica Solicitante:
+                  div(class="col-md-9")
+                    select#dependencia.form-control(name='dependencia',data-validation="empty", data-toggle="tooltip", data-placement="top", title="", disabled)
+                      option(value="") Seleccione dependencia ...
+                        each dependencia in dependencias
+                          option(value=dependencia.dependencia, selected= dependencia.dependencia == accionFormacion.dependencia)= dependencia.dependencia
+
+                .form-group#unidadForm
+                  span(class="control-label col-md-3")
+                    | 
+                  div(class="col-md-9")
+                    select#unidad.form-control(name='unidad',data-validation="empty", data-toggle="tooltip", data-placement="top", title="", disabled)
+                      option(value="") Seleccione unidad ...
+
+                .form-group
+                  span(class="control-label col-md-3")
+                    | Dirigido a:
+                    +ayuda("Seleccione el público al que se dirige la acción de formación.")
+                  div(class="col-md-9")
+                    select#dirigido_a.form-control(name='dirigido_a',data-validation="empty", data-toggle="tooltip", data-placement="top", title="", disabled)
+                        option(value="") Seleccione ...
+                        option(value="comunidad-politecnica", selected= "comunidad-politecnica" == accionFormacion.dirigido_a) Comunidad Politécnica
+                        option(value="comunidad-externa", selected= "comunidad-externa" == accionFormacion.dirigido_a) Comunidad Externa
+
+
+
+                .form-group#dirigido_a_tipo_Form
+                  span(class="control-label col-md-3")
+                    | 
+                  div(class="col-md-9")
+                    select#dirigido_a_tipo.form-control(disabled, name='dirigido_a_tipo',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                      option(value="") Seleccione ...
+             
+
+
+                +h-input-dis("text", "", "nombre_institucion", "Escriba el nombre de la institución", accionFormacion.nombre_institucion, 9, 3, "", "","")
+                
+
+
+                .form-group
+                  span(class="control-label col-md-3")
+                    | Dependencia politécnica a la que se solicita el registro:
+                  div(class="col-md-9")
+                    select#dirigido_a_dependencia.form-control(disabled, name='dirigido_a_dependencia',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                      option(value="") Seleccione ...
+             
+
+
+
+                +h-input-dis("text", "Nombre de la Acción de Formación:", "nombre_accion_Formacion", "Acción de formación", accionFormacion.nombre_accion_Formacion , 9, 3, "", "empty", "Solo debe colocar el nombre de la acción de formación, evitando el uso de tipos de contenidos como taller, curso, seminario. El nombre de la acción de formación será registrado automáticamente tal y como lo escriba. Le recomendamos el uso de mayúsculas, minúsculas, acentos y revisar ortografía.")
+
+
+
+
+                .form-group
+                  span(class="control-label col-md-3")
+                    | Tipo de acción de formación:
+                  div(class="col-md-9")
+                    select#tipo_accion_Formacion.form-control(disabled, name='tipo_accion_Formacion',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                      option(value="") Seleccione ...
+                      option(value="curso", selected= "curso" == accionFormacion.tipo_accion_Formacion) Curso
+                      option(value="taller", selected= "taller" == accionFormacion.tipo_accion_Formacion) Taller
+                      option(value="seminario", selected= "seminario" == accionFormacion.tipo_accion_Formacion) Seminario
+                      option(value="Diplomado", selected= "Diplomado" == accionFormacion.tipo_accion_Formacion) Diplomado
+                
+                
+                
+                
+                .form-group
+                  span(class="control-label col-md-3")
+                    | Modalidad de acción de formación:
+                  div(class="col-md-9")
+                    select#modalidad_accion_Formacion.form-control(disabled, name='modalidad_accion_Formacion',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                      option(value="") Seleccione ...
+                      option(value="escolarizada", selected= "escolarizada" == accionFormacion.modalidad_accion_Formacion) Escolarizada
+                      option(value="no_escolarizada", selected= "no_escolarizada" == accionFormacion.modalidad_accion_Formacion) No escolarizada
+                      option(value="mixta", selected= "mixta" == accionFormacion.modalidad_accion_Formacion) Mixta
+                  
+                      
+                      
+                      
+                
+                
+                +h-input-dis("text", "Duración total en horas(presencial):", "horas_presencial", "Horas", accionFormacion.horas_presencial, 9, 3, "", "","")
+                +h-input-dis("text", "Duración total en horas(en línea):", "horas_linea", "Horas", accionFormacion.horas_linea, 9, 3, "", "","")
+            
+                      
+                      
+                      
+                
+                .form-group#modalidad_fecha_Form
+                  span(class="control-label col-md-3")
+                    | Periodo de impartición:
+                  span(class="control-label col-md-1")
+                    | Inicio:
+                  div(class="col-md-3")
+                    input.form-control#modalidad_fecha_inicio(type="date", value=accionFormacion.modalidad_fecha_inicio, name="modalidad_fecha_inicio",data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                  span(class="control-label col-md-1")
+                    | Fin:   
+                  div(class="col-md-3")
+                    input.form-control#modalidad_fecha_fin(type="date", value=accionFormacion.modalidad_fecha_fin, name="modalidad_fecha_fin",data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                .form-group#modalidad_hora_Form
+                  span(class="control-label col-md-3")
+                    | Horario:
+                  span(class="control-label col-md-1")
+                    | Desde:
+                  div(class="col-md-3")
+                    input.form-control#modalidad_hora_inicio(type="time", value=accionFormacion.modalidad_hora_inicio,  name="modalidad_hora_inicio")
+                  span(class="control-label col-md-1")
+                    | Hasta:   
+                  div(class="col-md-3")
+                    input.form-control#modalidad_hora_fin(type="time", value=accionFormacion.modalidad_hora_fin,  name="modalidad_hora_fin")
+                
+                
+                
+                
+                hr
+                  
+                
+                .form-group
+                  span(class="control-label col-md-3") Perfil del facilitador:
+                  div(class="col-md-9")
+                    textarea.form-control(id="perfil_facilitador" name="perfil_facilitador" onkeypress="return IsLetterVal(event);") #{accionFormacion.perfil_facilitador} 
+
+
+                .form-group
+                  span(class="control-label col-md-3") 
+                    | Perfil del participante:
+                    +ayuda("Integre en la descripción del perfil, lo siguiente: habilidades y conocimientos que el participante requiere para desarrollar las competencias de la acción de formación.")
+                  div(class="col-md-9")
+                    textarea.form-control(id="perfil_participante" name="perfil_participante" onkeypress="return IsLetterVal(event);") #{accionFormacion.perfil_participante}
+                        
+                        
+
+                    
+                hr
+                .form-group
+                  span(class="control-label col-md-3")
+                  div(class="col-md-9")
+                    input(id="active_coparticipacion_val", name="active_coparticipacion_val", type='hidden', value=accionFormacion.active_coparticipacion_val)
+                    if accionFormacion.active_coparticipacion_val == "on"
+                      input#active_coparticipacion(type="checkbox", name="active_coparticipacion", onclick="checkCoparticipacion(this)", checked)
+                    else
+                      input#active_coparticipacion(type="checkbox", name="active_coparticipacion", onclick="checkCoparticipacion(this)")
+                          
+                    span.fa-l En coparticipación con otras Dependencias Politécnicas
+                    +ayuda("Seleccionar solo en caso de que la acción de formación se lleve a cabo en colaboración con otra unidad responsable.")
+                          
+                          
+                +h-input-dis("text", "Número de convenio:", "coparticipacion_convenio", "Convenio", accionFormacion.coparticipacion_convenio, 9, 3, "", "","")     
+                +h-input-dis("text", "Institución que validó el convenio: ", "coparticipacion_institucion_validante", "Institución que validó el convenio", accionFormacion.coparticipacion_institucion_validante, 9, 3, "", "","") 
+                
+                +h-input-dis("hidden", "", "estatus_sec_1", "", "true", 9, 3, "", "","") 
+                
+                .form-group#dependenciaCoparticipanteAdd
+                  span(class="control-label col-md-3")
+                  div(class="col-md-9")
+                      a.btn.btn-success.fa-r(onclick="addUnidadCop()")
+                        i.fa.fa-plus-circle.fa-r
+                        | Agregar dependencia coparticipante
+                        
+                        
+                if accionFormacion.coparticipacion.length >0
+                  - var coparticipacion = accionFormacion.coparticipacion
+                  - var i = 0
+                  each cop in coparticipacion
+                    - var contenedor = "divCopCont"+i
+                    div(id=contenedor)
+                      hr
+                      
+                      +h-input-dis("text", "Nombre de la unidad o institución participante:", "coparticipacion["+i+++"][nombre]", "Nombre", cop.nombre, 9, 3, "", "","")
+                      div#dependenciaCoparticipanteAdd.form-group
+                        span.control-label.col-md-3
+                        div.col-md-9
+                          a.btn.btn-danger.fa-r(onclick='delUnidadCop("'+contenedor+'")')
+                            i.fa.fa-trash.fa-r
+                            | Eliminar
+                            
+                
+                    
+        
+                div#dependenciasCoparticipantesDiv
+                  
+
+                //- .row
+                //-   .col-md-12
+                //-     hr
+                //-   .col-md-9.col-md-offset-3
+                //-     button.btn.btn-success.fa-r(type='submit')
+                //-       i.fa.fa-save.fa-r
+                //-       | Guardar 
+
+                //-     a.btn.btn-success.fa-r(href="/acciones-formacion/nueva/#{accionFormacion._id}/justificacion")
+                //-       i.fa.fa-check-circle.fa-r
+                //-       | Continuar
+
+                //-     a.btn.btn-danger(href="")
+                //-       | Cancelar
+
+
+  append javascript
+    script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
+    script.
+      $("input").prop('disabled', true);
+      $("textarea").prop('disabled', true);
+      $("select").prop('disabled', true);
+      //- Variable temporal para invrementar id de participantes
+      //alert("!{accionFormacion.dependencia}");
+      var participante = "!{accionFormacion.coparticipacion.length}";
+      
+
+      
+      //- console.log(participante);
+      //- $('#unidadForm').hide();
+      $('#dirigido_a_tipo_Form').hide();
+      $('#nombre_institucion_Form').hide();
+      $('#horas_presencial_Form').hide();
+      $('#horas_linea_Form').hide();
+      $('#modalidad_fecha_Form').hide();
+      $('#modalidad_hora_Form').hide();
+      $('#coparticipacion_convenio_Form').hide();
+      $('#coparticipacion_institucion_validante_Form').hide();
+      $('#dependenciaCoparticipanteAdd').hide();
+      
+      
+      
+      
+      // En modo update se revisan los datos para generar los combos cargados
+      revisaUnidadesUp("!{accionFormacion.dependencia}");//Carga dependencia
+      defineComunidad("!{accionFormacion.dirigido_a}");//}Campos para comunidad
+      $("#dirigido_a_tipo").val("!{accionFormacion.dirigido_a_tipo}");
+      selectdependencia("!{accionFormacion.dirigido_a_tipo}");
+      $("#dirigido_a_dependencia").val("!{accionFormacion.dirigido_a_dependencia}");
+      defineEscolaridad("!{accionFormacion.modalidad_accion_Formacion}");
+      var active_coparticipacion_val = "!{accionFormacion.active_coparticipacion_val}";
+        if (active_coparticipacion_val=="on")
+        {
+          $('#coparticipacion_convenio_Form').show();
+          $('#coparticipacion_institucion_validante_Form').show();
+          $('#dependenciaCoparticipanteAdd').show();
+        }else{
+          $('#coparticipacion_convenio').val('');
+          $('#coparticipacion_institucion_validante').val('');
+          $('#coparticipacion_convenio_Form').hide();
+          $('#coparticipacion_institucion_validante_Form').hide();
+          $('#dependenciaCoparticipanteAdd').hide();
+          
+          $('#dependenciasCoparticipantesDiv').empty(); 
+        }
+      
+      
+      //- Funcion para crear nueva unidad coparticipante
+      function addUnidadCop(){
+        $('#dependenciasCoparticipantesDiv').append('<div id="divCopCont'+participante+'"><hr><div id="coparticipacion['+participante+'][nombre]_Form" class="form-group"><span class="control-label col-md-3">Nombre de la unidad o institución participante:</span><div class="col-md-9"><input type="text" id="coparticipacion['+participante+'][nombre]" name="coparticipacion['+participante+'][nombre]" placeholder="Nombre" autofocus="" value="" data-validation="" data-toggle="tooltip" data-placement="top" title="" class="form-control"></div></div><div id="dependenciaCoparticipanteAdd" class="form-group"><span class="control-label col-md-3"></span><div class="col-md-9">'+'<a onclick=delUnidadCop("divCopCont'+participante+'") class="btn btn-danger fa-r"><i class="fa fa-trash fa-r"></i>Eliminar</a></div></div></div>');
+        participante=participante+1;
+      }
+      
+      function countChecked() {
+        if ($('#active_coparticipacion').is(":checked"))
+        {
+          $("#active_coparticipacion_val").val("on");
+        }else{
+        $("#active_coparticipacion_val").val("off");
+        }
+      }
+      $( "input[type=checkbox]" ).on( "click", countChecked );
+            
+      function delUnidadCop(id){
+        $("#"+id).empty();
+      }
+      
+      function add_append_select(id, value, text){
+          $("#"+id).append("<option value='"+value+"'>"+text+"</option>");
+      }
+      
+      //- Valida Switch
+      function checkCoparticipacion(checkbox)
+      {
+        if (checkbox.checked)
+        {
+          $('#coparticipacion_convenio_Form').show();
+          $('#coparticipacion_institucion_validante_Form').show();
+          $('#dependenciaCoparticipanteAdd').show();
+        }else{
+          $('#coparticipacion_convenio').val('');
+          $('#coparticipacion_institucion_validante').val('');
+          $('#coparticipacion_convenio_Form').hide();
+          $('#coparticipacion_institucion_validante_Form').hide();
+          $('#dependenciaCoparticipanteAdd').hide();
+          
+          $('#dependenciasCoparticipantesDiv').empty(); 
+        }
+      }
+      
+      
+      //Cambio de modo de la accion de formacion
+      $('#modalidad_accion_Formacion').change(function(){
+        var valor = $('#modalidad_accion_Formacion :selected').val();
+        
+        $('#horas_presencial').empty();
+        $('#horas_linea').empty();
+        $('#modalidad_fecha').empty();
+        $('#modalidad_hora').empty();
+        
+        defineEscolaridad(valor);
+        
+      });
+      
+      //define horas para tipo de curso
+      function defineEscolaridad(valor){
+        
+        switch(valor) {
+          case "escolarizada":
+            $('#horas_presencial_Form').show();
+            $('#horas_linea_Form').hide();
+            $('#modalidad_fecha_Form').show();
+            $('#modalidad_hora_Form').show();
+            break;
+          case "no_escolarizada":
+            $('#horas_presencial_Form').hide();
+            $('#horas_linea_Form').show();
+            $('#modalidad_fecha_Form').show();
+            $('#modalidad_hora_Form').hide();
+            break;
+          case "mixta":
+            $('#horas_presencial_Form').show();
+            $('#horas_linea_Form').show();
+            $('#modalidad_fecha_Form').show();
+            $('#modalidad_hora_Form').show();
+            break;
+          default:
+            $('#horas_presencial_Form').hide();
+            $('#horas_linea_Form').hide();
+            $('#modalidad_fecha_Form').hide();
+            $('#modalidad_hora_Form').hide();
+        }
+      }
+      
+      
+
+      $( "#dependencia" ).change(function(){
+        var valor = $('#dependencia :selected').val();
+         if (valor==""){
+            $("#unidad").empty();
+            add_append_select("unidad","","Seleccione unidad ...");
+            $('#unidadForm').hide();
+         }else{
+            revisaUnidades(valor);
+            $('#unidadForm').show();
+         }
+
+      });
+
+      function revisaUnidades(dependenciaVal){
+
+          $.ajax({
+            url: "/unidades/consulta/dependencia",
+            data: {
+                    dependencia: dependenciaVal
+                  },                      
+            type: "POST",
+            dataType: "json",
+            success: function(source){
+              if (source.success === true){
+                $("#unidad").empty();
+                add_append_select("unidad","","Seleccione unidad ...");
+                $.each(source.escuelas, function(index, escuela) {
+                  if(escuela.nombre=="!{accionFormacion.unidad}"){
+                    $("#unidad").append("<option value='"+escuela.nombre+"' selected='selected'>"+escuela.nombre+"</option>");
+                  }else{
+                    $("#unidad").append("<option value='"+escuela.nombre+"'>"+escuela.nombre+"</option>");
+                  }
+                  
+                });
+              }},
+            error: function(dato){
+            }
+          }); //end ajax
+          return false;
+      }
+      
+      //Solo se ejecuta en modo update
+      function revisaUnidadesUp(dependenciaVal){
+        console.log(dependenciaVal);
+        $.ajax({
+        url: "/unidades/consulta/dependencia",
+        data: {
+        dependencia: dependenciaVal
+          },                      
+          type: "POST",
+          dataType: "json",
+          success: function(source){
+          if (source.success === true){
+            $("#unidad").empty();
+            add_append_select("unidad","","Seleccione unidad ...");
+            $.each(source.escuelas, function(index, escuela) {
+                if (escuela.nombre=="!{accionFormacion.unidad}"){
+                  $("#unidad").append("<option value='"+escuela.nombre+"' selected='selected'>"+escuela.nombre+"</option>");
+                }else{
+                  $("#unidad").append("<option value='"+escuela.nombre+"'>"+escuela.nombre+"</option>");
+                }
+              
+            });
+            }},
+            error: function(dato){
+            }
+            }); //end ajax
+            return false;
+      }
+          
+  
+
+      //select "Dirigido a" cambia al select de direccion especifica
+      $( "#dirigido_a" ).change(function(){
+        var valor = $('#dirigido_a :selected').val();
+        defineComunidad(valor);
+
+      });
+      
+      
+      //Funcion que establece campos dependiendo si esta dirigido a comunidad del ipn o externa
+      function defineComunidad(valor){
+        if (valor==""){
+           $("#dirigido_a_tipo").empty();
+           $("#dirigido_a_tipo").append("<option value=''>Seleccione ...</option>");
+           $('#dirigido_a_tipo_Form').hide();
+           $('#nombre_institucion').empty();
+           $('#nombre_institucion_Form').hide();
+        }else{
+           if (valor=="comunidad-politecnica"){
+             $("#dirigido_a_tipo").empty();
+             $("#dirigido_a_tipo").append("<option value=''>Seleccione ...</option>"+
+               "<option value='docentes'>Docentes</option>"+
+               "<option value='funcionarios'>Directivos/Funcionarios</option>"+
+               "<option value='paae'>PAAE</option>"+
+               "<option value='alumnos'>Alumnos</option>"+
+               "<option value='egresados'>Egresados</option>");
+               $('#nombre_institucion').empty();
+               $('#nombre_institucion_Form').hide();
+           }else{
+             $("#dirigido_a_tipo").empty();
+             $("#dirigido_a_tipo").append("<option value=''>Seleccione ...</option>"+
+               "<option value='publica'>Institución pública</option>"+
+               "<option value='privada'>Institución privada</option>");
+             $('#nombre_institucion').empty();
+             $('#nombre_institucion_Form').show();
+           }
+           
+           $('#dirigido_a_tipo_Form').show();
+        }
+      }
+
+
+      //Dependecnia a la que se solicita el registro
+      $( "#dirigido_a_tipo" ).change(function(){
+        var valor = $('#dirigido_a_tipo :selected').val();
+        selectdependencia(valor);
+      });
+      
+      //Select tipo de dependencia solicitante
+      function selectdependencia(valor){
+        if (valor==""){
+           $("#dirigido_a_dependencia").empty();
+           $("#dirigido_a_dependencia").append("<option value=''>Seleccione ...</option>");
+        }else{
+           if (valor=="docentes"||valor=="funcionarios"||valor=="paae"){
+             $("#dirigido_a_dependencia").empty();
+             $("#dirigido_a_dependencia").append("<option value=''>Seleccione ...</option>"+
+               "<option value='cgfie'>CGFIE</option>");
+           }else{
+             if (valor=="publica"||valor=="privada"){
+               $("#dirigido_a_dependencia").empty();
+               $("#dirigido_a_dependencia").append("<option value=''>Seleccione ...</option>"+
+                 "<option value='des'>DES</option>");
+             }else{
+               $("#dirigido_a_dependencia").empty();
+               $("#dirigido_a_dependencia").append("<option value=''>Seleccione ...</option>"+
+                 "<option value='des'>DES</option>"+
+                 "<option value='dems'>DEMS</option>");
+             }
+           }
+        }
+      }

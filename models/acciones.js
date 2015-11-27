@@ -44,9 +44,38 @@ var resultado_apredizaje_propuesto_schema = new Schema(
   }
 );
 
+var programacion_schema = new Schema(
+  {
+    periodo_inicio:       Date,
+    periodo_fin:          Date,
+    escolarizada_dias:    String,
+    escolarizada_fechas:  {
+      fecha:    Date
+    },
+    escolarizada_horario: {
+      dia:      String,
+      horas:    String
+    },
+    escolarizada_sede:    String,
+    mixta_dias:           String,
+    mixta_fechas:         {
+      fecha:    Date
+    },
+    mixta_horario:        {
+      dia:      String,
+      horas:    String
+    },
+    mixta_sede:           String,
+    mixta_online:         { type: String, default: "Moodle" },
+    no_escolarizada_periodo: String,
+    no_escolarizada_plataforma: { type: String, default: "Moodle" }
+
+  }
+);
+
 var accionesSchema = new Schema({
   //id: { type: String },//NECESARIO
-  status:                                 { type: Number, default: 0 },                            
+  status:                                 { type: Number, default: 0 },
   cur:{
       titulo        : {type: String, default: 'CGFIE'},
       anio          : {type: Number},
@@ -61,9 +90,9 @@ var accionesSchema = new Schema({
       vigencia      : {type: String},
       cur           : {type: String}
     },
-  cur_gen:                                  {type: String, default: 'No asignada'}, 
+  cur_gen:                                  {type: String, default: 'No asignada'},
   dictaminacion:                            [dictaminacion_schema],
-  puntaje_dictaminado:                      { type: Number, default: 0 },  
+  puntaje_dictaminado:                      { type: Number, default: 0 },
   registro_date:                            {type: Date, default: Date.now },
   estatus_accion:                           {type: String, default: "Pendiente"},
   dependencia:                              String,
@@ -101,7 +130,8 @@ var accionesSchema = new Schema({
   lineamientos_acreditacion:                String,
   estatus_sec_3 :                           {type: String, default: "false"},//Tercer apartado de acciones de formacion
   planeacion_didactica:                     [planeacion_didactica_schema],
-  estatus_sec_4 :                           {type: String, default: "false"} //Cuarto apartado de acciones de formacion
+  estatus_sec_4 :                           {type: String, default: "false"}, //Cuarto apartado de acciones de formacion
+  programacion:                             [programacion_schema]
 
 },
 {

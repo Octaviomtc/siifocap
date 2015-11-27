@@ -29,6 +29,7 @@ var escuelas_publicasMid    = require('../controllers/escuelas_publicas');
 var dictaminacionMid    = require('../controllers/dictaminacion');
 var unidades_politecnicasMid    = require('../controllers/unidades_politecnicas');
 var disciplinasMid = require('../controllers/disciplinas');
+var programacionMid = require('../controllers/programacion');
 var google = require('../controllers/google');
 
 
@@ -281,6 +282,19 @@ module.exports = function(passport){
     });
 
 
+    // nueva accion de formacion paso 1 despues del primer insert pasa a modo update
+    router.get('/acciones-formacion/ver/:id/datos-generales', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, accionesMid.findById, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Nueva acción de formación",
+        estado: "acciones",
+        paso: "1"
+      }
+
+      res.render('app/acciones/actualizar/ver-datos-generales',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+
     //update paso 1
     router.post('/acciones-formacion/nueva/:id/datos-generales', isAuthenticated, accionesMid.updateAccion, function(req, res){
       // console.log(res.accionFormacion);
@@ -299,6 +313,16 @@ module.exports = function(passport){
         paso: "2"
       }
       res.render('app/acciones/actualizar/justificacion',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+    router.get('/acciones-formacion/ver/:id/justificacion', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, accionesMid.findById, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Nueva acción de formación",
+        estado: "acciones",
+        paso: "2"
+      }
+      res.render('app/acciones/actualizar/ver-justificacion',{message: req.flash('message'), user: req.user, datos: param});
     });
 
     //update paso 2
@@ -321,6 +345,17 @@ module.exports = function(passport){
       res.render('app/acciones/actualizar/encuadre',{message: req.flash('message'), user: req.user, datos: param});
     });
 
+
+    router.get('/acciones-formacion/ver/:id/encuadre', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, accionesMid.findById, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Nueva acción de formación",
+        estado: "acciones",
+        paso: "3"
+      }
+      res.render('app/acciones/actualizar/ver-encuadre',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
     //update paso 3
     router.post('/acciones-formacion/nueva/:id/encuadre', isAuthenticated, accionesMid.updateAccion, function(req, res){
       // console.log(res.accionFormacion);
@@ -339,6 +374,16 @@ module.exports = function(passport){
         paso: "4"
       }
       res.render('app/acciones/actualizar/planeacion',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+    router.get('/acciones-formacion/ver/:id/planeacion', isAuthenticated, escuelaMid.findAllEscuelas, escuelaMid.findAllDependencias, accionesMid.findById, function(req, res){
+      param={
+        icon: "fa-plus-circle",
+        seccion: "Nueva acción de formación",
+        estado: "acciones",
+        paso: "4"
+      }
+      res.render('app/acciones/actualizar/ver-planeacion',{message: req.flash('message'), user: req.user, datos: param});
     });
 
     //update paso 4
@@ -378,6 +423,40 @@ module.exports = function(passport){
       res.set('Content-Type', 'application/javascript');
       res.redirect('/acciones-formacion');
     });
+
+
+    /*****************************************************************/
+    //  PRROGRAMACION
+    //  Index de acciones de formacion se obtiene tabla con datos
+    router.get('/programacion', isAuthenticated, accionesMid.allAccionFormacion, function(req, res){
+        param={
+            icon: "fa-calendar",
+            seccion: "Programación de Acciones de formación",
+            estado: "programacion"
+        }
+        var alerta = req.flash('alert');
+        console.log(alerta);
+        res.render('app/programacion/index', { message: alerta, user: req.user, datos: param});
+    });
+
+
+
+    //Nueva programación
+    router.get('/programacion/crear', isAuthenticated, accionesMid.allAccionFormacion, function(req, res){
+        param={
+            icon: "fa-calendar",
+            seccion: "Programación de Acciones de formación - Nueva programación",
+            estado: "programacion"
+        }
+        var alerta = req.flash('alert');
+        res.render('app/programacion/crear', { message: alerta, user: req.user, datos: param});
+    });
+
+
+    router.get('/programacion/:id/crear-programacion', isAuthenticated, programacionMid.crear, function(req, res){
+      
+    });
+
 
 
 
