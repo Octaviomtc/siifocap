@@ -1,0 +1,50 @@
+include ../../includes/mixins
+html
+  head
+    include ../../includes/head
+    include ../../includes/head_scripts
+
+  body
+    #encabezados
+      include ../../includes/titulos
+      include ../../includes/barraSup
+      include ../../includes/navbar
+    #content
+      #app
+        .container
+          .col-md-3.col-lg-2.col-sm-3
+            include ../../includes/menu
+          .col-md-9.col-lg-10.col-sm-9
+            nav.navbar.navbar-default(role='navigation')
+              .container-fluid
+                .navbar-header
+                  a.navbar-brand(href='#')
+                    i(class="fa fa-r #{datos.icon}")
+                    | #{datos.seccion}
+            .animated.fadeIn
+              nav.navbar.navbar-default(role='navigation')
+                div.container-fluid
+                  div.navbar-header
+                    button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#menu')
+                      span.sr-only Toggle navigation
+                      span.icon-bar
+                      span.icon-bar
+                      span.icon-bar
+                    a.navbar-brand()
+                      i.fa.fa-r.fa-calendar.fa-l
+                  div#menu.collapse.navbar-collapse
+                    ul.nav.navbar-nav
+                      li.active
+                        a(href='/programacion/paso1/'+idAccion+'/'+idProgramacion) Acción de Formación
+                      li
+                        a(href='/programacion/paso2/'+idAccion+'/'+idProgramacion) Periodo de Impartición
+                      li
+                        a(href='/programacion/paso3/'+idAccion+'/'+idProgramacion) Sede
+                      li
+                        a(href='/programacion/paso4/'+idAccion+'/'+idProgramacion) Facilitadores
+                      li
+                        a(href='/programacion/paso5/'+idAccion+'/'+idProgramacion) Participantes
+              #form-mult
+                block content
+    include ../../includes/scripts
+    include ../../includes/footer
