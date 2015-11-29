@@ -34,15 +34,15 @@ html
                       i.fa.fa-r.fa-calendar.fa-l
                   div#menu.collapse.navbar-collapse
                     ul.nav.navbar-nav
-                      li.active
+                      li(class=datos.paso==1 ? "active":"")
                         a(href='/programacion/paso1/'+idAccion+'/'+idProgramacion) Acción de Formación
-                      li
+                      li(class=datos.paso==2 ? "active":"")
                         a(href='/programacion/paso2/'+idAccion+'/'+idProgramacion) Periodo de Impartición
-                      li
+                      li(class=datos.paso==3 ? "active":"")
                         a(href='/programacion/paso3/'+idAccion+'/'+idProgramacion) Sede
-                      li
+                      li(class=datos.paso==4 ? "active":"")
                         a(href='/programacion/paso4/'+idAccion+'/'+idProgramacion) Facilitadores
-                      li
+                      li(class=datos.paso==5 ? "active":"")
                         a(href='/programacion/paso5/'+idAccion+'/'+idProgramacion) Participantes
               #form-mult
                 block content

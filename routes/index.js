@@ -463,7 +463,8 @@ module.exports = function(passport){
         param={
             icon: "fa-calendar",
             seccion: "Programación de Acciones de formación - Nueva programación",
-            estado: "programacion"
+            estado: "programacion",
+            paso: 1
         }
         var alerta = req.flash('alert');
         res.render('app/programacion/paso1', { message: alerta, user: req.user, datos: param});
@@ -471,6 +472,57 @@ module.exports = function(passport){
 
     });
 
+     router.get('/programacion/paso2/:id/:id2', isAuthenticated, accionesMid.allAccionFormacion, programacionMid.validateAccion, function(req, res){
+        param={
+            icon: "fa-calendar",
+            seccion: "Programación de Acciones de formación - Nueva programación",
+            estado: "programacion",
+            paso: 2
+        }
+        var alerta = req.flash('alert');
+        res.render('app/programacion/paso2', { message: alerta, user: req.user, datos: param});
+
+
+    });
+
+      router.get('/programacion/paso3/:id/:id2', isAuthenticated, accionesMid.allAccionFormacion, programacionMid.validateAccion, function(req, res){
+        param={
+            icon: "fa-calendar",
+            seccion: "Programación de Acciones de formación - Nueva programación",
+            estado: "programacion",
+            paso: 3
+        }
+        var alerta = req.flash('alert');
+        res.render('app/programacion/paso3', { message: alerta, user: req.user, datos: param});
+
+
+    });
+
+       router.get('/programacion/paso4/:id/:id2', isAuthenticated, accionesMid.allAccionFormacion, programacionMid.validateAccion, function(req, res){
+        param={
+            icon: "fa-calendar",
+            seccion: "Programación de Acciones de formación - Nueva programación",
+            estado: "programacion",
+            paso: 4
+        }
+        var alerta = req.flash('alert');
+        res.render('app/programacion/paso4', { message: alerta, user: req.user, datos: param});
+
+
+    });
+
+    router.get('/programacion/paso5/:id/:id2', isAuthenticated, accionesMid.allAccionFormacion, programacionMid.validateAccion, function(req, res){
+        param={
+            icon: "fa-calendar",
+            seccion: "Programación de Acciones de formación - Nueva programación",
+            estado: "programacion",
+            paso: 5
+        }
+        var alerta = req.flash('alert');
+        res.render('app/programacion/paso5', { message: alerta, user: req.user, datos: param});
+
+
+    });
 
 
 
