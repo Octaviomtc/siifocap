@@ -46,6 +46,7 @@ var resultado_apredizaje_propuesto_schema = new Schema(
 
 var programacion_schema = new Schema(
   {
+    createDate:           {type: Date, default: new Date()},
     periodo_inicio:       Date,
     periodo_fin:          Date,
     escolarizada_dias:    String,

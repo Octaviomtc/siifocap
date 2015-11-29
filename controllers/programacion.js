@@ -18,6 +18,8 @@ exports.crear = function(req, res, next) {
       var programacion = accion.programacion;
       if(programacion && typeof programacion === 'undefined'){
           console.log("NO HAY PROGRAMACION");
+      }else{
+        console.log("ESTA ACCION DE FORMACIÓN YA CUENTA CON "+programacion.length+" PROGRAMACIONES.");
       }
 
       //SE CREA PROGRAMACION
@@ -35,25 +37,17 @@ exports.crear = function(req, res, next) {
           }else{
 
 
-            if(_.isEmpty(req.files)){
-              console.log("no hay archivos que agregar");
-            }else{
-              // RUTA DE ARCHIVOS TEMPORALES
-              var temp_file = config.root+ "/temp/uploads/acciones_formacion/planeacion_didactica/"+req.files.instrumento_archivo_evaluacion.name;
-              // RUTA PARA NUEVOS ARCHIVOS
-              var new_file = config.root+ "/uploads/acciones_formacion/planeacion_didactica/"+req.params.id+"/"+req.params.id+"."+req.files.instrumento_archivo_evaluacion.extension;
-
-              // Se mueve el archivo temporal
-              fs.move(temp_file, new_file, function(err) {
-                if (err) return console.error(err);
-                console.log("success!");
-              });
-            }
-
-
-            console.log("Planeacion agregada");
+            console.log("Programación agregada");
             res.accionFormacion = accion;
-            console.log(accion.planeacion_didactica);
+
+            //SE OBTIENE LA ULTIMA PROGRAMACION AGREGADA 
+            var programacion_nueva = accion.programacion;
+            var last_programacion = _.max(programacion_nueva, function(programacion_nueva){ return programacion_nueva.createDate; });
+
+            res.last_programacion = last_programacion;
+            res.mensaje = "Se creó correctamente la programación";
+
+            console.log("INFO - PROGRAMACION: "+last_programacion);
             return next();
           }
       }
@@ -62,4 +56,23 @@ exports.crear = function(req, res, next) {
 
        // return next();
     });
+};
+
+
+exports.validateAccion = function(req, res, next){
+  var idAccion = decrypt(req.params.id);
+  var idProgramacion = decrypt(req.params.id2);
+  //SE OBTIENE INFORMACION DE LA ACCION DE FORMACION 
+  accionesFormacion.findById(idAccion, function(err, accion) {
+      if(err) return res.send(500, err.message);
+      res.accionFormacion = accion;
+      res.locals.accionFormacion = accion;
+      //Se busca informacion de la programacion especifica
+      var programaciones = accion.programacion;
+
+      var programacion =  _.where(programaciones, {id: idProgramacion});
+      res.locals.idAccion=req.params.id;
+      res.locals.idProgramacion=req.params.id2;
+      return next();
+  });
 };

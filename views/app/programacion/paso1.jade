@@ -1,0 +1,67 @@
+extends layoutActive
+
+block content
+  #message
+    if message
+      .error-message
+          a.text-center #{message}
+  .row
+    .col-md-12
+      .formulario.animated.fadeIn
+        
+        .contenido
+
+          //- .alert.alert-info
+            //- label En la siguiente tabla dé clic en el nombre de la acción de formación a programar. En caso de que necesite ver más detalles, haga clic en la opción Mostrar detalles.
+
+          table(data-toggle="table", data-cache="true", data-height="300", data-card-view='true')
+            thead
+              tr
+                th(data-field='nombre', data-align='left') Nombre de la acción de formación
+                th(data-field='unidad') Unidad politécnica responsable
+                th(data-field='dirigido') Dirigido a
+                th(data-field='tipo') Tipo 
+                th(data-field='modalidad') Modalidad
+                th(data-field='duracion') Duración en horas
+                th(data-field='cur_gen', data-align='left') CUR
+            tbody
+              tr
+                td(style="text-align: left;")
+                  | #{accionFormacion.nombre_accion_Formacion}
+                td(style="text-align: left;")
+                  | #{accionFormacion.unidad}
+                td(style="text-align: left;")
+                  if accionFormacion.dirigido_a == "comunidad-externa"
+                    | Comunidad externa/#{accionFormacion.dirigido_a_tipo}
+                  if accionFormacion.dirigido_a == "comunidad-politecnica"
+                    | Comundidad ploitécnica/#{accionFormacion.dirigido_a_tipo}
+                td(style="text-align: left;")
+                  | #{accionFormacion.tipo_accion_Formacion}
+                td(style="text-align: left;")
+                  | #{accionFormacion.tipo_accion_Formacion}
+                td(style="text-align: left;")
+                  | #{accionFormacion.tipo_accion_Formacion}
+                td(style="text-align: left;")
+                  | #{accionFormacion.cur_gen}
+               
+                 
+          .row
+            .col-md-6
+              //- .alert.alert-success
+              //-   label Nombre de la acción de formación a programar:
+              //-   br
+              //-   label#idNombreAccion 
+              a.btn.btn-success.fa-r(href="/programacion/paso2/"+idAccion+"/"+idProgramacion)
+                i.fa.fa-check-circle.fa-r
+                | Siguiente
+
+              a.btn.btn-danger(href="/programacion")
+                | Cancelar
+
+
+  append javascript
+    script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
+    script.
+
+                                
+                                    
