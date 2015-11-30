@@ -15,7 +15,8 @@
     "jquery-form-validator": "~2.1.47",
     "bootstrap-switch": "~3.2.2",
     "bootstrap-filestyle": "~1.1.2",
-    "moment": "~2.10.6"
+    "moment": "~2.10.6",
+    "fullcalendar": "~2.4.0"
   },
   "resolutions": {
     "jquery": "2.1.1"

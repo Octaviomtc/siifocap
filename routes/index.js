@@ -454,8 +454,8 @@ module.exports = function(passport){
 
 
     router.get('/programacion/:id/crear-programacion', isAuthenticated, programacionMid.crear, function(req, res){
-        console.log(res.mensaje);
         res.redirect('/programacion/paso1/'+encrypt(res.accionFormacion.id)+'/'+encrypt(res.last_programacion.id));
+        // res.redirect('/programacion/paso1/'+encrypt(res.accionFormacion.id)+'/'+encrypt(res.last_programacion.id));
     });
 
 
@@ -470,6 +470,13 @@ module.exports = function(passport){
         res.render('app/programacion/paso1', { message: alerta, user: req.user, datos: param});
 
 
+    });
+
+    router.post('/programacion/paso2/:id/:id2', isAuthenticated, accionesMid.allAccionFormacion, programacionMid.validateAccion, programacionMid.update2, function(req, res){  
+        console.log("updating");
+        console.log(res.accionFormacion._id);
+        console.log(res.programacionId);
+        res.redirect('/programacion/paso3/'+encrypt(res.accionFormacion.id)+'/'+encrypt(res.programacionId));
     });
 
      router.get('/programacion/paso2/:id/:id2', isAuthenticated, accionesMid.allAccionFormacion, programacionMid.validateAccion, function(req, res){

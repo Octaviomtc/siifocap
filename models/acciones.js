@@ -49,6 +49,31 @@ var programacion_schema = new Schema(
     createDate:           {type: Date, default: new Date()},
     periodo_inicio:       Date,
     periodo_fin:          Date,
+    calendario:   {
+      lunes: {type: String, default: 'NO'},
+      lunesInicio: {type: String, default: '00:00'},
+      lunesFin: {type: String, default: '00:00'},
+      martes: {type: String, default: 'NO'},
+      martesInicio: {type: String, default: '00:00'},
+      martesFin: {type: String, default: '00:00'},
+      miercoles: {type: String, default: 'NO'},
+      miercolesInicio: {type: String, default: '00:00'},
+      miercolesFin: {type: String, default: '00:00'},
+      jueves: {type: String, default: 'NO'},
+      juevesInicio: {type: String, default: '00:00'},
+      juevesFin: {type: String, default: '00:00'},
+      viernes: {type: String, default: 'NO'},
+      viernesInicio: {type: String, default: '00:00'},
+      viernesFin: {type: String, default: '00:00'},
+      sabado: {type: String, default: 'NO'},
+      sabadoInicio: {type: String, default: '00:00'},
+      sabadoFin: {type: String, default: '00:00'}
+    },
+    hora_inicio: {type: String, default: '00:00'},
+    hora_fin: {type: String, default: '00:00'},
+    horarioMultiple: {type: String, default: 'NO'},
+
+
     escolarizada_dias:    String,
     escolarizada_fechas:  {
       fecha:    Date

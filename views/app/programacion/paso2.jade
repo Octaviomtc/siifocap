@@ -11,21 +11,153 @@ block content
         
         .contenido
           include datos
-               
-                 
-          .row
-            .col-md-6
-              a.btn.btn-success.fa-r(href="/programacion/paso3/"+idAccion+"/"+idProgramacion)
-                i.fa.fa-check-circle.fa-r
-                | Siguiente
+           
+        .contenido
+          .alert.alert-info
+            | Ingrese el periodo de impartición de la Acción de Formación, seleccionando en los calendarios de inicio y término, las fechas (día, mes y año) correspondientes.  
+          form.form-horizontal(method='post', action="/programacion/paso2/#{idAccion}/#{idProgramacion}")
+            .form-group
+              span(class="control-label col-md-3")
+                | Periodo de impartición:
+              span(class="control-label col-md-1")
+                | Inicio:
+              div(class="col-md-3")
+                input.form-control#periodo_inicio(type="date", name="periodo_inicio",data-validation="empty", data-toggle="tooltip", data-placement="top", value="#{moment(programacionRes.periodo_inicio).format('YYYY-MM-DD')}", title="")
+              span(class="control-label col-md-1")
+                | Fin:   
+              div(class="col-md-3")
+                input.form-control#periodo_fin(type="date", name="periodo_fin",data-validation="empty", data-toggle="tooltip", data-placement="top", value="#{moment(programacionRes.periodo_fin).format('YYYY-MM-DD')}", title="")
 
-              a.btn.btn-danger(href="/programacion")
-                | Cancelar
+
+     
+            .form-group
+              span(class="control-label col-md-3")
+                | Indique el horario de las sesiones 
+              .col-md-1
+                input#lunes(type="checkbox" name="lunes" value="lunes")
+                input(type="text" name="ilunes" id="ilunes") 
+                | &nbsp Lunes
+              .col-md-1
+                input#martes(type="checkbox" name="martes" value="martes") 
+                input(type="text" name="imartes" id="imartes") 
+                | &nbsp Martes
+              .col-md-1
+                input#miercoles(type="checkbox" name="miercoles" value="miercoles") 
+                input(type="text" name="imiercoles" id="imiercoles") 
+                | &nbsp Miércoles
+              .col-md-1
+                input#jueves(type="checkbox" name="jueves" value="jueves") 
+                input(type="text" name="ijueves" id="ijueves") 
+                | &nbsp Jueves
+              .col-md-1
+                input#viernes(type="checkbox" name="viernes" value="viernes") 
+                input(type="text" name="iviernes" id="iviernes") 
+                | &nbsp Viernes
+              .col-md-1
+                input#sabado(type="checkbox" name="sabado" value="sabado") 
+                input(type="text" name="isabado" id="isabado") 
+                | &nbsp Sábado
+
+
+            .form-group
+              span(class="control-label col-md-3")
+                | Indique el horario de las sesiones:
+              span(class="control-label col-md-1")
+                | Hora de inicio:
+              div(class="col-md-3")
+                - var horas = [{'value': '01:00'},{'value': '02:00'},{'value': '03:00'},{'value': '04:00'},{'value': '05:00'},{'value': '06:00'},{'value': '07:00'},{'value': '08:00'},{'value': '09:00'},{'value': '10:00'},{'value': '11:00'},{'value': '12:00'},{'value': '13:00'},{'value': '14:00'},{'value': '15:00'},{'value': '16:00'},{'value': '17:00'},{'value': '18:00'},{'value': '19:00'},{'value': '20:00'},{'value': '21:00'},{'value': '22:00'}]
+       
+                select.form-control(name="hora_inicio", id="hora_inicio")
+                    option(value="00:00") Seleccione
+                    each hora in horas
+                      option(value=hora.value, selected= hora.value == programacionRes.hora_inicio) #{hora.value}
+
+    
+              span(class="control-label col-md-1")
+                | Hora de fin:   
+              div(class="col-md-3")
+                select.form-control(name="hora_fin", id="hora_fin")
+                    option(value="00:00") Seleccione
+                    each hora in horas
+                      option(value=hora.value, selected= hora.value == programacionRes.hora_fin) #{hora.value}
+            .alert.alert-info
+              | Esta acción de formación tiene horarios multiples:  
+              //- input#multiple(type="checkbox" name="tipo_horario" value="multiple" onclick="checkMultiple(this)") 
+              input#multiple(type="checkbox" name="tipo_horario" value="multiple") 
+              input#imultiple(type='text' name="imultiple")
+
+                      
+                      
+                      
+                      
+
+
+
+            .contenido         
+              .row
+                .col-md-6
+                  input.btn.btn-success.fa-r(type="submit" value="Guardar y continuar")
+
+                  a.btn.btn-danger(href="/programacion")
+                    | Cancelar
 
 
   append javascript
     script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
     script.
 
-                                
-                                    
+      var lunes = '!{programacionRes.calendario.lunes}';
+      var martes = '!{programacionRes.calendario.martes}';
+      var miercoles = '!{programacionRes.calendario.miercoles}';
+      var jueves = '!{programacionRes.calendario.jueves}';
+      var viernes = '!{programacionRes.calendario.viernes}';
+      var sabado = '!{programacionRes.calendario.sabado}';
+
+      var multiple = '!{programacionRes.horarioMultiple}';
+
+
+      if(lunes=="OK"){$('#lunes').prop('checked', true); $('#ilunes').val('OK');}else{$('#ilunes').val('NO');}
+      if(martes=="OK"){$('#martes').prop('checked', true); $('#imartes').val('OK');}else{$('#imartes').val('NO');}
+      if(miercoles=="OK"){$('#miercoles').prop('checked', true); $('#imiercoles').val('OK');}else{$('#imiercoles').val('NO');}
+      if(jueves=="OK"){$('#jueves').prop('checked', true); $('#ijueves').val('OK');}else{$('#ijueves').val('NO');}
+      if(viernes=="OK"){$('#viernes').prop('checked', true); $('#iviernes').val('OK');}else{$('#iviernes').val('NO');}
+      if(sabado=="OK"){$('#sabado').prop('checked', true); $('#isabado').val('OK');}else{$('#isabado').val('NO');}
+
+      if(multiple=="OK"){$('#multiple').prop('checked', true); $('#imultiple').val('OK');$("#hora_fin").prop('disabled', true);$("#hora_inicio").prop('disabled', true);}else{$('#imultiple').val('NO');$("#hora_fin").prop('disabled', false);$("#hora_inicio").prop('disabled', false);}
+
+      $('#multiple').change(function(){
+          if (this.checked) {
+                $("#imultiple").val('OK');
+                $("#hora_fin").val('00:00');
+                $("#hora_inicio").val('00:00');
+                $("#hora_fin").prop('disabled', true);$("#hora_inicio").prop('disabled', true);
+           }else{
+                $("#imultiple").val('NO');
+                $("#hora_fin").val('00:00');
+                $("#hora_inicio").val('00:00');
+                $("#hora_fin").prop('disabled', false);$("#hora_inicio").prop('disabled', false);
+           }
+      });
+
+      $('#lunes').change(function(){
+          if (this.checked) {
+                $("#ilunes").val('OK');
+           }else{
+                $("#ilunes").val('NO');
+           }
+      });
+
+      
+
+
+
+      //- function checkMultiple(checkbox)
+      //- {
+      //-   if (checkbox.checked)
+      //-   {
+      //-     $('#coparticipacion_convenio_Form').show();
+      //-   }else{
+      //-     $('#dependenciasCoparticipantesDiv').empty(); 
+      //-   }
+      //- }
+                                               
