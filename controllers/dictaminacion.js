@@ -10,9 +10,9 @@ var _                     = require('underscore');
 
 
 exports.addDictamen = function(req, res, next) {
-
   var pregunta = req.body.pregunta;
-
+  console.log('********');
+  logger.info('********');
   var dictaminacion = [];
 
   var puntaje = 0;

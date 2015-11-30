@@ -22,7 +22,7 @@ var env = process.env.NODE_ENV || 'development';
 //Carga de configuracion
 GLOBAL.config = config = require('./config/config')[env];
 
-logger.debug('Inicializando el sistema...');
+logger.debug('Inicializando el sistema... ++++ ');
 var app = express();
 app.use(helmet.noCache());
 
