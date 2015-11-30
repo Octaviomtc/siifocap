@@ -49,6 +49,8 @@ var programacion_schema = new Schema(
     createDate:           {type: Date, default: new Date()},
     periodo_inicio:       Date,
     periodo_fin:          Date,
+    maximo:               {type: Number, default: 0},
+    estatus: {type: String, default: "programada"},
     calendario:   {
       lunes: {type: String, default: 'NO'},
       lunesInicio: {type: String, default: '00:00'},
@@ -73,7 +75,7 @@ var programacion_schema = new Schema(
     hora_fin: {type: String, default: '00:00'},
     horarioMultiple: {type: String, default: 'NO'},
 
-
+    sede: {type: String, default: ''},
     escolarizada_dias:    String,
     escolarizada_fechas:  {
       fecha:    Date

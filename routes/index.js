@@ -459,6 +459,11 @@ module.exports = function(passport){
     });
 
 
+    router.get('/programacion/delete/:id/:id2', isAuthenticated, programacionMid.deleteProg, function(req, res){
+        res.redirect('/programacion');
+    });
+
+
     router.get('/programacion/paso1/:id/:id2', isAuthenticated, accionesMid.allAccionFormacion, programacionMid.validateAccion, function(req, res){
         param={
             icon: "fa-calendar",
@@ -471,6 +476,21 @@ module.exports = function(passport){
 
 
     });
+
+    router.get('/programacion/paso1v/:id/:id2', isAuthenticated, accionesMid.allAccionFormacion, programacionMid.validateAccion, function(req, res){
+        param={
+            icon: "fa-calendar",
+            seccion: "Programación de Acciones de formación - Nueva programación",
+            estado: "programacion",
+            paso: 1
+        }
+        var alerta = req.flash('alert');
+        res.render('app/programacion/paso1v', { message: alerta, user: req.user, datos: param});
+
+
+    });
+
+
 
     router.post('/programacion/paso2/:id/:id2', isAuthenticated, accionesMid.allAccionFormacion, programacionMid.validateAccion, programacionMid.update2, function(req, res){  
         console.log("updating");
@@ -492,7 +512,21 @@ module.exports = function(passport){
 
     });
 
-      router.get('/programacion/paso3/:id/:id2', isAuthenticated, accionesMid.allAccionFormacion, programacionMid.validateAccion, function(req, res){
+
+     router.get('/programacion/paso2v/:id/:id2', isAuthenticated, accionesMid.allAccionFormacion, programacionMid.validateAccion, function(req, res){
+        param={
+            icon: "fa-calendar",
+            seccion: "Programación de Acciones de formación - Nueva programación",
+            estado: "programacion",
+            paso: 2
+        }
+        var alerta = req.flash('alert');
+        res.render('app/programacion/paso2v', { message: alerta, user: req.user, datos: param});
+
+
+    });
+
+      router.get('/programacion/paso3/:id/:id2', isAuthenticated, accionesMid.allAccionFormacion, programacionMid.validateAccion, escuelaMid.findAllEscuelas, function(req, res){
         param={
             icon: "fa-calendar",
             seccion: "Programación de Acciones de formación - Nueva programación",
@@ -503,6 +537,23 @@ module.exports = function(passport){
         res.render('app/programacion/paso3', { message: alerta, user: req.user, datos: param});
 
 
+    });
+
+      router.get('/programacion/paso3v/:id/:id2', isAuthenticated, accionesMid.allAccionFormacion, programacionMid.validateAccion, escuelaMid.findAllEscuelas, function(req, res){
+        param={
+            icon: "fa-calendar",
+            seccion: "Programación de Acciones de formación - Nueva programación",
+            estado: "programacion",
+            paso: 3
+        }
+        var alerta = req.flash('alert');
+        res.render('app/programacion/paso3v', { message: alerta, user: req.user, datos: param});
+
+
+    });
+
+      router.post('/programacion/paso3/:id/:id2', isAuthenticated, accionesMid.allAccionFormacion, programacionMid.validateAccion, programacionMid.update3, function(req, res){  
+        res.redirect('/programacion/paso5/'+encrypt(res.accionFormacion.id)+'/'+encrypt(res.programacionId));
     });
 
        router.get('/programacion/paso4/:id/:id2', isAuthenticated, accionesMid.allAccionFormacion, programacionMid.validateAccion, function(req, res){
@@ -519,6 +570,20 @@ module.exports = function(passport){
     }); 
 
 
+       router.get('/programacion/paso4v/:id/:id2', isAuthenticated, accionesMid.allAccionFormacion, programacionMid.validateAccion, function(req, res){
+        param={
+            icon: "fa-calendar",
+            seccion: "Programación de Acciones de formación - Nueva programación",
+            estado: "programacion",
+            paso: 4
+        }
+        var alerta = req.flash('alert');
+        res.render('app/programacion/paso4v', { message: alerta, user: req.user, datos: param});
+
+
+    }); 
+
+
     router.route("/programacion/paso5/:id/:id2").get(isAuthenticated, accionesMid.allAccionFormacion, programacionMid.validateAccion, function(req, res) {
       param={
             icon: "fa-calendar",
@@ -530,10 +595,22 @@ module.exports = function(passport){
         res.render('app/programacion/paso5', { message: alerta, user: req.user, datos: param});
     }).post(multer({
       inMemory: true
-    }), programacionMid.validateAccion, function(req, res) {
-      // return res.redirect("/token-admin");
+    }), programacionMid.validateAccion, programacionMid.addFile, function(req, res) {
+      return res.redirect("/programacion");
     });
 
+router.get('/programacion/paso5v/:id/:id2', isAuthenticated, accionesMid.allAccionFormacion, programacionMid.validateAccion, function(req, res){
+        param={
+            icon: "fa-calendar",
+            seccion: "Programación de Acciones de formación - Nueva programación",
+            estado: "programacion",
+            paso: 5
+        }
+        var alerta = req.flash('alert');
+        res.render('app/programacion/paso5v', { message: alerta, user: req.user, datos: param});
+
+
+    }); 
 
 
 

@@ -96,10 +96,48 @@ exports.update2 = function(req, res, next){
   //Se DEFINEN HORARIOS SI ES MULTIPLE LOS ESTARNDARES SE VUELVEN 0
   var horaInicio=req.body.hora_inicio;
   var horaFin=req.body.hora_fin;
+
+   //SE CREAN VARIBLES PARA VERIFICAR DIAS 
+  var lunesInicio = req.body.hora_inicio_lunes || "00:00";
+  var lunesFin = req.body.hora_fin_lunes || "00:00";
+
+  var martesInicio = req.body.hora_inicio_martes || "00:00";
+  var martesFin = req.body.hora_fin_martes || "00:00";
+
+  var miercolesInicio = req.body.hora_inicio_miercoles || "00:00";
+  var miercolesFin = req.body.hora_fin_miercoles || "00:00";
+
+  var juevesInicio = req.body.hora_inicio_jueves || "00:00";
+  var juevesFin = req.body.hora_fin_jueves || "00:00";
+
+  var viernesInicio = req.body.hora_inicio_viernes || "00:00";
+  var viernesFin = req.body.hora_fin_viernes || "00:00";
+
+  var sabadoInicio = req.body.hora_inicio_sabado || "00:00";
+  var sabadoFin = req.body.hora_fin_sabado || "00:00";
+
+
+
   if(req.body.imultiple=="OK"){
     horaInicio="00:00";
     horaFin="00:00";
+  }else{
+
+    if(req.body.ilunes=="OK"){lunesInicio=horaInicio; lunesFin=horaFin}else{lunesInicio="00:00"; lunesFin="00:00"};
+    if(req.body.imartes=="OK"){martesInicio=horaInicio; martesFin=horaFin}else{martesInicio="00:00"; martesFin="00:00"};
+    if(req.body.imiercoles=="OK"){miercolesInicio=horaInicio; miercolesFin=horaFin}else{miercolesInicio="00:00"; miercolesFin="00:00"};
+    if(req.body.ijueves=="OK"){juevesInicio=horaInicio; juevesFin=horaFin}else{juevesInicio="00:00"; juevesFin="00:00"};
+    if(req.body.iviernes=="OK"){viernesInicio=horaInicio; viernesFin=horaFin}else{viernesInicio="00:00"; viernesFin="00:00"};
+    if(req.body.isabado=="OK"){sabadoInicio=horaInicio; sabadoFin=horaFin}else{sabadoInicio="00:00"; sabadoFin="00:00"};
   }
+
+
+
+
+
+
+
+
   accionesFormacion.findOneAndUpdate(
     { "_id": idAccion, "programacion._id": idProgramacion},
     { 
@@ -114,7 +152,23 @@ exports.update2 = function(req, res, next){
             "programacion.$.calendario.jueves": req.body.ijueves,
             "programacion.$.calendario.viernes": req.body.iviernes,
             "programacion.$.calendario.sabado": req.body.isabado,
-            "programacion.$.horarioMultiple": req.body.imultiple
+            "programacion.$.horarioMultiple": req.body.imultiple,
+
+            "programacion.$.calendario.lunesInicio": lunesInicio,
+            "programacion.$.calendario.martesInicio": martesInicio,
+            "programacion.$.calendario.miercolesInicio": miercolesInicio,
+            "programacion.$.calendario.juevesInicio": juevesInicio,
+            "programacion.$.calendario.viernesInicio": viernesInicio,
+            "programacion.$.calendario.sabadoInicio": sabadoInicio,
+
+            "programacion.$.calendario.lunesFin": lunesFin,
+            "programacion.$.calendario.martesFin": martesFin,
+            "programacion.$.calendario.miercolesFin": miercolesFin,
+            "programacion.$.calendario.juevesFin": juevesFin,
+            "programacion.$.calendario.viernesFin": viernesFin,
+            "programacion.$.calendario.sabadoFin": sabadoFin
+
+
         }
     },
     function(err,doc) {
@@ -124,4 +178,80 @@ exports.update2 = function(req, res, next){
       return next();
     }
 );
+}
+
+
+
+
+
+
+  
+
+exports.update3 = function(req, res, next){
+  var idAccion = decrypt(req.params.id);
+  var idProgramacion = decrypt(req.params.id2);
+
+  accionesFormacion.findOneAndUpdate(
+    { "_id": idAccion, "programacion._id": idProgramacion},
+    { 
+        "$set": {
+           "programacion.$.sede": req.body.sede
+        }
+    },
+    function(err,doc) {
+      if(err){
+        return res.send(500, err.message)
+      }
+      return next();
+    }
+);
+}
+
+
+
+
+exports.deleteProg = function(req, res, next){
+  var idAccion = decrypt(req.params.id);
+  var idProgramacion = decrypt(req.params.id2);
+
+  accionesFormacion.findOneAndUpdate(
+    { "_id": idAccion, "programacion._id": idProgramacion},
+    { 
+        "$set": {
+           "programacion.$.estatus": "cancelada"
+        }
+    },
+    function(err,doc) {
+      if(err){
+        return res.send(500, err.message)
+      }
+      return next();
+    }
+);
+}
+
+
+
+exports.addFile = function(req, res, next){
+  var idAccion = decrypt(req.params.id);
+  var idProgramacion = decrypt(req.params.id2);
+
+  console.log("file");
+  console.log(req.body);
+  console.log(req.files);
+  // buf = new Buffer(req.files.buffer);
+  accionesFormacion.findOneAndUpdate(
+    { "_id": idAccion, "programacion._id": idProgramacion},
+    { 
+        "$set": {
+           "programacion.$.maximo": req.body.maximo
+        }
+    },
+    function(err,doc) {
+      if(err){
+        return res.send(500, err.message)
+      }
+      return next();
+    }
+  );
 }

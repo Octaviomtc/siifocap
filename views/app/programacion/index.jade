@@ -24,17 +24,20 @@ block content
             th(data-align='right', data-sortable='true') Periodo de impartición
             th(data-align='right', data-sortable='true') Estatus Actual
             th(data-align='right', data-sortable='true')
+            th(data-align='right', data-sortable='true')
+            th(data-align='right', data-sortable='true')
             // th(data-align='right', data-sortable='true')
         tbody
           // La programación de cada accion de formacion se reliza por medio del documento de acciones en mongo, por lo que es un subdocumento, si este tiene programación se muestra en esta tabla, se recorre cada accion y se determinan las programaciones que tienen
           each accion in acciones
             -var cur = accion.cur
-            -var programacion = accion.programacion
+            -var programaciones = accion.programacion
             // Si hay programación se muestra
-            if programacion > 0 
+            //- if programacion > 0 
+            each programacion in programaciones
+              //- if programacion.estatus == "programada"
               tr
                 td
-                  | #{programacion.length} --
                   | #{accion.cur_gen}
                 td
                   | #{accion.nombre_accion_Formacion}
@@ -43,20 +46,30 @@ block content
                 td
                   | #{accion.modalidad_accion_Formacion}
                 td
-                  if(typeof(accion.dirigido_a_dependencia) !== "undefined")
-                    | #{accion.dirigido_a_dependencia.toUpperCase()}
-                  else
-                    | 
+                  if accion.dirigido_a == "comunidad-externa"
+                    | Comunidad externa/#{accion.dirigido_a_tipo}
+                  if accion.dirigido_a == "comunidad-politecnica"
+                    | Comundidad ploitécnica/#{accion.dirigido_a_tipo}
                 td
-                  | Sede
+                  | #{programacion.sede}
                 td
-                  | Periodo programación  
+                  | #{moment(programacion.periodo_inicio).format('DD/MM/YYYY')}-#{moment(programacion.periodo_fin).format('DD/MM/YYYY')}
                 td
-                  | Estatus programación
+                  | #{programacion.estatus}
                 td
-                  a.btn.btn-default(href="/acciones-formacion/nueva/#{accion._id}/datos-generales")
-                    | Actualizar
+                  - var encr = encrypt(accion.id)
+                  - var encr2 = encrypt(programacion.id)
+                  a.btn.btn-default(href="/programacion/paso1/#{encr}/#{encr2}")
+                    | Actualizar&nbsp
                     i.fa.fa-edit
-                  
+                td
+                  a.btn.btn-default(href="/programacion/paso1v/#{encr}/#{encr2}")
+                    | Mostrar Detalles&nbsp
+                    i.fa.fa-eye
+                td
+                  a.btn.btn-default(href="/programacion/delete/#{encr}/#{encr2}")
+                    | Cancelar&nbsp
+                    i.fa.fa-trash
+                    
                                   
                                       

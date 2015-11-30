@@ -1,4 +1,4 @@
-extends layoutActive
+extends layoutActiveVer
 
 block content
   #message
@@ -15,7 +15,7 @@ block content
         .contenido
           .alert.alert-info
             | Ingrese el periodo de impartición de la Acción de Formación, seleccionando en los calendarios de inicio y término, las fechas (día, mes y año) correspondientes.  
-          form.form-horizontal(method='post', action="/programacion/paso2/#{idAccion}/#{idProgramacion}")
+          form.form-horizontal()
             .form-group
               span(class="control-label col-md-3")
                 | Periodo de impartición:
@@ -203,7 +203,9 @@ block content
             .contenido         
               .row
                 .col-md-6
-                  input.btn.btn-success.fa-r(type="submit" value="Guardar y continuar")
+                  a.btn.btn-success.fa-r(href="/programacion/paso3v/"+idAccion+"/"+idProgramacion)
+                    i.fa.fa-check-circle.fa-r
+                    | Siguiente
 
                   a.btn.btn-danger(href="/programacion")
                     | Cancelar

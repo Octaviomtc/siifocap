@@ -1,4 +1,4 @@
-extends layoutActive
+extends layoutActiveVer
 
 block content
   #message
@@ -16,10 +16,10 @@ block content
           .alert.alert-info
             label Escriba el número máximo de participantes a considerar en la acción de formación. Cabe mencionar que el número mínimo es de 10 participantes
           .row
-            form#myform2(method='post', action="/programacion/paso5/#{idAccion}/#{idProgramacion}", enctype="multipart/form-data")
+            form#myform2()
               .form-group
                 .col-md-12
-                  +h-input2("text", "Cantidad máxima de participantes", "maximo", "#", programacionRes.maximo, 2, 2, "", "maximo","",3)
+                  +h-input2("text", "Cantidad máxima de participantes", "maximo", "#", "", 2, 2, "", "maximo","",3)
                   br
                   br
                 .col-md-12
@@ -32,13 +32,15 @@ block content
                     label(class="col-md-12 alert alert-info") Subir un archivo (Tamaño máximo 5MB)
                     +h-input3("file", "Seleccionar archivo", "archivo", "", "", 9, 3, "", "", "archivos CSV", "", ".csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") 
 
-                .contenido   
-                  .row
-                    .col-md-6
-                      input.btn.btn-success.fa-r(type="submit" value="Finalizar")
+        .contenido   
+          .row
+            .col-md-6
+              a.btn.btn-success.fa-r(href="/programacion")
+                i.fa.fa-check-circle.fa-r
+                | Regresar
 
-                      a.btn.btn-danger(href="/programacion")
-                        | Cancelar
+              a.btn.btn-danger(href="/programacion")
+                | Cancelar
 
 
   append javascript
