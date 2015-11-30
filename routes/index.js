@@ -945,7 +945,7 @@ router.get('/programacion/paso5v/:id/:id2', isAuthenticated, accionesMid.allAcci
       res.render('app/dictaminacion/nueva/nueva',{message: req.flash('message'), user: req.user, datos: param});
     });
 
-    router.post('/dictaminacion/:id', isAuthenticated, dictaminacionMid.addDictamen, function(req, res){
+    router.post('/dictaminacion/:id', isAuthenticated, dictaminacionMid.addDictaminacion, function(req, res){
       res.redirect("/dictaminacion")
     });
 
@@ -960,8 +960,16 @@ router.get('/programacion/paso5v/:id/:id2', isAuthenticated, accionesMid.allAcci
       res.render('app/dictaminacion/nueva/nueva',{message: req.flash('message'), user: req.user, datos: param});
     });
 */
-    router.get('/dictaminacion/facilitador/:id', function(req, res){
-      res.send(200);
+    router.get('/dictaminacion/facilitador/:id', isAuthenticated, accionesMid.findById, function(req, res){
+      param={
+        icon: "fa-gavel",
+        seccion: "Dictaminación",
+        estado: "dictaminacion"
+      }
+      res.render('app/dictaminacion/nueva/facilitadores',{message: req.flash('message'), user: req.user, datos: param});
+    });
+    router.post('/dictaminacion/facilitador/nuevo', isAuthenticated, dictaminacionMid.addFacilitadores , function(req, res){
+        res.redirect("/dictaminacion")
     });
 
 
@@ -998,6 +1006,9 @@ router.get('/programacion/paso5v/:id/:id2', isAuthenticated, accionesMid.allAcci
     //************************************************ CODIGO POSTAL
     router.get('/zipcode/:code', google.zipcode, function(req, res){
     });
+
+
+
 
 
 

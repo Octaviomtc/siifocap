@@ -17,8 +17,9 @@ block content
             th(data-align='right', data-sortable='true')
         tbody
           each accion in acciones
-            // Solo aplica para acciones de formacion finalizadas
+            // Solo aplica para acciones de formacion finalizadas            
             if accion.status==100
+              a #{accion.dictaminacion[0].facilitador.selectfac5}
               tr
                 td
                   | #{accion.nombre_accion_Formacion}
@@ -30,12 +31,14 @@ block content
                   else
                     | #{accion.puntaje_dictaminado}
                 td
-                  if accion.puntaje_dictaminado<100
+
+                  //if (typeof(accion.dictaminacion[0].facilitador) !== 'undefined')
+                  if (typeof(accion.dictaminacion[0].facilitador) !== 'undefined')
+                    | #{accion.dictaminacion[0].facilitador.selectfac5}
+                  else
                     a.btn.btn-default(href="dictaminacion/facilitador/#{accion._id}")
                       i.fa.fa-gavel.fa-r
                       | Hacer Evaluación Facilitador
-                  else
-                    | #{accion.puntaje_dictaminado}
                 td
                   if accion.puntaje_dictaminado<100
                     a.btn.btn-default(href="dictaminacion/#{accion._id}")
