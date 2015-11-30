@@ -1,0 +1,103 @@
+extends  ../layout/layout
+ 
+block content
+  #message
+    if message
+      .error-message
+          a.text-center #{message}
+  .row
+    .col-md-12
+      .formulario.animated.fadeIn
+        //- .titulo
+        //-   | Nueva dictaminación para la accion de formacion: 
+        //-   b #{accionFormacion.nombre_accion_Formacion}
+        //- .contenido
+        //-   form.form-horizontal(method='post', action="#")
+        //-     input(type="hidden" value="#{accionFormacion.id}" name="accion_id")
+        .contenido
+          .row
+            .col-md-11
+                h1 SECCION FACILITADOR
+                br
+                br
+                form#formFacilitadorA.form-horizontal(method='post', action="/dictaminacion/facilitador/nuevo", enctype='application/json')                    
+                  table(class="table table-hover col-md-11 col-md-offset-1", style="  margin-left:0  ")
+                    input(type="hidden", name="accion_id", id="accion_id", value="#{accionFormacion._id}")
+                    thead
+                      tr
+                        th No.
+                        th Criterio
+                        th Cumple
+                        th Observaciones
+                    tbody
+                      tr
+                        th 1
+                        th Formación académica afín a  la acción de formación.
+                        th 
+                          select(name="selectfac1", id="selectfac1", required)
+                            option(value="no" selected) No
+                            option(value="si") Si
+                        th
+                          textarea(name="txtafac1", id="txtafac1")
+                      tr
+                        th 2
+                        th Estudios de posgrado.
+                        th 
+                          select(name="selectfac2", id="selectfac2", required)
+                            option(value="no" selected) No
+                            option(value="si") Si
+                        th
+                          textarea(name="txtafac2", id="txtafac2")
+                      tr
+                        th 3
+                        th Experiencia laboral afín a la acción de formación.
+                        th 
+                          select(name="selectfac3", id="selectfac3", required)
+                            option(value="no" selected) No
+                            option(value="si") Si
+                        th
+                          textarea(name="txtafac3", id="txtafac3")
+                      tr
+                        th 4
+                        th Experiencia como docente o facilitador
+                        th 
+                          select(name="selectfac4", id="selectfac4", required)
+                            option(value="no" selected) No
+                            option(value="si") Si
+                        th
+                          textarea(name="txtafac4", id="txtafac4")                  
+                  table(class="table table-hover col-md-11 col-md-offset-1", style="  margin-left:0  ")                    
+                    tr
+                      th Dictamen
+                      th 
+                        select(name="selectfac5", id="selectfac5", required="required")
+                          option(value="Favorable") Favorable
+                          option(value="No Favorable" selected) No Favorable
+                    tr
+                      th Nombre de la acción formativa
+                      th 
+                        input(type="text", value="#{accionFormacion.nombre_accion_Formacion}", disabled="disabled")
+                    tr
+                      th Nombre del facilitador
+                      th 
+                        input(type="text",  value="#{accionFormacion.perfil_facilitador}", disabled="disabled")
+                    tr
+                      th Nombre y firma del evaluador
+                      th 
+                        input(type="text", id="evaluador", name="evaluador", required="required")
+                    tr
+                      th Fecha de aplicación
+                      th 
+                        label#date
+                  div.row
+                      div.col-md-12
+                        hr
+                      div.col-md-9.col-md-offset-3
+                        input(type="submit", class="btn btn-success fa-r button")                          
+                        a.btn.btn-danger(href='#')
+                          | Cancelar
+            script.
+              var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+              var f=new Date();
+              document.getElementById('date').innerHTML = f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear();
+        
