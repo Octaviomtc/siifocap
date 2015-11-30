@@ -17,6 +17,8 @@ script(src='/vendor/bootstrap-table/dist/locale/bootstrap-table-es-AR.min.js')
 script(src='/vendor/jquery-form-validator/form-validator/jquery.form-validator.min.js')
 script(src='/vendor/bootstrap-switch/dist/js/bootstrap-switch.min.js')
 script(src='/vendor/bootstrap-filestyle/src/bootstrap-filestyle.js')
+script(src='/vendor/moment/min/moment.min.js')
+script(src='/vendor/fullcalendar/dist/fullcalendar.min.js')
 
 script.
     console.log("config.maxAge");
@@ -80,6 +82,7 @@ script.
         $(function () {
           $('[data-toggle="tooltip-ayuda"]').tooltip()
         })
+        // VALIDACIONES 
         $.validate();    
         var window_height = $(window).height();
         var page_height = $('#encabezados').height() + $('#content').height();
@@ -122,6 +125,72 @@ script.
             errorMessage: errorMs,
             errorMessageKey: 'Error'
           });
+          
+          $.formUtils.addValidator({
+              name : 'longitud',
+              validatorFunction : function(val, $el, conf, lang, $form) {
+                  var lengthAllowed = $el.valAttr('length'),
+                      type = $el.attr('type');
+
+
+                  // check if length is above min, below max or within range.
+                  var len = type == 'file' && $el.get(0).files !== undefined ? $el.get(0).files.length : val.length,
+                      lengthCheckResults = $.formUtils.numericRangeCheck(len, lengthAllowed),
+                      checkResult, message_error;
+
+                  switch(lengthCheckResults[0])
+                  {   // outside of allowed range
+                      case "out":
+                          message_error = "La longitud del campo debe ser:" + lengthCheckResults[1]+" - "+lengthCheckResults[2];
+                          checkResult = true;
+                          break;
+                      // too short
+                      case "min":
+                          message_error = "La longitud del campo debe ser:" + lengthCheckResults[1]+" - "+lengthCheckResults[2];
+                          checkResult = true;
+                          break;
+                      // too long
+                      case "max":
+                          message_error = "La longitud del campo debe ser:" + lengthCheckResults[1]+" - "+lengthCheckResults[2];
+                          checkResult = true;
+                          break;
+                      // ok
+                      default:
+                          checkResult = false;
+                  }
+                  
+                  if(checkResult==false){
+                    //msgError($el.context.id, checkResult);
+                    destroyTool($el.context.id);
+                    return true;
+                  }else{
+                    msgError($el.context.id, message_error);
+                    return false;
+                  }
+              },
+              errorMessage : '',
+              errorMessageKey: ''
+          });
+          
+          $.formUtils.addValidator({
+              name : 'correo',
+              validatorFunction : function(value, $el, config, language, $form) {
+
+                  var emailParts = value.toLowerCase().split('@');
+                  if( emailParts.length == 2 ) {
+                    
+                    destroyTool($el.context.id);
+                      return $.formUtils.validators.validate_domain.validatorFunction(emailParts[1]) &&
+                              !(/[^\w\+\.\-]/.test(emailParts[0]));
+                              
+                  }else{
+                    msgError($el.context.id, "Correo no valido");
+                    return false;
+                  }  
+              },
+              errorMessage: errorMs,
+              errorMessageKey: 'Error'
+          });
 
 
             //Validacion del curp
@@ -137,6 +206,24 @@ script.
                     return true;
                 } else {
                     msgError($el.context.id, "El formato de la CURP no es correcto");
+                    return false;
+                }
+            },
+            errorMessage: errorMs,
+            errorMessageKey: 'Error'
+          });
+
+          
+          
+          $.formUtils.addValidator({
+            name: 'maximo',
+            validatorFunction: function(value, $el, config, language, $form) {
+                console.log(value);
+                if (value >9) {
+                    destroyTool($el.context.id);
+                    return true;
+                } else {
+                    msgError($el.context.id, "El valor debe ser al menos 10 pariticipantes");
                     return false;
                 }
             },

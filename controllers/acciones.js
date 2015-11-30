@@ -203,6 +203,7 @@ exports.allAccionFormacion = function(req, res, next) {
 
     console.log('GET Acciones Formacion');
     res.locals.acciones = acciones;
+    res.locals.moment = require('moment');
 
     // console.log(acciones);
     return next();
@@ -490,7 +491,9 @@ exports.deleteAccion = function(req, res, next) {
         return res.send(500, err.message);
       }
       console.log('Accion borrada / ');
-      return next(), req.flash('message','Accion borrada correctamente.');
+      console.log("Accion borrada correctamente.");
+      req.flash('alert','Accion borrada correctamente.');
+      return next();
     });
   });
 

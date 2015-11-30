@@ -21,87 +21,26 @@ block content
         th(data-field='telefono') Telefono
         th(data-field='celular') Celular
         //- th(data-field='grupo') Grupo
-        th(data-field='accion') Accion
     tbody
       tr        
         td #{participante.nombre}
-        td #{participante.apellidos}
+        td #{participante.apellidop} #{participante.apellidom}
         td #{participante.curp}
         td #{participante.rfc}
-        case participante.entidad
-          when "AG" 
-            td Aguascalientes
-           when "BC" 
-            td Baja California
-           when "BS" 
-            td Baja California Sur
-           when "CA" 
-            td Campeche
-           when "CP" 
-            td Chiapas
-           when "CH" 
-            td Chihuahua
-           when "CU" 
-            td Coahuila
-           when "CO" 
-            td Colima
-           when "DF" 
-            td Distrito Federal
-           when "DU" 
-            td Durango
-           when "GJ" 
-            td Guanajuato
-           when "GR" 
-            td Guerrero
-           when "HD" 
-            td Hidalgo
-           when "JA" 
-            td Jalisco
-           when "MX" 
-            td México
-           when "MC" 
-            td Michoacán
-           when "MO" 
-            td Morelos
-           when "NA" 
-            td Nayarit
-           when "NL" 
-            td Nuevo León
-           when "OX" 
-            td Oaxaca
-           when "PU" 
-            td Puebla
-           when "QE" 
-            td Querétaro
-           when "QR" 
-            td Quintana Roo
-           when "SL" 
-            td San Luis Potosí
-           when "SI" 
-            td Sinaloa
-           when "SO" 
-            td Sonora
-           when "TB" 
-            td Tabasco
-           when "TA" 
-            td Tamaulipas
-           when "TL" 
-            td Tlaxcala
-           when "VZ" 
-            td Veracruz
-           when "YT" 
-            td Yucatán
-           when "ZA" 
-            td Zacatecas
+        td
+          each entidad in entidades
+            if entidad.abr==participante.entidad
+              | #{entidad.nombre}
+       
             
         if (participante.genero === 'H')
           td Hombre
         else
           td Mujer        
-        td #{participante.unidad}
-        td #{participante.email_inst}
+        td #{participante.dependencia} - #{participante.unidad}
+        td #{participante.email_inst}@ipn.mx
         td #{participante.email_pers}
-        td #{participante.telefono}
-        td #{participante.celular}
+        td #{participante.lada_telefono} - #{participante.telefono}
+        td #{participante.lada_celular} - #{participante.celular}
         //- td #{participante.grupo}
-        td #{participante.accion}
+        //- td #{participante.accion}
