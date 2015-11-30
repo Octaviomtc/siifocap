@@ -11,7 +11,9 @@ block content
         thead
           tr
             th(data-field='nombre_accion_Formacion', data-align='left', data-sortable='true') Nombre
-            th(data-align='right', data-sortable='true') Puntaje 
+            th(data-align='right', data-sortable='true') Evaluación Técnico Pedagogica 
+            th(data-align='right', data-sortable='true') Evaluación Facilitador
+            th(data-align='right', data-sortable='true') Evaluación Académica
             th(data-align='right', data-sortable='true')
         tbody
           each accion in acciones
@@ -21,10 +23,24 @@ block content
                 td
                   | #{accion.nombre_accion_Formacion}
                 td
-                  | #{accion.puntaje_dictaminado}
-          
+                  if accion.puntaje_dictaminado<100
+                    a.btn.btn-default(href="dictaminacion/#{accion._id}")
+                      i.fa.fa-gavel.fa-r
+                      | Hacer Evaluación Técnico Pedagogica
+                  else
+                    | #{accion.puntaje_dictaminado}
                 td
-                  a.btn.btn-default(href="dictaminacion/#{accion._id}")
-                    i.fa.fa-gavel.fa-r
-                    | Hacer dictamen
+                  if accion.puntaje_dictaminado<100
+                    a.btn.btn-default(href="dictaminacion/facilitador/#{accion._id}")
+                      i.fa.fa-gavel.fa-r
+                      | Hacer Evaluación Facilitador
+                  else
+                    | #{accion.puntaje_dictaminado}
+                td
+                  if accion.puntaje_dictaminado<100
+                    a.btn.btn-default(href="dictaminacion/#{accion._id}")
+                      i.fa.fa-gavel.fa-r
+                      | Hacer Evaluación Académica
+                  else
+                    | #{accion.puntaje_dictaminado}
     

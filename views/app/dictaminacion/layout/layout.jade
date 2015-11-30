@@ -3,7 +3,7 @@ html
   head
     include ../../../includes/head
     include ../../../includes/head_scripts
-
+    include ../../../includes/scripts
   body
     #encabezados
       include ../../../includes/titulos
@@ -35,13 +35,10 @@ html
                   div#menu.collapse.navbar-collapse
                     ul.nav.navbar-nav
                       li.active
-                        a(href='/dictaminacion') Evaluación Técnico-Pedagogica
-                      li
-                        a.disabled() Evaluación Facilitador
-                      li
-                        a.disabled() Evaluación Académica
+                        a(href='#') Evaluación Técnico-Pedagogica
+                      
                       
               #form-mult
                 block content
-    include ../../../includes/scripts
+    
     include ../../../includes/footer

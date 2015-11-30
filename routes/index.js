@@ -1,4 +1,5 @@
 var express         = require('express');
+var router          = express.Router();
 var multer          = require('multer'); //Multipart form
 //Modelos
 var escuela         = require('../models/escuela');
@@ -29,12 +30,14 @@ var escuelas_publicasMid    = require('../controllers/escuelas_publicas');
 var dictaminacionMid    = require('../controllers/dictaminacion');
 var unidades_politecnicasMid    = require('../controllers/unidades_politecnicas');
 var disciplinasMid = require('../controllers/disciplinas');
+var logger                = require("../utils/winston");
 
 
-var router          = express.Router();
 
 // Validadores Autenticacion
 var isAuthenticated = function (req, res, next) {
+  console.log('Verificando si es autentico');
+
     if (req.isAuthenticated())
         return next();
     res.redirect('/');
@@ -686,6 +689,7 @@ module.exports = function(passport){
 
     //************************************************ DICTAMINACION
     router.get('/dictaminacion', isAuthenticated, accionesMid.allAccionFormacion, function(req, res){
+      logger.debug('***********')
       param={
         icon: "fa-gavel",
         seccion: "Dictaminación",
@@ -704,11 +708,23 @@ module.exports = function(passport){
       res.render('app/dictaminacion/nueva/nueva',{message: req.flash('message'), user: req.user, datos: param});
     });
 
-
-
-
     router.post('/dictaminacion/:id', isAuthenticated, dictaminacionMid.addDictamen, function(req, res){
       res.redirect("/dictaminacion")
+    });
+
+
+    /*
+    router.get('/dictaminacion/facilitador/:id', isAuthenticated, accionesMid.findById, accionesMid.findByIdDictaminacion, function(req, res){
+      param={
+        icon: "fa-gavel",
+        seccion: "Dictaminación",
+        estado: "dictaminacion"
+      }
+      res.render('app/dictaminacion/nueva/nueva',{message: req.flash('message'), user: req.user, datos: param});
+    });
+*/
+    router.get('/dictaminacion/facilitador/:id', function(req, res){
+      res.send(200);
     });
 
 

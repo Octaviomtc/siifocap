@@ -17,30 +17,22 @@ block content
         .contenido
           .row
             .col-md-11
-                //- span(class="col-md-12 col-md-offset-1 alert alert-info")
-                //-   center
-                //-     strong ORIENTACIONES GENERALES PARA LLEVAR A CABO EL DICTAMEN TÉCNICO-PEDAGÓGICO, DE ACCIONES DE FORMACIÓN A EVALUAR
-                //-   br
-                //-   | El dictamen técnico-pedagógico de cursos y talleres es un instrumento para determinar si las acciones formativas para el personal directivo, docente y de apoyo y asistencia a la educación, reúnen los criterios didácticos mínimos para llevarse a cabo.
-                //-   br
-                //-   | El dictamen técnico-pedagógico se compone de tres secciones: 
-                //-   ul
-                //-     li La primera está referida a los 
-                //-       strong Datos generales 
-                //-       | de la acción formativa.
-                //-     li La segunda se refiere al 
-                //-       strong Encuadre de la Acción de Formación 
-                //-     li La tercera a la 
-                //-       strong Planeación Didáctica.
-                //-   br
-                //-   strong Indicaciones:
-                //-   ul
-                //-     li Lea cuidadosamente la solicitud de registro para cursos o talleres que le fue asignada.
-                //-     li Concluida la lectura, inicie la evaluación de la misma con base en las siguientes recomendaciones:
-                //-   br
-                //-   strong a) 
-                //-   | Revise detenidamente el indicador a considerar en cada elemento a evaluar, ya que éste le proporcionará los criterios que debe contemplar en cada elemento, para valorar si cumple o no con los requisitos para aprobarse. Ejemplo:
-                //- //label(class="col-md-11 col-md-offset-1 alert alert-info") I. DATOS GENERALES
+                span(class="col-md-12 col-md-offset-1 alert alert-info")
+                   center
+                     strong ORIENTACIONES GENERALES PARA LLEVAR A CABO EL DICTAMEN TÉCNICO-PEDAGÓGICO, DE ACCIONES DE FORMACIÓN A EVALUAR
+                   br
+                   | El dictamen técnico-pedagógico de cursos y talleres es un instrumento para determinar si las acciones formativas para el personal directivo, docente y de apoyo y asistencia a la educación, reúnen los criterios didácticos mínimos para llevarse a cabo.
+                   br
+                   | El dictamen técnico-pedagógico se compone de tres secciones: 
+                   ul
+                     li La primera está referida a los 
+                       strong Datos generales 
+                       | de la acción formativa.
+                     li La segunda se refiere al 
+                       strong Encuadre de la Acción de Formación 
+                     li La tercera a la 
+                       strong Planeación Didáctica.
+                   br
                 
                 div(class="panel-group", id="accordion", role="tablist", aria-multiselectable="true")
                   div(class="panel ")
@@ -66,7 +58,7 @@ block content
                                 th Dependencia Politécnica solicitante
                                 th Contiene el nombre completo, sin siglas, de la Dependencia Politécnica solicitante.
                                 th
-                                  select(name="select1", id="select1")
+                                  select.sumadorI(name="select1", id="select1")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                 th
@@ -76,7 +68,7 @@ block content
                                 th Nombre de la acción de formación
                                 th El nombre tiene congruencia con el propósito, la justificación, los aprendizajes a desarrollar y los contenidos presentados.
                                 th
-                                  select(name="select2", id="select2")
+                                  select.sumadorI(name="select2", id="select2")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -87,7 +79,7 @@ block content
                                 th(rowspan="2") Dirigida a
                                 td Señala el tipo de personal al que va dirigida la Acción de formación. 
                                 td
-                                  select(name="select3", id="select3")
+                                  select.sumadorI(name="select3", id="select3")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                 th
@@ -95,7 +87,7 @@ block content
                               tr
                                 td La acción de formación es pertinente con las funciones del personal para el que está dirigida.
                                 td
-                                  select(name="select3-2", id="select3-2")
+                                  select.sumadorI(name="select3-2", id="select3-2")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -106,7 +98,7 @@ block content
                                 th Tipo de acción de formación
                                 th Corresponde con la forma metodológica en que se abordarán los temas (curso o taller).
                                 th
-                                  select(name="select4", id="select4")
+                                  select.sumadorI(name="select4", id="select4")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                 th
@@ -116,7 +108,7 @@ block content
                                 th Modalidad de la acción de formación
                                 th Selecciona la modalidad de acuerdo con el tipo de actividades a desarrollar.
                                 th
-                                  select(name="select5", id="select5")
+                                  select.sumadorI(name="select5", id="select5")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                 th
@@ -126,7 +118,7 @@ block content
                                 th Duración total en horas
                                 th Señala el total de horas en que se desarrolla la acción de formación. En caso de ser modalidad mixta determina las horas que se realizarán en forma escolarizada y las que se desarrollarán en forma no escolarizada.
                                 th
-                                  select(name="select6", id="select6")
+                                  select.sumadorI(name="select6", id="select6")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                 th
@@ -136,7 +128,7 @@ block content
                                 th Periodo de impartición
                                 th Indica la fecha de inicio y término de la acción de formación a impartir.
                                 th
-                                  select(name="select7", id="select7")
+                                  select.sumadorI(name="select7", id="select7")
                                     option(value="0" selected) No
                                     option(value="1") Si
                                 th
@@ -146,7 +138,7 @@ block content
                                 th Horario
                                 th Presenta el horario de inicio y conclusión de las sesiones.
                                 th
-                                  select(name="select8", id="select8")
+                                  select.sumadorI(name="select8", id="select8")
                                     option(value="0" selected) No
                                     option(value="1") Si
                                 th
@@ -156,7 +148,7 @@ block content
                                 th En coparticipación con otra(s) Dependencia(s) Politécnica(s)
                                 th Señala el nombre completo de la dependencia Politécnica que participa en el diseño y/o impartición de la acción de formación.
                                 th
-                                  select(name="select9", id="select9")
+                                  select.sumadorI(name="select9", id="select9")
                                     option(value="0" selected) No
                                     option(value="1") Si
                                 th
@@ -166,7 +158,7 @@ block content
                                 th(rowspan="2") Perfil del facilitador
                                 td Refiere el perfil que requiere el responsable de impartir, asesorar y/o desarrollar la acción de formación.
                                 td
-                                  select(name="select10", id="select10")
+                                  select.sumadorI(name="select10", id="select10")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -175,7 +167,7 @@ block content
                               tr
                                 td Anexa el CV del facilitador con documentación probatoria.
                                 td
-                                  select(name="select10-2", id="select10-2")
+                                  select.sumadorI(name="select10-2", id="select10-2")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                 th
@@ -185,7 +177,7 @@ block content
                                 th(rowspan="2") Perfil del participante
                                 td Menciona los requisitos necesarios para participar en la acción de formación. Por ejemplo: tipo de personal, haber cursado una acción de formación previa, entre otros.
                                 td
-                                  select(name="select11", id="select11")
+                                  select.sumadorI(name="select11", id="select11")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                 th
@@ -193,7 +185,7 @@ block content
                               tr
                                 td Indica los conocimientos, habilidades y/o actitudes con los que debe contar el personal y que le permitan el logro del propósito.
                                 td
-                                  select(name="select11-2", id="select11-2")
+                                  select.sumadorI(name="select11-2", id="select11-2")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                 th
@@ -203,7 +195,7 @@ block content
                                 th(rowspan="4") Justificación
                                 td Describe la necesidad de la acción formativa.
                                 td
-                                  select(name="select12", id="select12")
+                                  select.sumadorI(name="select12", id="select12")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                 th
@@ -211,7 +203,7 @@ block content
                               tr
                                 td Presenta los indicadores que sustentan la necesidad de la acción formativa.
                                 td
-                                  select(name="select12-2", id="select12-2")
+                                  select.sumadorI(name="select12-2", id="select12-2")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                 th
@@ -219,7 +211,7 @@ block content
                               tr
                                 td Plantea los beneficios de la acción de formación para el personal.
                                 td
-                                  select(name="select12-3", id="select12-3")
+                                  select.sumadorI(name="select12-3", id="select12-3")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                 th
@@ -227,7 +219,7 @@ block content
                               tr
                                 td Indica el alcance o impacto que tendrá la acción formativa en la Dependencia Politécnica.
                                 td
-                                  select(name="select12-4", id="select12-4")
+                                  select.sumadorI(name="select12-4", id="select12-4")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                 th
@@ -237,7 +229,7 @@ block content
                                 th Finalidad
                                 th La finalidad de la acción de formación corresponde con el propósito y metodología didáctica con que se abordarán los contenidos.
                                 th
-                                  select(name="select13", id="select13")
+                                  select.sumadorI(name="select13", id="select13")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                 th
@@ -247,20 +239,22 @@ block content
                                 th Área de formación
                                 th El área de formación corresponde con los contenidos, la propuesta metodológica en que se abordarán y el tipo de personal al que se dirige.
                                 th
-                                  select(name="select8", id="select8")
+                                  select.sumadorI(name="select14", id="select14")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                 th
                                   textarea(name="txta14", id="txta14")
                             //tbody
                           //table
-                          div.row
-                            div.col-md-12
-                              hr
-                            div.col-md-9.col-md-offset-3
-                              button(type="submit" class="btn btn-success fa-r")
-                                i(class="fa fa-check-circle fa-r")
-                                | Guardar
+                          //- div.row
+                          //-   div.col-md-12
+                          //-     hr
+                          //-   div.col-md-9.col-md-offset-3
+                          //-     button(type="submit" class="btn btn-success fa-r")
+                          //-       i(class="fa fa-check-circle fa-r")
+                          //-       | Validar
+                          //-     a.btn.btn-danger(href='/dictaminacion')
+                          //-       | Cancelar
                         //form
 
                   div(class="panel ")
@@ -286,7 +280,7 @@ block content
                                 th(rowspan="3") Propósito
                                 td Describe los conocimientos, habilidades o actitudes que se desarrollarán con la acción de formación (¿Qué?).
                                 td
-                                  select(name="select15", id="select15")
+                                  select.sumadorII(name="select15", id="select15")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -295,7 +289,7 @@ block content
                               tr
                                 td Establece el marco teórico o metodológico a utilizar (¿Cómo?).
                                 td
-                                  select(name="select15-2", id="select15-2")
+                                  select.sumadorII(name="select15-2", id="select15-2")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -304,7 +298,7 @@ block content
                               tr
                                 td Indica la utilidad o sentido de la acción de formación (¿Para qué?).
                                 td
-                                  select(name="select15-3", id="select15-3")
+                                  select.sumadorII(name="select15-3", id="select15-3")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -316,7 +310,7 @@ block content
                                 th(rowspan="5") Aprendizajes a desarrollar
                                 td Cada aprendizaje a desarrollar indica el nivel de aprendizaje que pretende alcanzar. Por ejemplo: conoce, categoriza, desarrolla, diseña, aplica, evalúa, etc.
                                 td
-                                  select(name="select16", id="select16")
+                                  select.sumadorII(name="select16", id="select16")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -325,7 +319,7 @@ block content
                               tr
                                 td Tienen relación con el propósito.
                                 td
-                                  select(name="select16-2", id="select16-2")
+                                  select.sumadorII(name="select16-2", id="select16-2")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -334,7 +328,7 @@ block content
                               tr
                                 td Se encuentran ordenados de acuerdo a su grado de complejidad, de manera que permitan alcanzar el propósito de la acción de formación.
                                 td
-                                  select(name="select16-3", id="select16-3")
+                                  select.sumadorII(name="select16-3", id="select16-3")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -343,7 +337,7 @@ block content
                               tr
                                 td Plantea qué conocimientos, habilidades o actitudes se pretenden desarrollar (¿Qué?)
                                 td
-                                  select(name="select16-4", id="select16-4")
+                                  select.sumadorII(name="select16-4", id="select16-4")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -352,7 +346,7 @@ block content
                               tr
                                 td Establece aspectos teóricos o metodológicos necesarios para alcanzar el conocimiento, habilidad o actitud (¿Cómo?).
                                 td
-                                  select(name="select16-5", id="select16-5")
+                                  select.sumadorII(name="select16-5", id="select16-5")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -364,7 +358,7 @@ block content
                                 th(rowspan="4") Metodología didáctica
                                 td Menciona los principios de enseñanza y de aprendizaje bajo los que se trabajará para lograr el propósito de la acción formativa.
                                 td
-                                  select(name="select17", id="select17")
+                                  select.sumadorII(name="select17", id="select17")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -373,7 +367,7 @@ block content
                               tr
                                 td Describe de qué manera evaluará el aprendizaje de los participantes al inicio, durante y al final del proceso de enseñanza y de aprendizaje.
                                 td
-                                  select(name="select17-2", id="select17-2")
+                                  select.sumadorII(name="select17-2", id="select17-2")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -382,7 +376,7 @@ block content
                               tr
                                 td Contiene elementos del Modelo Educativo Institucional.
                                 td
-                                  select(name="select17-3", id="select17-3")
+                                  select.sumadorII(name="select17-3", id="select17-3")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -391,7 +385,7 @@ block content
                               tr
                                 td Refiere las responsabilidades y la participación que el facilitador y los participantes tendrán en el desarrollo de la acción de formación.
                                 td
-                                  select(name="select17-4", id="select17-4")
+                                  select.sumadorII(name="select17-4", id="select17-4")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -403,7 +397,7 @@ block content
                                 th(rowspan="3") Lineamientos de acreditación
                                 td Especifica los criterios y porcentajes que serán considerados para la acreditación de la acción de formación.
                                 td
-                                  select(name="select18", id="select18")
+                                  select.sumadorII(name="select18", id="select18")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -412,7 +406,7 @@ block content
                               tr
                                 td Señala como calificación mínima para acreditar de 8 de 10 puntos o su ponderación al 80%.
                                 td
-                                  select(name="select18-2", id="select18-2")
+                                  select.sumadorII(name="select18-2", id="select18-2")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                 th
@@ -420,7 +414,7 @@ block content
                               tr
                                 td Indica que el porcentaje mínimo requerido de asistencia es de 80%, para modalidad escolarizada y mixta; y para modalidad no escolarizada el 80% mínimo de entrega de actividades.
                                 td
-                                  select(name="select18-3", id="select18-3")
+                                  select.sumadorII(name="select18-3", id="select18-3")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                 th
@@ -452,7 +446,7 @@ block content
                                 th Aprendizajes a desarrollar
                                 th Recupera todos los aprendizajes a desarrollar expuestos en el punto 16, en el encuadre de la acción de formación.
                                 th
-                                  select(name="selectA", id="selectA")
+                                  select.sumadorIII(name="selectA", id="selectA")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -463,7 +457,7 @@ block content
                                 th(rowspan="2") Contenido
                                 td Los temas y subtemas desarrollados tienen relación con el aprendizaje a desarrollar.
                                 td
-                                  select(name="selectB", id="selectB")
+                                  select.sumadorIII(name="selectB", id="selectB")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -473,7 +467,7 @@ block content
                               tr
                                 td Los temas y subtemas llevan una secuencia lógica, que va de lo simple a lo complejo.
                                 td
-                                  select(name="selectB-2", id="selectB-2")
+                                  select.sumadorIII(name="selectB-2", id="selectB-2")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -485,7 +479,7 @@ block content
                                 th Referencias a utilizar
                                 th Las referencias son actuales y acordes con la temática.
                                 th
-                                  select(name="selectC", id="selectC")
+                                  select.sumadorIII(name="selectC", id="selectC")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -496,7 +490,7 @@ block content
                                 th(rowspan="6") Actividad de aprendizaje
                                 td Las actividades de aprendizaje tienen nombre y finalidad.
                                 td
-                                  select(name="selectD", id="selectD")
+                                  select.sumadorIII(name="selectD", id="selectD")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                 th
@@ -504,7 +498,7 @@ block content
                               tr
                                 td La finalidad describe un nivel de aprendizaje a alcanzar con la actividad, sea conceptual, procedimental o actitudinal. Por ejemplo: conocer, comprender, aplicar, analizar, sintetizar, reflexionar, desarrollar, etc.
                                 td
-                                  select(name="selectD-2", id="selectD-2")
+                                  select.sumadorIII(name="selectD-2", id="selectD-2")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -513,7 +507,7 @@ block content
                               tr
                                 td Las actividades son congruentes  con el tipo de acción de formación.
                                 td
-                                  select(name="selectD-3", id="selectD-3")
+                                  select.sumadorIII(name="selectD-3", id="selectD-3")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -522,7 +516,7 @@ block content
                               tr
                                 td Las actividades son pertinentes con relación a la modalidad elegida.
                                 td
-                                  select(name="selectD-4", id="selectD-4")
+                                  select.sumadorIII(name="selectD-4", id="selectD-4")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -531,7 +525,7 @@ block content
                               tr
                                 td Las actividades de aprendizaje son variadas, con el fin favorecer los diferentes estilos de aprendizaje.
                                 td
-                                  select(name="selectD-5", id="selectD-5")
+                                  select.sumadorIII(name="selectD-5", id="selectD-5")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -540,7 +534,7 @@ block content
                               tr
                                 td Todas las actividades de aprendizaje orientan y promueven el dominio de los contenidos.
                                 td
-                                  select(name="selectD-6", id="selectD-6")
+                                  select.sumadorIII(name="selectD-6", id="selectD-6")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -552,7 +546,7 @@ block content
                                 th(rowspan="4") Actividad de aprendizaje
                                 td Se describe para cada actividad de aprendizaje  los recursos que utilizarán el facilitador y el participante.
                                 td
-                                  select(name="selectE", id="selectE")
+                                  select.sumadorIII(name="selectE", id="selectE")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -562,7 +556,7 @@ block content
                               tr
                                 td A lo largo de las actividades de aprendizaje, los recursos a utilizar son variados: convencionales (lecturas, formatos, materiales), audiovisuales y tecnológicos. 
                                 td
-                                  select(name="selectE-2", id="selectE-2")
+                                  select.sumadorIII(name="selectE-2", id="selectE-2")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -571,7 +565,7 @@ block content
                               tr
                                 td Los recursos a utilizar tienen relación con la finalidad de la actividad de aprendizaje.
                                 td
-                                  select(name="selectE-3", id="selectE-3")
+                                  select.sumadorIII(name="selectE-3", id="selectE-3")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -580,7 +574,7 @@ block content
                               tr
                                 td Todos los recursos propuestos son coherentes con la modalidad propuesta.
                                 td
-                                  select(name="selectE-4", id="selectE-4")
+                                  select.sumadorIII(name="selectE-4", id="selectE-4")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -593,7 +587,7 @@ block content
                                 th(rowspan="3") Tiempo
                                 td La suma del tiempo propuesto para el desarrollo de todos los aprendizajes a desarrollar, coincide con la duración total de horas de la acción de formación, planteada en el punto 6 de datos generales.
                                 td
-                                  select(name="selectF", id="selectF")
+                                  select.sumadorIII(name="selectF", id="selectF")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                 th
@@ -601,7 +595,7 @@ block content
                               tr
                                 td La suma del tiempo propuesto de todas las  actividades para lograr el aprendizaje a desarrollar, coincide con el tiempo de desarrollo planteado en cada uno.
                                 td
-                                  select(name="selectF-2", id="selectF-2")
+                                  select.sumadorIII(name="selectF-2", id="selectF-2")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                 th
@@ -609,7 +603,7 @@ block content
                               tr
                                 td El tiempo es pertinente con la complejidad de los contenidos y las actividades a desarrollar.
                                 td
-                                  select(name="selectF-3", id="selectF-3")
+                                  select.sumadorIII(name="selectF-3", id="selectF-3")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                 th
@@ -620,7 +614,7 @@ block content
                                 th(rowspan="3") Evidencia
                                 td Cada evidencia corresponde a productos tangibles y susceptibles de ser verificados durante y posterior a la acción de formación.
                                 td
-                                  select(name="selectG", id="selectG")
+                                  select.sumadorIII(name="selectG", id="selectG")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -630,7 +624,7 @@ block content
                               tr
                                 td Las evidencias corresponden con el tipo de aprendizaje propuesto y con la finalidad del aprendizaje a desarrollar. Las evidencias pueden reflejarse en aprendizajes  de conocimientos, en habilidades o procedimientos y en actitudes.
                                 td
-                                  select(name="selectG-2", id="selectG-2")
+                                  select.sumadorIII(name="selectG-2", id="selectG-2")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -640,7 +634,7 @@ block content
                               tr
                                 td Establece qué aspectos de la actividad y de la evidencia serán tomados en cuenta para la evaluación de los aprendizajes.
                                 td
-                                  select(name="selectG-3", id="selectG-3")
+                                  select.sumadorIII(name="selectG-3", id="selectG-3")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -652,7 +646,7 @@ block content
                                 th(rowspan="2") Aspectos a evaluar
                                 td Los aspectos a evaluar son pertinentes con el respectivo aprendizaje a desarrollar.
                                 td
-                                  select(name="selectH", id="selectH")
+                                  select.sumadorIII(name="selectH", id="selectH")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -662,7 +656,7 @@ block content
                               tr
                                 td Tienen relación con el nivel de aprendizaje propuesto en la actividad  correspondiente.
                                 td
-                                  select(name="selectH-2", id="selectH-2")
+                                  select.sumadorIII(name="selectH-2", id="selectH-2")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -674,7 +668,7 @@ block content
                                 th Tipo de evaluación
                                 th El tipo de evaluación elegido se relaciona con la finalidad de la acción de formación 
                                 th
-                                  select(name="selectI", id="selectI")
+                                  select.sumadorIII(name="selectI", id="selectI")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -686,7 +680,7 @@ block content
                                 th Mecanismo de evaluación
                                 th El mecanismo de evaluación (heteroevaluación, coevaluación y autoevaluación), tiene relación con el tipo de actividad que se propone.
                                 th
-                                  select(name="selectJ", id="selectJ")
+                                  select.sumadorIII(name="selectJ", id="selectJ")
                                     option(value="0" selected) 0
                                     option(value="1") 1
                                     option(value="2") 2
@@ -694,6 +688,15 @@ block content
                                   textarea(name="txtaJ", id="txtaJ")
                             //tbody
                           //table
+                          div.row
+                            div.col-md-12
+                              hr
+                            div.col-md-9.col-md-offset-3
+                              button(type="submit" class="btn btn-success fa-r")
+                                i(class="fa fa-check-circle fa-r")
+                                | Guardar
+                              a.btn.btn-danger(href='/dictaminacion')
+                                | Cancelar
                         //form
                   //end div
                 //end collapse
@@ -701,16 +704,482 @@ block content
                   tr
                     th Puntaje de la sección I
                     th 
-                      input(type="text", value="0", disable)
+                      input(type="text", value="0", name="totalI", id="totalI",disabled="disabled" )
                   tr
                     th Puntaje de la sección II
                     th 
-                      input(type="text", value="0")
+                      input(type="text", value="0",name="totalII", id="totalII",disabled="disabled" )
                   tr
                     th Puntaje de la sección III
                     th 
-                      input(type="text", value="0")
+                      input(type="text", value="0",name="totalIII", id="totalIII",disabled="disabled" )
                   tr
                     th Total de Puntaje
                     th 
-                      input(type="text", value="0")
+                      input(type="text", value="0", name="granTotal", id="granTotal",disabled="disabled" )
+              
+   
+
+
+                h1 SECCION FACILITADOR
+                br
+                br
+                form#formFacilitadorA.form-horizontal(method='post', action="#", enctype='application/json') 
+                  table(class="table table-hover col-md-11 col-md-offset-1", style="  margin-left:0  ")
+                    thead
+                      tr
+                        th No.
+                        th Criterio
+                        th Cumple
+                        th Observaciones
+                    tbody
+                      tr
+                        th 1
+                        th Formación académica afín a  la acción de formación.
+                        th 
+                          select(name="selectfac1", id="selectfac1")
+                            option(value="no" selected) No
+                            option(value="si") Si
+                        th
+                          textarea(name="txtafac1", id="txtafac1")
+                      tr
+                        th 2
+                        th Estudios de posgrado.
+                        th 
+                          select(name="selectfac2", id="selectfac2")
+                            option(value="no" selected) No
+                            option(value="si") Si
+                        th
+                          textarea(name="txtafac2", id="txtafac2")
+                      tr
+                        th 3
+                        th Experiencia laboral afín a la acción de formación.
+                        th 
+                          select(name="selectfac3", id="selectfac3")
+                            option(value="no" selected) No
+                            option(value="si") Si
+                        th
+                          textarea(name="txtafac3", id="txtafac3")
+                      tr
+                        th 4
+                        th Experiencia como docente o facilitador
+                        th 
+                          select(name="selectfac4", id="selectfac4")
+                            option(value="no" selected) No
+                            option(value="si") Si
+                        th
+                          textarea(name="txtafac4", id="txtafac4")
+                    //tbody
+                  //table
+                  div.row
+                    div.col-md-12
+                      hr
+                    div.col-md-9.col-md-offset-3
+                      button(type="submit" class="btn btn-success fa-r")
+                        i(class="fa fa-check-circle fa-r")
+                        | Guardar
+                      a.btn.btn-danger(href='#')
+                        | Cancelar
+
+                //form
+                br                  
+                form#formFacilitadorB.form-horizontal(method='post', action="#", enctype='application/json') 
+                  table(class="table table-hover col-md-11 col-md-offset-1", style="  margin-left:0  ")                    
+                    tr
+                      th Dictamen
+                      th 
+                        select(name="selectfac5", id="selectfac5")
+                          option(value="Si") Favorable
+                          option(value="No" selected) No Favorable
+                    tr
+                      th Nombre de la acción formativa
+                      th 
+                        input(type="text")
+                    tr
+                      th Nombre del facilitador
+                      th 
+                        input(type="text")
+                    tr
+                      th Nombre y firma del evaluador
+                      th 
+                        input(type="text")
+                    tr
+                      th Fecha de aplicación
+                      th 
+                        label#date
+                  //table
+                //form
+                div.row
+                  div.col-md-12
+                    hr
+                  div.col-md-9.col-md-offset-3
+                    button(type="submit" class="btn btn-success fa-r")
+                      i(class="fa fa-check-circle fa-r")
+                      | Guardar
+                    a.btn.btn-danger(href='#')
+                      | Cancelar
+
+                h1 SECCION EVALUACION ACADEMICA
+                br
+                br
+                form#formAcademica.form-horizontal(method='post', action="#", enctype='application/json') 
+                  table(class="table table-hover col-md-11 col-md-offset-1", style="  margin-left:0  ")
+                    thead
+                      tr
+                        th Rubro
+                        th Criterio a Evaluar
+                        th Excelente(4)
+                        th Bueno(3)
+                        th Regular(2)
+                        th Deficiente(1)
+                        th Puntaje Obtenido
+                    tbody
+                      tr
+                        th Propósito
+                        th Pertinencia
+                        td El propósito es acorde con la justificación en los siguientes aspectos: Necesidad, Intención y Alcance
+                        td El propósito es acorde con la justificación en los siguientes aspectos: Necesidad, Intención y Alcance
+                        td El propósito es acorde con la justificación en los siguientes aspectos: Necesidad, Intención y Alcance
+                        td El propósito no es acorde con la justificación en los siguientes aspectos: Necesidad, Intención y Alcance
+                        td
+                          select(name="selectAcademica1", id="selectAcademica1")
+                            option(value="1" selected) 1
+                            option(value="2") 2
+                            option(value="3") 3
+                            option(value="3") 4
+                    tfoot
+                      tr
+                        th(colspan="6") Suma del Rubro
+                        td
+                          label(name="sumaA", id="sumaA")
+                  table(class="table table-hover col-md-11 col-md-offset-1", style="  margin-left:0 ")
+                    thead
+                      tr
+                        th Rubro
+                        th Criterio a Evaluar
+                        th Excelente(4)
+                        th Bueno(3)
+                        th Regular(2)
+                        th Deficiente(1)
+                        th Puntaje Obtenido
+                    tbody
+                      tr
+                        th(rowspan="2") Aprendizajes a desarrollar
+                        th Coherencia
+                        td Los aprendizajes a desarrollar son precisos, tienen una continuidad lógica entre ellos lo que permite el logro del propósito
+                        td Los aprendizajes a desarrollar son precisos, la mayoría mantiene una continuidad lógica, no obstante posibilitan el logro del propósito
+                        td Los aprendizajes a desarrollar son precisos, pero la minoría tiene una continuidad lógica, por lo que el logro del propósito es dudoso
+                        td Los aprendizajes a desarrollar son imprecisos, no tienen una continuidad lógica y por tanto no posibilitan el logro del propósito 
+                        td
+                          select(name="selectAcademica2", id="selectAcademica2")                            
+                            option(value="1" selected) 1
+                            option(value="2") 2
+                            option(value="3") 3
+                            option(value="3") 4 
+                      tr
+                        
+                        td Pertinencia
+                        td Los aprendizajes a desarrollar permiten promover la adquisición de todos los conocimientos, habilidades y actitudes que se prescriben en el  propósito
+                        td Los aprendizajes a desarrollar permiten promover la adquisición de la mayoría de los conocimientos, habilidades y actitudes, debido a que estos no coinciden completamente con lo que se prescribe en el propósito
+                        td Los aprendizajes a desarrollar permiten promover la adquisición de la minoría de los conocimientos, habilidades y actitudes; ya que estos tienen escasa correspondencia con lo que se prescribe en el propósito
+                        td Los aprendizajes a desarrollar son inadecuados para promover la adquisición de conocimientos, habilidades y actitudes, ya que no coinciden  con lo que se prescribe en el propósito
+                        td
+                          select(name="selectAcademica3", id="selectAcademica3")                            
+                            option(value="1" selected) 1
+                            option(value="2") 2
+                            option(value="3") 3
+                            option(value="3") 4
+                    tfoot
+                      tr
+                        th(colspan="6") Suma del Rubro
+                        td
+                          label(name="sumaB", id="sumaB")   
+                    //tfoot
+                  //table
+                  table(class="table table-hover col-md-11 col-md-offset-1", style="  margin-left:0  ")
+                    thead
+                      tr
+                        th Rubro
+                        th Criterio a Evaluar
+                        th Excelente(4)
+                        th Bueno(3)
+                        th Regular(2)
+                        th Deficiente(1)
+                        th Puntaje Obtenido
+                    tbody
+                      tr
+                        th(rowspan="3") Contenidos
+                        th Pertinencia
+                        td Los contenidos permiten el logro del propósito
+                        td La mayoría de los contenidos (80% de los temas) permiten el logro del propósito, pero se fortalecerían con determinados temas 
+                        td Algunos de los contenidos (menos del 80% de los temas) permiten el logro del propósito, pero faltan temas de relevancia 
+                        td Los contenidos no permiten el logro del propósito
+                        td
+                          select(name="selectAcademica4", id="selectAcademica4")
+                            option(value="1" selected) 1
+                            option(value="2") 2
+                            option(value="3") 3
+                            option(value="3") 4 
+                      tr
+                        th Suficiencia
+                        td Los contenidos planteados son suficientes para abordar los aprendizajes a desarrollar 
+                        td La mayoría de los contenidos son suficientes para el logro de los aprendizajes a desarrollar, pero se fortalecerían con determinados temas 
+                        td Algunos de los contenidos son suficientes para el logro de los aprendizajes a desarrollar, pero faltan temas de relevancia 
+                        td Los contenidos planteados no son suficientes para abordar los aprendizajes a desarrollar
+                        td
+                          select(name="selectAcademica5", id="selectAcademica5")
+                            option(value="1" selected) 1
+                            option(value="2") 2
+                            option(value="3") 3
+                            option(value="3") 4 
+                      tr
+                        th(rowspan="2") Coherencia
+                        td Los contenidos son congruentes con la finalidad y el área de formación que se señalan
+                        td Los contenidos son congruentes con la finalidad aunque no se apegan al área de formación que se señala
+                        td Los contenidos son congruentes con el área de formación que se señala pero no se apegan a la finalidad señalada
+                        td Los contenidos no son congruentes con la finalidad y el área de formación que se señala
+                        td
+                          select(name="selectAcademica6", id="selectAcademica6")
+                            option(value="1" selected) 1
+                            option(value="2") 2
+                            option(value="3") 3
+                            option(value="3") 4
+                      tr
+                        td La secuencia en la que se desarrollan los contenidos tiene una lógica clara acorde con la disciplina a la que pertenecen
+                        td La secuencia en la que se desarrollan los contenidos frecuentemente tiene una lógica clara, acorde con la disciplina a la que pertenecen
+                        td La secuencia en la que se desarrollan los contenidos en ocasiones tiene una lógica clara, y no es congruente con la disciplina a la que pertenecen 
+                        td La secuencia en la que se desarrollan los contenidos no tiene una lógica clara, ni es acorde con la disciplina a la que pertenecen
+                        td
+                          select(name="selectAcademica7", id="selectAcademica7")
+                            option(value="1" selected) 1
+                            option(value="2") 2
+                            option(value="3") 3
+                            option(value="3") 4
+                    tfoot
+                      tr
+                        th(colspan="6") Suma del Rubro
+                        td
+                          label(name="sumaC", id="sumaC")
+                  table(class="table table-hover col-md-11 col-md-offset-1", style="  margin-left:0  ")
+                    thead
+                      tr
+                        th Rubro
+                        th Criterio a Evaluar
+                        th Excelente(4)
+                        th Bueno(3)
+                        th Regular(2)
+                        th Deficiente(1)
+                        th Puntaje Obtenido
+                    tbody
+                      tr
+                        th Tiempo
+                        th Suficiencia
+                        td El tiempo que se establece para todos los aprendizajes a desarrollar es suficiente para el logro del propósito
+                        td El tiempo que se establece para los aprendizajes a desarrollar es suficiente para la mayoría de los aprendizajes (80%), no obstante con mínimos ajustes posibilitan el logro del propósito
+                        td El tiempo que se establece para los aprendizajes a desarrollar es suficiente para la minoría de los aprendizajes (menos del 80%) a desarrollar, por lo que se requiere de ajustes relevantes para el logro del propósito
+                        td El tiempo que se establece en todos los  aprendizajes a desarrollar es insuficiente (o demasiado holgado), por lo que no se logra el propósito
+                        td
+                          select(name="selectAcademica8", id="selectAcademica8")
+                            option(value="1" selected) 1
+                            option(value="2") 2
+                            option(value="3") 3
+                            option(value="3") 4
+                    tfoot
+                      tr
+                        th(colspan="6") Suma del Rubro
+                        td
+                          label(name="sumaD", id="sumaD")
+
+
+                  table(class="table table-hover col-md-11 col-md-offset-1", style="  margin-left:0  ")
+                    thead
+                      tr
+                        th Rubro
+                        th Criterio a Evaluar
+                        th Excelente(4)
+                        th Bueno(3)
+                        th Regular(2)
+                        th Deficiente(1)
+                        th Puntaje Obtenido
+                    tbody
+                      tr
+                        th(rowspan="2") Actividades de aprendizaje
+                        th Suficiencia
+                        td El número de actividades descritas para todos los aprendizaje a desarrollar son suficientes para el logro de los mismos
+                        td El número de actividades  descritas para cada aprendizaje a desarrollar es suficiente para el logro de  la mayoría de los aprendizajes (80%)
+                        td El número de actividades para cada aprendizaje a desarrollar es poco suficiente para el logro de la mayoría de los aprendizajes 
+                        td El número de actividades descritas en todos los aprendizajes a desarrollar son insuficientes para el logro de los mismos
+                        td
+                          select(name="selectAcademica9", id="selectAcademica9")
+                            option(value="1" selected) 1
+                            option(value="2") 2
+                            option(value="3") 3
+                            option(value="3") 4
+                      tr
+                        th Pertinencia
+                        td La totalidad de las actividades de aprendizaje promueven que el participante adquiera los contenidos correspondientes 
+                        td La mayoría de las actividades de aprendizaje (80%) promueven que el participante adquiera los contenidos correspondientes
+                        td Menos de la mitad de las actividades de aprendizaje promueven que el participante adquiera los contenidos correspondientes
+                        td Las actividades de aprendizaje no promueven que el participante adquiera los contenidos correspondientes
+                        td
+                          select(name="selectAcademica10", id="selectAcademica10")
+                            option(value="1" selected) 1
+                            option(value="2") 2
+                            option(value="3") 3
+                            option(value="3") 4
+                    tfoot
+                      tr
+                        th(colspan="6") Suma del Rubro
+                        td
+                          label(name="sumaE", id="sumaE")
+                  //table
+                  table(class="table table-hover col-md-11 col-md-offset-1", style=" margin-left:0 ")
+                    thead
+                      tr
+                        th Rubro
+                        th Criterio a Evaluar
+                        th Excelente(4)
+                        th Bueno(3)
+                        th Regular(2)
+                        th Deficiente(1)
+                        th Puntaje Obtenido
+                    tbody
+                      tr
+                        th Evidencias 
+                        th Coherencia 
+                        td Las evidencias son congruentes con las actividades y los aprendizajes a desarrollar
+                        td La mayoría de las evidencias (80%) son congruentes con las actividades de aprendizaje, y con los aprendizajes a desarrollar
+                        td Algunas evidencias(menos del 80%) son congruentes con los aprendizajes a desarrollar y con las actividades de aprendizaje
+                        td Las evidencias no son congruentes con los aprendizajes a desarrollar, ni con las actividades de aprendizaje
+                        td
+                          select(name="selectAcademica11", id="selectAcademica11")
+                            option(value="1" selected) 1
+                            option(value="2") 2
+                            option(value="3") 3
+                            option(value="3") 4
+                      tr
+                        th Aspectos a evaluar
+                        td Coherencia
+                        td Los aspectos a evaluar son coherentes con las evidencias y las actividades de aprendizaje
+                        td La mayoría de los aspectos a evaluar (80%) son coherentes con las evidencias y con las actividades de aprendizaje
+                        td Algunos de los aspectos a evaluar (menos del 80%) son coherentes con las actividades de aprendizaje, y con las evidencias
+                        td Los aspectos a evaluar son no coherentes con las evidencias, ni con las actividades de aprendizaje
+                        td
+                          select(name="selectAcademica12", id="selectAcademica12")
+                            option(value="1" selected) 1
+                            option(value="2") 2
+                            option(value="3") 3
+                            option(value="3") 4
+                    tfoot
+                      tr
+                        th(colspan="6") Suma del Rubro
+                        td
+                          label(name="sumaE", id="sumaE")
+                  //table
+                  table(class="table table-hover col-md-11 col-md-offset-1", style=" margin-left:0 ")
+                    thead
+                      tr
+                        th Rubro
+                        th Criterio a Evaluar
+                        th Excelente(4)
+                        th Bueno(3)
+                        th Regular(2)
+                        th Deficiente(1)
+                        th Puntaje Obtenido
+                    tbody
+                      tr
+                        th(colspan="2") Referencias
+                        th Pertinencia  
+                        td Las referencias son adecuadas para abordar los contenidos 
+                        td La mayoría de las referencias (80%) son adecuadas para abordar los contenidos 
+                        td Algunas de las referencias (menos del 80%) son adecuadas para abordar los contenidos 
+                        td Las referencias no son adecuadas para abordar los contenidos 
+                        td
+                          select(name="selectAcademica13", id="selectAcademica13")
+                            option(value="1" selected) 1
+                            option(value="2") 2
+                            option(value="3") 3
+                            option(value="3") 4
+                      tr
+                        td Vigencia
+                        td Las referencias son vigentes considerando los aprendizajes a desarrollar y el propósito
+                        td La mayoría de las referencias (80%) son vigentes  para los aprendizajes a desarrollar y el propósito, se podrían fortalecer con determinadas fuentes
+                        td Algunas de las referencias (menos del 80%) son vigentes para los aprendizajes a desarrollar y el propósito, pero faltan algunas de relevancia
+                        td Las referencias no son vigentes para los aprendizajes a desarrollar y el propósito 
+                        td
+                          select(name="selectAcademica14", id="selectAcademica14")
+                            option(value="1" selected) 1
+                            option(value="2") 2
+                            option(value="3") 3
+                            option(value="3") 4
+                    tfoot
+                      tr
+                        th(colspan="6") Suma del Rubro
+                        td
+                          label(name="sumaF", id="sumaF")
+                  //table
+                  table(class="table table-hover col-md-11 col-md-offset-1", style=" margin-left:0 ")
+                    tbody
+                      tr
+                        th(colspan="4") Escala de Valoración
+                      tr
+                        th(colspan="2") Escala de Valoración
+                        th Dictamen
+                        th Firma del evaluador
+                      tr
+                        th Aprobado
+                        th 42-56 puntos
+                        th 
+                          label(name="labelG", id="labelG") -
+                        th(rowspan="2")
+                          input(type="text", name="txtG", id="labelG")
+                      tr
+                        th No Aprobado
+                        th 0-41 puntos 
+                        th 
+                          label(name="labelG-2", id="labelG-2") - 
+                  //table
+                  table(class="table table-hover col-md-11 col-md-offset-1", style=" margin-left:0 ")
+
+                //form
+
+                      
+
+        script.
+          var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+          var f=new Date();
+          document.getElementById('date').innerHTML = f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear();
+        
+        script.
+          var SumadeI=0;
+          var SumadeII=0;
+          var SumadeIII=0;
+          
+          $('.sumadorI').change(function() {
+            SumadeI=0;
+            $(".sumadorI").each(function() {
+                SumadeI= SumadeI + parseInt($(this).val());
+            });
+            $("#totalI").val(parseInt(SumadeI));
+            $("#granTotal").val(parseInt(SumadeI+SumadeII+SumadeIII));
+          });
+
+          $('.sumadorII').change(function() {
+            SumadeII=0;
+            $(".sumadorII").each(function() {
+                SumadeII= SumadeII + parseInt($(this).val());
+            });
+            $("#totalII").val(parseInt(SumadeII));
+            $("#granTotal").val(parseInt(SumadeI+SumadeII+SumadeIII));
+          });
+
+          $('.sumadorIII').change(function() {
+            SumadeIII=0;
+            $(".sumadorIII").each(function() {
+                SumadeIII= SumadeIII + parseInt($(this).val());
+            });
+            $("#totalIII").val(parseInt(SumadeIII));
+            $("#granTotal").val(parseInt(SumadeI+SumadeII+SumadeIII));
+          });
+
+
