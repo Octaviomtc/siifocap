@@ -7,6 +7,16 @@ var dictaminacionSchema = new Schema({
     respuesta: { type: Number },
     comentario: { type: String }
   }],
+  facilitador:[
+    pregunta: {type:String},
+    respuesta: { type: Number },
+    comentario: { type: String }
+  ],
+  academica:[
+    pregunta: {type:String},
+    respuesta: { type: Number },
+    comentario: { type: String }
+  ]
   puntaje: {type: Number}
 
 },

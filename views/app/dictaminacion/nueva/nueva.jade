@@ -823,6 +823,7 @@ block content
                 br
                 br
                 form#formAcademica.form-horizontal(method='post', action="#", enctype='application/json') 
+                  h2 TABLA A
                   table(class="table table-hover col-md-11 col-md-offset-1", style="  margin-left:0  ")
                     thead
                       tr
@@ -842,16 +843,17 @@ block content
                         td El propósito es acorde con la justificación en los siguientes aspectos: Necesidad, Intención y Alcance
                         td El propósito no es acorde con la justificación en los siguientes aspectos: Necesidad, Intención y Alcance
                         td
-                          select(name="selectAcademica1", id="selectAcademica1")
+                          select.acadA(name="selectAcademica1", id="selectAcademica1")
                             option(value="1" selected) 1
                             option(value="2") 2
                             option(value="3") 3
-                            option(value="3") 4
+                            option(value="4") 4
                     tfoot
                       tr
                         th(colspan="6") Suma del Rubro
                         td
-                          label(name="sumaA", id="sumaA")
+                          input(type='text', disabled="disabled" name="sumaA", id="sumaA")
+                  h2 TABLA B
                   table(class="table table-hover col-md-11 col-md-offset-1", style="  margin-left:0 ")
                     thead
                       tr
@@ -871,11 +873,11 @@ block content
                         td Los aprendizajes a desarrollar son precisos, pero la minoría tiene una continuidad lógica, por lo que el logro del propósito es dudoso
                         td Los aprendizajes a desarrollar son imprecisos, no tienen una continuidad lógica y por tanto no posibilitan el logro del propósito 
                         td
-                          select(name="selectAcademica2", id="selectAcademica2")                            
+                          select.acadB(name="selectAcademica2", id="selectAcademica2")                            
                             option(value="1" selected) 1
                             option(value="2") 2
                             option(value="3") 3
-                            option(value="3") 4 
+                            option(value="4") 4 
                       tr
                         
                         td Pertinencia
@@ -884,18 +886,19 @@ block content
                         td Los aprendizajes a desarrollar permiten promover la adquisición de la minoría de los conocimientos, habilidades y actitudes; ya que estos tienen escasa correspondencia con lo que se prescribe en el propósito
                         td Los aprendizajes a desarrollar son inadecuados para promover la adquisición de conocimientos, habilidades y actitudes, ya que no coinciden  con lo que se prescribe en el propósito
                         td
-                          select(name="selectAcademica3", id="selectAcademica3")                            
+                          select.acadB(name="selectAcademica3", id="selectAcademica3")                            
                             option(value="1" selected) 1
                             option(value="2") 2
                             option(value="3") 3
-                            option(value="3") 4
+                            option(value="4") 4
                     tfoot
                       tr
                         th(colspan="6") Suma del Rubro
                         td
-                          label(name="sumaB", id="sumaB")   
+                          input(type='text', disabled="disabled", name="sumaB", id="sumaB")
                     //tfoot
                   //table
+                  h2 TABLA C
                   table(class="table table-hover col-md-11 col-md-offset-1", style="  margin-left:0  ")
                     thead
                       tr
@@ -915,11 +918,11 @@ block content
                         td Algunos de los contenidos (menos del 80% de los temas) permiten el logro del propósito, pero faltan temas de relevancia 
                         td Los contenidos no permiten el logro del propósito
                         td
-                          select(name="selectAcademica4", id="selectAcademica4")
+                          select.acadC(name="selectAcademica4", id="selectAcademica4")
                             option(value="1" selected) 1
                             option(value="2") 2
                             option(value="3") 3
-                            option(value="3") 4 
+                            option(value="4") 4 
                       tr
                         th Suficiencia
                         td Los contenidos planteados son suficientes para abordar los aprendizajes a desarrollar 
@@ -927,11 +930,11 @@ block content
                         td Algunos de los contenidos son suficientes para el logro de los aprendizajes a desarrollar, pero faltan temas de relevancia 
                         td Los contenidos planteados no son suficientes para abordar los aprendizajes a desarrollar
                         td
-                          select(name="selectAcademica5", id="selectAcademica5")
+                          select.acadC(name="selectAcademica5", id="selectAcademica5")
                             option(value="1" selected) 1
                             option(value="2") 2
                             option(value="3") 3
-                            option(value="3") 4 
+                            option(value="4") 4 
                       tr
                         th(rowspan="2") Coherencia
                         td Los contenidos son congruentes con la finalidad y el área de formación que se señalan
@@ -939,27 +942,29 @@ block content
                         td Los contenidos son congruentes con el área de formación que se señala pero no se apegan a la finalidad señalada
                         td Los contenidos no son congruentes con la finalidad y el área de formación que se señala
                         td
-                          select(name="selectAcademica6", id="selectAcademica6")
+                          select.acadC(name="selectAcademica6", id="selectAcademica6")
                             option(value="1" selected) 1
                             option(value="2") 2
                             option(value="3") 3
-                            option(value="3") 4
+                            option(value="4") 4
                       tr
+                        th
                         td La secuencia en la que se desarrollan los contenidos tiene una lógica clara acorde con la disciplina a la que pertenecen
                         td La secuencia en la que se desarrollan los contenidos frecuentemente tiene una lógica clara, acorde con la disciplina a la que pertenecen
                         td La secuencia en la que se desarrollan los contenidos en ocasiones tiene una lógica clara, y no es congruente con la disciplina a la que pertenecen 
                         td La secuencia en la que se desarrollan los contenidos no tiene una lógica clara, ni es acorde con la disciplina a la que pertenecen
                         td
-                          select(name="selectAcademica7", id="selectAcademica7")
+                          select.acadC(name="selectAcademica7", id="selectAcademica7")
                             option(value="1" selected) 1
                             option(value="2") 2
                             option(value="3") 3
-                            option(value="3") 4
+                            option(value="4") 4
                     tfoot
                       tr
                         th(colspan="6") Suma del Rubro
                         td
-                          label(name="sumaC", id="sumaC")
+                          input(type='text', disabled="disabled", name="sumaC", id="sumaC") 
+                  h2 TABLA D
                   table(class="table table-hover col-md-11 col-md-offset-1", style="  margin-left:0  ")
                     thead
                       tr
@@ -979,18 +984,17 @@ block content
                         td El tiempo que se establece para los aprendizajes a desarrollar es suficiente para la minoría de los aprendizajes (menos del 80%) a desarrollar, por lo que se requiere de ajustes relevantes para el logro del propósito
                         td El tiempo que se establece en todos los  aprendizajes a desarrollar es insuficiente (o demasiado holgado), por lo que no se logra el propósito
                         td
-                          select(name="selectAcademica8", id="selectAcademica8")
+                          select.acadD(name="selectAcademica8", id="selectAcademica8")
                             option(value="1" selected) 1
                             option(value="2") 2
                             option(value="3") 3
-                            option(value="3") 4
+                            option(value="4") 4
                     tfoot
                       tr
                         th(colspan="6") Suma del Rubro
                         td
-                          label(name="sumaD", id="sumaD")
-
-
+                          input(type='text', disabled="disabled", name="sumaD", id="sumaD") 
+                  h2 TABLA E
                   table(class="table table-hover col-md-11 col-md-offset-1", style="  margin-left:0  ")
                     thead
                       tr
@@ -1010,11 +1014,11 @@ block content
                         td El número de actividades para cada aprendizaje a desarrollar es poco suficiente para el logro de la mayoría de los aprendizajes 
                         td El número de actividades descritas en todos los aprendizajes a desarrollar son insuficientes para el logro de los mismos
                         td
-                          select(name="selectAcademica9", id="selectAcademica9")
+                          select.acadE(name="selectAcademica9", id="selectAcademica9")
                             option(value="1" selected) 1
                             option(value="2") 2
                             option(value="3") 3
-                            option(value="3") 4
+                            option(value="4") 4
                       tr
                         th Pertinencia
                         td La totalidad de las actividades de aprendizaje promueven que el participante adquiera los contenidos correspondientes 
@@ -1022,17 +1026,18 @@ block content
                         td Menos de la mitad de las actividades de aprendizaje promueven que el participante adquiera los contenidos correspondientes
                         td Las actividades de aprendizaje no promueven que el participante adquiera los contenidos correspondientes
                         td
-                          select(name="selectAcademica10", id="selectAcademica10")
+                          select.acadE(name="selectAcademica10", id="selectAcademica10")
                             option(value="1" selected) 1
                             option(value="2") 2
                             option(value="3") 3
-                            option(value="3") 4
+                            option(value="4") 4
                     tfoot
                       tr
                         th(colspan="6") Suma del Rubro
                         td
-                          label(name="sumaE", id="sumaE")
+                          input(type='text', disabled="disabled", name="sumaE", id="sumaE")
                   //table
+                  h2 TABLA F
                   table(class="table table-hover col-md-11 col-md-offset-1", style=" margin-left:0 ")
                     thead
                       tr
@@ -1052,11 +1057,11 @@ block content
                         td Algunas evidencias(menos del 80%) son congruentes con los aprendizajes a desarrollar y con las actividades de aprendizaje
                         td Las evidencias no son congruentes con los aprendizajes a desarrollar, ni con las actividades de aprendizaje
                         td
-                          select(name="selectAcademica11", id="selectAcademica11")
+                          select.acadF(name="selectAcademica11", id="selectAcademica11")
                             option(value="1" selected) 1
                             option(value="2") 2
                             option(value="3") 3
-                            option(value="3") 4
+                            option(value="4") 4
                       tr
                         th Aspectos a evaluar
                         td Coherencia
@@ -1065,17 +1070,18 @@ block content
                         td Algunos de los aspectos a evaluar (menos del 80%) son coherentes con las actividades de aprendizaje, y con las evidencias
                         td Los aspectos a evaluar son no coherentes con las evidencias, ni con las actividades de aprendizaje
                         td
-                          select(name="selectAcademica12", id="selectAcademica12")
+                          select.acadF(name="selectAcademica12", id="selectAcademica12")
                             option(value="1" selected) 1
                             option(value="2") 2
                             option(value="3") 3
-                            option(value="3") 4
+                            option(value="4") 4
                     tfoot
                       tr
                         th(colspan="6") Suma del Rubro
                         td
-                          label(name="sumaE", id="sumaE")
+                          input(type='text', disabled="disabled", name="sumaF", id="sumaF") 
                   //table
+                  h2 TABLA G
                   table(class="table table-hover col-md-11 col-md-offset-1", style=" margin-left:0 ")
                     thead
                       tr
@@ -1088,18 +1094,18 @@ block content
                         th Puntaje Obtenido
                     tbody
                       tr
-                        th(colspan="2") Referencias
+                        th(rowspan="2") Referencias
                         th Pertinencia  
                         td Las referencias son adecuadas para abordar los contenidos 
                         td La mayoría de las referencias (80%) son adecuadas para abordar los contenidos 
                         td Algunas de las referencias (menos del 80%) son adecuadas para abordar los contenidos 
                         td Las referencias no son adecuadas para abordar los contenidos 
                         td
-                          select(name="selectAcademica13", id="selectAcademica13")
+                          select.acadG(name="selectAcademica13", id="selectAcademica13")
                             option(value="1" selected) 1
                             option(value="2") 2
                             option(value="3") 3
-                            option(value="3") 4
+                            option(value="4") 4
                       tr
                         td Vigencia
                         td Las referencias son vigentes considerando los aprendizajes a desarrollar y el propósito
@@ -1107,21 +1113,20 @@ block content
                         td Algunas de las referencias (menos del 80%) son vigentes para los aprendizajes a desarrollar y el propósito, pero faltan algunas de relevancia
                         td Las referencias no son vigentes para los aprendizajes a desarrollar y el propósito 
                         td
-                          select(name="selectAcademica14", id="selectAcademica14")
+                          select.acadG(name="selectAcademica14", id="selectAcademica14")
                             option(value="1" selected) 1
                             option(value="2") 2
                             option(value="3") 3
-                            option(value="3") 4
+                            option(value="4") 4
                     tfoot
                       tr
                         th(colspan="6") Suma del Rubro
                         td
-                          label(name="sumaF", id="sumaF")
+                          input(type='text', disabled="disabled",name="sumaG", id="sumaG")
                   //table
+                  h2 TABLA H
                   table(class="table table-hover col-md-11 col-md-offset-1", style=" margin-left:0 ")
                     tbody
-                      tr
-                        th(colspan="4") Escala de Valoración
                       tr
                         th(colspan="2") Escala de Valoración
                         th Dictamen
@@ -1130,14 +1135,14 @@ block content
                         th Aprobado
                         th 42-56 puntos
                         th 
-                          label(name="labelG", id="labelG") -
+                          label(name="labelH", id="labelH") -
                         th(rowspan="2")
                           input(type="text", name="txtG", id="labelG")
                       tr
                         th No Aprobado
                         th 0-41 puntos 
                         th 
-                          label(name="labelG-2", id="labelG-2") - 
+                          label(name="labelH-2", id="labelH-2") - 
                   //table
                   table(class="table table-hover col-md-11 col-md-offset-1", style=" margin-left:0 ")
 
@@ -1181,5 +1186,79 @@ block content
             $("#totalIII").val(parseInt(SumadeIII));
             $("#granTotal").val(parseInt(SumadeI+SumadeII+SumadeIII));
           });
+          //
 
 
+
+
+          /*
+          ->
+
+          ACADEMICA
+
+          <-
+          */
+          var academSumA=0;
+          $('.acadA').change(function() {
+            academSumA=0;
+            $(".acadA").each(function() {
+                academSumA= academSumA + parseInt($(this).val());
+            });
+            console.log(academSumA)
+            $("#sumaA").val(parseInt(academSumA));
+          });
+
+          var academSumB=0;
+          $('.acadB').change(function() {
+            academSumB=0;
+            $(".acadB").each(function() {
+                academSumB= academSumB + parseInt($(this).val());
+            });
+            $("#sumaB").val(parseInt(academSumB));
+          });
+
+          var academSumC=0;
+          $('.acadC').change(function() {
+            academSumC=0;
+            $(".acadC").each(function() {
+                academSumC= academSumC + parseInt($(this).val());
+            });
+            $("#sumaC").val(parseInt(academSumC));
+          });
+
+          var academSumD=0;
+          $('.acadD').change(function() {
+            academSumD=0;
+            $(".acadD").each(function() {
+                academSumD= academSumD + parseInt($(this).val());
+            });
+            $("#sumaD").val(parseInt(academSumD));
+          });
+
+          var academSumE=0;
+          $('.acadE').change(function() {
+            academSumE=0;
+            $(".acadE").each(function() {
+                academSumE= academSumE + parseInt($(this).val());
+            });
+            $("#sumaE").val(parseInt(academSumE));
+          });
+
+          var academSumF=0;
+          $('.acadF').change(function() {
+            academSumF=0;
+            $(".acadF").each(function() {
+                academSumF= academSumF + parseInt($(this).val());
+            });
+            $("#sumaF").val(parseInt(academSumF));
+          });
+
+          var academSumG=0;
+          $('.sumaG').change(function() {
+            academSumG=0;
+            $(".sumaG").each(function() {
+                academSumG= academSumG + parseInt($(this).val());
+            });
+            $("#sumaG").val(parseInt(academSumG));
+          });
+          
