@@ -1,0 +1,31 @@
+extends layoutActive
+
+block content
+  #message
+    if message
+      .error-message
+          a.text-center #{message}
+  .row
+    .col-md-12
+      .formulario.animated.fadeIn
+        
+        .contenido
+          include datos
+               
+                 
+          .row
+            .col-md-6
+              a.btn.btn-success.fa-r(href="/programacion/paso5/"+idAccion+"/"+idProgramacion)
+                i.fa.fa-check-circle.fa-r
+                | Siguiente
+
+              a.btn.btn-danger(href="/programacion")
+                | Cancelar
+
+
+  append javascript
+    script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
+    script.
+
+                                
+                                    
