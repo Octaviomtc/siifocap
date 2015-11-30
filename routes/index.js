@@ -509,10 +509,11 @@ module.exports = function(passport){
         res.render('app/programacion/paso4', { message: alerta, user: req.user, datos: param});
 
 
-    });
+    }); 
 
-    router.get('/programacion/paso5/:id/:id2', isAuthenticated, accionesMid.allAccionFormacion, programacionMid.validateAccion, function(req, res){
-        param={
+
+    router.route("/programacion/paso5/:id/:id2").get(isAuthenticated, accionesMid.allAccionFormacion, programacionMid.validateAccion, function(req, res) {
+      param={
             icon: "fa-calendar",
             seccion: "Programación de Acciones de formación - Nueva programación",
             estado: "programacion",
@@ -520,8 +521,10 @@ module.exports = function(passport){
         }
         var alerta = req.flash('alert');
         res.render('app/programacion/paso5', { message: alerta, user: req.user, datos: param});
-
-
+    }).post(multer({
+      inMemory: true
+    }), programacionMid.validateAccion, function(req, res) {
+      // return res.redirect("/token-admin");
     });
 
 

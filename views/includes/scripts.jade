@@ -213,6 +213,24 @@ script.
             errorMessageKey: 'Error'
           });
 
+          
+          
+          $.formUtils.addValidator({
+            name: 'maximo',
+            validatorFunction: function(value, $el, config, language, $form) {
+                console.log(value);
+                if (value >9) {
+                    destroyTool($el.context.id);
+                    return true;
+                } else {
+                    msgError($el.context.id, "El valor debe ser al menos 10 pariticipantes");
+                    return false;
+                }
+            },
+            errorMessage: errorMs,
+            errorMessageKey: 'Error'
+          });
+
 
 
           var rfc = /^[A-Za-z]{4}\d{6}[A-Za-z0-9]{3}$/;

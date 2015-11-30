@@ -11,13 +11,22 @@ block content
         
         .contenido
           include datos
-               
-                 
+        
+        .contenido
+          .alert.alert-info
+            label Seleccione a la Dependencia Politécnica en la que se llevará a cabo la impartición de la acción de formación
           .row
-            .col-md-6
+            form
+              .col-md-6.col-md-offset-3
+                select#sede.form-control(name='sede',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                  option(value="") Seleccione ...
+       
+        .contenido         
+          .row
+            .col-md-6.col-md-offset-3
               a.btn.btn-success.fa-r(href="/programacion/paso4/"+idAccion+"/"+idProgramacion)
                 i.fa.fa-check-circle.fa-r
-                | Siguiente
+                | Guardar y Continuar
 
               a.btn.btn-danger(href="/programacion")
                 | Cancelar

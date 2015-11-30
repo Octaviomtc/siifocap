@@ -110,3 +110,15 @@ mixin h-input2(type, label, name, placeholder, value, box, box_label, autofocus,
 
       div(class="col-md-#{box}")
         input(class="form-control", style="text-transform:uppercase" class=type=="file" ? "filestyle":"", type=type, id=name, name=name, placeholder=placeholder, autofocus=autofocus, value=value, required=required, data-validation="#{error}", data-toggle="tooltip", data-placement="top", title="", maxlength=maxlen)
+
+mixin h-input3(type, label, name, placeholder, value, box, box_label, autofocus, error, ayuda, maxlen, tipo)
+  .form-group(id="#{name}_Form")
+      span(class="control-label col-md-#{box_label}")
+        | #{label}
+        if ayuda != ""
+          span.fa-stack.fa-l.fa-ayuda(data-toggle="tooltip-ayuda", data-html="true", data-placement="top", title="#{ayuda}")
+            i.fa.fa-circle.fa-stack-2x
+            i.fa.fa-question.fa-stack-1x.fa-inverse
+
+      div(class="col-md-#{box}")
+        input(class="form-control", style="text-transform:uppercase" class=type=="file" ? "filestyle":"", type=type, id=name, name=name, placeholder=placeholder, autofocus=autofocus, value=value, required=required, data-validation="#{error}", data-toggle="tooltip", data-placement="top", title="", maxlength=maxlen,  accept=tipo)

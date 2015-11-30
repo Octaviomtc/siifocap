@@ -34,7 +34,7 @@
     "mongoose-crate-localfs": "^1.1.1",
     "mongoose-file": "0.0.2",
     "morgan": "~1.0.1",
-    "multer": "^0.1.6",
+    "multer": "^0.1.8",
     "passport": "~0.2.0",
     "passport-local": "~1.0.0",
     "path": "^0.4.9",

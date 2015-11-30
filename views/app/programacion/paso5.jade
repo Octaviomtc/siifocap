@@ -11,8 +11,28 @@ block content
         
         .contenido
           include datos
-               
-                 
+        
+        .contenido
+          .alert.alert-info
+            label Escriba el número máximo de participantes a considerar en la acción de formación. Cabe mencionar que el número mínimo es de 10 participantes
+          .row
+            form#myform2(name='asig', action='/', method="POST", enctype="multipart/form-data")
+              .form-group
+                .col-md-12
+                  +h-input2("text", "Cantidad máxima de participantes", "maximo", "#", "", 2, 2, "", "maximo","",3)
+                  br
+                  br
+                .col-md-12
+                  .checkbox
+                    label
+                      input#checkboxFile(type='checkbox')
+                      | Esta acción de formación es para un grupo en especial
+                .col-md-12  
+                  #updateFile.updateFile
+                    label(class="col-md-12 alert alert-info") Subir un archivo (Tamaño máximo 5MB)
+                    +h-input3("file", "Seleccionar archivo", "archivo", "", "", 9, 3, "", "", "archivos CSV", "", ".csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") 
+
+        .contenido   
           .row
             .col-md-6
               a.btn.btn-success.fa-r(href="/programacion")
@@ -26,6 +46,30 @@ block content
   append javascript
     script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
     script.
+      $('#updateFile').hide();
 
-                                
-                                    
+      $("#maximo").keydown(function (e) {
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+             // Allow: Ctrl+A, Command+A
+            (e.keyCode == 65 && ( e.ctrlKey === true || e.metaKey === true ) ) || 
+             // Allow: home, end, left, right, down, up
+            (e.keyCode >= 35 && e.keyCode <= 40)) {
+                 // let it happen, don't do anything
+                 return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+      });
+
+      $(document).ready(function () {
+        $('#checkboxFile').change(function () {
+            if (this.checked) 
+               $('#updateFile').show();
+            else 
+                $('#updateFile').hide();
+        });
+      });
+
