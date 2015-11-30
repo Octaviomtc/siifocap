@@ -721,104 +721,7 @@ block content
    
 
 
-                h1 SECCION FACILITADOR
-                br
-                br
-                form#formFacilitadorA.form-horizontal(method='post', action="#", enctype='application/json') 
-                  table(class="table table-hover col-md-11 col-md-offset-1", style="  margin-left:0  ")
-                    thead
-                      tr
-                        th No.
-                        th Criterio
-                        th Cumple
-                        th Observaciones
-                    tbody
-                      tr
-                        th 1
-                        th Formación académica afín a  la acción de formación.
-                        th 
-                          select(name="selectfac1", id="selectfac1")
-                            option(value="no" selected) No
-                            option(value="si") Si
-                        th
-                          textarea(name="txtafac1", id="txtafac1")
-                      tr
-                        th 2
-                        th Estudios de posgrado.
-                        th 
-                          select(name="selectfac2", id="selectfac2")
-                            option(value="no" selected) No
-                            option(value="si") Si
-                        th
-                          textarea(name="txtafac2", id="txtafac2")
-                      tr
-                        th 3
-                        th Experiencia laboral afín a la acción de formación.
-                        th 
-                          select(name="selectfac3", id="selectfac3")
-                            option(value="no" selected) No
-                            option(value="si") Si
-                        th
-                          textarea(name="txtafac3", id="txtafac3")
-                      tr
-                        th 4
-                        th Experiencia como docente o facilitador
-                        th 
-                          select(name="selectfac4", id="selectfac4")
-                            option(value="no" selected) No
-                            option(value="si") Si
-                        th
-                          textarea(name="txtafac4", id="txtafac4")
-                    //tbody
-                  //table
-                  div.row
-                    div.col-md-12
-                      hr
-                    div.col-md-9.col-md-offset-3
-                      button(type="submit" class="btn btn-success fa-r")
-                        i(class="fa fa-check-circle fa-r")
-                        | Guardar
-                      a.btn.btn-danger(href='#')
-                        | Cancelar
-
-                //form
-                br                  
-                form#formFacilitadorB.form-horizontal(method='post', action="#", enctype='application/json') 
-                  table(class="table table-hover col-md-11 col-md-offset-1", style="  margin-left:0  ")                    
-                    tr
-                      th Dictamen
-                      th 
-                        select(name="selectfac5", id="selectfac5")
-                          option(value="Si") Favorable
-                          option(value="No" selected) No Favorable
-                    tr
-                      th Nombre de la acción formativa
-                      th 
-                        input(type="text")
-                    tr
-                      th Nombre del facilitador
-                      th 
-                        input(type="text")
-                    tr
-                      th Nombre y firma del evaluador
-                      th 
-                        input(type="text")
-                    tr
-                      th Fecha de aplicación
-                      th 
-                        label#date
-                  //table
-                //form
-                div.row
-                  div.col-md-12
-                    hr
-                  div.col-md-9.col-md-offset-3
-                    button(type="submit" class="btn btn-success fa-r")
-                      i(class="fa fa-check-circle fa-r")
-                      | Guardar
-                    a.btn.btn-danger(href='#')
-                      | Cancelar
-
+                
                 h1 SECCION EVALUACION ACADEMICA
                 br
                 br
@@ -1150,10 +1053,6 @@ block content
 
                       
 
-        script.
-          var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-          var f=new Date();
-          document.getElementById('date').innerHTML = f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear();
         
         script.
           var SumadeI=0;

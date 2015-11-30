@@ -9,10 +9,12 @@ var _                     = require('underscore');
 
 
 
-exports.addDictamen = function(req, res, next) {
+exports.addDictaminacion = function(req,res,next){};
+
+
+exports.addAcademica = function(req, res, next) {
   var pregunta = req.body.pregunta;
   console.log('********');
-  logger.info('********');
   var dictaminacion = [];
 
   var puntaje = 0;
@@ -37,7 +39,25 @@ exports.addDictamen = function(req, res, next) {
 };
 
 
+exports.addFacilitadores = function (req, res, next) {
+  var obj ={};
+  obj.dictaminacion={}
+  obj.dictaminacion.facilitador=req.body;
+  accionesFormacion.findOneAndUpdate({_id:req.body.accion_id}, obj, function (err, facilitador){
+    if(err) 
+      res.send(500, err.message);
+    else
+      res.send(facilitador)
+    //res.locals.facilitador = facilitador;
 
+    //return next();
+  });
+};
+
+exports.addAcademica= function (req, res, next) {
+    return next();
+
+};
 
 
 exports.findById = function(req, res, next) {
