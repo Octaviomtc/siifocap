@@ -1,0 +1,40 @@
+extends layoutActive
+
+block content
+  #message
+    if message
+      .error-message
+          a.text-center #{message}
+  .row
+    .col-md-12
+      .formulario.animated.fadeIn
+        
+        .contenido
+          include datos
+        
+        .contenido
+          .alert.alert-info
+            label Seleccione a la Dependencia Politécnica en la que se llevará a cabo la impartición de la acción de formación
+          .row
+            form(method='post', action="/programacion/paso3/#{idAccion}/#{idProgramacion}")
+              .col-md-6.col-md-offset-3
+                select#sede.form-control(name='sede',data-validation="empty", data-toggle="tooltip", data-placement="top", title="")
+                  option(value="") Seleccione ...
+                  each escuela in escuelas
+                    option(value=escuela.nombre, selected= escuela.nombre == programacionRes.sede)=escuela.nombre
+              br
+              br
+              .contenido         
+                .row
+                  .col-md-6.col-md-offset-3
+                    input.btn.btn-success.fa-r(type="submit", value="Guardar y continuar")
+                    a.btn.btn-danger(href="/programacion")
+                      | Cancelar
+
+
+  append javascript
+    script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
+    script.
+
+                                
+                                    

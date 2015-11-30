@@ -1,0 +1,34 @@
+table(data-toggle="table", data-cache="true", data-height="170", data-card-view='true')
+            thead
+              tr
+                th(data-field='nombre', data-align='left') Nombre de la acción de formación
+                th(data-field='unidad') Unidad politécnica responsable
+                th(data-field='dirigido') Dirigido a
+                th(data-field='tipo') Tipo 
+                th(data-field='modalidad') Modalidad
+                th(data-field='duracion') Duración en horas
+                th(data-field='cur_gen', data-align='left') CUR
+            tbody
+              tr
+                td(style="text-align: left;")
+                  | #{accionFormacion.nombre_accion_Formacion}
+                td(style="text-align: left;")
+                  | #{accionFormacion.unidad}
+                td(style="text-align: left;")
+                  if accionFormacion.dirigido_a == "comunidad-externa"
+                    | Comunidad externa/#{accionFormacion.dirigido_a_tipo}
+                  if accionFormacion.dirigido_a == "comunidad-politecnica"
+                    | Comundidad ploitécnica/#{accionFormacion.dirigido_a_tipo}
+                td(style="text-align: left;")
+                  | #{accionFormacion.tipo_accion_Formacion}
+                td(style="text-align: left;")
+                  | #{accionFormacion.modalidad_accion_Formacion}
+                td(style="text-align: left;")
+                  if accionFormacion.modalidad_accion_Formacion == "no_escolarizada"
+                    | #{accionFormacion.horas_linea}
+                  if accionFormacion.modalidad_accion_Formacion == "escolarizada"
+                    | #{accionFormacion.horas_presencial}
+                  if accionFormacion.modalidad_accion_Formacion == "mexita"
+                    | Horas presenciales: #{accionFormacion.horas_presencial} - Horas en línea: #{accionFormacion.horas_linea}
+                td(style="text-align: left;")
+                  | #{accionFormacion.cur_gen}

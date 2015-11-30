@@ -21,6 +21,10 @@
           a(href='/acciones-formacion')
             i.fa.fa-r.fa-archive
             | Acciones de formación
+        li(class=datos.estado=="programacion" ? "active":"")
+          a(href='/programacion')
+            i.fa.fa-r.fa-calendar
+            | Programación de Acciones de formación
         li(class=datos.estado=="participantes" ? "active":"")
           a(href='/participantes')
             i.fa.fa-r.fa-users
