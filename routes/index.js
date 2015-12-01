@@ -1,4 +1,5 @@
 var express         = require('express');
+var router          = express.Router();
 var multer          = require('multer'); //Multipart form
 //Modelos
 var escuela         = require('../models/escuela');
@@ -31,12 +32,15 @@ var unidades_politecnicasMid    = require('../controllers/unidades_politecnicas'
 var disciplinasMid = require('../controllers/disciplinas');
 var programacionMid = require('../controllers/programacion');
 var google = require('../controllers/google');
+var logger                = require("../utils/winston");
 
 
-var router          = express.Router();
+
 
 // Validadores Autenticacion
 var isAuthenticated = function (req, res, next) {
+  console.log('Verificando si es autentico');
+
     if (req.isAuthenticated())
         return next();
     res.redirect('/');
@@ -922,6 +926,7 @@ router.get('/programacion/paso5v/:id/:id2', isAuthenticated, accionesMid.allAcci
 
     //************************************************ DICTAMINACION
     router.get('/dictaminacion', isAuthenticated, accionesMid.allAccionFormacion, function(req, res){
+      logger.debug('***********')
       param={
         icon: "fa-gavel",
         seccion: "Dictaminación",
@@ -937,16 +942,52 @@ router.get('/programacion/paso5v/:id/:id2', isAuthenticated, accionesMid.allAcci
         seccion: "Dictaminación",
         estado: "dictaminacion"
       }
-      res.render('app/dictaminacion/nueva',{message: req.flash('message'), user: req.user, datos: param});
+      res.render('app/dictaminacion/nueva/nueva',{message: req.flash('message'), user: req.user, datos: param});
     });
 
-
-
-
-    router.post('/dictaminacion/:id', isAuthenticated, dictaminacionMid.addDictamen, function(req, res){
+    router.post('/dictaminacion/:id', isAuthenticated, dictaminacionMid.addDictaminacion, function(req, res){
       res.redirect("/dictaminacion")
     });
 
+
+    /*
+    router.get('/dictaminacion/facilitador/:id', isAuthenticated, accionesMid.findById, accionesMid.findByIdDictaminacion, function(req, res){
+      param={
+        icon: "fa-gavel",
+        seccion: "Dictaminación",
+        estado: "dictaminacion"
+      }
+      res.render('app/dictaminacion/nueva/nueva',{message: req.flash('message'), user: req.user, datos: param});
+    });
+*/
+    router.get('/dictaminacion/facilitador/:id', isAuthenticated, accionesMid.findById, function(req, res){
+      param={
+        icon: "fa-gavel",
+        seccion: "Dictaminación",
+        estado: "dictaminacion"
+      }
+      res.render('app/dictaminacion/nueva/facilitadores',{message: req.flash('message'), user: req.user, datos: param});
+    });
+    
+    router.get('/dictaminacion/academica/:id', isAuthenticated, accionesMid.findById, function(req, res){
+      param={
+        icon: "fa-gavel",
+        seccion: "Dictaminación",
+        estado: "dictaminacion"
+      }
+      res.render('app/dictaminacion/nueva/academica',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+    router.post('/dictaminacion/tecnica/nuevo', isAuthenticated, dictaminacionMid.addTecnica , function(req, res){
+        res.redirect("/dictaminacion")
+    });
+    router.post('/dictaminacion/facilitador/nuevo', isAuthenticated, dictaminacionMid.addFacilitadores , function(req, res){
+        res.redirect("/dictaminacion")
+    });
+
+    router.post('/dictaminacion/academica/nuevo', isAuthenticated, dictaminacionMid.addAcademica , function(req, res){
+        res.redirect("/dictaminacion")
+    });
 
 
     //************************************************ CATALOGOS
@@ -981,6 +1022,9 @@ router.get('/programacion/paso5v/:id/:id2', isAuthenticated, accionesMid.allAcci
     //************************************************ CODIGO POSTAL
     router.get('/zipcode/:code', google.zipcode, function(req, res){
     });
+
+
+
 
 
 

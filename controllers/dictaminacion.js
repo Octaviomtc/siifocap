@@ -9,35 +9,43 @@ var _                     = require('underscore');
 
 
 
-exports.addDictamen = function(req, res, next) {
-
-  var pregunta = req.body.pregunta;
-
-  var dictaminacion = [];
-
-  var puntaje = 0;
-  for (var i=0; i<pregunta.length; i++ ){
-    var asw = [];
-    asw[0] = pregunta[i];
-    puntaje = Number(puntaje)+Number(pregunta[i].respuesta);
-    dictaminacion.push({"pregunta":asw});
-  }
-
-  var obj ={};
-  obj.puntaje_dictaminado = puntaje;
-  obj.dictaminacion = dictaminacion;
+exports.addDictaminacion = function(req,res,next){};
 
 
-  accionesFormacion.findOneAndUpdate({_id:req.params.id}, obj, function (err, accion) {
-    if(err) res.send(500, err.message);
-    //console.log(accion);
-    res.accionFormacion = accion;
-    return next();
+exports.addTecnica = function(req, res, next) {
+  //accionesFormacion.findOneAndUpdate({_id:req.body.accion_id}, obj, function (err, tecnico){
+  accionesFormacion.findOneAndUpdate({'_id':req.body.accion_id}, {$set: {'dictaminacion.tecnico':req.body}}, function (err, tecnico){
+    if(err) 
+      res.send(500, err.message);
+    else
+      res.locals.tecnico = tecnico;
+      return next();
   });
 };
 
 
+exports.addFacilitadores = function (req, res, next) {
+  //accionesFormacion.findOneAndUpdate({_id:req.body.accion_id}, obj, function (err, facilitador){
+  accionesFormacion.findOneAndUpdate({'_id':req.body.accion_id}, {$set: {'dictaminacion.facilitador':req.body}}, function (err, facilitador){
+    //({'ObjectSchema._id':req.body.commentId   {$push: {'ObjectSchema.$.secondTierComment':req.body.data}}, function (e, d) {
+    if(err) 
+      res.send(500, err.message);
+    else
+      res.locals.facilitador = facilitador;
+      return next();
+  });
+};
 
+exports.addAcademica= function (req, res, next) {  
+    accionesFormacion.findOneAndUpdate({'_id':req.body.accion_id}, {$set: {'dictaminacion.academica':req.body}}, function (err, academica){
+      if(err) 
+        res.send(500, err.message);
+      else
+        res.locals.academica = academica;
+        return next();
+        
+   });
+};
 
 
 exports.findById = function(req, res, next) {

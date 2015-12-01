@@ -1,0 +1,798 @@
+extends  ../layout/layout
+ 
+block content
+  #message
+    if message
+      .error-message
+          a.text-center #{message}
+  .row
+    .col-md-12
+      .formulario.animated.fadeIn
+        //- .titulo
+        //-   | Nueva dictaminación para la accion de formacion: 
+        //-   b #{accionFormacion.nombre_accion_Formacion}
+        //- .contenido
+        //-   form.form-horizontal(method='post', action="#")
+        //-     input(type="hidden" value="#{accionFormacion.id}" name="accion_id")
+        .contenido
+          .row
+            .col-md-11
+                span(class="col-md-12 col-md-offset-1 alert alert-info")
+                   center
+                     strong ORIENTACIONES GENERALES PARA LLEVAR A CABO EL DICTAMEN TÉCNICO-PEDAGÓGICO, DE ACCIONES DE FORMACIÓN A EVALUAR
+                   br
+                   | El dictamen técnico-pedagógico de cursos y talleres es un instrumento para determinar si las acciones formativas para el personal directivo, docente y de apoyo y asistencia a la educación, reúnen los criterios didácticos mínimos para llevarse a cabo.
+                   br
+                   | El dictamen técnico-pedagógico se compone de tres secciones: 
+                   ul
+                     li La primera está referida a los 
+                       strong Datos generales 
+                       | de la acción formativa.
+                     li La segunda se refiere al 
+                       strong Encuadre de la Acción de Formación 
+                     li La tercera a la 
+                       strong Planeación Didáctica.
+                   br
+              form#formAccion.form-horizontal(method='post', action="/dictaminacion/tecnica/nuevo", enctype='application/json')   
+                div(class="panel-group", id="accordion", role="tablist", aria-multiselectable="true")
+                  div(class="panel ")
+                    div(class="panel-heading", role="tab", id="headingOne")
+                      h4(class="panel-title")
+                        a(role="button", data-toggle="collapse", data-parent="#accordion", href="#collapseOne", aria-expanded="true", aria-controls="collapseOne")
+                          | I. DATOS GENERALES
+                    div(id="collapseOne", class="panel-collapse collapse in", role="tabpanel", aria-labelledby="headingOne")
+                      div(class="panel-body")
+                          table(class="table table-hover col-md-11 col-md-offset-1", style="  margin-left:0  ")
+                            input(type="hidden", name="accion_id", id="accion_id", value="#{accionFormacion._id}")
+                            thead
+                              tr
+                                th No.
+                                th Elemento a valorar
+                                th Indicador
+                                th Puntaje Asignado
+                                th Comentarios y Observaciones
+                            tbody
+                              tr
+                                th 1
+                                th Dependencia Politécnica solicitante
+                                th Contiene el nombre completo, sin siglas, de la Dependencia Politécnica solicitante.
+                                th
+                                  select.sumadorI(name="select1", id="select1")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                th
+                                  textarea(name="txta1", id="txta1")
+                              tr
+                                th 2
+                                th Nombre de la acción de formación
+                                th El nombre tiene congruencia con el propósito, la justificación, los aprendizajes a desarrollar y los contenidos presentados.
+                                th
+                                  select.sumadorI(name="select2", id="select2")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txta2", id="txta2")
+                              tr
+                                th(rowspan="2") 3
+                                th(rowspan="2") Dirigida a
+                                td Señala el tipo de personal al que va dirigida la Acción de formación. 
+                                td
+                                  select.sumadorI(name="select3", id="select3")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                th
+                                  textarea(name="txta3", id="txta3")
+                              tr
+                                td La acción de formación es pertinente con las funciones del personal para el que está dirigida.
+                                td
+                                  select.sumadorI(name="select3-2", id="select3-2")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txta3-2", id="txta3-2")
+                              tr
+                                th 4
+                                th Tipo de acción de formación
+                                th Corresponde con la forma metodológica en que se abordarán los temas (curso o taller).
+                                th
+                                  select.sumadorI(name="select4", id="select4")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                th
+                                  textarea(name="txta4", id="txta4")
+                              tr
+                                th 5
+                                th Modalidad de la acción de formación
+                                th Selecciona la modalidad de acuerdo con el tipo de actividades a desarrollar.
+                                th
+                                  select.sumadorI(name="select5", id="select5")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                th
+                                  textarea(name="txta5", id="txta5")
+                              tr
+                                th 6
+                                th Duración total en horas
+                                th Señala el total de horas en que se desarrolla la acción de formación. En caso de ser modalidad mixta determina las horas que se realizarán en forma escolarizada y las que se desarrollarán en forma no escolarizada.
+                                th
+                                  select.sumadorI(name="select6", id="select6")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                th
+                                  textarea(name="txta6", id="txta6")
+                              tr
+                                th 7
+                                th Periodo de impartición
+                                th Indica la fecha de inicio y término de la acción de formación a impartir.
+                                th
+                                  select.sumadorI(name="select7", id="select7")
+                                    option(value="0" selected) No
+                                    option(value="1") Si
+                                th
+                                  textarea(name="txta7", id="txta7")
+                              tr
+                                th 8
+                                th Horario
+                                th Presenta el horario de inicio y conclusión de las sesiones.
+                                th
+                                  select.sumadorI(name="select8", id="select8")
+                                    option(value="0" selected) No
+                                    option(value="1") Si
+                                th
+                                  textarea(name="txta8", id="txta8")
+                              tr
+                                th 9
+                                th En coparticipación con otra(s) Dependencia(s) Politécnica(s)
+                                th Señala el nombre completo de la dependencia Politécnica que participa en el diseño y/o impartición de la acción de formación.
+                                th
+                                  select.sumadorI(name="select9", id="select9")
+                                    option(value="0" selected) No
+                                    option(value="1") Si
+                                th
+                                  textarea(name="txta9", id="txta9")
+                              tr
+                                th(rowspan="2") 10
+                                th(rowspan="2") Perfil del facilitador
+                                td Refiere el perfil que requiere el responsable de impartir, asesorar y/o desarrollar la acción de formación.
+                                td
+                                  select.sumadorI(name="select10", id="select10")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txta10", id="txta10")
+                              tr
+                                td Anexa el CV del facilitador con documentación probatoria.
+                                td
+                                  select.sumadorI(name="select10-2", id="select10-2")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                th
+                                  textarea(name="txta10-2", id="txta10-2")
+                              tr
+                                th(rowspan="2") 11
+                                th(rowspan="2") Perfil del participante
+                                td Menciona los requisitos necesarios para participar en la acción de formación. Por ejemplo: tipo de personal, haber cursado una acción de formación previa, entre otros.
+                                td
+                                  select.sumadorI(name="select11", id="select11")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                th
+                                  textarea(name="txta11", id="txta11")
+                              tr
+                                td Indica los conocimientos, habilidades y/o actitudes con los que debe contar el personal y que le permitan el logro del propósito.
+                                td
+                                  select.sumadorI(name="select11-2", id="select11-2")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                th
+                                  textarea(name="txta11-2", id="txta11-2")
+                              tr
+                                th(rowspan="4") 12
+                                th(rowspan="4") Justificación
+                                td Describe la necesidad de la acción formativa.
+                                td
+                                  select.sumadorI(name="select12", id="select12")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                th
+                                  textarea(name="txta12", id="txta12")
+                              tr
+                                td Presenta los indicadores que sustentan la necesidad de la acción formativa.
+                                td
+                                  select.sumadorI(name="select12-2", id="select12-2")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                th
+                                  textarea(name="txta12-2", id="txta12-2")
+                              tr
+                                td Plantea los beneficios de la acción de formación para el personal.
+                                td
+                                  select.sumadorI(name="select12-3", id="select12-3")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                th
+                                  textarea(name="txta12-3", id="txta12-3")
+                              tr
+                                td Indica el alcance o impacto que tendrá la acción formativa en la Dependencia Politécnica.
+                                td
+                                  select.sumadorI(name="select12-4", id="select12-4")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                th
+                                  textarea(name="txta12-4", id="txta12-4")
+                              tr
+                                th 13
+                                th Finalidad
+                                th La finalidad de la acción de formación corresponde con el propósito y metodología didáctica con que se abordarán los contenidos.
+                                th
+                                  select.sumadorI(name="select13", id="select13")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                th
+                                  textarea(name="txta13", id="txta13")
+                              tr
+                                th 14
+                                th Área de formación
+                                th El área de formación corresponde con los contenidos, la propuesta metodológica en que se abordarán y el tipo de personal al que se dirige.
+                                th
+                                  select.sumadorI(name="select14", id="select14")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                th
+                                  textarea(name="txta14", id="txta14")
+                            //tbody
+                          //table
+                          //- div.row
+                          //-   div.col-md-12
+                          //-     hr
+                          //-   div.col-md-9.col-md-offset-3
+                          //-     button(type="submit" class="btn btn-success fa-r")
+                          //-       i(class="fa fa-check-circle fa-r")
+                          //-       | Validar
+                          //-     a.btn.btn-danger(href='/dictaminacion')
+                          //-       | Cancelar
+                        //form
+
+                  div(class="panel ")
+                    div(class="panel-heading", role="tab", id="headingTwo")
+                      h4(class="panel-title")
+                        a(class="collapsed acordionZona", role="button", data-toggle="collapse", data-parent="#accordion", href="#collapseTwo", aria-expanded="false" , aria-controls="collapseTwo")
+                          | II. ENCUADRE DE LA ACCIÓN DE FORMACIÓN
+                          span.ayuda
+                            +ayuda("La sección I 'DATOS GENERALES' deberá tener mas de 16 puntos para poder evaluar los siguientes rubros ")
+                    div(id="collapseTwo", class="panel-collapse collapse", role="tabpanel", aria-labelledby="headingTwo")
+                      div(class="panel-body")                          
+                          table(class="table table-hover col-md-11 col-md-offset-1" , style="  margin-left:0  ")
+                            thead
+                              tr
+                                th No.
+                                th Elemento a valorar
+                                th Indicador
+                                th Puntaje Asignado
+                                th Comentarios y Observaciones
+                            tbody
+                              tr
+                                th(rowspan="3") 15
+                                th(rowspan="3") Propósito
+                                td Describe los conocimientos, habilidades o actitudes que se desarrollarán con la acción de formación (¿Qué?).
+                                td
+                                  select.sumadorII(name="select15", id="select15")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txta15", id="txta15")
+                              tr
+                                td Establece el marco teórico o metodológico a utilizar (¿Cómo?).
+                                td
+                                  select.sumadorII(name="select15-2", id="select15-2")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txta15-2", id="txta15-2")
+                              tr
+                                td Indica la utilidad o sentido de la acción de formación (¿Para qué?).
+                                td
+                                  select.sumadorII(name="select15-3", id="select15-3")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txta15-3", id="txta15-3")
+
+                              tr
+                                th(rowspan="5") 16
+                                th(rowspan="5") Aprendizajes a desarrollar
+                                td Cada aprendizaje a desarrollar indica el nivel de aprendizaje que pretende alcanzar. Por ejemplo: conoce, categoriza, desarrolla, diseña, aplica, evalúa, etc.
+                                td
+                                  select.sumadorII(name="select16", id="select16")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txta16", id="txta16")
+                              tr
+                                td Tienen relación con el propósito.
+                                td
+                                  select.sumadorII(name="select16-2", id="select16-2")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txta16-2", id="txta16-2")
+                              tr
+                                td Se encuentran ordenados de acuerdo a su grado de complejidad, de manera que permitan alcanzar el propósito de la acción de formación.
+                                td
+                                  select.sumadorII(name="select16-3", id="select16-3")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txta16-3", id="txta16-3")
+                              tr
+                                td Plantea qué conocimientos, habilidades o actitudes se pretenden desarrollar (¿Qué?)
+                                td
+                                  select.sumadorII(name="select16-4", id="select16-4")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txta16-4", id="txta16-4")
+                              tr
+                                td Establece aspectos teóricos o metodológicos necesarios para alcanzar el conocimiento, habilidad o actitud (¿Cómo?).
+                                td
+                                  select.sumadorII(name="select16-5", id="select16-5")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txta16-5", id="txta16-5")
+
+                              tr
+                                th(rowspan="4") 17
+                                th(rowspan="4") Metodología didáctica
+                                td Menciona los principios de enseñanza y de aprendizaje bajo los que se trabajará para lograr el propósito de la acción formativa.
+                                td
+                                  select.sumadorII(name="select17", id="select17")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txta17", id="txta17")
+                              tr
+                                td Describe de qué manera evaluará el aprendizaje de los participantes al inicio, durante y al final del proceso de enseñanza y de aprendizaje.
+                                td
+                                  select.sumadorII(name="select17-2", id="select17-2")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txta17-2", id="txta17-2")
+                              tr
+                                td Contiene elementos del Modelo Educativo Institucional.
+                                td
+                                  select.sumadorII(name="select17-3", id="select17-3")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txta17-3", id="txta17-3")
+                              tr
+                                td Refiere las responsabilidades y la participación que el facilitador y los participantes tendrán en el desarrollo de la acción de formación.
+                                td
+                                  select.sumadorII(name="select17-4", id="select17-4")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txta17-4", id="txta17-4")
+
+                              tr
+                                th(rowspan="3") 18
+                                th(rowspan="3") Lineamientos de acreditación
+                                td Especifica los criterios y porcentajes que serán considerados para la acreditación de la acción de formación.
+                                td
+                                  select.sumadorII(name="select18", id="select18")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txta18", id="txta18")
+                              tr
+                                td Señala como calificación mínima para acreditar de 8 de 10 puntos o su ponderación al 80%.
+                                td
+                                  select.sumadorII(name="select18-2", id="select18-2")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                th
+                                  textarea(name="txta18-2", id="txta18-2")
+                              tr
+                                td Indica que el porcentaje mínimo requerido de asistencia es de 80%, para modalidad escolarizada y mixta; y para modalidad no escolarizada el 80% mínimo de entrega de actividades.
+                                td
+                                  select.sumadorII(name="select18-3", id="select18-3")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                th
+                                  textarea(name="txta18-3", id="txta18-3")
+                            //tbody
+                          //table
+                        //form 
+                  //
+                  div(class="panel ")
+                    div(class="panel-heading", role="tab", id="headingThree")
+                      h4(class="panel-title")
+                        a(class="collapsed acordionZona", role="button", data-toggle="collapse", data-parent="#accordion", href="#collapseThree", aria-expanded="false", aria-controls="collapseThree")
+                          | III. PLANEACIÓN DIDÁCTICA
+                          span.ayuda
+                            +ayuda("La sección I 'DATOS GENERALES' deberá tener mas de 16 puntos para poder evaluar los siguientes rubros ")
+                    div(id="collapseThree", class="panel-collapse collapse", role="tabpanel", aria-labelledby="collapseThree")
+                      div(class="panel-body")                          
+                          table(class="table table-hover col-md-11 col-md-offset-1", style="  margin-left:0  ")
+                            thead
+                              tr
+                                th No.
+                                th Elemento a valorar
+                                th Indicador
+                                th Puntaje Asignado
+                                th Comentarios y Observaciones
+                            tbody
+                              tr
+                                th A
+                                th Aprendizajes a desarrollar
+                                th Recupera todos los aprendizajes a desarrollar expuestos en el punto 16, en el encuadre de la acción de formación.
+                                th
+                                  select.sumadorIII(name="selectA", id="selectA")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txtaA", id="txtaA")
+                              tr
+                                th(rowspan="2") B
+                                th(rowspan="2") Contenido
+                                td Los temas y subtemas desarrollados tienen relación con el aprendizaje a desarrollar.
+                                td
+                                  select.sumadorIII(name="selectB", id="selectB")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                    option(value="3") 3
+                                th
+                                  textarea(name="txtaB", id="txtaB")
+                              tr
+                                td Los temas y subtemas llevan una secuencia lógica, que va de lo simple a lo complejo.
+                                td
+                                  select.sumadorIII(name="selectB-2", id="selectB-2")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                    option(value="3") 3
+                                th
+                                  textarea(name="txtaB-2", id="txtaB-2")
+                              tr
+                                th C
+                                th Referencias a utilizar
+                                th Las referencias son actuales y acordes con la temática.
+                                th
+                                  select.sumadorIII(name="selectC", id="selectC")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txtaC", id="txtaC")
+                              tr
+                                th(rowspan="6") D
+                                th(rowspan="6") Actividad de aprendizaje
+                                td Las actividades de aprendizaje tienen nombre y finalidad.
+                                td
+                                  select.sumadorIII(name="selectD", id="selectD")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                th
+                                  textarea(name="txtaD", id="txtaD")
+                              tr
+                                td La finalidad describe un nivel de aprendizaje a alcanzar con la actividad, sea conceptual, procedimental o actitudinal. Por ejemplo: conocer, comprender, aplicar, analizar, sintetizar, reflexionar, desarrollar, etc.
+                                td
+                                  select.sumadorIII(name="selectD-2", id="selectD-2")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txtaD-2", id="txtaD-2")
+                              tr
+                                td Las actividades son congruentes  con el tipo de acción de formación.
+                                td
+                                  select.sumadorIII(name="selectD-3", id="selectD-3")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txtaD-3", id="txtaD-3")
+                              tr
+                                td Las actividades son pertinentes con relación a la modalidad elegida.
+                                td
+                                  select.sumadorIII(name="selectD-4", id="selectD-4")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txtaD-4", id="txtaD-4")
+                              tr
+                                td Las actividades de aprendizaje son variadas, con el fin favorecer los diferentes estilos de aprendizaje.
+                                td
+                                  select.sumadorIII(name="selectD-5", id="selectD-5")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txtaD-5", id="txtaD-5")
+                              tr
+                                td Todas las actividades de aprendizaje orientan y promueven el dominio de los contenidos.
+                                td
+                                  select.sumadorIII(name="selectD-6", id="selectD-6")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txtaD-6", id="txtaD-6")
+                              //END D
+                              tr
+                                th(rowspan="4") E
+                                th(rowspan="4") Actividad de aprendizaje
+                                td Se describe para cada actividad de aprendizaje  los recursos que utilizarán el facilitador y el participante.
+                                td
+                                  select.sumadorIII(name="selectE", id="selectE")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                    option(value="3") 3
+                                th
+                                  textarea(name="txtaE", id="txtaE")
+                              tr
+                                td A lo largo de las actividades de aprendizaje, los recursos a utilizar son variados: convencionales (lecturas, formatos, materiales), audiovisuales y tecnológicos. 
+                                td
+                                  select.sumadorIII(name="selectE-2", id="selectE-2")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txtaE-2", id="txtaE-2")
+                              tr
+                                td Los recursos a utilizar tienen relación con la finalidad de la actividad de aprendizaje.
+                                td
+                                  select.sumadorIII(name="selectE-3", id="selectE-3")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txtaE-3", id="txtaE-3")
+                              tr
+                                td Todos los recursos propuestos son coherentes con la modalidad propuesta.
+                                td
+                                  select.sumadorIII(name="selectE-4", id="selectE-4")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                    option(value="3") 3
+                                th
+                                  textarea(name="txtaE-4", id="txtaE-4")
+                              //END E
+                              tr
+                                th(rowspan="3") F
+                                th(rowspan="3") Tiempo
+                                td La suma del tiempo propuesto para el desarrollo de todos los aprendizajes a desarrollar, coincide con la duración total de horas de la acción de formación, planteada en el punto 6 de datos generales.
+                                td
+                                  select.sumadorIII(name="selectF", id="selectF")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                th
+                                  textarea(name="txtaF", id="txtaF")
+                              tr
+                                td La suma del tiempo propuesto de todas las  actividades para lograr el aprendizaje a desarrollar, coincide con el tiempo de desarrollo planteado en cada uno.
+                                td
+                                  select.sumadorIII(name="selectF-2", id="selectF-2")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                th
+                                  textarea(name="txtaF-2", id="txtaF-2")
+                              tr
+                                td El tiempo es pertinente con la complejidad de los contenidos y las actividades a desarrollar.
+                                td
+                                  select.sumadorIII(name="selectF-3", id="selectF-3")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                th
+                                  textarea(name="txtaF-3", id="txtaF-3")
+                              //END F
+                              tr
+                                th(rowspan="3") G
+                                th(rowspan="3") Evidencia
+                                td Cada evidencia corresponde a productos tangibles y susceptibles de ser verificados durante y posterior a la acción de formación.
+                                td
+                                  select.sumadorIII(name="selectG", id="selectG")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                    option(value="3") 3
+                                th
+                                  textarea(name="txtaG", id="txtaG")
+                              tr
+                                td Las evidencias corresponden con el tipo de aprendizaje propuesto y con la finalidad del aprendizaje a desarrollar. Las evidencias pueden reflejarse en aprendizajes  de conocimientos, en habilidades o procedimientos y en actitudes.
+                                td
+                                  select.sumadorIII(name="selectG-2", id="selectG-2")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                    option(value="3") 3
+                                th
+                                  textarea(name="txtaG-2", id="txtaG-2")
+                              tr
+                                td Establece qué aspectos de la actividad y de la evidencia serán tomados en cuenta para la evaluación de los aprendizajes.
+                                td
+                                  select.sumadorIII(name="selectG-3", id="selectG-3")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txtaG-3", id="txtaG-3")
+                              //END G
+                              tr
+                                th(rowspan="2") H
+                                th(rowspan="2") Aspectos a evaluar
+                                td Los aspectos a evaluar son pertinentes con el respectivo aprendizaje a desarrollar.
+                                td
+                                  select.sumadorIII(name="selectH", id="selectH")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                    option(value="3") 3
+                                th
+                                  textarea(name="txtaH", id="txtaH")
+                              tr
+                                td Tienen relación con el nivel de aprendizaje propuesto en la actividad  correspondiente.
+                                td
+                                  select.sumadorIII(name="selectH-2", id="selectH-2")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txtaH-2", id="txtaH-2")
+                              //END H
+                              tr
+                                th I
+                                th Tipo de evaluación
+                                th El tipo de evaluación elegido se relaciona con la finalidad de la acción de formación 
+                                th
+                                  select.sumadorIII(name="selectI", id="selectI")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txtaI", id="txtaI")
+                              //END I
+                              tr
+                                th J
+                                th Mecanismo de evaluación
+                                th El mecanismo de evaluación (heteroevaluación, coevaluación y autoevaluación), tiene relación con el tipo de actividad que se propone.
+                                th
+                                  select.sumadorIII(name="selectJ", id="selectJ")
+                                    option(value="0" selected) 0
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                th
+                                  textarea(name="txtaJ", id="txtaJ")
+                            //tbody
+                          //table
+                        //form
+                  //end div
+                
+                //end collapse
+                table
+                  tr
+                    th Puntaje de la sección I
+                    th 
+                      input(type="text", value=0, name="totalI", id="totalI",readonly )
+                  tr
+                    th Puntaje de la sección II
+                    th 
+                      input(type="text",value=0,name="totalII", id="totalII",readonly )
+                  tr
+                    th Puntaje de la sección III
+                    th 
+                      input(type="text",value=0, name="totalIII", id="totalIII",readonly )
+                  tr
+                    th Total de Puntaje
+                    th 
+                      input(type="text", value=0, name="granTotal", id="granTotal",readonly )
+
+                table
+                  tr
+                    td Dictamen favorable
+                      br
+                      | Tiene los elementos requeridos para ser registrada en la CGFIE.
+                    th 
+                      input(type="text", id="dictamenfavorable", name="dictamenfavorable", readonly)
+                  tr
+                    th Dictamen No favorable
+                      br
+                      | Tiene los elementos requeridos para ser registrada en la CGFIE.
+                    th 
+                      input(type="text", id="dictamennofavorable", name="dictamennofavorable", readonly)
+
+                div.row
+                  div.col-md-12
+                    hr
+                  div.col-md-9.col-md-offset-3
+                    input(type="submit", class="btn btn-success fa-r button")                          
+                    a.btn.btn-danger(href='#')
+                      | Cancelar
+        
+        script.
+          var SumadeI=0;
+          var SumadeII=0;
+          var SumadeIII=0;
+          
+          $('.acordionZona').prop("disabled", true);
+
+          $('.sumadorI').change(function() {
+            SumadeI=0;
+            $(".sumadorI").each(function() {
+                SumadeI= SumadeI + parseInt($(this).val());
+            });
+            $("#totalI").val(parseInt(SumadeI));
+            if(SumadeI>=16){              
+              $('.acordionZona').prop("disabled", false);
+              $('span.ayuda').hide();              
+            }
+            var xx= SumadeI+SumadeII+SumadeIII;
+            $("#granTotal").val(parseInt(xx));
+            if(xx<76){
+              $("#dictamennofavorable").val("X");
+              $("#dictamenfavorable").val("");
+            }else{
+              $("#dictamennofavorable").val("");
+              $("#dictamenfavorable").val("X");            
+            }
+          });
+
+          $('.sumadorII').change(function() {
+            SumadeII=0;
+            $(".sumadorII").each(function() {
+                SumadeII= SumadeII + parseInt($(this).val());
+            });
+            $("#totalII").val(parseInt(SumadeII));
+            var xx= SumadeI+SumadeII+SumadeIII;
+            $("#granTotal").val(parseInt(xx));
+            if(xx<76){
+              $("#dictamennofavorable").val("X");
+              $("#dictamenfavorable").val("");
+            }else{
+              $("#dictamennofavorable").val("");
+              $("#dictamenfavorable").val("X");            
+            }
+          });
+
+          $('.sumadorIII').change(function() {
+            SumadeIII=0;
+            $(".sumadorIII").each(function() {
+                SumadeIII= SumadeIII + parseInt($(this).val());
+            });
+            $("#totalIII").val(parseInt(SumadeIII));
+            var xx= SumadeI+SumadeII+SumadeIII;
+            $("#granTotal").val(parseInt(xx));
+            if(xx<76){
+              $("#dictamennofavorable").val("X");
+              $("#dictamenfavorable").val("");
+            }else{
+              $("#dictamennofavorable").val("");
+              $("#dictamenfavorable").val("X");
+            }
+          });
+
+
+          
+          
