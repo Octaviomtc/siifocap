@@ -33,7 +33,7 @@ block content
                      li La tercera a la 
                        strong Planeación Didáctica.
                    br
-                
+              form#formAccion.form-horizontal(method='post', action="/dictaminacion/tecnica/nuevo", enctype='application/json')   
                 div(class="panel-group", id="accordion", role="tablist", aria-multiselectable="true")
                   div(class="panel ")
                     div(class="panel-heading", role="tab", id="headingOne")
@@ -42,9 +42,8 @@ block content
                           | I. DATOS GENERALES
                     div(id="collapseOne", class="panel-collapse collapse in", role="tabpanel", aria-labelledby="headingOne")
                       div(class="panel-body")
-                        //form#formAccion.form-horizontal(method='post', action="/acciones-formacion/nueva/#{accionFormacion._id}/encuadre", enctype='application/json')
-                        form#formAccion.form-horizontal(method='post', action="#", enctype='application/json') 
                           table(class="table table-hover col-md-11 col-md-offset-1", style="  margin-left:0  ")
+                            input(type="hidden", name="accion_id", id="accion_id", value="#{accionFormacion._id}")
                             thead
                               tr
                                 th No.
@@ -260,12 +259,12 @@ block content
                   div(class="panel ")
                     div(class="panel-heading", role="tab", id="headingTwo")
                       h4(class="panel-title")
-                        a(role="button", data-toggle="collapse", data-parent="#accordion", href="#collapseTwo", aria-expanded="false", aria-controls="collapseTwo")
+                        a(class="collapsed acordionZona", role="button", data-toggle="collapse", data-parent="#accordion", href="#collapseTwo", aria-expanded="false" , aria-controls="collapseTwo")
                           | II. ENCUADRE DE LA ACCIÓN DE FORMACIÓN
-                    div(id="collapseTwo", class="panel-collapse collapse in", role="tabpanel", aria-labelledby="headingTwo")
-                      div(class="panel-body")
-                          //label(class="col-md-11 col-md-offset-1 alert alert-info") II. ENCUADRE DE LA ACCIÓN DE FORMACIÓN
-                        form#formEncuadre.form-horizontal(method='post', action="#", enctype='application/json') 
+                          span.ayuda
+                            +ayuda("La sección I 'DATOS GENERALES' deberá tener mas de 16 puntos para poder evaluar los siguientes rubros ")
+                    div(id="collapseTwo", class="panel-collapse collapse", role="tabpanel", aria-labelledby="headingTwo")
+                      div(class="panel-body")                          
                           table(class="table table-hover col-md-11 col-md-offset-1" , style="  margin-left:0  ")
                             thead
                               tr
@@ -426,12 +425,12 @@ block content
                   div(class="panel ")
                     div(class="panel-heading", role="tab", id="headingThree")
                       h4(class="panel-title")
-                        a(role="button", data-toggle="collapse", data-parent="#accordion", href="#collapseThree", aria-expanded="false", aria-controls="collapseThree")
+                        a(class="collapsed acordionZona", role="button", data-toggle="collapse", data-parent="#accordion", href="#collapseThree", aria-expanded="false", aria-controls="collapseThree")
                           | III. PLANEACIÓN DIDÁCTICA
-                    div(id="collapseThree", class="panel-collapse collapse in", role="tabpanel", aria-labelledby="collapseThree")
-                      div(class="panel-body")  
-                        //label(class="col-md-11 col-md-offset-1 alert alert-info") III. PLANEACIÓN DIDÁCTICA
-                        form#formEncuadre.form-horizontal(method='post', action="#", enctype='application/json') 
+                          span.ayuda
+                            +ayuda("La sección I 'DATOS GENERALES' deberá tener mas de 16 puntos para poder evaluar los siguientes rubros ")
+                    div(id="collapseThree", class="panel-collapse collapse", role="tabpanel", aria-labelledby="collapseThree")
+                      div(class="panel-body")                          
                           table(class="table table-hover col-md-11 col-md-offset-1", style="  margin-left:0  ")
                             thead
                               tr
@@ -688,384 +687,76 @@ block content
                                   textarea(name="txtaJ", id="txtaJ")
                             //tbody
                           //table
-                          div.row
-                            div.col-md-12
-                              hr
-                            div.col-md-9.col-md-offset-3
-                              button(type="submit" class="btn btn-success fa-r")
-                                i(class="fa fa-check-circle fa-r")
-                                | Guardar
-                              a.btn.btn-danger(href='/dictaminacion')
-                                | Cancelar
                         //form
                   //end div
+                
                 //end collapse
                 table
                   tr
                     th Puntaje de la sección I
                     th 
-                      input(type="text", value="0", name="totalI", id="totalI",disabled="disabled" )
+                      input(type="text", value=0, name="totalI", id="totalI",readonly )
                   tr
                     th Puntaje de la sección II
                     th 
-                      input(type="text", value="0",name="totalII", id="totalII",disabled="disabled" )
+                      input(type="text",value=0,name="totalII", id="totalII",readonly )
                   tr
                     th Puntaje de la sección III
                     th 
-                      input(type="text", value="0",name="totalIII", id="totalIII",disabled="disabled" )
+                      input(type="text",value=0, name="totalIII", id="totalIII",readonly )
                   tr
                     th Total de Puntaje
                     th 
-                      input(type="text", value="0", name="granTotal", id="granTotal",disabled="disabled" )
-              
-   
+                      input(type="text", value=0, name="granTotal", id="granTotal",readonly )
 
+                table
+                  tr
+                    td Dictamen favorable
+                      br
+                      | Tiene los elementos requeridos para ser registrada en la CGFIE.
+                    th 
+                      input(type="text", id="dictamenfavorable", name="dictamenfavorable", readonly)
+                  tr
+                    th Dictamen No favorable
+                      br
+                      | Tiene los elementos requeridos para ser registrada en la CGFIE.
+                    th 
+                      input(type="text", id="dictamennofavorable", name="dictamennofavorable", readonly)
 
-                
-                h1 SECCION EVALUACION ACADEMICA
-                br
-                br
-                form#formAcademica.form-horizontal(method='post', action="#", enctype='application/json') 
-                  h2 TABLA A
-                  table(class="table table-hover col-md-11 col-md-offset-1", style="  margin-left:0  ")
-                    thead
-                      tr
-                        th Rubro
-                        th Criterio a Evaluar
-                        th Excelente(4)
-                        th Bueno(3)
-                        th Regular(2)
-                        th Deficiente(1)
-                        th Puntaje Obtenido
-                    tbody
-                      tr
-                        th Propósito
-                        th Pertinencia
-                        td El propósito es acorde con la justificación en los siguientes aspectos: Necesidad, Intención y Alcance
-                        td El propósito es acorde con la justificación en los siguientes aspectos: Necesidad, Intención y Alcance
-                        td El propósito es acorde con la justificación en los siguientes aspectos: Necesidad, Intención y Alcance
-                        td El propósito no es acorde con la justificación en los siguientes aspectos: Necesidad, Intención y Alcance
-                        td
-                          select.acadA(name="selectAcademica1", id="selectAcademica1")
-                            option(value="1" selected) 1
-                            option(value="2") 2
-                            option(value="3") 3
-                            option(value="4") 4
-                    tfoot
-                      tr
-                        th(colspan="6") Suma del Rubro
-                        td
-                          input(type='text', disabled="disabled" name="sumaA", id="sumaA")
-                  h2 TABLA B
-                  table(class="table table-hover col-md-11 col-md-offset-1", style="  margin-left:0 ")
-                    thead
-                      tr
-                        th Rubro
-                        th Criterio a Evaluar
-                        th Excelente(4)
-                        th Bueno(3)
-                        th Regular(2)
-                        th Deficiente(1)
-                        th Puntaje Obtenido
-                    tbody
-                      tr
-                        th(rowspan="2") Aprendizajes a desarrollar
-                        th Coherencia
-                        td Los aprendizajes a desarrollar son precisos, tienen una continuidad lógica entre ellos lo que permite el logro del propósito
-                        td Los aprendizajes a desarrollar son precisos, la mayoría mantiene una continuidad lógica, no obstante posibilitan el logro del propósito
-                        td Los aprendizajes a desarrollar son precisos, pero la minoría tiene una continuidad lógica, por lo que el logro del propósito es dudoso
-                        td Los aprendizajes a desarrollar son imprecisos, no tienen una continuidad lógica y por tanto no posibilitan el logro del propósito 
-                        td
-                          select.acadB(name="selectAcademica2", id="selectAcademica2")                            
-                            option(value="1" selected) 1
-                            option(value="2") 2
-                            option(value="3") 3
-                            option(value="4") 4 
-                      tr
-                        
-                        td Pertinencia
-                        td Los aprendizajes a desarrollar permiten promover la adquisición de todos los conocimientos, habilidades y actitudes que se prescriben en el  propósito
-                        td Los aprendizajes a desarrollar permiten promover la adquisición de la mayoría de los conocimientos, habilidades y actitudes, debido a que estos no coinciden completamente con lo que se prescribe en el propósito
-                        td Los aprendizajes a desarrollar permiten promover la adquisición de la minoría de los conocimientos, habilidades y actitudes; ya que estos tienen escasa correspondencia con lo que se prescribe en el propósito
-                        td Los aprendizajes a desarrollar son inadecuados para promover la adquisición de conocimientos, habilidades y actitudes, ya que no coinciden  con lo que se prescribe en el propósito
-                        td
-                          select.acadB(name="selectAcademica3", id="selectAcademica3")                            
-                            option(value="1" selected) 1
-                            option(value="2") 2
-                            option(value="3") 3
-                            option(value="4") 4
-                    tfoot
-                      tr
-                        th(colspan="6") Suma del Rubro
-                        td
-                          input(type='text', disabled="disabled", name="sumaB", id="sumaB")
-                    //tfoot
-                  //table
-                  h2 TABLA C
-                  table(class="table table-hover col-md-11 col-md-offset-1", style="  margin-left:0  ")
-                    thead
-                      tr
-                        th Rubro
-                        th Criterio a Evaluar
-                        th Excelente(4)
-                        th Bueno(3)
-                        th Regular(2)
-                        th Deficiente(1)
-                        th Puntaje Obtenido
-                    tbody
-                      tr
-                        th(rowspan="3") Contenidos
-                        th Pertinencia
-                        td Los contenidos permiten el logro del propósito
-                        td La mayoría de los contenidos (80% de los temas) permiten el logro del propósito, pero se fortalecerían con determinados temas 
-                        td Algunos de los contenidos (menos del 80% de los temas) permiten el logro del propósito, pero faltan temas de relevancia 
-                        td Los contenidos no permiten el logro del propósito
-                        td
-                          select.acadC(name="selectAcademica4", id="selectAcademica4")
-                            option(value="1" selected) 1
-                            option(value="2") 2
-                            option(value="3") 3
-                            option(value="4") 4 
-                      tr
-                        th Suficiencia
-                        td Los contenidos planteados son suficientes para abordar los aprendizajes a desarrollar 
-                        td La mayoría de los contenidos son suficientes para el logro de los aprendizajes a desarrollar, pero se fortalecerían con determinados temas 
-                        td Algunos de los contenidos son suficientes para el logro de los aprendizajes a desarrollar, pero faltan temas de relevancia 
-                        td Los contenidos planteados no son suficientes para abordar los aprendizajes a desarrollar
-                        td
-                          select.acadC(name="selectAcademica5", id="selectAcademica5")
-                            option(value="1" selected) 1
-                            option(value="2") 2
-                            option(value="3") 3
-                            option(value="4") 4 
-                      tr
-                        th(rowspan="2") Coherencia
-                        td Los contenidos son congruentes con la finalidad y el área de formación que se señalan
-                        td Los contenidos son congruentes con la finalidad aunque no se apegan al área de formación que se señala
-                        td Los contenidos son congruentes con el área de formación que se señala pero no se apegan a la finalidad señalada
-                        td Los contenidos no son congruentes con la finalidad y el área de formación que se señala
-                        td
-                          select.acadC(name="selectAcademica6", id="selectAcademica6")
-                            option(value="1" selected) 1
-                            option(value="2") 2
-                            option(value="3") 3
-                            option(value="4") 4
-                      tr
-                        th
-                        td La secuencia en la que se desarrollan los contenidos tiene una lógica clara acorde con la disciplina a la que pertenecen
-                        td La secuencia en la que se desarrollan los contenidos frecuentemente tiene una lógica clara, acorde con la disciplina a la que pertenecen
-                        td La secuencia en la que se desarrollan los contenidos en ocasiones tiene una lógica clara, y no es congruente con la disciplina a la que pertenecen 
-                        td La secuencia en la que se desarrollan los contenidos no tiene una lógica clara, ni es acorde con la disciplina a la que pertenecen
-                        td
-                          select.acadC(name="selectAcademica7", id="selectAcademica7")
-                            option(value="1" selected) 1
-                            option(value="2") 2
-                            option(value="3") 3
-                            option(value="4") 4
-                    tfoot
-                      tr
-                        th(colspan="6") Suma del Rubro
-                        td
-                          input(type='text', disabled="disabled", name="sumaC", id="sumaC") 
-                  h2 TABLA D
-                  table(class="table table-hover col-md-11 col-md-offset-1", style="  margin-left:0  ")
-                    thead
-                      tr
-                        th Rubro
-                        th Criterio a Evaluar
-                        th Excelente(4)
-                        th Bueno(3)
-                        th Regular(2)
-                        th Deficiente(1)
-                        th Puntaje Obtenido
-                    tbody
-                      tr
-                        th Tiempo
-                        th Suficiencia
-                        td El tiempo que se establece para todos los aprendizajes a desarrollar es suficiente para el logro del propósito
-                        td El tiempo que se establece para los aprendizajes a desarrollar es suficiente para la mayoría de los aprendizajes (80%), no obstante con mínimos ajustes posibilitan el logro del propósito
-                        td El tiempo que se establece para los aprendizajes a desarrollar es suficiente para la minoría de los aprendizajes (menos del 80%) a desarrollar, por lo que se requiere de ajustes relevantes para el logro del propósito
-                        td El tiempo que se establece en todos los  aprendizajes a desarrollar es insuficiente (o demasiado holgado), por lo que no se logra el propósito
-                        td
-                          select.acadD(name="selectAcademica8", id="selectAcademica8")
-                            option(value="1" selected) 1
-                            option(value="2") 2
-                            option(value="3") 3
-                            option(value="4") 4
-                    tfoot
-                      tr
-                        th(colspan="6") Suma del Rubro
-                        td
-                          input(type='text', disabled="disabled", name="sumaD", id="sumaD") 
-                  h2 TABLA E
-                  table(class="table table-hover col-md-11 col-md-offset-1", style="  margin-left:0  ")
-                    thead
-                      tr
-                        th Rubro
-                        th Criterio a Evaluar
-                        th Excelente(4)
-                        th Bueno(3)
-                        th Regular(2)
-                        th Deficiente(1)
-                        th Puntaje Obtenido
-                    tbody
-                      tr
-                        th(rowspan="2") Actividades de aprendizaje
-                        th Suficiencia
-                        td El número de actividades descritas para todos los aprendizaje a desarrollar son suficientes para el logro de los mismos
-                        td El número de actividades  descritas para cada aprendizaje a desarrollar es suficiente para el logro de  la mayoría de los aprendizajes (80%)
-                        td El número de actividades para cada aprendizaje a desarrollar es poco suficiente para el logro de la mayoría de los aprendizajes 
-                        td El número de actividades descritas en todos los aprendizajes a desarrollar son insuficientes para el logro de los mismos
-                        td
-                          select.acadE(name="selectAcademica9", id="selectAcademica9")
-                            option(value="1" selected) 1
-                            option(value="2") 2
-                            option(value="3") 3
-                            option(value="4") 4
-                      tr
-                        th Pertinencia
-                        td La totalidad de las actividades de aprendizaje promueven que el participante adquiera los contenidos correspondientes 
-                        td La mayoría de las actividades de aprendizaje (80%) promueven que el participante adquiera los contenidos correspondientes
-                        td Menos de la mitad de las actividades de aprendizaje promueven que el participante adquiera los contenidos correspondientes
-                        td Las actividades de aprendizaje no promueven que el participante adquiera los contenidos correspondientes
-                        td
-                          select.acadE(name="selectAcademica10", id="selectAcademica10")
-                            option(value="1" selected) 1
-                            option(value="2") 2
-                            option(value="3") 3
-                            option(value="4") 4
-                    tfoot
-                      tr
-                        th(colspan="6") Suma del Rubro
-                        td
-                          input(type='text', disabled="disabled", name="sumaE", id="sumaE")
-                  //table
-                  h2 TABLA F
-                  table(class="table table-hover col-md-11 col-md-offset-1", style=" margin-left:0 ")
-                    thead
-                      tr
-                        th Rubro
-                        th Criterio a Evaluar
-                        th Excelente(4)
-                        th Bueno(3)
-                        th Regular(2)
-                        th Deficiente(1)
-                        th Puntaje Obtenido
-                    tbody
-                      tr
-                        th Evidencias 
-                        th Coherencia 
-                        td Las evidencias son congruentes con las actividades y los aprendizajes a desarrollar
-                        td La mayoría de las evidencias (80%) son congruentes con las actividades de aprendizaje, y con los aprendizajes a desarrollar
-                        td Algunas evidencias(menos del 80%) son congruentes con los aprendizajes a desarrollar y con las actividades de aprendizaje
-                        td Las evidencias no son congruentes con los aprendizajes a desarrollar, ni con las actividades de aprendizaje
-                        td
-                          select.acadF(name="selectAcademica11", id="selectAcademica11")
-                            option(value="1" selected) 1
-                            option(value="2") 2
-                            option(value="3") 3
-                            option(value="4") 4
-                      tr
-                        th Aspectos a evaluar
-                        td Coherencia
-                        td Los aspectos a evaluar son coherentes con las evidencias y las actividades de aprendizaje
-                        td La mayoría de los aspectos a evaluar (80%) son coherentes con las evidencias y con las actividades de aprendizaje
-                        td Algunos de los aspectos a evaluar (menos del 80%) son coherentes con las actividades de aprendizaje, y con las evidencias
-                        td Los aspectos a evaluar son no coherentes con las evidencias, ni con las actividades de aprendizaje
-                        td
-                          select.acadF(name="selectAcademica12", id="selectAcademica12")
-                            option(value="1" selected) 1
-                            option(value="2") 2
-                            option(value="3") 3
-                            option(value="4") 4
-                    tfoot
-                      tr
-                        th(colspan="6") Suma del Rubro
-                        td
-                          input(type='text', disabled="disabled", name="sumaF", id="sumaF") 
-                  //table
-                  h2 TABLA G
-                  table(class="table table-hover col-md-11 col-md-offset-1", style=" margin-left:0 ")
-                    thead
-                      tr
-                        th Rubro
-                        th Criterio a Evaluar
-                        th Excelente(4)
-                        th Bueno(3)
-                        th Regular(2)
-                        th Deficiente(1)
-                        th Puntaje Obtenido
-                    tbody
-                      tr
-                        th(rowspan="2") Referencias
-                        th Pertinencia  
-                        td Las referencias son adecuadas para abordar los contenidos 
-                        td La mayoría de las referencias (80%) son adecuadas para abordar los contenidos 
-                        td Algunas de las referencias (menos del 80%) son adecuadas para abordar los contenidos 
-                        td Las referencias no son adecuadas para abordar los contenidos 
-                        td
-                          select.acadG(name="selectAcademica13", id="selectAcademica13")
-                            option(value="1" selected) 1
-                            option(value="2") 2
-                            option(value="3") 3
-                            option(value="4") 4
-                      tr
-                        td Vigencia
-                        td Las referencias son vigentes considerando los aprendizajes a desarrollar y el propósito
-                        td La mayoría de las referencias (80%) son vigentes  para los aprendizajes a desarrollar y el propósito, se podrían fortalecer con determinadas fuentes
-                        td Algunas de las referencias (menos del 80%) son vigentes para los aprendizajes a desarrollar y el propósito, pero faltan algunas de relevancia
-                        td Las referencias no son vigentes para los aprendizajes a desarrollar y el propósito 
-                        td
-                          select.acadG(name="selectAcademica14", id="selectAcademica14")
-                            option(value="1" selected) 1
-                            option(value="2") 2
-                            option(value="3") 3
-                            option(value="4") 4
-                    tfoot
-                      tr
-                        th(colspan="6") Suma del Rubro
-                        td
-                          input(type='text', disabled="disabled",name="sumaG", id="sumaG")
-                  //table
-                  h2 TABLA H
-                  table(class="table table-hover col-md-11 col-md-offset-1", style=" margin-left:0 ")
-                    tbody
-                      tr
-                        th(colspan="2") Escala de Valoración
-                        th Dictamen
-                        th Firma del evaluador
-                      tr
-                        th Aprobado
-                        th 42-56 puntos
-                        th 
-                          label(name="labelH", id="labelH") -
-                        th(rowspan="2")
-                          input(type="text", name="txtG", id="labelG")
-                      tr
-                        th No Aprobado
-                        th 0-41 puntos 
-                        th 
-                          label(name="labelH-2", id="labelH-2") - 
-                  //table
-                  table(class="table table-hover col-md-11 col-md-offset-1", style=" margin-left:0 ")
-
-                //form
-
-                      
-
+                div.row
+                  div.col-md-12
+                    hr
+                  div.col-md-9.col-md-offset-3
+                    input(type="submit", class="btn btn-success fa-r button")                          
+                    a.btn.btn-danger(href='#')
+                      | Cancelar
         
         script.
           var SumadeI=0;
           var SumadeII=0;
           var SumadeIII=0;
           
+          $('.acordionZona').prop("disabled", true);
+
           $('.sumadorI').change(function() {
             SumadeI=0;
             $(".sumadorI").each(function() {
                 SumadeI= SumadeI + parseInt($(this).val());
             });
             $("#totalI").val(parseInt(SumadeI));
-            $("#granTotal").val(parseInt(SumadeI+SumadeII+SumadeIII));
+            if(SumadeI>=16){              
+              $('.acordionZona').prop("disabled", false);
+              $('span.ayuda').hide();              
+            }
+            var xx= SumadeI+SumadeII+SumadeIII;
+            $("#granTotal").val(parseInt(xx));
+            if(xx<76){
+              $("#dictamennofavorable").val("X");
+              $("#dictamenfavorable").val("");
+            }else{
+              $("#dictamennofavorable").val("");
+              $("#dictamenfavorable").val("X");            
+            }
           });
 
           $('.sumadorII').change(function() {
@@ -1074,7 +765,15 @@ block content
                 SumadeII= SumadeII + parseInt($(this).val());
             });
             $("#totalII").val(parseInt(SumadeII));
-            $("#granTotal").val(parseInt(SumadeI+SumadeII+SumadeIII));
+            var xx= SumadeI+SumadeII+SumadeIII;
+            $("#granTotal").val(parseInt(xx));
+            if(xx<76){
+              $("#dictamennofavorable").val("X");
+              $("#dictamenfavorable").val("");
+            }else{
+              $("#dictamennofavorable").val("");
+              $("#dictamenfavorable").val("X");            
+            }
           });
 
           $('.sumadorIII').change(function() {
@@ -1083,81 +782,17 @@ block content
                 SumadeIII= SumadeIII + parseInt($(this).val());
             });
             $("#totalIII").val(parseInt(SumadeIII));
-            $("#granTotal").val(parseInt(SumadeI+SumadeII+SumadeIII));
-          });
-          //
-
-
-
-
-          /*
-          ->
-
-          ACADEMICA
-
-          <-
-          */
-          var academSumA=0;
-          $('.acadA').change(function() {
-            academSumA=0;
-            $(".acadA").each(function() {
-                academSumA= academSumA + parseInt($(this).val());
-            });
-            console.log(academSumA)
-            $("#sumaA").val(parseInt(academSumA));
+            var xx= SumadeI+SumadeII+SumadeIII;
+            $("#granTotal").val(parseInt(xx));
+            if(xx<76){
+              $("#dictamennofavorable").val("X");
+              $("#dictamenfavorable").val("");
+            }else{
+              $("#dictamennofavorable").val("");
+              $("#dictamenfavorable").val("X");
+            }
           });
 
-          var academSumB=0;
-          $('.acadB').change(function() {
-            academSumB=0;
-            $(".acadB").each(function() {
-                academSumB= academSumB + parseInt($(this).val());
-            });
-            $("#sumaB").val(parseInt(academSumB));
-          });
 
-          var academSumC=0;
-          $('.acadC').change(function() {
-            academSumC=0;
-            $(".acadC").each(function() {
-                academSumC= academSumC + parseInt($(this).val());
-            });
-            $("#sumaC").val(parseInt(academSumC));
-          });
-
-          var academSumD=0;
-          $('.acadD').change(function() {
-            academSumD=0;
-            $(".acadD").each(function() {
-                academSumD= academSumD + parseInt($(this).val());
-            });
-            $("#sumaD").val(parseInt(academSumD));
-          });
-
-          var academSumE=0;
-          $('.acadE').change(function() {
-            academSumE=0;
-            $(".acadE").each(function() {
-                academSumE= academSumE + parseInt($(this).val());
-            });
-            $("#sumaE").val(parseInt(academSumE));
-          });
-
-          var academSumF=0;
-          $('.acadF').change(function() {
-            academSumF=0;
-            $(".acadF").each(function() {
-                academSumF= academSumF + parseInt($(this).val());
-            });
-            $("#sumaF").val(parseInt(academSumF));
-          });
-
-          var academSumG=0;
-          $('.sumaG').change(function() {
-            academSumG=0;
-            $(".sumaG").each(function() {
-                academSumG= academSumG + parseInt($(this).val());
-            });
-            $("#sumaG").val(parseInt(academSumG));
-          });
+          
           
