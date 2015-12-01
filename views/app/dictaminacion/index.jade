@@ -32,8 +32,7 @@ block content
                     | #{accion.puntaje_dictaminado}
                 td
 
-                  //if (typeof(accion.dictaminacion[0].facilitador) !== 'undefined')
-                  if (typeof(accion.dictaminacion[0].facilitador) !== 'undefined')
+                  if (typeof(accion.dictaminacion.facilitador) !== 'undefined')                  
                     | #{accion.dictaminacion[0].facilitador.selectfac5}
                   else
                     a.btn.btn-default(href="dictaminacion/facilitador/#{accion._id}")
@@ -41,7 +40,7 @@ block content
                       | Hacer Evaluación Facilitador
                 td
                   if accion.puntaje_dictaminado<100
-                    a.btn.btn-default(href="dictaminacion/#{accion._id}")
+                    a.btn.btn-default(href="/dictaminacion/academica/#{accion._id}")
                       i.fa.fa-gavel.fa-r
                       | Hacer Evaluación Académica
                   else

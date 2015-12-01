@@ -968,10 +968,26 @@ router.get('/programacion/paso5v/:id/:id2', isAuthenticated, accionesMid.allAcci
       }
       res.render('app/dictaminacion/nueva/facilitadores',{message: req.flash('message'), user: req.user, datos: param});
     });
+    
+    router.get('/dictaminacion/academica/:id', isAuthenticated, accionesMid.findById, function(req, res){
+      param={
+        icon: "fa-gavel",
+        seccion: "Dictaminación",
+        estado: "dictaminacion"
+      }
+      res.render('app/dictaminacion/nueva/academica',{message: req.flash('message'), user: req.user, datos: param});
+    });
+
+    router.post('/dictaminacion/tecnica/nuevo', isAuthenticated, dictaminacionMid.addTecnica , function(req, res){
+        res.redirect("/dictaminacion")
+    });
     router.post('/dictaminacion/facilitador/nuevo', isAuthenticated, dictaminacionMid.addFacilitadores , function(req, res){
         res.redirect("/dictaminacion")
     });
 
+    router.post('/dictaminacion/academica/nuevo', isAuthenticated, dictaminacionMid.addAcademica , function(req, res){
+        res.redirect("/dictaminacion")
+    });
 
 
     //************************************************ CATALOGOS
